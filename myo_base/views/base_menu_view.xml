@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+       <!-- Base -->
+        <menuitem name="Base" id="menu_base" 
+            groups="myo_base.group_user"
+            sequence="11"/>
+            <!-- Base/Base -->
+            <menuitem name="Base" id="menu_base_base"  
+                parent="menu_base"
+                groups="myo_base.group_user"
+                sequence="10"/>
+            <!-- Base/Configuration -->
+            <menuitem name="Configuration" id="menu_base_config"  
+                parent="menu_base"
+                groups="myo_base.group_manager"
+                sequence="90"/>
+                <!-- Base/Configuration/Configuration -->
+                <menuitem name="Configuration" id="menu_base_config_config"  
+                    parent="menu_base_config"
+                    groups="myo_base.group_manager"
+                    sequence="10"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Health -->
+        <menuitem name="Health" id="menu_health" 
+            groups="myo_base.group_user"
+            sequence="15"/>
+            <!-- Health/Health -->
+            <menuitem name="Health" id="menu_health_health"  
+                parent="menu_health"
+                groups="myo_base.group_user"
+                sequence="10"/>
+            <!-- Health/Configuration -->
+            <menuitem name="Configuration" id="menu_health_config"  
+                parent="menu_health"
+                groups="myo_base.group_manager"
+                sequence="90"/>
+                <!-- Health/Configuration/Configuration -->
+                <menuitem name="Configuration" id="menu_health_config_config"  
+                    parent="menu_health_config"
+                    groups="myo_base.group_manager"
+                    sequence="10"/>
+        
+    </data>
+</openerp>
