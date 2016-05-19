@@ -21,7 +21,7 @@
 {
     'name': 'Base Module',
     'summary': 'Base Module used by MostlyOpen Solutions.',
-    'version': '2.0',
+    'version': '2.0.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'Generic Modules/Others',
     'license': 'AGPL-3',

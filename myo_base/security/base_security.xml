@@ -3,26 +3,26 @@
     <data noupdate="0">
 
         <record id="myo_base.group_user" model="res.groups">
-            <field name="name">User (clv)</field>
+            <field name="name">User (myo)</field>
         </record>
 
         <record id="myo_base.group_suser" model="res.groups">
-            <field name="name">Super User (clv)</field>
+            <field name="name">Super User (myo)</field>
             <field name="implied_ids" eval="[(4, ref('myo_base.group_user'))]"/>
         </record>
 
         <record id="myo_base.group_manager" model="res.groups">
-            <field name="name">Manager (clv)</field>
+            <field name="name">Manager (myo)</field>
             <field name="implied_ids" eval="[(4, ref('myo_base.group_suser'))]"/>
         </record>
 
         <record id="myo_base.group_rmanager" model="res.groups">
-            <field name="name">Register Manager (clv)</field>
+            <field name="name">Register Manager (myo)</field>
             <field name="implied_ids" eval="[(4, ref('myo_base.group_manager'))]"/>
         </record>
 
         <record id="myo_base.group_smanager" model="res.groups">
-            <field name="name">Super Manager (clv)</field>
+            <field name="name">Super Manager (myo)</field>
             <field name="implied_ids" eval="[(4, ref('myo_base.group_rmanager'))]"/>
         </record>
 
