@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <!-- Base/Base/Tags -->
+    <menuitem
+        id="menu_base_base_tags"
+        name="Tags"
+        parent="myo_base.menu_base_base"
+        groups="myo_base.group_tag_user"
+        sequence="10"
+        action="myo_tag.myo_tag_action"/>
+
+    </data>
+</openerp>
