@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Base/Base/Annotations -->
+        <menuitem name="Annotations" id="menu_base_base_annotations"
+            parent="myo_base.menu_base_base"
+            groups="myo_base.group_annotation_user"
+            sequence="20"
+            action="myo_annotation.myo_annotation_action"/>
+
+        <!-- Base/Configuration/Configuration -->
+        <menuitem name="Annotation Categories" id="menu_base_config_config_annotation_categories" 
+            parent="myo_base.menu_base_config_config"
+            groups="myo_base.group_annotation_user"
+            sequence="10"
+            action="myo_annotation.myo_annotation_category_action"/>
+
+    </data>
+</openerp>
