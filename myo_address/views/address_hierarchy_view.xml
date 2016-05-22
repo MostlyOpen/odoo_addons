@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="myo_address_view_tree_hierarchy" model="ir.ui.view">
+            <field name="name">myo.address.tree</field>
+            <field name="model">myo.address</field>
+            <field name="inherit_id" ref="myo_address_view_tree"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="name" position="replace">
+                    <field name="parent_id" invisible="1"/>
+                    <field name="name" invisible="1"/>
+                    <field name="complete_name"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_address_view_form_hierarchy" model="ir.ui.view">
+            <field name="name">myo.address.form</field>
+            <field name="model">myo.address</field>
+            <field name="inherit_id" ref="myo_address_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <label for="name" position="before">
+                    <label for="parent_id"/>
+                    <h2>
+                        <field name="parent_id" placeholder="Parent Address..." options="{'no_open': False, 'no_create': True}"/>
+                    </h2>
+                </label>
+                <page string="Settings" position="before">
+                    <page string="Child Addresses">
+                        <group>
+                            <field name="child_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="myo_address_view_search_hierarchy" model="ir.ui.view">
+            <field name="name">myo.address.search</field>
+            <field name="model">myo.address</field>
+            <field name="inherit_id" ref="myo_address_view_search"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="name" position="before">
+                    <field name="parent_id"/>
+                </field>
+                <group string="Group By..." position="inside">
+                    <filter string="Parent Address" context="{'group_by': 'parent_id'}"/>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>
