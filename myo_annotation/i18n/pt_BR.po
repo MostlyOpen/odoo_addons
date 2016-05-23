@@ -1,0 +1,320 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * myo_annotation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-23 20:28+0000\n"
+"PO-Revision-Date: 2016-05-23 20:28+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: myo_annotation
+#: model:ir.actions.act_window,help:myo_annotation.myo_annotation_category_action
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to add a new annotation category.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Clique para adicionar uma nova categoria de anotação.\n"
+"              </p>\n"
+"            "
+
+#. module: myo_annotation
+#: model:ir.actions.act_window,help:myo_annotation.myo_annotation_action
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to add a new annotation.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Clique para adicionar uma nova anotação.\n"
+"              </p>\n"
+"            "
+
+#. module: myo_annotation
+#: field:myo.annotation,active:0
+#: field:myo.annotation.category,active:0
+msgid "Active"
+msgstr "Ativo"
+
+#. module: myo_annotation
+#: view:myo.annotation:myo_annotation.myo_annotation_view_form
+#: view:myo.annotation:myo_annotation.myo_annotation_view_search
+msgid "Annotation"
+msgstr "Anotação"
+
+#. module: myo_annotation
+#: model:ir.actions.act_window,name:myo_annotation.myo_annotation_category_action
+#: model:ir.ui.menu,name:myo_annotation.menu_base_config_config_annotation_categories
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_tree
+msgid "Annotation Categories"
+msgstr "Categorias de Anotações"
+
+#. module: myo_annotation
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_form
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_search
+msgid "Annotation Category"
+msgstr "Categoria de Anotação"
+
+#. module: myo_annotation
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_form
+msgid "Annotation Category..."
+msgstr "Categoria de Anotação..."
+
+#. module: myo_annotation
+#: view:myo.annotation:myo_annotation.myo_annotation_view_form
+msgid "Annotation Code..."
+msgstr "Código da Anotação..."
+
+#. module: myo_annotation
+#: view:myo.annotation:myo_annotation.myo_annotation_view_form
+msgid "Annotation for"
+msgstr "Anotação para"
+
+#. module: myo_annotation
+#: model:ir.actions.act_window,name:myo_annotation.myo_annotation_action
+#: model:ir.ui.menu,name:myo_annotation.menu_base_base_annotations
+#: view:myo.annotation:myo_annotation.myo_annotation_view_tree
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_form
+#: field:myo.annotation.category,annotation_ids:0
+#: view:myo.tag:myo_annotation.myo_tag_view_form_annotation
+#: field:myo.tag,annotation_ids:0
+msgid "Annotations"
+msgstr "Anotações"
+
+#. module: myo_annotation
+#: view:myo.annotation:myo_annotation.myo_annotation_view_form
+msgid "Annotations..."
+msgstr "Anotações..."
+
+#. module: myo_annotation
+#: view:myo.annotation:myo_annotation.myo_annotation_view_search
+#: field:myo.annotation,author:0
+msgid "Author"
+msgstr "Autor"
+
+#. module: myo_annotation
+#: field:myo.annotation,body:0
+msgid "Body"
+msgstr "Anotações"
+
+#. module: myo_annotation
+#: field:myo.annotation,category_ids:0
+msgid "Categories"
+msgstr "Categorias"
+
+#. module: myo_annotation
+#: view:myo.annotation:myo_annotation.myo_annotation_view_form_category
+msgid "Categories..."
+msgstr "Categorias..."
+
+#. module: myo_annotation
+#: field:myo.annotation.category,name:0
+msgid "Category"
+msgstr "Categoria"
+
+#. module: myo_annotation
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_form
+msgid "Category Code..."
+msgstr "Código da Categoria..."
+
+#. module: myo_annotation
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_form
+#: field:myo.annotation.category,child_ids:0
+msgid "Child Categories"
+msgstr "Categorias Subordinadas"
+
+#. module: myo_annotation
+#: field:myo.annotation,code:0
+#: field:myo.annotation.category,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: myo_annotation
+#: field:myo.annotation,create_uid:0
+#: field:myo.annotation.category,create_uid:0
+msgid "Created by"
+msgstr "Criada por"
+
+#. module: myo_annotation
+#: field:myo.annotation,create_date:0
+#: field:myo.annotation.category,create_date:0
+msgid "Created on"
+msgstr "Criada em"
+
+#. module: myo_annotation
+#: view:myo.annotation:myo_annotation.myo_annotation_view_search
+#: field:myo.annotation,date:0
+msgid "Date"
+msgstr "Data"
+
+#. module: myo_annotation
+#: field:myo.annotation.category,description:0
+msgid "Description"
+msgstr "Descrição"
+
+#. module: myo_annotation
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_form
+msgid "Description..."
+msgstr "Descrição..."
+
+#. module: myo_annotation
+#: field:myo.annotation,display_name:0
+#: field:myo.annotation.category,display_name:0
+msgid "Display Name"
+msgstr "Nome"
+
+#. module: myo_annotation
+#: sql_constraint:myo.annotation:0
+msgid "Error! The Annotation Code must be unique!"
+msgstr "Erro! O Código da Anotação deve ser único!"
+
+#. module: myo_annotation
+#: sql_constraint:myo.annotation.category:0
+msgid "Error! The Category Code must be unique!"
+msgstr "Erro! O Código da Categoria deve ser único!"
+
+#. module: myo_annotation
+#: constraint:myo.annotation.category:0
+msgid "Error! You can not create recursive categories."
+msgstr "Erro! Não é permitido criar categorias recursivas."
+
+#. module: myo_annotation
+#: field:myo.annotation.category,complete_name:0
+msgid "Full Category"
+msgstr "Nome Completo"
+
+#. module: myo_annotation
+#: view:myo.annotation:myo_annotation.myo_annotation_view_search
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_search
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: myo_annotation
+#: field:myo.annotation,id:0
+#: field:myo.annotation.category,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: myo_annotation
+#: help:myo.annotation,active:0
+msgid "If unchecked, it will allow you to hide the Annotation without removing it."
+msgstr "Se desmarcado, será possível esconder a Anotação sem removê-la."
+
+#. module: myo_annotation
+#: help:myo.annotation.category,active:0
+msgid "If unchecked, it will allow you to hide the category without removing it."
+msgstr "Se desmarcado, será possível esconder a categoria sem removê-la."
+
+#. module: myo_annotation
+#: view:myo.annotation:myo_annotation.myo_annotation_view_search
+msgid "Inactive Annotations"
+msgstr "Anotações Inativas"
+
+#. module: myo_annotation
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_search
+msgid "Inactive Categories"
+msgstr "Categorias Inativas
+
+#. module: myo_annotation
+#: field:myo.annotation,__last_update:0
+#: field:myo.annotation.category,__last_update:0
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: myo_annotation
+#: field:myo.annotation,write_uid:0
+#: field:myo.annotation.category,write_uid:0
+msgid "Last Updated by"
+msgstr "Última Atualização por"
+
+#. module: myo_annotation
+#: field:myo.annotation,write_date:0
+#: field:myo.annotation.category,write_date:0
+msgid "Last Updated on"
+msgstr "Última Atualização em"
+
+#. module: myo_annotation
+#: field:myo.annotation.category,parent_left:0
+msgid "Left parent"
+msgstr "Superior à esquerda"
+
+#. module: myo_annotation
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_form
+#: field:myo.annotation.category,notes:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: myo_annotation
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_form
+msgid "Notes..."
+msgstr "Notas..."
+
+#. module: myo_annotation
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_search
+#: field:myo.annotation.category,parent_id:0
+msgid "Parent Category"
+msgstr "Categoria Superior"
+
+#. module: myo_annotation
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_form
+msgid "Parent Category..."
+msgstr "Categoria Superior..."
+
+#. module: myo_annotation
+#: field:myo.annotation.category,parent_right:0
+msgid "Right parent"
+msgstr "Superior à direita"
+
+#. module: myo_annotation
+#: view:myo.annotation:myo_annotation.myo_annotation_view_form
+#: view:myo.annotation.category:myo_annotation.myo_annotation_category_view_form
+msgid "Settings"
+msgstr "Configurações"
+
+#. module: myo_annotation
+#: field:myo.annotation,name:0
+msgid "Subject"
+msgstr "Assunto"
+
+#. module: myo_annotation
+#: view:myo.annotation:myo_annotation.myo_annotation_view_form
+msgid "Subject..."
+msgstr "Assunto..."
+
+#. module: myo_annotation
+#: view:myo.tag:myo_annotation.myo_tag_view_form_annotation
+msgid "Tag for"
+msgstr "Etiqueta para"
+
+#. module: myo_annotation
+#: field:myo.annotation,tag_ids:0
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. module: myo_annotation
+#: view:myo.annotation:myo_annotation.myo_annotation_view_form_tag
+msgid "Tags..."
+msgstr "Etiquetas..."
+
+#. module: myo_base
+#: model:res.groups,name:myo_base.group_annotation_category_manager
+msgid "Annotation Category Manager"
+msgstr "Gerente de Categoria de Annotação"
+
+#. module: myo_base
+#: model:res.groups,name:myo_base.group_annotation_manager
+msgid "Annotation Manager"
+msgstr "Gerente de Anotação"
+
+#. module: myo_base
+#: model:res.groups,name:myo_base.group_annotation_user
+msgid "Annotation User"
+msgstr "Usuário de Anotação"
+
