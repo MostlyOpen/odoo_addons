@@ -1,0 +1,195 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * myo_tag
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-23 19:57+0000\n"
+"PO-Revision-Date: 2016-05-23 19:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: myo_tag
+#: model:ir.actions.act_window,help:myo_tag.myo_tag_action
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to add a new tag.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Clique para adicionar uma nova etiqueta.\n"
+"              </p>\n"
+"            "
+
+#. module: myo_tag
+#: field:myo.tag,active:0
+msgid "Active"
+msgstr "Ativo"
+
+#. module: myo_tag
+#: view:myo.tag:myo_tag.myo_tag_view_form
+#: field:myo.tag,child_ids:0
+msgid "Child Tags"
+msgstr "Etiquetas Subordinadas"
+
+#. module: myo_tag
+#: field:myo.tag,create_uid:0
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: myo_tag
+#: field:myo.tag,create_date:0
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: myo_tag
+#: field:myo.tag,description:0
+msgid "Description"
+msgstr "Descrição"
+
+#. module: myo_tag
+#: view:myo.tag:myo_tag.myo_tag_view_form
+msgid "Description..."
+msgstr "Descrição..."
+
+#. module: myo_tag
+#: field:myo.tag,display_name:0
+msgid "Display Name"
+msgstr "Nome"
+
+#. module: myo_tag
+#: sql_constraint:myo.tag:0
+msgid "Error! The Tag Code must be unique!"
+msgstr "Erro! O Código da Etiqueta deve ser único!"
+
+#. module: myo_tag
+#: constraint:myo.tag:0
+msgid "Error! You can not create recursive Tags."
+msgstr "Erro! Não é possível criar etiquetas recursivas."
+
+#. module: myo_tag
+#: field:myo.tag,complete_name:0
+msgid "Full Tag"
+msgstr "Nome Completo"
+
+#. module: myo_tag
+#: view:myo.tag:myo_tag.myo_tag_view_search
+msgid "Group By..."
+msgstr "Agrupar Por..."
+
+#. module: myo_tag
+#: field:myo.tag,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: myo_tag
+#: help:myo.tag,active:0
+msgid "If unchecked, it will allow you to hide the tag without removing it."
+msgstr "Se desmarcado, será possível esconder a etiqueta sem removê-la."
+
+#. module: myo_tag
+#: view:myo.tag:myo_tag.myo_tag_view_search
+msgid "Inactive Tags"
+msgstr "Etiquetas Inativas"
+
+#. module: myo_tag
+#: field:myo.tag,__last_update:0
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: myo_tag
+#: field:myo.tag,write_uid:0
+msgid "Last Updated by"
+msgstr "Última Atualização por"
+
+#. module: myo_tag
+#: field:myo.tag,write_date:0
+msgid "Last Updated on"
+msgstr "Última Atualização em"
+
+#. module: myo_tag
+#: field:myo.tag,parent_left:0
+msgid "Left parent"
+msgstr "Superior a esquerda"
+
+#. module: myo_tag
+#: view:myo.tag:myo_tag.myo_tag_view_form
+#: field:myo.tag,notes:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: myo_tag
+#: view:myo.tag:myo_tag.myo_tag_view_form
+msgid "Notes..."
+msgstr "Notas..."
+
+#. module: myo_tag
+#: view:myo.tag:myo_tag.myo_tag_view_search
+#: field:myo.tag,parent_id:0
+msgid "Parent Tag"
+msgstr "Etiqueta Superior"
+
+#. module: myo_tag
+#: view:myo.tag:myo_tag.myo_tag_view_form
+msgid "Parent Tag..."
+msgstr "Etiqueta Superior..."
+
+#. module: myo_tag
+#: field:myo.tag,parent_right:0
+msgid "Right parent"
+msgstr "Superior a direita"
+
+#. module: myo_tag
+#: view:myo.tag:myo_tag.myo_tag_view_form
+msgid "Settings"
+msgstr "Configurações"
+
+#. module: myo_tag
+#: view:myo.tag:myo_tag.myo_tag_view_form
+#: view:myo.tag:myo_tag.myo_tag_view_search
+#: field:myo.tag,name:0
+msgid "Tag"
+msgstr "Etiqueta"
+
+#. module: myo_tag
+#: field:myo.tag,code:0
+msgid "Tag Code"
+msgstr "Código da Etiqueta"
+
+#. module: myo_tag
+#: view:myo.tag:myo_tag.myo_tag_view_form
+msgid "Tag Code..."
+msgstr "Código da Etiqueta..."
+
+#. module: myo_tag
+#: view:myo.tag:myo_tag.myo_tag_view_form
+msgid "Tag for"
+msgstr "Etiqueta para"
+
+#. module: myo_tag
+#: view:myo.tag:myo_tag.myo_tag_view_form
+msgid "Tag..."
+msgstr "Etiqueta..."
+
+#. module: myo_tag
+#: model:ir.actions.act_window,name:myo_tag.myo_tag_action
+#: model:ir.ui.menu,name:myo_tag.menu_base_base_tags
+#: view:myo.tag:myo_tag.myo_tag_view_tree
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. module: myo_base
+#: model:res.groups,name:myo_base.group_tag_manager
+msgid "Tag Manager"
+msgstr "Gerente de Etiqueta"
+
+#. module: myo_base
+#: model:res.groups,name:myo_base.group_tag_user
+msgid "Tag User"
+msgstr "Usuário de Etiqueta"
+

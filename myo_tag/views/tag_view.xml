@@ -73,7 +73,7 @@
             <field name="model">myo.tag</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <search string="Base Tag">
+                <search string="Tag">
                     <field name="name"/>
                     <field name="parent_id"/>
                     <field name="code"/>

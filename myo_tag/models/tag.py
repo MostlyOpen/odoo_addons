@@ -38,7 +38,7 @@ class Tag(models.Model):
     parent_right = fields.Integer('Right parent', select=True)
 
     _sql_constraints = [
-        ('uniq_tag_code', 'unique(code)', "The Tag Code must be unique!"),
+        ('tag_code_uniq', 'unique(code)', u'Error! The Tag Code must be unique!')
     ]
 
     _constraints = [
