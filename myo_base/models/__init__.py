@@ -18,34 +18,4 @@
 #
 ###############################################################################
 
-{
-    'name': 'Base Module',
-    'summary': 'Base Module used by MostlyOpen Solutions.',
-    'version': '2.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'http://mostlyopen.org',
-    'depends': [],
-    'data': [
-        'security/base_security.xml',
-        'views/base_menu_view.xml',
-        'views/groupings_menu_view.xml',
-        'views/agro_menu_view.xml',
-        'views/community_menu_view.xml',
-        'views/health_menu_view.xml',
-        'views/insurance_menu_view.xml',
-        'views/pharmacy_menu_view.xml',
-        'views/fmng_menu_view.xml',
-        'views/res_users_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+from . import res_users
