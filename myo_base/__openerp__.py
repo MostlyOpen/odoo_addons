@@ -36,7 +36,7 @@
         'views/health_menu_view.xml',
         'views/insurance_menu_view.xml',
         'views/pharmacy_menu_view.xml',
-        'views/fmng_menu_view.xml',
+        'views/mfmng_menu_view.xml',
         'views/res_users_view.xml',
     ],
     'demo': [],
