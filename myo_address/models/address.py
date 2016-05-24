@@ -85,12 +85,12 @@ class Address(osv.Model, FormatAddress):
 
     _columns = {
         'name': fields.char('Name', required=True, select=True),
-        'alias': fields.char('Alias', size=64, help='Common name that the Address is referred'),
-        'code': fields.char(size=64, string='Address Code'),
+        'alias': fields.char('Alias', help='Common name that the Address is referred.'),
+        'code': fields.char(string='Address Code'),
         'notes': fields.text('Notes'),
         'street': fields.char('Street'),
         'street2': fields.char('Street2'),
-        'zip': fields.char('Zip', size=24, change_default=True),
+        'zip': fields.char('ZIP code', change_default=True),
         'city': fields.char('City'),
         'state_id': fields.many2one("res.country.state", 'State', ondelete='restrict'),
         'country_id': fields.many2one('res.country', 'Country', ondelete='restrict'),

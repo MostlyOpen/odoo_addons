@@ -26,7 +26,7 @@ class Address(models.Model):
 
     parent_id = fields.Many2one('myo.address', 'Parent Address', select=True, ondelete='restrict')
     complete_name = fields.Char(string='Full Address', compute='_name_get_fnc', store=False, readonly=True)
-    child_ids = fields.One2many('myo.address', 'parent_id', 'Child Places')
+    child_ids = fields.One2many('myo.address', 'parent_id', 'Child Addresses')
     parent_left = fields.Integer('Left parent', select=True)
     parent_right = fields.Integer('Right parent', select=True)
 

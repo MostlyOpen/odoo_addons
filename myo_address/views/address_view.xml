@@ -7,7 +7,7 @@
             <field name="model">myo.address</field>
             <field eval="1" name="priority"/>
             <field name="arch" type="xml">
-                <form string="Adresses" version="7.0">
+                <form string="Addresses" version="7.0">
                     <sheet string="Address">
                         <div class="oe_center" name="center">
                             <!-- Put here related fields -->
@@ -74,7 +74,7 @@
             <field name="model">myo.address</field>
             <field eval="8" name="priority"/>
             <field name="arch" type="xml">
-                <tree string="Adresses">
+                <tree string="Addresses">
                     <field name="name"/>
                     <field name="alias" invisible="1"/>
                     <field name="phone"/>
@@ -106,7 +106,7 @@
                     <newline/>
                     <group expand="0" string="Group By...">
                         <filter string="Street" context="{'group_by': 'street'}"/>
-                        <filter string="Zip" context="{'group_by': 'zip'}"/>
+                        <filter string="ZIP Code" context="{'group_by': 'zip'}"/>
                         <filter string="City" context="{'group_by': 'city'}"/>
                         <filter string="State" context="{'group_by': 'state_id'}"/>
                         <filter string="Country" context="{'group_by': 'country_id'}"/>
