@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_medicament_uom_view_form" model="ir.ui.view">
+            <field name="name">myo.medicament.uom.form</field>
+            <field name="model">myo.medicament.uom</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Medicament Uom" version="7.0">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" default_focus="1" medicamentholder="Medicament Uom..."/>
+                            </h1>
+                            <label for="code"/>
+                            <h2>
+                                <field name="code" medicamentholder="Uom Code..."/>
+                            </h2>
+                            <label for="description"/>
+                            <h3>
+                                <field name="description" medicamentholder="Description..."/>
+                            </h3>
+                        </div>
+                        <notebook>
+                            <page string="Notes">
+                                <field name="notes" medicamentholder="Notes..." colspan="4"/>
+                            </page>
+                            <page string="Settings" groups="myo_base.group_base_rmanager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_uom_view_tree" model="ir.ui.view">
+            <field name="name">myo.medicament.uom.tree</field>
+            <field name="model">myo.medicament.uom</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Medicament Uom">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="description"/>
+                    <field name="notes"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_uom_view_search" model="ir.ui.view">
+            <field name="name">myo.medicament.uom.search</field>
+            <field name="model">myo.medicament.uom</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Medicament Uom">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="description"/>
+                    <field name="notes"/>
+                </search>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_uom_action" model="ir.actions.act_window">
+            <field name="name">Medicament Uom</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.medicament.uom</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="myo_medicament_uom_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new medicament uom.
+              </p>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

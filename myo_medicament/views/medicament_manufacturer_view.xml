@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_medicament_manufacturer_str_view_form" model="ir.ui.view">
+            <field name="name">myo.medicament.manufacturer.str.form</field>
+            <field name="model">myo.medicament.manufacturer.str</field>
+            <field name="arch" type="xml">
+                <form string="Manuracturer" version="7.0">
+                    <sheet>
+                        <div class="oe_title">
+                            <!--label for="name" class="oe_edit_only"/-->
+                            <label for="name"/>
+                            <h2>
+                                <field name="name" default_focus="1" placeholder="Manuracturer String..."/>
+                            </h2>
+                            <label for="manufacturer_id"/>
+                            <h2>
+                                <field name="manufacturer_id" placeholder="Manuracturer..." options="{'no_open': False, 'no_create': True}"/>
+                            </h2>
+                            <label for="verify"/>
+                            <h2>
+                                <field name="verify"/>
+                            </h2>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_manufacturer_str_view_tree" model="ir.ui.view">
+            <field name="name">myo.medicament.manufacturer.str.tree</field>
+            <field name="model">myo.medicament.manufacturer.str</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Medicament Manuracturer String">
+                    <field name="name"/>
+                    <field name="manufacturer_id"/>
+                    <field name="verify"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_manufacturer_str_view_search" model="ir.ui.view">
+            <field name="name">myo.medicament.manufacturer.str.search</field>
+            <field name="model">myo.medicament.manufacturer.str</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Medicament Manuracturer String">
+                    <field name="name"/>
+                    <separator/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Medicament Manuracturer" domain="[]" context="{'group_by':'manufacturer_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_manufacturer_str_action" model="ir.actions.act_window">
+            <field name="name">Medicament Manuracturer Strings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.medicament.manufacturer.str</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="myo_medicament_manufacturer_str_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        
+        <record id="myo_medicament_manufacturer_view_form" model="ir.ui.view">
+            <field name="name">myo.medicament.manufacturer.form</field>
+            <field name="model">myo.medicament.manufacturer</field>
+            <field name="arch" type="xml">
+                <form string="Manuracturers" version="7.0">
+                    <sheet>
+                        <div class="oe_title">
+                            <!--label for="name" class="oe_edit_only"/-->
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Manuracturer..."/>
+                            </h1>
+                            <label for="code"/>
+                            <h2>
+                                <field name="code" placeholder="Manuracturer Code..."/>
+                            </h2>
+                        </div>
+                        <field name="str_ids" colspan="4" nolabel="1"/>
+                        <notebook>
+                            <page string="Information">
+                                <field name="info" placeholder="Other Information ..." colspan="4"/>
+                            </page>
+                            <page string="Settings" groups="myo_base.group_rmanager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_manufacturer_view_tree" model="ir.ui.view">
+            <field name="name">myo.medicament.manufacturer.tree</field>
+            <field name="model">myo.medicament.manufacturer</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Manuracturers">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="strings"/>
+                    <field name="info"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_manufacturer_view_search" model="ir.ui.view">
+            <field name="name">myo.medicament.manufacturer.search</field>
+            <field name="model">myo.medicament.manufacturer</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Manuracturer">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="info"/>
+                    <separator/>
+                    <filter string="Inactive Manuracturers" name="active" domain="[('active','=',0)]" help="Inactive Manuracturers"/>
+                    <group expand="0" string="Group By...">
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="myo_medicament_manufacturer_action" model="ir.actions.act_window">
+            <field name="name">Manuracturers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.medicament.manufacturer</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="myo_medicament_manufacturer_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new medicament manufacturer.
+              </p>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_manufacturer_view_form_manufacturer" model="ir.ui.view">
+            <field name="name">myo.medicament.manufacturer.form</field>
+            <field name="model">myo.medicament.manufacturer</field>
+            <field name="inherit_id" ref="myo_medicament_manufacturer_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page string="Settings" position="before">
+                    <page string="Medicaments">
+                        <group>
+                            <field name="medicament_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</openerp>

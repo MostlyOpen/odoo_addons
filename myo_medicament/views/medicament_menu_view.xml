@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Pharmacy/Pharmacy/Medicaments -->
+        <menuitem name="Medicaments" id="menu_pharmacy_pharmacy_medicaments"
+            parent="myo_base.menu_pharmacy_pharmacy"
+            groups="myo_base.group_medicament_user"
+            sequence="10"
+            action="myo_medicament.myo_medicament_action"/>
+
+        <!-- Pharmacy/Configuration/Configuration/Medicament -->
+        <menuitem name="Medicament" id="menu_pharmacy_config_config_medicament"  
+            parent="myo_base.menu_pharmacy_config_config"
+            groups="myo_base.group_manager"
+            sequence="10"/>
+            <!-- Pharmacy/Configuration/Configuration/Medicament/Categories -->
+            <menuitem name="Categories" id="menu_pharmacy_config_config_medicament_categories" 
+                parent="menu_pharmacy_config_config_medicament"
+                groups="myo_base.group_medicament_user"
+                sequence="10"
+                action="myo_medicament.myo_medicament_category_action"/>
+            <!-- Pharmacy/Configuration/Configuration/Medicament/Active Components -->
+            <menuitem name="Active Components" id="menu_pharmacy_config_config_medicament_active_components"
+                parent="menu_pharmacy_config_config_medicament"
+                groups="myo_base.group_manager"
+                sequence="20"
+                action="myo_medicament.myo_medicament_active_component_action"/>
+                <!-- Pharmacy/Configuration/Configuration/Medicament/Active Components/Strings -->
+                <menuitem name="Strings" id="menu_pharmacy_config_config_medicament_active_components_strings"
+                    parent="menu_pharmacy_config_config_medicament_active_components"
+                    groups="myo_base.group_manager"
+                    sequence="10"
+                    action="myo_medicament.myo_medicament_active_component_str_action"/>
+            <!-- Pharmacy/Configuration/Configuration/Medicament/Manufacturers -->
+            <menuitem name="Manufacturers" id="menu_pharmacy_config_config_medicament_manufacturers"
+                parent="menu_pharmacy_config_config_medicament"
+                groups="myo_base.group_manager"
+                sequence="40"
+                action="myo_medicament.myo_medicament_manufacturer_action" />
+                <!-- Pharmacy/Configuration/Configuration/Medicament/Manufacturers/Strings -->
+                <menuitem name="Strings" id="menu_pharmacy_config_config_medicament_manufacturers_strings"
+                    parent="menu_pharmacy_config_config_medicament_manufacturers"
+                    groups="myo_base.group_manager"
+                    sequence="10"
+                    action="myo_medicament.myo_medicament_manufacturer_str_action" />
+            <!-- Pharmacy/Configuration/Configuration/Medicament/Form -->
+            <menuitem name="Form" id="menu_pharmacy_config_config_medicament_form"
+                parent="menu_pharmacy_config_config_medicament"
+                groups="myo_base.group_manager"
+                sequence="50"
+                action="myo_medicament.myo_medicament_form_action" />
+            <!-- Pharmacy/Configuration/Configuration/Medicament/Uom -->
+            <menuitem name="Uom" id="menu_pharmacy_config_config_medicament_uom"  
+                parent="menu_pharmacy_config_config_medicament"
+                groups="myo_base.group_manager"
+                sequence="70" 
+                action="myo_medicament.myo_medicament_uom_action" />
+
+    </data>
+</openerp>

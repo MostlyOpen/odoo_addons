@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="myo_base.group_medicament_user" model="res.groups">
+            <field name="name">Medicament User</field>
+        </record>
+        
+        <record id="myo_base.group_medicament_manager" model="res.groups">
+            <field name="name">Medicament Manager</field>
+            <field name="implied_ids" eval="[(4, ref('myo_base.group_medicament_user'))]"/>
+        </record>
+        
+        <record id="myo_base.group_medicament_form_manager" model="res.groups">
+            <field name="name">Medicament Form Manager</field>
+        </record>
+
+        <record id="myo_base.group_medicament_uom_manager" model="res.groups">
+            <field name="name">Medicament UOM Manager</field>
+        </record>
+
+        <record id="myo_base.group_medicament_category_manager" model="res.groups">
+            <field name="name">Medicament Category Manager</field>
+        </record>
+
+        <record id="myo_base.group_medicament_active_component_manager" model="res.groups">
+            <field name="name">Medicament Active Component Manager</field>
+        </record>
+
+        <record id="myo_base.group_medicament_manufacturer_manager" model="res.groups">
+            <field name="name">Medicament Manufacturer Manager</field>
+        </record>
+
+    </data>
+</openerp>
