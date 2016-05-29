@@ -6,8 +6,8 @@
         <menuitem name="Pharmacy" id="menu_pharmacy" 
             groups="myo_base.group_user"
             sequence="17"/>
-            <!-- Pharmacy/Pharmacy -->
-            <menuitem name="Pharmacy" id="menu_pharmacy_pharmacy"  
+            <!-- Pharmacy/Medicament -->
+            <menuitem name="Medicament" id="menu_pharmacy_medicament"  
                 parent="menu_pharmacy"
                 groups="myo_base.group_user"
                 sequence="10" />

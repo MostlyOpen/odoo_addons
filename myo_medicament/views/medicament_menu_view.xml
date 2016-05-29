@@ -2,9 +2,9 @@
 <openerp>
     <data>
 
-        <!-- Pharmacy/Pharmacy/Medicaments -->
-        <menuitem name="Medicaments" id="menu_pharmacy_pharmacy_medicaments"
-            parent="myo_base.menu_pharmacy_pharmacy"
+        <!-- Pharmacy/Medicament/Medicaments -->
+        <menuitem name="Medicaments" id="menu_pharmacy_medicament_medicaments"
+            parent="myo_base.menu_pharmacy_medicament"
             groups="myo_base.group_medicament_user"
             sequence="10"
             action="myo_medicament.myo_medicament_action"/>
