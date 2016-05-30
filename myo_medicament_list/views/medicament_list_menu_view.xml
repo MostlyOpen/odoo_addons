@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Pharmacy/Medicament/Medicament Lists -->
+        <menuitem name="Medicament Lists" id="menu_pharmacy_medicamen_medicament_lists"
+            parent="myo_base.menu_pharmacy_medicament"
+            groups="myo_base.group_medicament_list_user"
+            sequence="25"
+            action="myo_medicament_list.myo_medicament_list_action"/>
+            <!-- Pharmacy/Medicament/Medicament Lists/Versions -->
+            <menuitem name="Versions" id="menu_pharmacy_medicamen_medicament_lists_versions"
+                parent="myo_medicament_list.menu_pharmacy_medicamen_medicament_lists"
+                groups="myo_base.group_medicament_list_user"
+                sequence="10"
+                action="myo_medicament_list.myo_medicament_list_version_action" />
+            <!-- Pharmacy/Medicament/Medicament Lists/Items -->
+            <menuitem name="Items" id="menu_pharmacy_medicamen_medicament_lists_items"
+                parent="myo_medicament_list.menu_pharmacy_medicamen_medicament_lists"
+                groups="myo_base.group_medicament_list_user"
+                sequence="20"
+                action="myo_medicament_list.myo_medicament_list_item_action" />
+
+        <!-- Pharmacy/Configuration/Configuration/Medicament List Categories -->
+        <menuitem name="Medicament List Categories" id="menu_pharmacy_config_config_medicament_list_categories" 
+            parent="myo_base.menu_pharmacy_config_config"
+            groups="myo_base.group_medicament_list_user"
+            sequence="30"
+            action="myo_medicament_list.myo_medicament_list_category_action"/>
+
+    </data>
+</openerp>

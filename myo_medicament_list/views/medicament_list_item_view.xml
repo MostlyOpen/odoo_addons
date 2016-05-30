@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_medicament_list_itemview_form" model="ir.ui.view">
+            <field name="name">myo.medicament.list.item.form</field>
+            <field name="model">myo.medicament.list.item</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Medicament List Iten" version="7.0">
+                    <sheet string="Medicament List Item">
+                        <div class="oe_center" name="center">
+                            <!-- Put here related fields -->
+                        </div>
+                        <!--field name="image_medium" widget='image' class="oe_left oe_avatar"/-->
+                        <div class="oe_title">
+                            <!--label for="list_version_id" class="oe_edit_only"/-->
+                            <label for="list_version_id"/>
+                            <h2>
+                                <field name="list_version_id" placeholder="List..." options="{'no_open': False, 'no_create': True}"/>
+                            </h2>
+                            <!--label for="medicament_id" class="oe_edit_only"/-->
+                            <label for="medicament_id"/>
+                            <h2>
+                                <field name="medicament_id" placeholder="Medicament..." options="{'no_open': False, 'no_create': True}"/>
+                            </h2>
+                            <label for="medicament_ref"/>
+                            <h3>
+                                <field name="medicament_ref" placeholder="Medicament Reference..." options="{'no_open': False, 'no_create': True}"/>
+                            </h3>
+                            <label for="order"/>
+                            <h3>
+                                <field name="order" placeholder="Order..."/>
+                            </h3>
+                            <!--label for="discount"/>
+                            <h3>
+                                <field name="discount" placeholder="Discount..."/>
+                            </h3-->
+                            <!--label for="subsidy"/>
+                            <h3>
+                                <field name="subsidy" placeholder="Subsidy..."/>
+                            </h3-->
+                        </div>
+                        <div class="oe_right oe_button_box" name="button_box">
+                            <!-- Put here related buttons -->
+                        </div>
+                        <notebook>
+                            <page string="Information">
+                                <field name="notes" placeholder="Notes..." colspan="4"/>
+                            </page>
+                            <page string="Settings" groups="myo_base.group_rmanager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_list_item_view_tree" model="ir.ui.view">
+            <field name="name">myo.medicament.list.item.tree</field>
+            <field name="model">myo.medicament.list.item</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Medicament List Item">
+                    <field name="list_version_id"/>
+                    <field name="medicament_id"/>
+                    <field name="medicament_ref"/>
+                    <field name="order"/>
+                    <!--field name="discount"/-->
+                    <!--field name="subsidy"/-->
+                    <field name="notes"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_list_item_view_search" model="ir.ui.view">
+            <field name="name">myo.medicament.list.item.search</field>
+            <field name="model">myo.medicament.list.item</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Medicament List Item">
+                    <field name="list_version_id"/>
+                    <field name="medicament_id"/>
+                    <field name="order"/>
+                    <field name="notes"/>
+                    <!--field name="discount"/-->
+                    <!--field name="subsidy"/-->
+                    <separator/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Medicament List Version" domain="[]" context="{'group_by': 'list_version_id'}"/>
+                        <filter string="Medicament" domain="[]" context="{'group_by': 'medicament_id'}"/>
+                        <!--filter string="Discount" domain="[]" context="{'group_by': 'discount'}"/-->
+                        <!--filter string="Subsidy" domain="[]" context="{'group_by': 'subsidy'}"/-->
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_list_item_action" model="ir.actions.act_window">
+            <field name="name">Medicament List Itens</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.medicament.list.item</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="myo_medicament_list_item_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new Medicament List Item.
+              </p>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_list_version_view_form_item" model="ir.ui.view">
+            <field name="name">myo.medicament.list.version.form</field>
+            <field name="model">myo.medicament.list.version</field>
+            <field name="inherit_id" ref="myo_medicament_list_version_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <label for="description" position="before">
+                    <label for="count_items"/>
+                    <h3>
+                        <field name="count_items"/>
+                    </h3>
+                </label>
+                <page string="Settings" position="before">
+                    <page string="Medicament List Itens">
+                        <group>
+                            <field name="medicament_list_item_ids" colspan="4" nolabel="1" />
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="myo_medicament_list_version_view_tree_item" model="ir.ui.view">
+            <field name="name">myo.medicament.list.version.tree</field>
+            <field name="model">myo.medicament.list.version</field>
+            <field name="inherit_id" ref="myo_medicament_list_version_view_tree"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="count_items"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

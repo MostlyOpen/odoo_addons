@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_medicament_list_view_tree" model="ir.ui.view">
+            <field name="name">myo.medicament.list.tree</field>
+            <field name="model">myo.medicament.list</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Medicament List">
+                    <field name="name"/>
+                    <field name="alias"/>
+                    <field name="code"/>
+                    <!--field name="partner_id"/-->
+                    <!--field name="ext_code"/-->
+                    <field name="notes"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_list_view_form" model="ir.ui.view">
+            <field name="name">myo.medicament.list.form</field>
+            <field name="model">myo.medicament.list</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Medicament Lists" version="7.0">
+                    <sheet string="Medicament List">
+                        <div class="oe_center" name="center">
+                            <!-- Put here related fields -->
+                            <!--label for="name" class="oe_edit_only"/-->
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="List Name..."/>
+                            </h1>
+                        </div>
+                        <!--field name="image_medium" widget='image' class="oe_left oe_avatar"/-->
+                        <div class="oe_title">
+                            <!--label for="alias" class="oe_edit_only"/-->
+                            <label for="alias"/>
+                            <h2>
+                                <field name="alias" placeholder="Alias..."/>
+                            </h2>
+                            <!--label for="code" class="oe_edit_only"/-->
+                            <label for="code"/>
+                            <h3>
+                                <field name="code" placeholder="Medicament List Code..."/>
+                            </h3>
+                            <!--label for="partner_id"/>
+                            <h3>
+                                <field name="partner_id" placeholder="Partner..." domain="[('is_company', '=', True)]"/>
+                            </h3-->
+                            <!--label for="ext_code"/>
+                            <h3>
+                                <field name="ext_code" placeholder="External Medicament List Code..."/>
+                            </h3-->
+                        </div>
+                        <div class="oe_right oe_button_box" name="button_box">
+                            <!-- Put here related buttons -->
+                        </div>
+                        <notebook>
+                            <page string="List Information">
+                                <group>
+                                    <group string="Status">
+                                        <field name="date_inclusion"/>
+                                    </group>
+                                </group>
+                                <field name="notes" placeholder="Other Information ..." colspan="4"/>
+                            </page>
+                            <page string="Settings" groups="myo_base.group_rmanager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_list_view_search" model="ir.ui.view">
+            <field name="name">myo.medicament.list.search</field>
+            <field name="model">myo.medicament.list</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Medicament List">
+                    <field name="name"/>
+                    <field name="alias"/>
+                    <field name="code"/>
+                    <!--field name="partner_id"/-->
+                    <!--field name="ext_code"/-->
+                    <field name="notes"/>
+                    <separator/>
+                    <group expand="0" string="Group By...">
+                        <filter string="External Code" domain="[]" context="{'group_by': 'ext_code'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record id="myo_medicament_list_action" model="ir.actions.act_window">
+            <field name="name">Medicament Lists</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.medicament.list</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="myo_medicament_list_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new Medicament List.
+              </p>
+            </field>
+        </record>
+        
+    </data>
+</openerp>
