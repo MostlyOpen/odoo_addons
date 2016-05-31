@@ -1,6 +1,6 @@
 Document Module
 ===============
 
-Document Module used in CLVsol Solutions.
+Document Module used in MostlyOpen Solutions.
 
 Developed by `CLVsol <https://clvsol.com>`_.
