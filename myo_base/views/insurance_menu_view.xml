@@ -6,11 +6,16 @@
         <menuitem name="Insurance" id="menu_insurance" 
             groups="myo_base.group_user"
             sequence="16"/>
+            <!-- Insurance/Insured -->
+            <menuitem name="Insured" id="menu_insurance_insured"  
+                parent="menu_insurance"
+                groups="myo_base.group_user"
+                sequence="10" />
             <!-- Insurance/Insurance -->
             <menuitem name="Insurance" id="menu_insurance_insurance"  
                 parent="menu_insurance"
                 groups="myo_base.group_user"
-                sequence="10" />
+                sequence="20" />
             <!-- Insurance/Configuration -->
             <menuitem name="Configuration" id="menu_insurance_config"  
                 parent="menu_insurance"
