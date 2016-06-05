@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_mfile_view_form_kanban" model="ir.ui.view">
+            <field name="name">myo.mfile.form</field>
+            <field name="model">myo.mfile</field>
+            <field name="inherit_id" ref="myo_mfile.myo_mfile_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <div class="oe_title" position="before">
+                    <field name="image_medium" widget="image"  class="oe_avatar oe_left"/>
+                </div>
+            </field>
+        </record>
+
+        <record id="myo_mfile_view_kanban" model="ir.ui.view">
+            <field name="name">myo.mfile.kanban</field>
+            <field name="model">myo.mfile</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="has_image"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_mfile_vignette">
+                                <div class="oe_mfile_image">
+                                    <a type="open">
+                                        <t t-if="record.has_image.raw_value === true">
+                                            <img t-att-src="kanban_image('myo_mfile', 'image_medium', record.id.value)" class="oe_mfile_picture"/>
+                                        </t>
+                                        <t t-if="record.has_image.raw_value === false">
+                                            <img t-att-src='_s + "/myo_mfile/static/img/mfile_image.png"' class="oe_kanban_image"/>
+                                            <!--t t-if="record.is_company.raw_value === true">
+                                                <img t-att-src='_s + "/base/static/src/img/company_image.png"' class="oe_kanban_image"/>
+                                            </t-->
+                                            <!--t t-if="record.is_company.raw_value === false">
+                                                <img t-att-src='_s + "/base/static/src/img/avatar.png"' class="oe_kanban_image"/>
+                                            </t-->
+                                        </t>
+                                    </a>
+                                    <!--a type="open">
+                                        <img t-att-src="kanban_image('myo_mfile', 'image_medium', record.id.value)" class="oe_mfile_picture"/>
+                                    </a-->
+                                </div>
+                                <div name="kanban_details" class="oe_kanban_details">
+                                    <!--h4 class="oe_partner_heading"><a type="open"><field name="name"/></a></h4-->
+                                    <h3><a type="open"><field name="name"/></a></h3>
+                                    <ul>
+                                        <li t-if="record.alias.raw_value">
+                                            <field name="alias"/>
+                                        </li>
+                                        <li t-if="record.code.raw_value">
+                                            <field name="code"/>
+                                        </li>
+                                        <li t-if="record.path.raw_value">
+                                            <field name="path"/>
+                                        </li>
+                                        <li t-if="record.category_ids.raw_value">
+                                            <field name="category_ids"/>
+                                        </li>
+                                        <li t-if="record.tag_ids.raw_value">
+                                            <field name="tag_ids"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <script>
+                                $('.oe_mfile_picture').load(function() { if($(this).width() > $(this).height()) { $(this).addClass('oe_mfile_picture_wide') } });
+                            </script>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+    
+        <record id="myo_mfile_action" model="ir.actions.act_window">
+            <field name="name">Files</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.mfile</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="search_view_id" ref="myo_mfile_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new media file.
+              </p>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

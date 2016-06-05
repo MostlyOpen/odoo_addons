@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Media File Management/Media File Management/Media Files -->
+        <menuitem name="Media Files" id="menu_mfmng_mfmng_files"
+            parent="myo_base.menu_mfmng_mfmng"
+            groups="myo_base.group_mfile_user"
+            sequence="10"
+            action="myo_mfile.myo_mfile_action"/>
+        <!-- Media File Management/Configuration/Configuration/Media File Categories-->
+        <menuitem name="Media File Categories" id="menu_mfmng_mfmng_config_file_categories" 
+            parent="myo_base.menu_mfmng_config_config"
+            groups="myo_base.group_mfile_user"
+            sequence="10"
+            action="myo_mfile.myo_mfile_category_action"/>
+
+    </data>
+</openerp>

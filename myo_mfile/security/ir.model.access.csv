@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_myo_mfile_mfile_user,myo.mfile,model_myo_mfile,myo_base.group_mfile_user,1,0,0,0
+access_myo_mfile_mfile_manager,myo.mfile,model_myo_mfile,myo_base.group_mfile_manager,1,1,1,0
+access_myo_mfile_smanager,myo.mfile,model_myo_mfile,myo_base.group_smanager,1,1,1,1
+
+access_myo_mfile_category_mfile_user,myo.mfile.category,model_myo_mfile_category,myo_base.group_mfile_user,1,0,0,0
+access_myo_mfile_category_mfile_category_manager,myo.mfile.category,model_myo_mfile_category,myo_base.group_mfile_category_manager,1,1,1,0
+access_myo_mfile_category_smanager,myo.mfile.category,model_myo_mfile_category,myo_base.group_smanager,1,1,1,1
