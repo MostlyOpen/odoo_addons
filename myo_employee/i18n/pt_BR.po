@@ -30,3 +30,8 @@ msgstr "Erro! O Código do Funcionário deve ser único!"
 msgid "Employee Code"
 msgstr "Código do Funcionário"
 
+#. module: hr
+#: model:ir.model.fields,field_description:hr.field_hr_employee_code
+msgid "Employee Code"
+msgstr "Código do Funcionário"
+
