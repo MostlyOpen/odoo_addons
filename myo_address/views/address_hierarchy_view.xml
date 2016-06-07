@@ -28,7 +28,7 @@
                         <field name="parent_id" placeholder="Parent Address..." options="{'no_open': False, 'no_create': True}"/>
                     </h2>
                 </label>
-                <page string="Settings" position="before">
+                <page name="settings" position="before">
                     <page string="Child Addresses">
                         <group>
                             <field name="child_ids" colspan="4" nolabel="1"/>
@@ -47,7 +47,7 @@
                 <field name="name" position="before">
                     <field name="parent_id"/>
                 </field>
-                <group string="Group By..." position="inside">
+                <group name="group_by" position="inside">
                     <filter string="Parent Address" context="{'group_by': 'parent_id'}"/>
                 </group>
             </field>

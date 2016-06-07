@@ -58,7 +58,7 @@
                             <page string="Information">
                                 <field name="notes" placeholder="Notes..." colspan="4"/>
                             </page>
-                            <page string="Settings" groups="myo_base.group_rmanager">
+                            <page name="settings" string="Settings" groups="myo_base.group_rmanager">
                                 <group>
                                     <field name="active"/>
                                 </group>
@@ -104,7 +104,7 @@
                     <field name="city"/>
                     <field name="state_id"/>
                     <newline/>
-                    <group expand="0" string="Group By...">
+                    <group  name="group_by" expand="0" string="Group By...">
                         <filter string="Street" context="{'group_by': 'street'}"/>
                         <filter string="ZIP Code" context="{'group_by': 'zip'}"/>
                         <filter string="City" context="{'group_by': 'city'}"/>
