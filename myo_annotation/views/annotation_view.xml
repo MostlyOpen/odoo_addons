@@ -29,12 +29,12 @@
                             <!-- Put here related buttons -->
                         </div>
                         <notebook>
-                            <page string="Annotation for">
+                            <page name="annotation_for" string="Annotation for">
                                 <group name="Annotation for">
                                     <!-- Put here related objects -->
                                 </group>
                             </page>
-                            <page string="Settings" groups="myo_base.group_rmanager">
+                            <page name="settings" string="Settings" groups="myo_base.group_rmanager">
                                 <group>
                                     <field name="active"/>
                                 </group>
