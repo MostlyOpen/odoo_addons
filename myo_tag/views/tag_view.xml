@@ -38,10 +38,7 @@
                                     <field name="child_ids" colspan="4" nolabel="1"/>
                                 </group>
                             </page>
-                            <page string="Tag for">
-                                <group name="Tag for">
-                                    <!-- Put here related objects -->
-                                </group>
+                            <page name="tag_for" string="Tag for">
                             </page>
                             <page string="Settings" groups="myo_base.group_rmanager">
                                 <group>
