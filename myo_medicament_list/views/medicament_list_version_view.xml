@@ -45,7 +45,7 @@
                                 </group>
                                 <field name="notes" placeholder="Notes..." colspan="4"/>
                             </page>
-                            <page string="Settings" groups="myo_base.group_rmanager">
+                            <page name="settings" string="Settings" groups="myo_base.group_rmanager">
                                 <group>
                                     <field name="active"/>
                                 </group>
@@ -129,7 +129,7 @@
                         <field name="current_version_id" placeholder="Current List Version..." options="{'no_open': False, 'no_create': True}"/>
                     </h3>
                 </div>
-                <page string="List Information" position="after">
+                <page name="list_information" position="after">
                     <page string="List Versions">
                         <group>
                             <field name="medicament_list_version_ids" colspan="4" nolabel="1"/>

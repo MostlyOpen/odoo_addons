@@ -127,7 +127,7 @@
                         <field name="count_items"/>
                     </h3>
                 </label>
-                <page string="Settings" position="before">
+                <page name="settings" position="before">
                     <page string="Medicament List Itens">
                         <group>
                             <field name="medicament_list_item_ids" colspan="4" nolabel="1" />

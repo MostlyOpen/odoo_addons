@@ -58,7 +58,7 @@
                             <!-- Put here related buttons -->
                         </div>
                         <notebook>
-                            <page string="List Information">
+                            <page name="list_information" string="List Information">
                                 <group>
                                     <group string="Status">
                                         <field name="date_inclusion"/>
