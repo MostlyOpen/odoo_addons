@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Base/Base/Residences -->
+        <menuitem name="Residences" id="menu_base_base_residences"
+            parent="myo_base.menu_base_base"
+            groups="myo_base.group_address_user"
+            sequence="60"
+            action="myo_residence.myo_residence_action"/>
+
+    </data>
+</openerp>
