@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_myo_professional_professional_user,myo.professional,model_myo_professional,myo_base.group_professional_user,1,0,0,0
+access_myo_professional_professional_manager,myo.professional,model_myo_professional,myo_base.group_professional_manager,1,1,1,0
+access_myo_professional_smanager,myo.professional,model_myo_professional,myo_base.group_smanager,1,1,1,1
+
+access_myo_professional_category_professional_user,myo.professional.category,model_myo_professional_category,myo_base.group_professional_user,1,0,0,0
+access_myo_professional_category_professional_category_manager,myo.professional.category,model_myo_professional_category,myo_base.group_professional_category_manager,1,1,1,0
+access_myo_professional_category_smanager,myo.professional.category,model_myo_professional_category,myo_base.group_smanager,1,1,1,1

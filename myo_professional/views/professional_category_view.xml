@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_professional_category_view_form" model="ir.ui.view">
+            <field name="name">myo.professional.category</field>
+            <field name="model">myo.professional.category</field>
+            <field name="arch" type="xml">
+                <form string="Professional Categories" version="7.0">
+                    <sheet>
+                        <div class="oe_title">
+                            <!--label for="parent_id" class="oe_edit_only"/-->
+                            <label for="parent_id"/>
+                            <h2>
+                                <field name="parent_id" placeholder="Parent Category..." options="{'no_open': False, 'no_create': True}"/>
+                            </h2>
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Professional Category..."/>
+                            </h1>
+                            <label for="code"/>
+                            <h2>
+                                <field name="code" placeholder="Category Code..."/>
+                            </h2>
+                            <label for="description"/>
+                            <h3>
+                                <field name="description" placeholder="Description..."/>
+                            </h3>
+                        </div>
+                        <notebook>
+                            <page string="Notes">
+                                <field name="notes" placeholder="Notes..." colspan="4"/>
+                            </page>
+                            <page string="Child Categories">
+                                <group>
+                                    <field name="child_ids" colspan="4" nolabel="1"/>
+                                </group>
+                            </page>
+                            <page string="Professionals">
+                                <group>
+                                    <field name="professional_ids" colspan="4" nolabel="1"/>
+                                </group>
+                            </page>
+                            <page string="Settings" groups="myo_base.group_rmanager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="myo_professional_category_view_tree" model="ir.ui.view">
+            <field name="name">myo.professional.category.tree</field>
+            <field name="model">myo.professional.category</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Professional Categories">
+                    <field name="complete_name"/>
+                    <field name="code"/>
+                    <field name="description"/>
+                    <field name="notes"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="myo_professional_category_view_search" model="ir.ui.view">
+            <field name="name">myo.professional.category.search</field>
+            <field name="model">myo.professional.category</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Professional Category">
+                    <field name="name"/>
+                    <field name="parent_id"/>
+                    <field name="code"/>
+                    <field name="description"/>
+                    <field name="notes"/>
+                    <separator/>
+                    <filter string="Inactive Categories" name="active" domain="[('active','=',0)]" help="Inactive Categories"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Parent Category" domain="[]" context="{'group_by':'parent_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="myo_professional_category_action" model="ir.actions.act_window">
+            <field name="name">Professional Categories</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.professional.category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="myo_professional_category_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new professional category.
+              </p>
+            </field>
+        </record>
+        
+        <record id="myo_professional_view_tree_category" model="ir.ui.view">
+            <field name="name">myo.professional.tree</field>
+            <field name="model">myo.professional</field>
+            <field name="inherit_id" ref="myo_professional_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="before">
+                    <field name="category_ids"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_professional_view_form_category" model="ir.ui.view">
+            <field name="name">myo.professional.form</field>
+            <field name="model">myo.professional</field>
+            <field name="inherit_id" ref="myo_professional_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <label for="name" position="before">
+                    <label for="category_ids" class="oe_edit_only"/>
+                    <h2>
+                        <field name="category_ids" widget="many2many_tags" placeholder="Categories..." options="{'no_open': False, 'no_create': True}"/>
+                    </h2>
+                </label>
+            </field>
+        </record>
+
+        <record id="myo_professional_view_search_category" model="ir.ui.view">
+            <field name="name">myo.professional.search</field>
+            <field name="model">myo.professional</field>
+            <field name="inherit_id" ref="myo_professional_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="category_ids"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
