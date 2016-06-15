@@ -18,10 +18,8 @@
             <field name="model">res.users</field>
             <field name="inherit_id" ref="base.view_users_form" />
             <field name="arch" type="xml">
-                <field name="partner_id" position="before">
-                    <group>
-                        <field name="disable_web_access"/>
-                    </group>
+                <field name="partner_id" position="after">
+                    <field name="disable_web_access"/>
                 </field>
             </field>
         </record>

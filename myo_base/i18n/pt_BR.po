@@ -28,11 +28,6 @@ msgid "Base"
 msgstr "Básico"
 
 #. module: myo_base
-#: help:res.users,disable_web_access:0
-msgid "Check to disable user web access."
-msgstr "Marcar para desabilitar o acesso do usuário via web."
-
-#. module: myo_base
 #: model:ir.ui.menu,name:myo_base.menu_community
 #: model:ir.ui.menu,name:myo_base.menu_community_community
 msgid "Community"
@@ -57,11 +52,6 @@ msgstr "Comunidade"
 #: model:ir.ui.menu,name:myo_base.menu_pharmacy_config_config
 msgid "Configuration"
 msgstr "Configuração"
-
-#. module: myo_base
-#: field:res.users,disable_web_access:0
-msgid "Disable Web Access"
-msgstr "Desabilitar Aceesso Web"
 
 #. module: myo_base
 #: model:ir.ui.menu,name:myo_base.menu_groupings
@@ -122,4 +112,14 @@ msgstr "Usuário (myo)"
 #: model:ir.model,name:myo_base.model_res_users
 msgid "Users"
 msgstr "Usuários"
+
+#. module: myo_base
+#: model:ir.model.fields,field_description:myo_base.field_res_users_disable_web_access
+msgid "Disable Web Access"
+msgstr "Desabilitar Acesso Web"
+
+#. module: myo_base
+#: model:ir.model.fields,help:myo_base.field_res_users_disable_web_access
+msgid "Check to disable user web access."
+msgstr "Marcar para desabilitar o acesso do usuário via web."
 
