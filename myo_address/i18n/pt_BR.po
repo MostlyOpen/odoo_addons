@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * myo_address
+#	* myo_address
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-24 14:46+0000\n"
-"PO-Revision-Date: 2016-05-24 14:46+0000\n"
+"POT-Creation-Date: 2016-06-16 18:32+0000\n"
+"PO-Revision-Date: 2016-06-16 18:32+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,197 +16,172 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: myo_address
-#: model:ir.actions.act_window,help:myo_address.myo_address_category_action
-msgid "<p class=\"oe_view_nocontent_create\">\n"
-"                Click to add a new address category.\n"
-"              </p>\n"
-"            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n"
-"                Clique para adicionar uma nova categoria de endereço.\n"
-"              </p>\n"
-"            "
-
-#. module: myo_address
-#: model:ir.actions.act_window,help:myo_address.myo_address_action
-msgid "<p class=\"oe_view_nocontent_create\">\n"
-"                Click to add a new address.\n"
-"              </p>\n"
-"            "
-msgstr "<p class=\"oe_view_nocontent_create\">\n"
-"                Clique para adicionar um novo endereço.\n"
-"              </p>\n"
-"            "
-
-#. module: myo_address
-#: field:myo.address,active:0
-#: field:myo.address.category,active:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_active
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_active
 msgid "Active"
 msgstr "Ativo"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
 msgid "Address"
 msgstr "Endereço"
 
 #. module: myo_address
 #: model:ir.actions.act_window,name:myo_address.myo_address_category_action
 #: model:ir.ui.menu,name:myo_address.menu_base_config_config_address_categories
-#: view:myo.address.category:myo_address.myo_address_category_view_tree
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_tree
 msgid "Address Categories"
 msgstr "Categorias de Endereços"
 
 #. module: myo_address
-#: view:myo.address.category:myo_address.myo_address_category_view_form
-#: view:myo.address.category:myo_address.myo_address_category_view_search
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_search
 msgid "Address Category"
 msgstr "Categoria de Endereço"
 
 #. module: myo_address
-#: view:myo.address.category:myo_address.myo_address_category_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_form
 msgid "Address Category..."
 msgstr "Categoria de Endereço..."
 
 #. module: myo_address
-#: field:myo.address,code:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_code
 msgid "Address Code"
 msgstr "Código de Endereço"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
 msgid "Address Code..."
 msgstr "Código de Endereço..."
 
 #. module: myo_address
 #: model:ir.actions.act_window,name:myo_address.myo_address_action
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_address_ids
+#: model:ir.model.fields,field_description:myo_address.field_myo_annotation_address_ids
+#: model:ir.model.fields,field_description:myo_address.field_myo_tag_address_ids
 #: model:ir.ui.menu,name:myo_address.menu_base_base_addresses
-#: view:myo.address.category:myo_address.myo_address_category_view_form
-#: field:myo.address.category,address_ids:0
-#: view:myo.annotation:myo_address.myo_annotation_view_form_address
-#: field:myo.annotation,address_ids:0
-#: view:myo.tag:myo_address.myo_tag_view_form_address
-#: field:myo.tag,address_ids:0
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_tree
+#: model:ir.ui.view,arch_db:myo_address.myo_annotation_view_form_address
+#: model:ir.ui.view,arch_db:myo_address.myo_tag_view_form_address
 msgid "Addresses"
 msgstr "Endereços"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form
-#: view:myo.address:myo_address.myo_address_view_tree
-msgid "Addresses"
-msgstr "Endereços"
-
-#. module: myo_address
-#: field:myo.address,alias:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_alias
 msgid "Alias"
 msgstr "Apelido"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
 msgid "Alias..."
 msgstr "Apelido..."
 
 #. module: myo_address
-#: view:myo.annotation:myo_address.myo_annotation_view_form_address
-msgid "Annotation for"
-msgstr "Anotação para"
-
-#. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form_annotation
-#: field:myo.address,annotation_ids:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_annotation_ids
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form_annotation
 msgid "Annotations"
 msgstr "Anotações"
 
 #. module: myo_address
-#: field:myo.address,category_ids:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_ids
 msgid "Categories"
 msgstr "Categorias"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form_category
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form_category
 msgid "Categories..."
 msgstr "Categorias..."
 
 #. module: myo_address
-#: field:myo.address.category,name:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_name
 msgid "Category"
 msgstr "Categoria"
 
 #. module: myo_address
-#: view:myo.address.category:myo_address.myo_address_category_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_form
 msgid "Category Code..."
 msgstr "Código da Categoria..."
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form_hierarchy
-msgid "Child Addresses"
-msgstr "Child Addresses"
-
-#. module: myo_address
-#: view:myo.address.category:myo_address.myo_address_category_view_form
-#: field:myo.address.category,child_ids:0
-msgid "Child Categories"
-msgstr "Endereço Subordinado"
-
-#. module: myo_address
-#: field:myo.address,child_ids:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_child_ids
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form_hierarchy
 msgid "Child Addresses"
 msgstr "Endereços Subordinados"
 
 #. module: myo_address
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_child_ids
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_form
+msgid "Child Categories"
+msgstr "Categorias Subordinadas"
+
+#. module: myo_address
 #: code:addons/myo_address/models/address.py:63
-#: view:myo.address:myo_address.myo_address_view_form
-#: view:myo.address:myo_address.myo_address_view_search
-#: field:myo.address,city:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_city
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_search
 #, python-format
 msgid "City"
 msgstr "Cidade"
 
 #. module: myo_address
-#: field:myo.address.category,code:0
+#: model:ir.actions.act_window,help:myo_address.myo_address_category_action
+msgid "Click to add a new address category."
+msgstr "Clique para adicionar uma nova categoria de endereço."
+
+#. module: myo_address
+#: model:ir.actions.act_window,help:myo_address.myo_address_action
+msgid "Click to add a new address."
+msgstr "Clique para adicionar um novo endereço."
+
+#. module: myo_address
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_code
 msgid "Code"
 msgstr "Código"
 
 #. module: myo_address
-#: help:myo.address,alias:0
+#: model:ir.model.fields,help:myo_address.field_myo_address_alias
 msgid "Common name that the Address is referred."
-msgstr "Nome coum com que o Endereço é referenciado."
+msgstr "Nome comum com que o Endereço é referenciado."
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form
-#: view:myo.address:myo_address.myo_address_view_search
-#: field:myo.address,country_id:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_country_id
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_search
 msgid "Country"
 msgstr "País"
 
 #. module: myo_address
-#: field:myo.address,create_uid:0
-#: field:myo.address.category,create_uid:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_create_uid
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_create_uid
 msgid "Created by"
 msgstr "Criado por"
 
 #. module: myo_address
-#: field:myo.address,create_date:0
-#: field:myo.address.category,create_date:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_create_date
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_create_date
 msgid "Created on"
-msgstr "Criados em"
+msgstr "Criado em"
 
 #. module: myo_address
-#: field:myo.address.category,description:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_description
 msgid "Description"
 msgstr "Descrição"
 
 #. module: myo_address
-#: view:myo.address.category:myo_address.myo_address_category_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_form
 msgid "Description..."
 msgstr "Descrição..."
 
 #. module: myo_address
-#: field:myo.address,display_name:0
-#: field:myo.address.category,display_name:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_display_name
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_display_name
 msgid "Display Name"
-msgstr "Nome"
+msgstr "Nome de Exibição"
 
 #. module: myo_address
-#: field:myo.address,email:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_email
 msgid "Email"
 msgstr "Email"
 
@@ -226,203 +201,219 @@ msgid "Error! You can not create recursive categories."
 msgstr "Erro! Não é possível criar castegorias recursivas."
 
 #. module: myo_address
-#: field:myo.address,fax:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_fax
 msgid "Fax"
 msgstr "Fax"
 
 #. module: myo_address
-#: field:myo.address,complete_name:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_complete_name
 msgid "Full Address"
 msgstr "Endereço Completo"
 
 #. module: myo_address
-#: field:myo.address.category,complete_name:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_complete_name
 msgid "Full Category"
 msgstr "Categoria Completa"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_search
-#: view:myo.address:myo_address.myo_address_view_search_hierarchy
-#: view:myo.address.category:myo_address.myo_address_category_view_search
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_search
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_search
 msgid "Group By..."
 msgstr "Agrupar por..."
 
 #. module: myo_address
-#: field:myo.address,id:0
-#: field:myo.address.category,id:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_id
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_id
 msgid "ID"
 msgstr "ID"
 
 #. module: myo_address
-#: help:myo.address,active:0
+#: model:ir.model.fields,help:myo_address.field_myo_address_active
 msgid "If unchecked, it will allow you to hide the address without removing it."
 msgstr "Se desmarcado, será possível esconder o endereço sem removê-lo."
 
 #. module: myo_address
-#: help:myo.address.category,active:0
+#: model:ir.model.fields,help:myo_address.field_myo_address_category_active
 msgid "If unchecked, it will allow you to hide the category without removing it."
 msgstr "Se desmarcado, será possível esconder a categoria sem removê-la."
 
 #. module: myo_address
-#: view:myo.address.category:myo_address.myo_address_category_view_search
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_search
 msgid "Inactive Categories"
 msgstr "Categorias Inativas"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form
-msgid "Information"
-msgstr "Informações"
-
-#. module: myo_address
-#: field:myo.address,__last_update:0
-#: field:myo.address.category,__last_update:0
-msgid "Last Modified on"
-msgstr "Última Modificação em"
-
-#. module: myo_address
-#: field:myo.address,write_uid:0
-#: field:myo.address.category,write_uid:0
-msgid "Last Updated by"
-msgstr "Última Atualização por"
-
-#. module: myo_address
-#: field:myo.address,write_date:0
-#: field:myo.address.category,write_date:0
-msgid "Last Updated on"
-msgstr "Última Atualização em"
-
-#. module: myo_address
-#: field:myo.address,parent_left:0
-#: field:myo.address.category,parent_left:0
-msgid "Left parent"
-msgstr "Superior à esquerda"
-
-#. module: myo_address
-#: field:myo.address,mobile:0
-msgid "Mobile"
-msgstr "Celular"
-
-#. module: myo_address
-#: field:myo.address,name:0
-msgid "Name"
-msgstr "Nome"
-
-#. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form
-msgid "Name..."
-msgstr "Nome..."
-
-#. module: myo_address
-#: field:myo.address,notes:0
-#: view:myo.address.category:myo_address.myo_address_category_view_form
-#: field:myo.address.category,notes:0
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
 msgid "Notes"
 msgstr "Notas"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form
-#: view:myo.address.category:myo_address.myo_address_category_view_form
+#: model:ir.model.fields,field_description:myo_address.field_myo_address___last_update
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category___last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: myo_address
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_write_uid
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: myo_address
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_write_date
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: myo_address
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_parent_left
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_parent_left
+msgid "Left parent"
+msgstr "Superior à esquerda"
+
+#. module: myo_address
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_mobile
+msgid "Mobile"
+msgstr "Celular"
+
+#. module: myo_address
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_name
+msgid "Name"
+msgstr "Nome"
+
+#. module: myo_address
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
+msgid "Name..."
+msgstr "Nome..."
+
+#. module: myo_address
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_notes
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_notes
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: myo_address
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
 msgid "Notes..."
 msgstr "Notas..."
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_search_hierarchy
-#: field:myo.address,parent_id:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_parent_id
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_search_hierarchy
 msgid "Parent Address"
 msgstr "Endereço Superior"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form_hierarchy
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form_hierarchy
 msgid "Parent Address..."
 msgstr "Endereço Superior..."
 
 #. module: myo_address
-#: view:myo.address.category:myo_address.myo_address_category_view_search
-#: field:myo.address.category,parent_id:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_parent_id
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_search
 msgid "Parent Category"
 msgstr "Categoria Superior"
 
 #. module: myo_address
-#: view:myo.address.category:myo_address.myo_address_category_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_form
 msgid "Parent Category..."
 msgstr "Categoria Superior..."
 
 #. module: myo_address
-#: field:myo.address,phone:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_phone
 msgid "Phone"
 msgstr "Telefone"
 
 #. module: myo_address
-#: field:myo.address,parent_right:0
-#: field:myo.address.category,parent_right:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_category_parent_right
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_parent_right
 msgid "Right parent"
 msgstr "Supeior à direita"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_search
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_search
 msgid "Search Address"
 msgstr "Pesquisar Endereço"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form
-#: view:myo.address:myo_address.myo_address_view_form_annotation
-#: view:myo.address:myo_address.myo_address_view_form_hierarchy
-#: view:myo.address.category:myo_address.myo_address_category_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
 msgid "Settings"
 msgstr "Configurações"
 
 #. module: myo_address
 #: code:addons/myo_address/models/address.py:63
-#: view:myo.address:myo_address.myo_address_view_form
-#: view:myo.address:myo_address.myo_address_view_search
-#: field:myo.address,state_id:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_state_id
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_search
 #, python-format
 msgid "State"
 msgstr "Estado"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_search
-#: field:myo.address,street:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_street
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_search
 msgid "Street"
 msgstr "Logradouro"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
 msgid "Street..."
 msgstr "Logradouro..."
 
 #. module: myo_address
-#: field:myo.address,street2:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_street2
 msgid "Street2"
 msgstr "Complemento"
 
 #. module: myo_address
-#: view:myo.tag:myo_address.myo_tag_view_form_address
-msgid "Tag for"
-msgstr "Etiqueta para"
-
-#. module: myo_address
-#: field:myo.address,tag_ids:0
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_tag_ids
 msgid "Tags"
 msgstr "Etiquetas"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_form_tag
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form_tag
 msgid "Tags..."
 msgstr "Etiquetas..."
 
 #. module: myo_address
 #: code:addons/myo_address/models/address.py:63
-#: view:myo.address:myo_address.myo_address_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
 #, python-format
 msgid "ZIP"
 msgstr "CEP"
 
 #. module: myo_address
-#: view:myo.address:myo_address.myo_address_view_search
-#: field:myo.address,zip:0
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_search
 msgid "ZIP Code"
 msgstr "CEP"
+
+#. module: myo_address
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_zip
+msgid "ZIP code"
+msgstr "Código de Endereçamento Postal"
+
+#. module: myo_address
+#: model:ir.model,name:myo_address.model_myo_address
+msgid "myo.address"
+msgstr "myo.address"
+
+#. module: myo_address
+#: model:ir.model,name:myo_address.model_myo_address_category
+msgid "myo.address.category"
+msgstr "myo.address.category"
+
+#. module: myo_address
+#: model:ir.model,name:myo_address.model_myo_annotation
+msgid "myo.annotation"
+msgstr "myo.annotation"
+
+#. module: myo_address
+#: model:ir.model,name:myo_address.model_myo_tag
+msgid "myo.tag"
+msgstr "myo.tag"
 
 #. module: myo_base
 #: model:res.groups,name:myo_base.group_address_category_manager

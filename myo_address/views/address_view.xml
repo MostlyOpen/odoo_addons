@@ -55,7 +55,7 @@
                             </group>
                         </group>
                         <notebook colspan="4">
-                            <page string="Information">
+                            <page string="Notes">
                                 <field name="notes" placeholder="Notes..." colspan="4"/>
                             </page>
                             <page name="settings" string="Settings" groups="myo_base.group_rmanager">

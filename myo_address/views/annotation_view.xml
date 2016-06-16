@@ -6,7 +6,7 @@
             <field name="name">myo.address.form</field>
             <field name="model">myo.address</field>
             <field name="inherit_id" ref="myo_address_view_form"/>
-            <field name="priority" eval="8" />
+            <field name="priority" eval="30" />
             <field name="arch" type="xml">
                 <page name="settings" position="before">
                     <page string="Annotations" groups="myo_base.group_annotation_user">
@@ -22,7 +22,7 @@
             <field name="name">myo.annotation.form</field>
             <field name="model">myo.annotation</field>
             <field name="inherit_id" ref="myo_annotation.myo_annotation_view_form"/>
-            <field name="priority" eval="8" />
+            <field name="priority" eval="30" />
             <field name="arch" type="xml">
                 <page name="annotation_for" position="inside">
                     <group string="Addresses" groups="myo_base.group_address_user">

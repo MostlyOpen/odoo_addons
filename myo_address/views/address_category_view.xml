@@ -122,7 +122,7 @@
             <field name="name">myo.address.tree</field>
             <field name="model">myo.address</field>
             <field name="inherit_id" ref="myo_address_view_tree"/>
-            <field name="priority" eval="8"/>
+            <field name="priority" eval="20"/>
             <field name="arch" type="xml">
                 <field name="code" position="before">
                     <field name="category_ids"/>
@@ -134,7 +134,7 @@
             <field name="name">myo.address.search</field>
             <field name="model">myo.address</field>
             <field name="inherit_id" ref="myo_address_view_search"/>
-            <field name="priority" eval="8"/>
+            <field name="priority" eval="20"/>
             <field name="arch" type="xml">
                 <field name="code" position="after">
                     <field name="category_ids"/>
