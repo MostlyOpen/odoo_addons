@@ -30,6 +30,8 @@
                             </h3>
                         </div>
                         <notebook>
+                            <page name="tag_for" string="Tag for">
+                            </page>
                             <page string="Notes">
                                 <field name="notes" placeholder="Notes..." colspan="4"/>
                             </page>
@@ -37,8 +39,6 @@
                                 <group>
                                     <field name="child_ids" colspan="4" nolabel="1"/>
                                 </group>
-                            </page>
-                            <page name="tag_for" string="Tag for">
                             </page>
                             <page string="Settings" groups="myo_base.group_rmanager">
                                 <group>
