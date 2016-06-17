@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-16 13:21+0000\n"
-"PO-Revision-Date: 2016-06-16 13:21+0000\n"
+"POT-Creation-Date: 2016-06-17 13:46+0000\n"
+"PO-Revision-Date: 2016-06-17 13:46+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,11 @@ msgstr "Etiquetas Subordinadas"
 #: model:ir.actions.act_window,help:myo_tag.myo_tag_action
 msgid "Click to add a new tag."
 msgstr "Clique para adicionar uma nova etiqueta."
+
+#. module: myo_tag
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_code
+msgid "Code"
+msgstr "Código"
 
 #. module: myo_tag
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_create_uid
@@ -109,13 +114,13 @@ msgstr "Última atualização em"
 #. module: myo_tag
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_parent_left
 msgid "Left parent"
-msgstr "Superior a esquerda"
+msgstr "Superior esquerda"
 
 #. module: myo_tag
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_notes
 #: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form
 msgid "Notes"
-msgstr "Notas"
+msgstr "Observações"
 
 #. module: myo_tag
 #: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form
@@ -136,7 +141,7 @@ msgstr "Etiqueta Superior..."
 #. module: myo_tag
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_parent_right
 msgid "Right parent"
-msgstr "Superior a direita"
+msgstr "Superior direito"
 
 #. module: myo_tag
 #: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form
@@ -151,7 +156,7 @@ msgid "Tag"
 msgstr "Etiqueta"
 
 #. module: myo_tag
-#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_code
+#: model:ir.model.fields,help:myo_tag.field_myo_tag_code
 msgid "Tag Code"
 msgstr "Código da Etiqueta"
 
