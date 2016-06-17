@@ -2,9 +2,9 @@
 <openerp>
     <data>
 
-        <!-- Base/Base/Residences -->
-        <menuitem name="Residences" id="menu_base_base_residences"
-            parent="myo_base.menu_base_base"
+        <!-- Community/Community/Residences -->
+        <menuitem name="Residences" id="menu_community_community_residences"
+            parent="myo_base.menu_community_community"
             groups="myo_base.group_address_user"
             sequence="60"
             action="myo_residence.myo_residence_action"/>

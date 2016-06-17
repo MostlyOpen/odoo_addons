@@ -39,12 +39,12 @@
             <field name="inherit_id" ref="myo_address.myo_address_view_search"/>
             <field name="priority" eval="8" />
             <field name="arch" type="xml">
-                <group string="Group By..." position="before">
+                <group name="group_by" position="before">
                     <filter name="filter_is_residence" string="Is Residence" domain="[('is_residence','=',True)]"/>
                 </group>
-                <filter string="Country" position="after">
+                <group name="group_by" position="inside">
                     <filter string="Is Residence" context="{'group_by': 'is_residence'}"/>
-                </filter>
+                </group>
             </field>
         </record>
 
