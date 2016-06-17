@@ -15,5 +15,9 @@
             <field name="name">Document Approver</field>
         </record>
         
+        <record id="myo_base.group_document_category_manager" model="res.groups">
+            <field name="name">Document Category Manager</field>
+        </record>
+        
     </data>
 </openerp>

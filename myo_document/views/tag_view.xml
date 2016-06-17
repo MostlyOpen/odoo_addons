@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="myo_document_view_tree_tag" model="ir.ui.view">
+            <field name="name">myo.document.tree</field>
+            <field name="model">myo.document</field>
+            <field name="inherit_id" ref="myo_document_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="tag_ids" groups="myo_base.group_tag_user"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_document_view_form_tag" model="ir.ui.view">
+            <field name="name">myo.document.form</field>
+            <field name="model">myo.document</field>
+            <field name="inherit_id" ref="myo_document_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <label for="name" position="before">
+                    <label for="tag_ids"  groups="myo_base.group_tag_user" class="oe_edit_only"/>
+                    <h2>
+                        <field name="tag_ids" widget="many2many_tags" placeholder="Tags..." options="{'no_open': False, 'no_create': True}" groups="myo_base.group_tag_user"/>
+                    </h2>
+                </label>
+            </field>
+        </record>
+
+        <record id="myo_document_view_search_tag" model="ir.ui.view">
+            <field name="name">myo.document.search</field>
+            <field name="model">myo.document</field>
+            <field name="inherit_id" ref="myo_document_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="tag_ids"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_tag_view_form_document" model="ir.ui.view">
+            <field name="name">myo.tag.form</field>
+            <field name="model">myo.tag</field>
+            <field name="inherit_id" ref="myo_tag.myo_tag_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="tag_for" position="inside">
+                    <group string="Documents">
+                        <field name="document_ids" colspan="4" nolabel="1"/>
+                    </group>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</openerp>

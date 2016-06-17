@@ -19,3 +19,6 @@
 ###############################################################################
 
 from . import document
+from . import document_category
+from . import tag
+from . import annotation

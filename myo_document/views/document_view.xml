@@ -2,7 +2,7 @@
 <openerp>
     <data>
 
-        <record id="_myo_document_view_form" model="ir.ui.view">
+        <record id="myo_document_view_form" model="ir.ui.view">
             <field name="name">myo.document.form</field>
             <field name="model">myo.document</field>
             <field name="priority" eval="8"/>
@@ -39,10 +39,10 @@
                             <!-- Put here related buttons -->
                         </div>
                         <notebook>
-                            <page string="Document Information">
+                            <page string="Notes">
                                 <field name="notes" placeholder="Notes..." colspan="4"/>
                             </page>
-                            <page string="Settings" groups="myo_base.group_rmanager">
+                            <page name="settings" string="Settings" groups="myo_base.group_rmanager">
                                 <group>
                                     <field name="active"/>
                                 </group>

@@ -18,24 +18,28 @@
 #
 ###############################################################################
 
-from datetime import datetime
+from openerp import models, fields
 
-from openerp import fields, models
+
+class Tag(models.Model):
+    _inherit = 'myo.tag'
+
+    document_ids = fields.Many2many(
+        'myo.document',
+        'myo_document_tag_rel',
+        'tag_id',
+        'document_id',
+        'Documents'
+    )
 
 
 class Document(models.Model):
-    _name = "myo.document"
+    _inherit = 'myo.document'
 
-    name = fields.Char('Code', help="Document Code")
-    date_requested = fields.Datetime('Date requested',
-                                     default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    date_document = fields.Datetime('Document Date')
-    responsible = fields.Many2one('res.users', 'Document Responsible', required=False, readonly=False)
-    notes = fields.Text(string='Notes')
-    active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the document without removing it.",
-                            default=1)
-
-    _sql_constraints = [('name_uniq', 'unique (name)', 'Error! The Document Code must be unique!')]
-
-    _order = 'name'
+    tag_ids = fields.Many2many(
+        'myo.tag',
+        'myo_document_tag_rel',
+        'document_id',
+        'tag_id',
+        'Tags'
+    )

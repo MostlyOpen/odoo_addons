@@ -29,11 +29,15 @@
     'images': [],
     'depends': [
         'myo_base',
+        'myo_tag',
     ],
     'data': [
         'security/document_security.xml',
         'security/ir.model.access.csv',
         'views/document_view.xml',
+        'views/document_category_view.xml',
+        'views/tag_view.xml',
+        'views/annotation_view.xml',
         'views/document_menu_view.xml',
     ],
     'demo': [],

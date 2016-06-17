@@ -3,3 +3,7 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_myo_document_document_user,myo.document,model_myo_document,myo_base.group_document_user,1,0,0,0
 access_myo_document_document_manager,myo.document,model_myo_document,myo_base.group_document_manager,1,1,1,0
 access_myo_document_smanager,myo.document,model_myo_document,myo_base.group_smanager,1,1,1,1
+
+access_myo_document_categry_document_user,myo.document.category,model_myo_document_category,myo_base.group_document_user,1,0,0,0
+access_myo_document_category_document_category_manager,myo.document.category,model_myo_document_category,myo_base.group_document_category_manager,1,1,1,0
+access_myo_document_categoy_smanager,myo.document.category,model_myo_document_category,myo_base.group_smanager,1,1,1,1
