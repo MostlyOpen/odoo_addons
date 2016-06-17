@@ -86,7 +86,7 @@ class Address(osv.Model, FormatAddress):
     _columns = {
         'name': fields.char('Name', required=True, select=True),
         'alias': fields.char('Alias', help='Common name that the Address is referred.'),
-        'code': fields.char(string='Address Code'),
+        'code': fields.char(string='Code', help="Address Code"),
         'notes': fields.text('Notes'),
         'street': fields.char('Street'),
         'street2': fields.char('Street2'),

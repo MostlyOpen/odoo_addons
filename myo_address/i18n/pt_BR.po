@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-16 18:32+0000\n"
-"PO-Revision-Date: 2016-06-16 18:32+0000\n"
+"POT-Creation-Date: 2016-06-17 13:50+0000\n"
+"PO-Revision-Date: 2016-06-17 13:50+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -45,14 +45,14 @@ msgid "Address Category..."
 msgstr "Categoria de Endereço..."
 
 #. module: myo_address
-#: model:ir.model.fields,field_description:myo_address.field_myo_address_code
+#: model:ir.model.fields,help:myo_address.field_myo_address_code
 msgid "Address Code"
-msgstr "Código de Endereço"
+msgstr "Código do Endereço"
 
 #. module: myo_address
 #: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
 msgid "Address Code..."
-msgstr "Código de Endereço..."
+msgstr "Código do Endereço..."
 
 #. module: myo_address
 #: model:ir.actions.act_window,name:myo_address.myo_address_action
@@ -137,6 +137,7 @@ msgstr "Clique para adicionar um novo endereço."
 
 #. module: myo_address
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_category_code
+#: model:ir.model.fields,field_description:myo_address.field_myo_address_code
 msgid "Code"
 msgstr "Código"
 
@@ -219,7 +220,7 @@ msgstr "Categoria Completa"
 #: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_search
 #: model:ir.ui.view,arch_db:myo_address.myo_address_view_search
 msgid "Group By..."
-msgstr "Agrupar por..."
+msgstr "Agrupar Por..."
 
 #. module: myo_address
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_category_id
@@ -243,11 +244,6 @@ msgid "Inactive Categories"
 msgstr "Categorias Inativas"
 
 #. module: myo_address
-#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
-msgid "Notes"
-msgstr "Notas"
-
-#. module: myo_address
 #: model:ir.model.fields,field_description:myo_address.field_myo_address___last_update
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_category___last_update
 msgid "Last Modified on"
@@ -269,7 +265,7 @@ msgstr "Última atualização em"
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_category_parent_left
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_parent_left
 msgid "Left parent"
-msgstr "Superior à esquerda"
+msgstr "Superior esquerda"
 
 #. module: myo_address
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_mobile
@@ -290,8 +286,9 @@ msgstr "Nome..."
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_category_notes
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_notes
 #: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_form
+#: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
 msgid "Notes"
-msgstr "Notas"
+msgstr "Observações"
 
 #. module: myo_address
 #: model:ir.ui.view,arch_db:myo_address.myo_address_category_view_form
@@ -330,7 +327,7 @@ msgstr "Telefone"
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_category_parent_right
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_parent_right
 msgid "Right parent"
-msgstr "Supeior à direita"
+msgstr "Superior direito"
 
 #. module: myo_address
 #: model:ir.ui.view,arch_db:myo_address.myo_address_view_search
@@ -356,12 +353,12 @@ msgstr "Estado"
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_street
 #: model:ir.ui.view,arch_db:myo_address.myo_address_view_search
 msgid "Street"
-msgstr "Logradouro"
+msgstr "Endereço"
 
 #. module: myo_address
 #: model:ir.ui.view,arch_db:myo_address.myo_address_view_form
 msgid "Street..."
-msgstr "Logradouro..."
+msgstr "Endereço..."
 
 #. module: myo_address
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_street2
