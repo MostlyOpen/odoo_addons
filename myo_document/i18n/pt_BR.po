@@ -314,7 +314,7 @@ msgid "myo.tag"
 msgstr "myo.tag"
 
 #. module: myo_base
-#: model:res.groups,name:myo_base.group_document_manager
+#: model:res.groups,name:myo_base.group_document_approver
 msgid "Document Approver"
 msgstr "Aprovador de Documento"
 
