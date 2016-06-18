@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * myo_employee
+#	* myo_employee
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-06 12:55+0000\n"
-"PO-Revision-Date: 2016-06-06 12:55+0000\n"
+"POT-Creation-Date: 2016-06-18 13:21+0000\n"
+"PO-Revision-Date: 2016-06-18 13:21+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,17 +21,22 @@ msgid "Employee"
 msgstr "Funcionário"
 
 #. module: myo_employee
+#: model:ir.ui.view,arch_db:myo_employee.view_hr_employee_form
+msgid "Employee Code..."
+msgstr "Código do Funcionário..."
+
+#. module: myo_employee
 #: sql_constraint:hr.employee:0
 msgid "Error! The Employee Code must be unique!"
 msgstr "Erro! O Código do Funcionário deve ser único!"
 
 #. module: hr
-#: field:hr.employee,code:0
-msgid "Employee Code"
-msgstr "Código do Funcionário"
+#: model:ir.model.fields,field_description:hr.field_hr_employee_code
+msgid "Code"
+msgstr "Código"
 
 #. module: hr
-#: model:ir.model.fields,field_description:hr.field_hr_employee_code
+#: model:ir.model.fields,help:hr.field_hr_employee_code
 msgid "Employee Code"
 msgstr "Código do Funcionário"
 

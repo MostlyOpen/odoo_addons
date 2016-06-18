@@ -24,7 +24,7 @@ from openerp import api, fields, models
 class Employee(models.Model):
     _inherit = 'hr.employee'
 
-    code = fields.Char(string='Employee Code', required=False)
+    code = fields.Char(string='Code', help="Employee Code", required=False)
 
     _sql_constraints = [('code_uniq', 'unique(code)', u'Error! The Employee Code must be unique!')]
 
