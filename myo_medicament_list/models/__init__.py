@@ -22,3 +22,5 @@ from . import medicament_list
 from . import medicament_list_category
 from . import medicament_list_version
 from . import medicament_list_item
+from . import tag
+from . import annotation

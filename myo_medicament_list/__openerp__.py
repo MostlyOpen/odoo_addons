@@ -37,6 +37,8 @@
         'views/medicament_list_category_view.xml',
         'views/medicament_list_version_view.xml',
         'views/medicament_list_item_view.xml',
+        'views/tag_view.xml',
+        'views/annotation_view.xml',
         'views/medicament_list_menu_view.xml',
     ],
     'demo': [],

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="myo_medicament_list_view_tree_tag" model="ir.ui.view">
+            <field name="name">myo.medicament.list.tree</field>
+            <field name="model">myo.medicament.list</field>
+            <field name="inherit_id" ref="myo_medicament_list_view_tree"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="code" position="before">
+                    <field name="tag_ids" groups="myo_base.group_tag_user"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_medicament_list_view_form_tag" model="ir.ui.view">
+            <field name="name">myo.medicament.list.form</field>
+            <field name="model">myo.medicament.list</field>
+            <field name="inherit_id" ref="myo_medicament_list_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <label for="name" position="before">
+                    <label for="tag_ids"  groups="myo_base.group_tag_user" class="oe_edit_only"/>
+                    <h2>
+                        <field name="tag_ids" widget="many2many_tags" placeholder="Tags..." options="{'no_open': False, 'no_create': True}" groups="myo_base.group_tag_user"/>
+                    </h2>
+                </label>
+            </field>
+        </record>
+
+        <record id="myo_medicament_list_view_search_tag" model="ir.ui.view">
+            <field name="name">myo.medicament.list.search</field>
+            <field name="model">myo.medicament.list</field>
+            <field name="inherit_id" ref="myo_medicament_list_view_search"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="tag_ids" />
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_tag_view_form_list" model="ir.ui.view">
+            <field name="name">myo.tag.form</field>
+            <field name="model">myo.tag</field>
+            <field name="inherit_id" ref="myo_tag.myo_tag_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <page name="tag_for" position="inside">
+                    <group string="Medicament Lists">
+                        <field name="medicament_list_ids" colspan="4" nolabel="1" />
+                    </group>
+                </page>
+            </field>
+        </record>
+
+        <record id="myo_medicament_list_version_view_tree_tag" model="ir.ui.view">
+            <field name="name">myo.medicament.list.version.tree</field>
+            <field name="model">myo.medicament.list.version</field>
+            <field name="inherit_id" ref="myo_medicament_list_version_view_tree"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="code" position="before">
+                    <field name="tag_ids" groups="myo_base.group_tag_user"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_medicament_list_version_view_form_tag" model="ir.ui.view">
+            <field name="name">myo.medicament.list.version.form</field>
+            <field name="model">myo.medicament.list.version</field>
+            <field name="inherit_id" ref="myo_medicament_list_version_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <label for="list_id" position="before">
+                    <label for="tag_ids"  groups="myo_base.group_tag_user" class="oe_edit_only"/>
+                    <h2>
+                        <field name="tag_ids" widget="many2many_tags" placeholder="Tags..." options="{'no_open': False, 'no_create': True}" groups="myo_base.group_tag_user"/>
+                    </h2>
+                </label>
+            </field>
+        </record>
+
+        <record id="myo_medicament_list_version_view_search_tag" model="ir.ui.view">
+            <field name="name">myo.medicament.list.version.search</field>
+            <field name="model">myo.medicament.list.version</field>
+            <field name="inherit_id" ref="myo_medicament_list_version_view_search"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="tag_ids" />
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_tag_view_form_list_version" model="ir.ui.view">
+            <field name="name">myo.tag.form</field>
+            <field name="model">myo.tag</field>
+            <field name="inherit_id" ref="myo_tag.myo_tag_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <page name="tag_for" position="inside">
+                    <group string="Medicament List Versions">
+                        <field name="medicament_list_version_ids" colspan="4" nolabel="1" />
+                    </group>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</openerp>

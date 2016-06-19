@@ -36,7 +36,7 @@
                                     <field name="child_ids" colspan="4" nolabel="1"/>
                                 </group>
                             </page>
-                            <page string="Medicaments">
+                            <page string="Medicament Lists">
                                 <group>
                                     <field name="medicament_list_ids" colspan="4" nolabel="1"/>
                                 </group>

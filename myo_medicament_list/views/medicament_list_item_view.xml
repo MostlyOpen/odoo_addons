@@ -45,7 +45,7 @@
                             <!-- Put here related buttons -->
                         </div>
                         <notebook>
-                            <page string="Information">
+                            <page string=" Notes">
                                 <field name="notes" placeholder="Notes..." colspan="4"/>
                             </page>
                             <page string="Settings" groups="myo_base.group_rmanager">

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="myo_medicament_list_view_form_annotation" model="ir.ui.view">
+            <field name="name">myo.medicament.list.form</field>
+            <field name="model">myo.medicament.list</field>
+            <field name="inherit_id" ref="myo_medicament_list_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Annotations" groups="myo_base.group_annotation_user">
+                        <group>
+                            <field name="annotation_ids" colspan="4" nolabel="1" />
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="myo_annotation_view_form_medicament_list" model="ir.ui.view">
+            <field name="name">myo.annotation.form</field>
+            <field name="model">myo.annotation</field>
+            <field name="inherit_id" ref="myo_annotation.myo_annotation_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <page name="annotation_for" position="inside">
+                    <group string="Medicament Lists" groups="myo_base.group_medicament_list_user">
+                        <field name="medicament_list_ids" colspan="4" nolabel="1"/>
+                    </group>
+                </page>
+            </field>
+        </record>
+
+        <record id="myo_medicament_list_version_view_form_annotation" model="ir.ui.view">
+            <field name="name">myo.medicament.list.version.form</field>
+            <field name="model">myo.medicament.list.version</field>
+            <field name="inherit_id" ref="myo_medicament_list_version_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Annotations" groups="myo_base.group_annotation_user">
+                        <group>
+                            <field name="annotation_ids" colspan="4" nolabel="1" />
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="myo_annotation_view_form_medicament_list_version" model="ir.ui.view">
+            <field name="name">myo.annotation.form</field>
+            <field name="model">myo.annotation</field>
+            <field name="inherit_id" ref="myo_annotation.myo_annotation_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <page name="annotation_for" position="inside">
+                    <group string="Medicament List Versions" groups="myo_base.group_medicament_list_user">
+                        <field name="medicament_list_version_ids" colspan="4" nolabel="1"/>
+                    </group>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</openerp>
