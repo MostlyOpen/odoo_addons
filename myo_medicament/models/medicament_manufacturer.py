@@ -18,19 +18,16 @@
 #
 ###############################################################################
 
-from openerp.osv import fields, osv
+from openerp import api, fields, models
 
 
-class MedicamentManufacturer_str(osv.osv):
+class MedicamentManufacturer_str(models.Model):
     _name = 'myo.medicament.manufacturer.str'
 
-    _columns = {
-        'name': fields.char(string='Manufacturer String', required=True),
-        'manufacturer_id': fields.many2one('myo.medicament.manufacturer', string='Associated Manufacturer',
-                                           help='Associated Medicament Manufacturer'),
-        'verify': fields.boolean('Verify'),
-    }
-
+    name = fields.Char(string='Manufacturer String', required=True)
+    manufacturer_id = fields.Many2one('myo.medicament.manufacturer', string='Associated Active Component',
+                                      help='Associated Medicament Manufacturer')
+    verify = fields.Boolean('Verify')
     _sql_constraints = [
         ('name_uniq', 'UNIQUE(name)', u'Error! The Manufacturer String must be unique!'),
     ]
@@ -38,30 +35,17 @@ class MedicamentManufacturer_str(osv.osv):
     _order = 'name'
 
 
-class MedicamentManufacturer(osv.osv):
+class MedicamentManufacturer(models.Model):
     _name = 'myo.medicament.manufacturer'
 
-    def get_strings(self, cr, uid, ids, fields, arg, context):
-        res = {}
-        for record in self.browse(cr, uid, ids, context=None):
-            strings = ''
-            for str_id in record.str_ids:
-                if strings == '':
-                    strings = str_id.name
-                else:
-                    strings = strings + '\n' + str_id.name
-            res[record.id] = strings
-        return res
-
-    _columns = {
-        'name': fields.char(string='Manufacturer', required=True),
-        'code': fields.char(string='Code'),
-        'info': fields.text(string='Info'),
-        'active': fields.boolean('Active',
-                                 help="The active field allows you to hide the active component without removing it."),
-        'str_ids': fields.one2many('myo.medicament.manufacturer.str', 'manufacturer_id', 'Strings'),
-        'strings': fields.function(get_strings, method=True, string="Strings", type='char', store=False)
-    }
+    name = fields.Char(string='Manufacturer', required=True)
+    code = fields.Char(string='Code')
+    notes = fields.Text(string='Notes')
+    active = fields.Boolean('Active',
+                            help="The active field allows you to hide the manufacturer without removing it.",
+                            default=1)
+    str_ids = fields.One2many('myo.medicament.manufacturer.str', 'manufacturer_id', 'Strings')
+    strings = fields.Char(compute="strings_get", string="Strings", store=False)
 
     _sql_constraints = [
         ('name_uniq', 'UNIQUE(name)', u'Error! The Manufacturer must be unique!'),
@@ -70,14 +54,32 @@ class MedicamentManufacturer(osv.osv):
 
     _order = 'name'
 
-    _defaults = {
-        'active': 1,
-    }
+    @api.multi
+    @api.depends('strings')
+    def strings_get(self):
+        for manufacturer in self:
+            strings = ''
+            for str_id in manufacturer.str_ids:
+                if strings == '':
+                    strings = str_id.name
+                else:
+                    strings = strings + '\n' + str_id.name
+        self.strings = strings
+
+    @api.multi
+    @api.depends('name', 'code')
+    def name_get(self):
+        result = []
+        for manufacturer in self:
+            result.append((manufacturer.id, '%s {%s}' % (manufacturer.name, manufacturer.code)))
+        return result
 
 
-class MedicamentManufacturer_2(osv.osv):
+class MedicamentManufacturer_2(models.Model):
     _inherit = 'myo.medicament.manufacturer'
 
-    _columns = {
-        'medicament_ids': fields.one2many('myo.medicament', 'manufacturer', 'Medicaments'),
-    }
+    medicament_ids = fields.One2many(
+        'myo.medicament',
+        'manufacturer_id',
+        'Medicaments'
+    )

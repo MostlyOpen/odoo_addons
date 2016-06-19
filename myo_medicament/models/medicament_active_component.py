@@ -18,18 +18,16 @@
 #
 ###############################################################################
 
-from openerp.osv import fields, osv
+from openerp import api, fields, models
 
 
-class MedicamentActiveComponent_str(osv.osv):
+class MedicamentActiveComponent_str(models.Model):
     _name = 'myo.medicament.active_component.str'
 
-    _columns = {
-        'name': fields.char(sstring='Active Component String', required=True),
-        'active_component_id': fields.many2one('myo.medicament.active_component', string='Associated Active Component',
-                                               help='Associated Medicament Active Component'),
-        'verify': fields.boolean('Verify'),
-    }
+    name = fields.Char(string='Active Component String', required=True)
+    active_component_id = fields.Many2one('myo.medicament.active_component', string='Associated Active Component',
+                                          help='Associated Medicament Active Component')
+    verify = fields.Boolean('Verify')
 
     _sql_constraints = [
         ('name_uniq', 'UNIQUE(name)', u'Error! The Active Component String must be unique!'),
@@ -38,42 +36,17 @@ class MedicamentActiveComponent_str(osv.osv):
     _order = 'name'
 
 
-class MedicamentActiveComponent(osv.osv):
+class MedicamentActiveComponent(models.Model):
     _name = 'myo.medicament.active_component'
 
-    def get_strings(self, cr, uid, ids, fields, arg, context):
-        res = {}
-        for record in self.browse(cr, uid, ids, context=None):
-            strings = ''
-            for str_id in record.str_ids:
-                if strings == '':
-                    strings = str_id.name
-                else:
-                    strings = strings + '\n' + str_id.name
-            res[record.id] = strings
-        return res
-
-    def name_get(self, cr, uid, ids, context={}):
-        if not len(ids):
-            return []
-        reads = self.read(cr, uid, ids, ['name', 'code'], context=context)
-        res = []
-        for record in reads:
-            name = record['name']
-            if record['code']:
-                name = name + ' {' + record['code'] + '}'
-            res.append((record['id'], name))
-        return res
-
-    _columns = {
-        'name': fields.char(sstring='Active Component', required=True),
-        'code': fields.char(string='Code'),
-        'info': fields.text(string='Info'),
-        'active': fields.boolean('Active',
-                                 help="The active field allows you to hide the active component without removing it."),
-        'str_ids': fields.one2many('myo.medicament.active_component.str', 'active_component_id', 'Strings'),
-        'strings': fields.function(get_strings, method=True, string="Strings", type='char', store=False)
-    }
+    name = fields.Char(string='Active Component', required=True)
+    code = fields.Char(string='Code')
+    notes = fields.Text(string='Notes')
+    active = fields.Boolean('Active',
+                            help="The active field allows you to hide the active component without removing it.",
+                            default=1)
+    str_ids = fields.One2many('myo.medicament.active_component.str', 'active_component_id', 'Strings')
+    strings = fields.Char(compute="strings_get", string="Strings", store=False)
 
     _sql_constraints = [
         ('name_uniq', 'UNIQUE(name)', u'Error! The Active Component must be unique!'),
@@ -82,14 +55,32 @@ class MedicamentActiveComponent(osv.osv):
 
     _order = 'name'
 
-    _defaults = {
-        'active': 1,
-    }
+    @api.multi
+    @api.depends('strings')
+    def strings_get(self):
+        for active_component in self:
+            strings = ''
+            for str_id in active_component.str_ids:
+                if strings == '':
+                    strings = str_id.name
+                else:
+                    strings = strings + '\n' + str_id.name
+        self.strings = strings
+
+    @api.multi
+    @api.depends('name', 'code')
+    def name_get(self):
+        result = []
+        for active_component in self:
+            result.append((active_component.id, '%s {%s}' % (active_component.name, active_component.code)))
+        return result
 
 
-class MedicamentActiveComponent_2(osv.osv):
+class MedicamentActiveComponent_2(models.Model):
     _inherit = 'myo.medicament.active_component'
 
-    _columns = {
-        'medicament_ids': fields.one2many('myo.medicament', 'active_component', 'Medicaments'),
-    }
+    medicament_ids = fields.One2many(
+        'myo.medicament',
+        'active_component_id',
+        'Medicaments'
+    )

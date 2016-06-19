@@ -86,8 +86,8 @@
                         </div>
                         <field name="str_ids" colspan="4" nolabel="1"/>
                         <notebook>
-                            <page string="Information">
-                                <field name="info" placeholder="Other Information ..." colspan="4"/>
+                            <page string="Notes">
+                                <field name="notes" placeholder="Notes..." colspan="4"/>
                             </page>
                             <page name="settings" string="Settings" groups="myo_base.group_rmanager">
                                 <group>
@@ -109,7 +109,7 @@
                     <field name="name"/>
                     <field name="code"/>
                     <field name="strings"/>
-                    <field name="info"/>
+                    <field name="notes"/>
                 </tree>
             </field>
         </record>
@@ -122,7 +122,7 @@
                 <search string="Active Component">
                     <field name="name"/>
                     <field name="code"/>
-                    <field name="info"/>
+                    <field name="notes"/>
                     <separator/>
                     <filter string="Inactive Active Components" name="active" domain="[('active','=',0)]" help="Inactive Active Components"/>
                     <group expand="0" string="Group By...">

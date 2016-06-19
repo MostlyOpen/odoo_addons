@@ -65,15 +65,15 @@ class MedicamentModel(models.AbstractModel):
     name = fields.Char('Product Name', select=True, required=True)
     ean13 = fields.Char('EAN13 Barcode', size=13,
                         help="International Article Number used for product identification.")
-    code = fields.Char(string='Medicament Code', required=False)
+    code = fields.Char(string='Code', help='Medicament Code', required=False)
     medicament_name = fields.Char(string='Medicament Name')
     concentration = fields.Char(string='Concentration')
     presentation = fields.Char(string='Presentation')
-    pres_form = fields.Many2one('myo.medicament.form', string='Presentation Form',
-                                help='Medicament form, such as tablet or gel')
+    pres_form_id = fields.Many2one('myo.medicament.form', string='Presentation Form',
+                                   help='Medicament form, such as tablet or gel')
     pres_quantity = fields.Float(string='Presentation Quantity')
-    pres_quantity_unit = fields.Many2one('myo.medicament.uom', string='Presentation Quantity Unit',
-                                         help='Unit of measure for the medicament to be taken')
+    pres_quantity_unit_id = fields.Many2one('myo.medicament.uom', string='Presentation Quantity Unit',
+                                            help='Unit of measure for the medicament to be taken')
     notes = fields.Text(string='Notes')
     date_inclusion = fields.Datetime("Inclusion Date", required=False, readonly=False,
                                      default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
@@ -142,19 +142,19 @@ class MedicamentModel_2(models.AbstractModel):
         res = self.name_active_component_get(cr, uid, ids, context=context)
         return dict(res)
 
-    active_component = fields.Many2one('myo.medicament.active_component',
-                                       string='Active Component',
-                                       help='Medicament Active Component')
+    active_component_id = fields.Many2one('myo.medicament.active_component',
+                                          string='Active Component',
+                                          help='Medicament Active Component')
     name_active_component = fields.Char('Name (Active Component)', compute='_name_active_component_get_fnc')
-    active_component_name = fields.Char(related='active_component.name',
+    active_component_name = fields.Char(related='active_component_id.name',
                                         string='Related Active Component')
 
 
 class MedicamentModel_3(models.AbstractModel):
     _inherit = 'myo.medicament.model'
 
-    manufacturer = fields.Many2one('myo.medicament.manufacturer',
-                                   string='Manufacturer',
-                                   help='Medicament Manufacturer')
-    manufacturer_name = fields.Char(related='manufacturer.name',
+    manufacturer_id = fields.Many2one('myo.medicament.manufacturer',
+                                      string='Manufacturer',
+                                      help='Medicament Manufacturer')
+    manufacturer_name = fields.Char(related='manufacturer_id.name',
                                     string='Related Manufacturer')
