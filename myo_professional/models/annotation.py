@@ -18,8 +18,28 @@
 #
 ###############################################################################
 
-from . import professional
-from . import professional_specialty
-from . import professional_category
-from . import tag
-from . import annotation
+from openerp import fields, models
+
+
+class Professional(models.Model):
+    _inherit = 'myo.professional'
+
+    annotation_ids = fields.Many2many(
+        'myo.annotation',
+        'myo_professional_annotation_rel',
+        'professional_id',
+        'annotation_id',
+        'Annotations'
+    )
+
+
+class Annotation(models.Model):
+    _inherit = 'myo.annotation'
+
+    professional_ids = fields.Many2many(
+        'myo.professional',
+        'myo_professional_annotation_rel',
+        'annotation_id',
+        'professional_id',
+        'Professionals'
+    )

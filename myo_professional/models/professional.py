@@ -28,7 +28,7 @@ class Professional(models.Model):
 
     name = fields.Char('Name', required=True)
     alias = fields.Char('Alias', help='Common name that the Professional is referred')
-    code = fields.Char(string='Professional Code', required=False)
+    code = fields.Char(string='Code', help='Professional Code', required=False)
     notes = fields.Text(string='Notes')
     date_inclusion = fields.Datetime("Inclusion Date", required=False, readonly=False,
                                      default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
