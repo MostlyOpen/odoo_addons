@@ -1,5 +1,5 @@
 Community Module
-=============
+================
 
 Community Module used in MostlyOpen Solutions.
 
