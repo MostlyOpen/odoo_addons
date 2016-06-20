@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="myo_base.group_community_user" model="res.groups">
+            <field name="name">Community User</field>
+        </record>
+        
+        <record id="myo_base.group_community_manager" model="res.groups">
+            <field name="name">Community Manager</field>
+            <field name="implied_ids" eval="[(4, ref('myo_base.group_community_user'))]"/>
+        </record>
+        
+        <record id="myo_base.group_community_category_manager" model="res.groups">
+            <field name="name">Community Category Manager</field>
+        </record>
+        
+        <record id="myo_base.group_community_person_role_manager" model="res.groups">
+            <field name="name">Community Person Role Manager</field>
+        </record>
+        
+        <record id="myo_base.group_community_person_manager" model="res.groups">
+            <field name="name">Community Person Manager</field>
+        </record>
+        
+    </data>
+</openerp>

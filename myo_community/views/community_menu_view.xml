@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+                <!-- Community/Community/Communities -->
+                <menuitem name="Communities" id="menu_community_community_communities"
+                    parent="myo_base.menu_community_community"
+                    groups="myo_base.group_community_user"
+                    sequence="30"
+                    action="myo_community.myo_community_action"/>
+                    <!-- Community/Community/Community/Families -->
+<!--                     <menuitem name="Families" id="menu_community_community_communities_families"
+                        parent="menu_community_community_communities"
+                        groups="myo_base.group_community_user"
+                        sequence="10"
+                        action="myo_community.act_open_myo_community_family_view"/>
+ -->                    <!-- Community/Community/Community/Persons -->
+                    <menuitem name="Persons" id="menu_community_community_communities_persons"
+                        parent="menu_community_community_communities"
+                        groups="myo_base.group_community_user"
+                        sequence="20"
+                        action="myo_community.myo_community_person_action"/>
+                    <!-- Community/Community/Community/Employees -->
+<!--                     <menuitem name="Employees" id="menu_community_community_communities_employees"
+                        parent="menu_community_community_communities"
+                        groups="myo_base.group_community_user"
+                        sequence="30"
+                        action="myo_community.act_open_myo_community_employee_view"/>
+ -->                <!-- Community/Community/Configuration/Community -->
+                <menuitem name="Community" id="menu_community_config_config_community"
+                    parent="myo_base.menu_community_config_config"
+                    groups="myo_base.group_community_user"
+                    sequence="30"/>
+                    <!-- Community/Community/Configuration/Community/Categories -->
+                    <menuitem name="Categories" id="menu_community_config_config_community_categories" 
+                        parent="menu_community_config_config_community"
+                        groups="myo_base.group_community_user"
+                        sequence="10"
+                        action="myo_community.myo_community_category_action"/>
+                    <!-- Community/Community/Configuration/Community/Family Roles -->
+<!--                     <menuitem name="Family Roles" id="menu_community_config_config_community_family_roles"
+                        parent="menu_community_config_config_community"
+                        groups="myo_base.group_manager"
+                        sequence="20"
+                        action="myo_community.act_open_myo_community_family_role_view"/>
+ -->                    <!-- Community/Community/Configuration/Community/Person Roles -->
+                    <menuitem name="Person Roles" id="menu_community_config_config_community_person_roles"
+                        parent="menu_community_config_config_community"
+                        groups="myo_base.group_manager"
+                        sequence="30"
+                        action="myo_community.myo_community_person_role_action"/>
+                    <!-- Community/Community/Configuration/Community/Employee Roles -->
+<!--                     <menuitem name="Employee Roles" id="menu_community_config_config_community_employee_roles"
+                        parent="menu_community_config_config_community"
+                        groups="myo_base.group_manager"
+                        sequence="40"
+                        action="myo_community.act_open_myo_community_employee_role_view"/>
+ -->
+    </data>
+</openerp>
