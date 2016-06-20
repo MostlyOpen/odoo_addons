@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Community/Community/Persons -->
+        <menuitem name="Persons" id="menu_community_community_persons"
+            parent="myo_base.menu_community_community"
+            groups="myo_base.group_person_user"
+            sequence="10"
+            action="myo_person.myo_person_action"/>
+        <!-- Community/Community/Configuration/Person -->
+        <menuitem name="Person Categories" id="menu_community_community_config_person_categories" 
+            parent="myo_base.menu_community_config_config"
+            groups="myo_base.group_person_user"
+            sequence="10"
+            action="myo_person.myo_person_category_action"/>
+
+    </data>
+</openerp>
