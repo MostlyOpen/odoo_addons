@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="myo_person_view_form_patient" model="ir.ui.view">
+            <field name="name">myo.person.form</field>
+            <field name="model">myo.person</field>
+            <field name="inherit_id" ref="myo_person.myo_person_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <label for="code" position="before">
+                    <group>
+                        <label for="is_patient"/>
+                        <h3>
+                            <field name="is_patient"/>
+                        </h3>
+                    </group>
+                    <group>
+                    </group>
+                </label>
+                <field name="code" position="replace">
+                    <field name="code" placeholder="Person/Patient Code..."/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_person_view_tree_patient" model="ir.ui.view">
+            <field name="name">myo.person.tree</field>
+            <field name="model">myo.person</field>
+            <field name="inherit_id" ref="myo_person.myo_person_view_tree"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="code" position="before">
+                    <field name="is_patient"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_person_view_search_patient" model="ir.ui.view">
+            <field name="name">myo.person.search</field>
+            <field name="model">myo.person</field>
+            <field name="inherit_id" ref="myo_person.myo_person_view_search"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <group name="group_by" position="inside">
+                    <filter name="filter_is_patient" string="Is Patient" domain="[('is_patient','=',True)]"/>
+                </group>
+                <group name="group_by" position="before">
+                    <filter string="Is Patient" context="{'group_by': 'is_patient'}"/>
+                </group>
+            </field>
+        </record>
+
+        <record id="myo_patient_action" model="ir.actions.act_window">
+            <field name="name">Persons</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.person</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_filter_is_patient': True}</field>
+            <field name="search_view_id" ref="myo_person.myo_person_view_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new person (patient).
+              </p>
+            </field>
+        </record>
+
+    </data>
+</openerp>

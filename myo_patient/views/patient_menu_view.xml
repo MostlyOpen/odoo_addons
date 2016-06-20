@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Health/Health/Patients -->
+        <menuitem name="Patients" id="menu_health_health_patients"
+            parent="myo_base.menu_health_health"
+            groups="myo_base.group_patient_user"
+            sequence="10"
+            action="myo_patient.myo_patient_action"/>
+        
+    </data>
+</openerp>
