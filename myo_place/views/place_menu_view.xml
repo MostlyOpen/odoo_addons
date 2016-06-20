@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Groupings/Groupings/Place/Places -->
+        <menuitem name="Places" id="menu_groupings_groupings_place_places"
+            parent="myo_base.menu_groupings_groupings"
+            groups="myo_base.group_place_user"
+            sequence="10"
+            action="myo_place.myo_place_action"/>
+
+        <!-- Groupings/Configuration/Configuration/Place/Categories -->
+        <menuitem name="Place Categories" id="menu_groupings_config_config_place_categories"
+            parent="myo_base.menu_groupings_config_config"
+            groups="myo_base.group_place_user"
+            sequence="10"
+            action="myo_place.myo_place_category_action"/>
+
+    </data>
+</openerp>

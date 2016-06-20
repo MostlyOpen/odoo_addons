@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_place_view_form" model="ir.ui.view">
+            <field name="name">myo.place.form</field>
+            <field name="model">myo.place</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Places" version="7.0">
+                    <sheet string="Place">
+                        <div class="oe_center" name="center">
+                            <!-- Put here related fields -->
+                            <!--label for="parent_id" class="oe_edit_only"/-->
+                            <label for="parent_id"/>
+                            <h2>
+                                <field name="parent_id" placeholder="Parent Place..." options="{'no_open': False, 'no_create': True}"/>
+                            </h2>
+                            <!--label for="name" class="oe_edit_only"/-->
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Place..."/>
+                            </h1>
+                        </div>
+                        <!--field name="image_medium" widget='image' class="oe_left oe_avatar"/-->
+                        <div class="oe_title">
+                            <label for="alias" class="oe_edit_only"/>
+                            <h2>
+                                <field name="alias" placeholder="Alias..."/>
+                            </h2>
+                            <label for="code" class="oe_edit_only"/>
+                            <h2>
+                                <field name="code" placeholder="Place Code..."/>
+                            </h2>
+                            <label for="description" class="oe_edit_only"/>
+                            <h3>
+                                <field name="description" placeholder="Description..."/>
+                            </h3>
+                        </div>
+                        <div class="oe_right oe_button_box" name="button_box">
+                            <!-- Put here related buttons -->
+                        </div>
+                        <notebook>
+                            <page string="Information">
+                                <group>
+                                    <group name="status" string="Status">
+                                        <field name="date_inclusion"/>
+                                    </group>
+                                </group>
+                                <field name="notes" placeholder="Notes..." colspan="4"/>
+                            </page>
+                            <page string="Child Places">
+                                <group>
+                                    <field name="child_ids" colspan="4" nolabel="1"/>
+                                </group>
+                            </page>
+                            <page name="settings" string="Settings" groups="myo_base.group_rmanager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="myo_place_view_tree" model="ir.ui.view">
+            <field name="name">myo.place.tree</field>
+            <field name="model">myo.place</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Places">
+                    <field name="parent_id" invisible="1"/>
+                    <field name="complete_name"/>
+                    <field name="alias"/>
+                    <field name="code"/>
+                    <field name="description"/>
+                    <field name="notes" colspan="4"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="myo_place_view_search" model="ir.ui.view">
+            <field name="name">myo.place.search</field>
+            <field name="model">myo.place</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Place">
+                    <field name="parent_id"/>
+                    <field name="name"/>
+                    <field name="alias"/>
+                    <field name="code"/>
+                    <separator/>
+                    <filter string="Inactive Places" name="active" domain="[('active','=',0)]" help="Inactive Places"/>
+                    <group name="group_by" expand="0" string="Group By...">
+                        <filter string="Parent Place" context="{'group_by': 'parent_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="myo_place_action" model="ir.actions.act_window">
+            <field name="name">Places</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.place</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="myo_place_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new Place.
+              </p>
+            </field>
+        </record>
+
+    </data>
+</openerp>
