@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_family_member_view_form" model="ir.ui.view">
+            <field name="name">myo.family.member.form</field>
+            <field name="model">myo.family.member</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Family Members" version="7.0">
+                    <sheet>
+                        <group>
+                            <field name="family_id" options="{'no_open': False, 'no_create': True}"/>
+                            <field name="person_id" options="{'no_open': False, 'no_create': True}"/>
+                            <field name="role" default_focus="1" options="{'no_open': False, 'no_create': True}"/>
+                        </group>
+                        <label for="notes" class="oe_edit_only"/>
+                        <field name="notes" placeholder="Notes..."/>
+                        <notebook>
+                            <page string="Settings" groups="myo_base.group_manager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="myo_family_member_view_tree" model="ir.ui.view">
+            <field name="name">myo.family.member.tree</field>
+            <field name="model">myo.family.member</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Family Members">
+                    <field name="family_id"/>
+                    <field name="person_id"/>
+                    <field name="role"/>
+                    <field name="notes"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="myo_family_member_view_search" model="ir.ui.view">
+            <field name="name">myo.family.member.search</field>
+            <field name="model">myo.family.member</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Family Members">
+                    <field name="family_id"/>
+                    <field name="person_id"/>
+                    <field name="role"/>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Family" domain="[]" context="{'group_by':'family_id'}"/>
+                        <filter string="Member" domain="[]" context="{'group_by':'person_id'}"/>
+                        <filter string="Member Role" domain="[]" context="{'group_by':'role'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="myo_family_member_action" model="ir.actions.act_window">
+            <field name="name">Family Members</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.family.member</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="myo_family_member_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new family member.
+              </p>
+            </field>
+        </record>
+        
+        <record id="myo_family_view_form_member" model="ir.ui.view">
+            <field name="name">myo.family.form</field>
+            <field name="model">myo.family</field>
+            <field name="inherit_id" ref="myo_family_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="public_information" position="before">
+                    <page string="Members">
+                        <field name="person_ids" colspan="4" nolabel="1"/>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="myo_person_view_form_family_member" model="ir.ui.view">
+            <field name="name">myo.person.form</field>
+            <field name="model">myo.person</field>
+            <field name="inherit_id" ref="myo_person.myo_person_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Member Roles (Family)">
+                        <field name="family_member_ids" colspan="4" nolabel="1"/>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</openerp>

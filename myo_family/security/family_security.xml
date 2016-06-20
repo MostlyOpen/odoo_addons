@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="myo_base.group_family_user" model="res.groups">
+            <field name="name">Family User</field>
+        </record>
+        
+        <record id="myo_base.group_family_manager" model="res.groups">
+            <field name="name">Family Manager</field>
+            <field name="implied_ids" eval="[(4, ref('myo_base.group_family_user'))]"/>
+        </record>
+        
+        <record id="myo_base.group_family_category_manager" model="res.groups">
+            <field name="name">Family Category Manager</field>
+        </record>
+        
+        <record id="myo_base.group_family_member_role_manager" model="res.groups">
+            <field name="name">Family Member Role Manager</field>
+        </record>
+        
+        <record id="myo_base.group_family_member_manager" model="res.groups">
+            <field name="name">Family Member Manager</field>
+        </record>
+        
+    </data>
+</openerp>

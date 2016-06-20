@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_family_member_role_view_form" model="ir.ui.view">
+            <field name="name">myo.family.member.role.form</field>
+            <field name="model">myo.family.member.role</field>
+            <field name="arch" type="xml">
+                <form string="Family Member Roles" version="7.0">
+                    <sheet>
+                         <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Member Role..." />
+                            </h1>
+                            <label for="description" class="oe_edit_only"/>
+                            <h3>
+                                <field name="description" placeholder="Description..." />
+                            </h3>
+                            <label for="notes" class="oe_edit_only"/>
+                            <field name="notes" placeholder="Notes..."/>
+                        </div>
+                        <notebook>
+                            <page string="Settings" groups="myo_base.group_manager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="myo_family_member_role_view_tree" model="ir.ui.view">
+            <field name="name">myo.family.member.role.tree</field>
+            <field name="model">myo.family.member.role</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Family Member Roles">
+                    <field name="name" />
+                    <field name="description" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="myo_family_member_role_view_search" model="ir.ui.view">
+            <field name="name">myo.family.member.role.search</field>
+            <field name="model">myo.family.member.role</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <search string="Family Member Role">
+                    <field name="name" />
+                    <field name="description" />
+                    <separator/>
+                    <filter string="Inactive Member Roles" name="active" domain="[('active','=',0)]" help="Inactive Member Roles"/>
+                </search>
+            </field>
+        </record>
+        
+        <record id="myo_family_member_role_action" model="ir.actions.act_window">
+            <field name="name">Family Member Roles</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.family.member.role</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="myo_family_member_role_view_search" />
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new family member role.
+              </p>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

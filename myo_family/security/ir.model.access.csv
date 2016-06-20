@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_myo_family_family_user,myo.family,model_myo_family,myo_base.group_family_user,1,0,0,0
+access_myo_family_family_manager,myo.family,model_myo_family,myo_base.group_family_manager,1,1,1,0
+access_myo_family_smanager,myo.family,model_myo_family,myo_base.group_smanager,1,1,1,1
+
+access_myo_family_category_family_user,myo.family.category,model_myo_family_category,myo_base.group_family_user,1,0,0,0
+access_myo_family_category_family_category_manager,myo.family.category,model_myo_family_category,myo_base.group_family_category_manager,1,1,1,0
+access_myo_family_category_smanager,myo.family.category,model_myo_family_category,myo_base.group_smanager,1,1,1,1
+
+access_myo_family_member_role_family_user,myo.family.member.role,model_myo_family_member_role,myo_base.group_family_user,1,0,0,0
+access_myo_family_member_role_family_member_role_manager,myo.family.member.role,model_myo_family_member_role,myo_base.group_family_member_role_manager,1,1,1,0
+access_myo_family_member_role_smanager,myo.family.member.role,model_myo_family_member_role,myo_base.group_smanager,1,1,1,1
+
+access_myo_family_member_family_user,myo.family.member,model_myo_family_member,myo_base.group_family_user,1,0,0,0
+access_myo_family_member_family_member_manager,myo.family.member,model_myo_family_member,myo_base.group_family_member_manager,1,1,1,0
+access_myo_family_member_smanager,myo.family.member,model_myo_family_member,myo_base.group_smanager,1,1,1,1

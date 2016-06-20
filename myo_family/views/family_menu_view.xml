@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Community/Community/Families -->
+        <menuitem name="Families" id="menu_community_community_families"
+            parent="myo_base.menu_community_community"
+            groups="myo_base.group_family_user"
+            sequence="30"
+            action="myo_family.myo_family_action"/>
+            <!-- Community/Community/Community/Members -->
+            <menuitem name="Members" id="menu_community_community_families_members"
+                parent="menu_community_community_families"
+                groups="myo_base.group_family_user"
+                sequence="20"
+                action="myo_family.myo_family_member_action"/>
+        <!-- Community/Community/Configuration/Family -->
+        <menuitem name="Family" id="menu_community_config_config_community"
+            parent="myo_base.menu_community_config_config"
+            groups="myo_base.group_family_user"
+            sequence="30"/>
+            <!-- Community/Community/Configuration/Family/Categories -->
+            <menuitem name="Categories" id="menu_community_config_config_family_categories" 
+                parent="menu_community_config_config_community"
+                groups="myo_base.group_family_user"
+                sequence="10"
+                action="myo_family.myo_family_category_action"/>
+            <!-- Community/Community/Configuration/Family/Member Roles -->
+            <menuitem name="Member Roles" id="menu_community_config_config_family_member_roles"
+                parent="menu_community_config_config_community"
+                groups="myo_base.group_manager"
+                sequence="30"
+                action="myo_family.myo_family_member_role_action"/>
+
+    </data>
+</openerp>
