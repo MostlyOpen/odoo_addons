@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_myo_medicament_group_medicament_group_user,myo.medicament.group,model_myo_medicament_group,myo_base.group_medicament_group_user,1,0,0,0
+access_myo_medicament_group_medicament_group_manager,myo.medicament.group,model_myo_medicament_group,myo_base.group_medicament_group_manager,1,1,1,0
+access_myo_medicament_group_smanager,myo.medicament.group,model_myo_medicament_group,myo_base.group_smanager,1,1,1,1
+
+access_myo_medicament_group_category_medicament_group_user,myo.medicament.group.category,model_myo_medicament_group_category,myo_base.group_medicament_group_user,1,0,0,0
+access_myo_medicament_group_category_medicament_group_category_manager,myo.medicament.group.category,model_myo_medicament_group_category,myo_base.group_medicament_group_category_manager,1,1,1,0
+access_myo_medicament_group_category_smanager,myo.medicament.group.category,model_myo_medicament_group_category,myo_base.group_smanager,1,1,1,1
+

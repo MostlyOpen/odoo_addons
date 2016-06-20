@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="myo_base.group_medicament_group_user" model="res.groups">
+            <field name="name">Medicament Group User</field>
+        </record>
+        
+        <record id="myo_base.group_medicament_group_manager" model="res.groups">
+            <field name="name">Medicament Group Manager</field>
+            <field name="implied_ids" eval="[(4, ref('myo_base.group_medicament_group_user'))]"/>
+        </record>
+        
+        <record id="myo_base.group_medicament_group_category_manager" model="res.groups">
+            <field name="name">Medicament Group Category Manager</field>
+        </record>
+
+    </data>
+</openerp>
