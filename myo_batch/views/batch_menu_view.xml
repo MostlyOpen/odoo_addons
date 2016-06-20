@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Groupings/Groupings/Place/Places/Batches -->
+<!--         <menuitem name="Batches" id="menu_groupings_groupings_place_places_batches"  
+            parent="myo_place.menu_groupings_groupings_place_places"
+            groups="myo_base.group_place_user"
+            sequence="40" 
+            action="myo_batch.act_open_myo_batch_place_view"/>
+ -->
+        <!-- Groupings/Groupings/Frame/Frames/Batches -->
+<!--         <menuitem name="Batches" id="menu_groupings_groupings_frame_frames_batches"  
+            parent="myo_frame.menu_groupings_groupings_frame_frames"
+            groups="myo_base.group_frame_user"
+            sequence="40" 
+            action="myo_batch.act_open_myo_batch_frame_view"/>
+ -->
+        <!-- Groupings/Groupings/Tray/Trays/Batches -->
+<!--         <menuitem name="Batches" id="menu_groupings_groupings_tray_trays_batches"  
+            parent="myo_tray.menu_groupings_groupings_tray_trays"
+            groups="myo_base.group_tray_user"
+            sequence="40" 
+            action="myo_batch.act_open_myo_batch_tray_view"/>
+ -->
+        <!-- Groupings/Groupings/Batch -->
+        <!--menuitem name="Batch" id="menu_groupings_groupings_batch" 
+            parent="myo_base.menu_groupings_groupings"
+            groups="myo_base.group_batch_user"
+            sequence="40"/-->
+            <!-- Groupings/Groupings/Batch/Batches -->
+            <menuitem name="Batches" id="menu_groupings_groupings_batch_batches"
+                parent="myo_base.menu_groupings_groupings"
+                groups="myo_base.group_batch_user"
+                sequence="40"
+                action="myo_batch.myo_batch_action"/>
+                <!-- Groupings/Groupings/Batch/Batches/Places -->
+<!--                 <menuitem name="Places" id="menu_groupings_groupings_batch_batches_places"  
+                    parent="menu_groupings_groupings_batch_batches"
+                    groups="myo_base.group_batch_user"
+                    sequence="10" 
+                    action="myo_batch.act_open_myo_batch_place_view"/>
+ -->                <!-- Groupings/Groupings/Batch/Batches/Frames -->
+<!--                 <menuitem name="Frames" id="menu_groupings_groupings_batch_batches_frames"  
+                    parent="menu_groupings_groupings_batch_batches"
+                    groups="myo_base.group_batch_user"
+                    sequence="20" 
+                    action="myo_batch.act_open_myo_batch_frame_view"/>
+ -->                <!-- Groupings/Groupings/Batch/Batches/Trays -->
+<!--                 <menuitem name="Trays" id="menu_groupings_groupings_batch_batches_trays"  
+                    parent="menu_groupings_groupings_batch_batches"
+                    groups="myo_base.group_batch_user"
+                    sequence="30" 
+                    action="myo_batch.act_open_myo_batch_tray_view"/>
+ -->
+        <!-- Groupings/Configuration/Configuration/Batch -->
+        <menuitem name="Batch" id="menu_groupings_config_config_batch" 
+            parent="myo_base.menu_groupings_config_config"
+            groups="myo_base.group_batch_user"
+            sequence="40"/>
+            <!-- Groupings/Configuration/Configuration/Batch/Categories -->
+            <menuitem name="Batch Categories" id="menu_groupings_config_config_batch_categories"
+                parent="myo_base.menu_groupings_config_config"
+                groups="myo_base.group_batch_user"
+                sequence="40"
+                action="myo_batch.myo_batch_category_action"/>
+
+    </data>
+</openerp>

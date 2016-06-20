@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_myo_batch_batch_user,myo.batch,model_myo_batch,myo_base.group_batch_user,1,0,0,0
+access_myo_batch_batch_manager,myo.batch,model_myo_batch,myo_base.group_batch_manager,1,1,1,0
+access_myo_batch_smanager,myo.batch,model_myo_batch,myo_base.group_smanager,1,1,1,1
+
+access_myo_batch_category_batch_user,myo.batch.category,model_myo_batch_category,myo_base.group_batch_user,1,0,0,0
+access_myo_batch_category_batch_category_manager,myo.batch.category,model_myo_batch_category,myo_base.group_batch_category_manager,1,1,1,0
+access_myo_batch_category_smanager,myo.batch.category,model_myo_batch_category,myo_base.group_smanager,1,1,1,1
