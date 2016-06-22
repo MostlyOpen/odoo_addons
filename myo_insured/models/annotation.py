@@ -21,7 +21,7 @@
 from openerp import fields, models
 
 
-class Person(models.Model):
+class Insured(models.Model):
     _inherit = 'myo.insured'
 
     annotation_ids = fields.Many2many(
