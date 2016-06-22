@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_myo_insured_card_insured_card_user,myo.insured.card,model_myo_insured_card,myo_base.group_insured_card_user,1,0,0,0
+access_myo_insured_card_insured_card_manager,myo.insured.card,model_myo_insured_card,myo_base.group_insured_card_manager,1,1,1,0
+access_myo_insured_card_smanager,myo.insured.card,model_myo_insured_card,myo_base.group_smanager,1,1,1,1
+
+access_myo_insured_card_category_insured_user,myo.insured.card.category,model_myo_insured_card_category,myo_base.group_insured_user,1,0,0,0
+access_myo_insured_card_category_insured_card_category_manager,myo.insured.card.category,model_myo_insured_card_category,myo_base.group_insured_card_category_manager,1,1,1,0
+access_myo_insured_card_category_smanager,myo.insured.card.category,model_myo_insured_card_category,myo_base.group_smanager,1,1,1,1

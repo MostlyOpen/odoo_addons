@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Groupings/Groupings/Batch/Batches/Insured Cards -->
+<!--         <menuitem name="Insured Cards" id="menu_groupings_groupings_batch_batches_insured_cards"  
+            parent="myo_batch.menu_groupings_groupings_batch_batches"
+            groups="myo_base.group_batch_user"
+            sequence="50" 
+            action="myo_insured_card.act_open_myo_insured_card_batch_view"/>
+ -->
+        <!-- Insurance/Insured/Cards -->
+        <menuitem name="Insured Cards" id="menu_insurance_insured_cards"
+            parent="myo_base.menu_insurance_insured"
+            groups="myo_base.group_insured_card_user"
+            sequence="20"
+            action="myo_insured_card.myo_insured_card_action"/>
+                <!-- Insurance/Insured/Cards/Batches -->
+<!--                 <menuitem name="Batches" id="menu_insurance_insured_cards_batches"  
+                    parent="menu_insurance_insured_cards"
+                    groups="myo_base.group_batch_user"
+                    sequence="10" 
+                    action="myo_insured_card.act_open_myo_insured_card_batch_view"/>
+ -->
+        <!-- Insurance/Configuration/Configuration/Insured Card Categories -->
+        <menuitem name="Insured Card Categories" id="menu_insurance_config_config_insured_card_categories" 
+            parent="myo_base.menu_insurance_config_config"
+            groups="myo_base.group_insured_card_user"
+            sequence="20"
+            action="myo_insured_card.myo_insured_card_category_action"/>
+
+    </data>
+</openerp>

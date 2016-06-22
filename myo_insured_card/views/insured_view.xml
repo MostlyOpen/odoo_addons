@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="myo_insured_card_view_form_insured" model="ir.ui.view">
+            <field name="name">myo.insured.card.form</field>
+            <field name="model">myo.insured.card</field>
+            <field name="inherit_id" ref="myo_insured_card_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <div class="oe_title" position="inside">
+                    <label for="insured_id"/>
+                    <h3>
+                        <field name="insured_id" placeholder="Insured..." options="{'no_open': False, 'no_create': True}"/>
+                    </h3>
+                    <label for="insured_code"/>
+                    <h3>
+                        <field name="insured_code" readonly="True"/>
+                    </h3>
+                    <label for="insured_birthday"/>
+                    <h3>
+                        <field name="insured_birthday" readonly="True"/>
+                    </h3>
+                    <label for="insured_age"/>
+                    <h3>
+                        <field name="insured_age"/>
+                    </h3>
+                </div>
+            </field>
+        </record>
+
+        <record id="myo_insured_card_view_tree_insured" model="ir.ui.view">
+            <field name="name">myo.insured.card.tree</field>
+            <field name="model">myo.insured.card</field>
+            <field name="inherit_id" ref="myo_insured_card_view_tree"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="insured_id" />
+                    <field name="insured_code"/>
+                    <field name="insured_birthday"/>
+                    <field name="insured_age"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_insured_card_view_search_insured" model="ir.ui.view">
+            <field name="name">myo.insured.card.search</field>
+            <field name="model">myo.insured.card</field>
+            <field name="inherit_id" ref="myo_insured_card_view_search"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="insured_id" />
+                    <field name="insured_code"/>
+                    <field name="insured_birthday"/>
+                    <field name="insured_age"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Insured" domain="[]" context="{'group_by': 'insured_id'}"/>
+                </group>
+            </field>
+        </record>
+
+        <record id="myo_insured_view_form_insured_card" model="ir.ui.view">
+            <field name="name">myo.insured.form</field>
+            <field name="model">myo.insured</field>
+            <field name="inherit_id" ref="myo_insured.myo_insured_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Insured Cards">
+                        <group>
+                            <field name="insured_card_ids" colspan="4" nolabel="1" />
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</openerp>
