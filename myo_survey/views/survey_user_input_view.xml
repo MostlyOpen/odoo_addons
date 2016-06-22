@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="survey_user_input_form" model="ir.ui.view">
+            <field name="name">survey.user_input.form</field>
+            <field name="model">survey.user_input</field>
+            <field name="inherit_id" ref="survey.survey_user_input_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="survey_id" position="after">
+                    <field name="external_code"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="survey_user_input_tree" model="ir.ui.view">
+            <field name="name">survey.user_input.tree</field>
+            <field name="model">survey.user_input</field>
+            <field name="inherit_id" ref="survey.survey_user_input_tree"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="survey_id" position="after">
+                    <field name="external_code"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="survey_user_input_search" model="ir.ui.view">
+            <field name="name">survey.user_input.search</field>
+            <field name="model">survey.user_input</field>
+            <field name="inherit_id" ref="survey.survey_user_input_search"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <filter string="Missing External Code" domain="[('external_code','=', False)]"/>
+                </field>
+                <filter name="group_by_survey" position="before">
+                    <filter string="External Code" domain="[]" context="{'group_by': ['external_code']}"/>
+                </filter>
+            </field>
+        </record>
+
+    </data>
+</openerp>
