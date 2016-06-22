@@ -29,7 +29,7 @@ class Tag(models.Model):
         'myo_insurance_client_tag_rel',
         'tag_id',
         'insurance_client_id',
-        'Insurance Client'
+        'Insurance Clients'
     )
 
 
