@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Insurance/Insured/Insureds -->
+        <menuitem name="Insureds" id="menu_insurance_insured_insureds"
+            parent="myo_base.menu_insurance_insured"
+            groups="myo_base.group_insured_user"
+            sequence="10"
+            action="myo_insured.myo_insured_action"/>
+
+        <!-- Insurance/Configuration/Configuration/Insured Categories -->
+        <menuitem name="Insured Categories" id="menu_insurance_config_config_insured_insured_categories" 
+            parent="myo_base.menu_insurance_config_config"
+            groups="myo_base.group_insured_user"
+            sequence="10"
+            action="myo_insured.myo_insured_category_action"/>
+
+    </data>
+</openerp>
