@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_myo_insurance_plan_insurance_plan_user,myo.insurance.plan,model_myo_insurance_plan,myo_base.group_insurance_plan_user,1,0,0,0
+access_myo_insurance_plan_insurance_plan_manager,myo.insurance.plan,model_myo_insurance_plan,myo_base.group_insurance_plan_manager,1,1,1,0
+access_myo_insurance_plan_smanager,myo.insurance.plan,model_myo_insurance_plan,myo_base.group_smanager,1,1,1,1
+
+access_myo_insurance_plan_category_insurance_plan_user,myo.insurance.plan.category,model_myo_insurance_plan_category,myo_base.group_insurance_plan_user,1,0,0,0
+access_myo_insurance_plan_category_insurance_plan_category_manager,myo.insurance.plan.category,model_myo_insurance_plan_category,myo_base.group_insurance_plan_category_manager,1,1,1,0
+access_myo_insurance_plan_category_smanager,myo.insurance.plan.category,model_myo_insurance_plan_category,myo_base.group_smanager,1,1,1,1

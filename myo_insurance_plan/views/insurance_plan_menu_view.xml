@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Insurance/Insurance/Insurance Plans -->
+        <menuitem name="Insurance Plans" id="menu_insurance_insurance_insurance_plans"
+            parent="myo_base.menu_insurance_insurance"
+            groups="myo_base.group_insurance_plan_user"
+            sequence="10"
+            action="myo_insurance_plan.myo_insurance_plan_action"/>
+
+        <!-- Insurance/Configuration/Configuration/Insurance/Plan Categories -->
+        <menuitem name="Plan Categories" id="menu_insurance_config_config_insurance_insurance_plan_categories" 
+            parent="myo_base.menu_insurance_config_config_insurance"
+            groups="myo_base.group_insurance_plan_user"
+            sequence="10"
+            action="myo_insurance_plan.myo_insurance_plan_category_action"/>
+
+        <!-- Insurance/Configuration/Configuration/Insurance/Plan Types -->
+<!--         <menuitem name="Plan Types" id="menu_insurance_config_config_insurance_insurance_plan_types" 
+            parent="myo_base.menu_insurance_config_config_insurance"
+            groups="myo_base.group_insurance_plan_user"
+            sequence="15"
+            action="myo_insurance_plan.act_open_myo_insurance_plan_type_view"/>
+ -->
+    </data>
+</openerp>
