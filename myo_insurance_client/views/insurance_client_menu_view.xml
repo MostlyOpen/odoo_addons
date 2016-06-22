@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Insurance/Insurance/Clients -->
+        <menuitem name="Insurance Clients" id="menu_insurance_insurance_clients"
+            parent="myo_base.menu_insurance_insurance"
+            groups="myo_base.group_insurance_client_user"
+            sequence="20"
+            action="myo_insurance_client.myo_insurance_client_action"/>
+
+        <!-- Insurance/Configuration/Configuration/Insurance/Client Categories -->
+        <menuitem name="Client Categories" id="menu_insurance_config_config_insurance_client_categories" 
+            parent="myo_base.menu_insurance_config_config_insurance"
+            groups="myo_base.group_insurance_client_user"
+            sequence="20"
+            action="myo_insurance_client.myo_insurance_client_category_action"/>
+
+    </data>
+</openerp>

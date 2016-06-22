@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="myo_insurance_client_view_form_annotation" model="ir.ui.view">
+            <field name="name">myo.insurance.client.form</field>
+            <field name="model">myo.insurance.client</field>
+            <field name="inherit_id" ref="myo_insurance_client_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Annotations" groups="myo_base.group_annotation_user">
+                        <group>
+                            <field name="annotation_ids" colspan="4" nolabel="1" />
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="myo_annotation_view_form" model="ir.ui.view">
+            <field name="name">myo.annotation.form</field>
+            <field name="model">myo.annotation</field>
+            <field name="inherit_id" ref="myo_annotation.myo_annotation_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <page name="annotation_for" position="inside">
+                    <group string="Insurance Clients" groups="myo_base.group_insurance_client_user">
+                        <field name="insurance_client_ids" colspan="4" nolabel="1"/>
+                    </group>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</openerp>
