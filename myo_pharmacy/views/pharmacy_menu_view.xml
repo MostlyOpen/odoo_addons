@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Pharmacy/Medicament/Pharmacies -->
+        <menuitem name="Pharmacies" id="menu_pharmacy_medicament_pharmacies"
+            parent="myo_base.menu_pharmacy_medicament"
+            groups="myo_base.group_pharmacy_user"
+            sequence="80"
+            action="myo_pharmacy.myo_pharmacy_action"/>
+
+        <!-- Pharmacy/Configuration/Configuration/Pharmacy-->
+        <menuitem name="Pharmacy" id="menu_pharmacy_config_config_pharmacy"  
+            parent="myo_base.menu_pharmacy_config_config"
+            groups="myo_base.group_user"
+            sequence="50"/>
+            <!-- Pharmacy/Configuration/Configuration/Pharmacy/Categories -->
+            <menuitem name="Categories" id="menu_pharmacy_config_config_pharmacy_categories" 
+                parent="menu_pharmacy_config_config_pharmacy"
+                groups="myo_base.group_pharmacy_user"
+                sequence="10"
+                action="myo_pharmacy.myo_pharmacy_category_action"/>
+
+    </data>
+</openerp>

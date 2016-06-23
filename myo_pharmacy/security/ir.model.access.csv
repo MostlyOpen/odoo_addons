@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_myo_pharmacy_pharmacy_user,myo.pharmacy,model_myo_pharmacy,myo_base.group_pharmacy_user,1,0,0,0
+access_myo_pharmacy_pharmacy_manager,myo.pharmacy,model_myo_pharmacy,myo_base.group_pharmacy_manager,1,1,1,0
+access_myo_pharmacy_smanager,myo.pharmacy,model_myo_pharmacy,myo_base.group_smanager,1,1,1,1
+
+access_myo_pharmacy_category_pharmacy_user,myo.pharmacy.category,model_myo_pharmacy_category,myo_base.group_pharmacy_user,1,0,0,0
+access_myo_pharmacy_category_pharmacy_category_manager,myo.pharmacy.category,model_myo_pharmacy_category,myo_base.group_pharmacy_category_manager,1,1,1,0
+access_myo_pharmacy_category_smanager,myo.pharmacy.category,model_myo_pharmacy_category,myo_base.group_smanager,1,1,1,1
