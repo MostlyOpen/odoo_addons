@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Insurance/Insured/Insureds/Management -->
+        <menuitem name="Management" id="menu_insurance_insured_insureds_mng"
+            parent="myo_insured.menu_insurance_insured_insureds"
+            groups="myo_base.group_insured_user"
+            sequence="80"
+            action="myo_insured_mng.myo_insured_mng_action"/>
+
+    </data>
+</openerp>
