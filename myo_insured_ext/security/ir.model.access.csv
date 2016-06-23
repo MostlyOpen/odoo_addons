@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_myo_insured_ext_insured_ext_user,myo_insured_ext,model_myo_insured_ext,myo_base.group_insured_ext_user,1,0,0,0
+access_myo_insured_ext_insured_ext_manager,myo_insured_ext,model_myo_insured_ext,myo_base.group_insured_ext_manager,1,1,1,0
+access_myo_insured_ext_smanager,myo_insured_ext,model_myo_insured_ext,myo_base.group_smanager,1,1,1,1
