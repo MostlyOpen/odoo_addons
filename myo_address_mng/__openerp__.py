@@ -19,7 +19,7 @@
 ###############################################################################
 
 {
-    'name': 'Address',
+    'name': 'Address Management',
     'summary': 'Address Management Module used in MostlyOpen Solutions.',
     'version': '2.0.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
