@@ -34,7 +34,7 @@ class Address(models.Model):
 class Person(models.Model):
     _inherit = 'myo.person'
 
-    address_id = fields.Many2one('myo.address', 'Person Address', ondelete='restrict')
-    person_phone = fields.Char('Person Phone', related='address_id.phone')
-    mobile_phone = fields.Char('Person Mobile', related='address_id.mobile')
-    person_email = fields.Char('Person Email', related='address_id.email')
+    address_id = fields.Many2one('myo.address', 'Address', ondelete='restrict')
+    person_phone = fields.Char('Phone', related='address_id.phone')
+    mobile_phone = fields.Char('Mobile', related='address_id.mobile')
+    person_email = fields.Char('Email', related='address_id.email')

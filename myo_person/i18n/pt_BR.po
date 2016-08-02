@@ -1,0 +1,533 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* myo_person
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-02 14:09+0000\n"
+"PO-Revision-Date: 2016-08-02 14:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_history_active
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_active
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_history_address_id
+#: model:ir.ui.view,arch_db:myo_person.myo_address_history_view_search
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_search_address
+msgid "Address"
+msgstr "Endereço"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_address_history_ids
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form_address_history
+msgid "Addresses"
+msgstr "Endereços"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_age
+msgid "Age"
+msgstr "Idade"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_alias
+msgid "Alias"
+msgstr "Apelido"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
+msgid "Alias..."
+msgstr "Apelido..."
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_annotation_ids
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form_annotation
+msgid "Annotations"
+msgstr "Anotações"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
+msgid "Birth"
+msgstr "Nascimento"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_ids
+msgid "Categories"
+msgstr "Categorias"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form_category
+msgid "Categories..."
+msgstr "Categorias..."
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_name
+msgid "Category"
+msgstr "Categoria"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_form
+msgid "Category Code..."
+msgstr "Código da Categoria..."
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_child_ids
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_form
+msgid "Child Categories"
+msgstr "Categorias Subordinadas"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
+msgid "Citizenship & Other Info"
+msgstr "Nascionalidade & Outras Informações"
+
+#. module: myo_person
+#: model:ir.actions.act_window,help:myo_person.myo_address_history_actions
+msgid "Click to add a new person address."
+msgstr "Clique para adicionar um novo endereço da pessoa."
+
+#. module: myo_person
+#: model:ir.actions.act_window,help:myo_person.myo_person_category_action
+msgid "Click to add a new person category."
+msgstr "Clique para adicionar uma nova categoria de pessoa."
+
+#. module: myo_person
+#: model:ir.actions.act_window,help:myo_person.myo_person_action
+msgid "Click to add a new person."
+msgstr "Clique para adicionar uma nova pessoa."
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_code
+msgid "Code"
+msgstr "Código"
+
+#. module: myo_person
+#: model:ir.model.fields,help:myo_person.field_myo_person_alias
+msgid "Common name that the Person is referred."
+msgstr "Nome comum com que a Pessoa é referenciada."
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form_address
+msgid "Contact Information"
+msgstr "Contato"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_history_create_uid
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_create_uid
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_history_create_date
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_create_date
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_birthday
+msgid "Date of Birth"
+msgstr "Data de Nascimento"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_description
+msgid "Description"
+msgstr "Descrição"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_form
+msgid "Description..."
+msgstr "Descrição..."
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_history_display_name
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_display_name
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_display_name
+msgid "Display Name"
+msgstr "Nome de Exibição"
+
+#. module: myo_person
+#: selection:myo.person,marital:0
+msgid "Divorced"
+msgstr "Divorciado(a)"
+
+#. module: myo_person
+#: sql_constraint:myo.person.category:0
+msgid "Error! The Category Code must be unique!"
+msgstr "Erro! O Código da Categoria deve ser único!"
+
+#. module: myo_person
+#: sql_constraint:myo.person:0
+msgid "Error! The Person Code must be unique!"
+msgstr "Erro! O Código da Pessoa deve ser único!"
+
+#. module: myo_person
+#: constraint:myo.person.category:0
+msgid "Error! You can not create recursive categories."
+msgstr "Erro! Não é possível criar castegorias recursivas."
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
+msgid "Family"
+msgstr "Família"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_father_id
+msgid "Father"
+msgstr "Pai"
+
+#. module: myo_person
+#: selection:myo.person,gender:0
+msgid "Female"
+msgstr "Feminino"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_complete_name
+msgid "Full Category"
+msgstr "Categoria Completa"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_gender
+msgid "Gender"
+msgstr "Gênero"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_address_history_view_search
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_search
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_search
+msgid "Group By..."
+msgstr "Agrupar Por..."
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_history_id
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_id
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_id
+msgid "ID"
+msgstr "ID"
+
+#. module: myo_person
+#: model:ir.model.fields,help:myo_person.field_myo_address_history_active
+msgid "If unchecked, it will allow you to hide the address history without removing it."
+msgstr "Se desmarcado, será possível esconder o histórico de endereço sem removê-lo."
+
+#. module: myo_person
+#: model:ir.model.fields,help:myo_person.field_myo_person_category_active
+msgid "If unchecked, it will allow you to hide the category without removing it."
+msgstr "Se desmarcado, será possível esconder a categoria sem removê-la."
+
+#. module: myo_person
+#: model:ir.model.fields,help:myo_person.field_myo_person_active
+msgid "If unchecked, it will allow you to hide the person without removing it."
+msgstr "Se desmarcado, será possível esconder a pessoa sem removê-la."
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_search
+msgid "Inactive Categories"
+msgstr "Categorias Inativas"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_date_inclusion
+msgid "Inclusion Date"
+msgstr "Data da Inclusão"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_history___last_update
+#: model:ir.model.fields,field_description:myo_person.field_myo_person___last_update
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category___last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_history_write_uid
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_write_uid
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_history_write_date
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_write_date
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_parent_left
+msgid "Left parent"
+msgstr "Superior esquerda"
+
+#. module: myo_person
+#: selection:myo.person,gender:0
+msgid "Male"
+msgstr "Masculino"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_marital
+msgid "Marital Status"
+msgstr "Estado Civil"
+
+#. module: myo_person
+#: selection:myo.person,marital:0
+msgid "Married"
+msgstr "Casado(a)"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_mother_id
+msgid "Mother"
+msgstr "Mãe"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_name
+msgid "Name"
+msgstr "Nome"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
+msgid "Name..."
+msgstr "Nome..."
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_country_id
+msgid "Nationality"
+msgstr "Nacionalidade"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_history_notes
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_notes
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_notes
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_form
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
+msgid "Notes..."
+msgstr "Notas..."
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_otherid
+msgid "Other ID"
+msgstr "Outro ID"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_parent_id
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_search
+msgid "Parent Category"
+msgstr "Categoria Superior"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_form
+msgid "Parent Category..."
+msgstr "Categoria Superior..."
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_history_person_id
+#: model:ir.model.fields,help:myo_person.field_myo_address_history_person_id
+#: model:ir.ui.view,arch_db:myo_person.myo_address_history_view_search
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_search
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_tree
+msgid "Person"
+msgstr "Pessoa"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_address_id
+msgid "Address"
+msgstr "Endereço"
+
+#. module: myo_person
+#: model:ir.actions.act_window,name:myo_person.myo_address_history_actions
+#: model:ir.ui.view,arch_db:myo_person._myo_address_history_view_form
+#: model:ir.ui.view,arch_db:myo_person.myo_address_history_view_search
+#: model:ir.ui.view,arch_db:myo_person.myo_address_history_view_tree
+msgid "Addresses"
+msgstr "Endereços"
+
+#. module: myo_person
+#: model:ir.actions.act_window,name:myo_person.myo_person_category_action
+#: model:ir.ui.menu,name:myo_person.menu_community_community_config_person_categories
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_form
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_tree
+msgid "Person Categories"
+msgstr "Categorias de Pessoa"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_search
+msgid "Person Category"
+msgstr "Categoria de Pessoa"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_form
+msgid "Person Category..."
+msgstr "Categoria de Pessoa..."
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_code
+msgid "Person Code"
+msgstr "Código da Pessoa"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
+msgid "Person Code..."
+msgstr "Código da Pessoa..."
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_person_email
+msgid "Email"
+msgstr "Email"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_identification_id
+msgid "Person ID"
+msgstr "ID da Pessoa"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_mobile_phone
+msgid "Mobile"
+msgstr "Celular"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_person_phone
+msgid "Phone"
+msgstr "Telefone"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
+msgid "Personal Information"
+msgstr "Informações Pessoais"
+
+#. module: myo_person
+#: model:ir.actions.act_window,name:myo_person.myo_person_action
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_person_ids
+#: model:ir.model.fields,field_description:myo_person.field_myo_annotation_person_ids
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_person_ids
+#: model:ir.model.fields,field_description:myo_person.field_myo_tag_person_ids
+#: model:ir.ui.menu,name:myo_person.menu_community_community_persons
+#: model:ir.ui.view,arch_db:myo_person.myo_address_view_form_person
+#: model:ir.ui.view,arch_db:myo_person.myo_annotation_view_form_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_form
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
+#: model:ir.ui.view,arch_db:myo_person.myo_tag_view_form_person
+msgid "Persons"
+msgstr "Pessoas"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
+msgid "Public Information"
+msgstr "Informações Públicas"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_responsible_id
+msgid "Responsible"
+msgstr "Responsável"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_category_parent_right
+msgid "Right parent"
+msgstr "Superior direito"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person._myo_address_history_view_form
+#: model:ir.ui.view,arch_db:myo_person.myo_person_category_view_form
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
+msgid "Settings"
+msgstr "Configurações"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_history_sign_in_date
+msgid "Sign in date"
+msgstr "Data de entrada"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_address_history_sign_out_date
+msgid "Sign out date"
+msgstr "Data de saída"
+
+#. module: myo_person
+#: selection:myo.person,marital:0
+msgid "Single"
+msgstr "Solteiro(a)"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_spouse_id
+msgid "Spouse"
+msgstr "Cônjuge"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
+msgid "Status"
+msgstr "Situação"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_tag_ids
+msgid "Tags"
+msgstr "Marcadores"
+
+#. module: myo_person
+#: model:ir.ui.view,arch_db:myo_person.myo_person_view_form_tag
+msgid "Tags..."
+msgstr "Etiquetas..."
+
+#. module: myo_person
+#: selection:myo.person,marital:0
+msgid "Widower"
+msgstr "Viuvo(a)"
+
+#. module: myo_person
+#: model:ir.model,name:myo_person.model_myo_address
+msgid "myo.address"
+msgstr "myo.address"
+
+#. module: myo_person
+#: model:ir.model,name:myo_person.model_myo_address_history
+msgid "myo.address.history"
+msgstr "myo.address.history"
+
+#. module: myo_person
+#: model:ir.model,name:myo_person.model_myo_annotation
+msgid "myo.annotation"
+msgstr "myo.annotation"
+
+#. module: myo_person
+#: model:ir.model,name:myo_person.model_myo_person
+msgid "myo.person"
+msgstr "myo.person"
+
+#. module: myo_person
+#: model:ir.model,name:myo_person.model_myo_person_category
+msgid "myo.person.category"
+msgstr "myo.person.category"
+
+#. module: myo_person
+#: model:ir.model,name:myo_person.model_myo_tag
+msgid "myo.tag"
+msgstr "myo.tag"
+
+#. module: myo_base
+#: model:res.groups,name:myo_base.group_person_category_manager
+msgid "Person Category Manager"
+msgstr "Gerente de Categoria de Pessoa"
+
+#. module: myo_base
+#: model:res.groups,name:myo_base.group_person_manager
+msgid "Person Manager"
+msgstr "Gerente de Pessoa"
+
+#. module: myo_base
+#: model:res.groups,name:myo_base.group_person_user
+msgid "Person User"
+msgstr "Usuário de Pessoa"
+

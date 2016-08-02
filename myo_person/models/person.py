@@ -28,7 +28,7 @@ class Person(models.Model):
     _name = 'myo.person'
 
     name = fields.Char('Name', required=True)
-    alias = fields.Char('Alias', help='Common name that the Person is referred')
+    alias = fields.Char('Alias', help='Common name that the Person is referred.')
     code = fields.Char(string='Person Code', required=False)
     notes = fields.Text(string='Notes')
     date_inclusion = fields.Datetime("Inclusion Date", required=False, readonly=False,
