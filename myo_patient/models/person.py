@@ -24,7 +24,7 @@ from openerp import fields, models
 class Person(models.Model):
     _inherit = 'myo.person'
 
-    code = fields.Char(size=64, string='Person/Patient Code', required=False)
+    code = fields.Char(string='Person/Patient Code', required=False)
     is_patient = fields.Boolean('Is Patient',
                                 help="If checked, the Person is a Patient.",
                                 default=0)

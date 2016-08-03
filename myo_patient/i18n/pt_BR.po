@@ -1,0 +1,68 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* myo_patient
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-03 12:49+0000\n"
+"PO-Revision-Date: 2016-08-03 12:49+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: myo_patient
+#: model:ir.actions.act_window,help:myo_patient.myo_patient_action
+msgid "Click to add a new person (patient)."
+msgstr "Clique para adicionar uma nova pessoa (paciente)."
+
+#. module: myo_patient
+#: model:ir.model.fields,help:myo_patient.field_myo_person_is_patient
+msgid "If checked, the Person is a Patient."
+msgstr "Se marcado, a pessoa é um Paciente."
+
+#. module: myo_patient
+#: model:ir.model.fields,field_description:myo_patient.field_myo_person_is_patient
+#: model:ir.ui.view,arch_db:myo_patient.myo_person_view_search_patient
+msgid "Is Patient"
+msgstr "Paciente"
+
+#. module: myo_patient
+#: model:ir.ui.menu,name:myo_patient.menu_health_health_patients
+msgid "Patients"
+msgstr "Pacientes"
+
+#. module: myo_patient
+#: model:ir.ui.view,arch_db:myo_patient.myo_person_view_form_patient
+msgid "Person/Patient Code..."
+msgstr "Código da Pessoa/Paciente..."
+
+#. module: myo_patient
+#: model:ir.actions.act_window,name:myo_patient.myo_patient_action
+msgid "Persons"
+msgstr "Pessoas"
+
+#. module: myo_patient
+#: model:ir.model,name:myo_patient.model_myo_person
+msgid "myo.person"
+msgstr "myo.person"
+
+#. module: myo_person
+#: model:ir.model.fields,field_description:myo_person.field_myo_person_code
+msgid "Person/Patient Code"
+msgstr "Código da Pessoa/Paciente"
+
+#. module: myo_base
+#: model:res.groups,name:myo_base.group_patient_manager
+msgid "Patient Manager"
+msgstr "Gerente de Paciente"
+
+#. module: myo_base
+#: model:res.groups,name:myo_base.group_patient_user
+msgid "Patient User"
+msgstr "Usuário de Paciente"
+
