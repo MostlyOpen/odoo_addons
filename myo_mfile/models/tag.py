@@ -29,7 +29,7 @@ class Tag(models.Model):
         'myo_mfile_tag_rel',
         'tag_id',
         'mfile_id',
-        'Files'
+        'Media Files'
     )
 
 

@@ -1,0 +1,392 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* myo_mfile
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-15 13:26+0000\n"
+"PO-Revision-Date: 2016-08-15 13:26+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_active
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_alias
+msgid "Alias"
+msgstr "Apelido"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_form
+msgid "Alias..."
+msgstr "Apelido..."
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_annotation_ids
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_form_annotation
+msgid "Annotations"
+msgstr "Anotações"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_ids
+msgid "Categories"
+msgstr "Categorias"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_form_category
+msgid "Categories..."
+msgstr "Categorias..."
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_name
+msgid "Category"
+msgstr "Categoria"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_form
+msgid "Category Code..."
+msgstr "Código da Categoria..."
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_child_ids
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_form
+msgid "Child Categories"
+msgstr "Categorias Subordinadas"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_child_ids
+msgid "Child Files"
+msgstr "Arquivos Subordinados"
+
+#. module: myo_mfile
+#: model:ir.actions.act_window,help:myo_mfile.myo_mfile_category_action
+msgid "Click to add a new media file category."
+msgstr "Clique para adicionar uma nova categoria de arquivo de mídia."
+
+#. module: myo_mfile
+#: model:ir.actions.act_window,help:myo_mfile.myo_mfile_action
+msgid "Click to add a new media file."
+msgstr "Clique para adicionar um novo arquivo de mídia."
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_code
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_code
+msgid "Code"
+msgstr "Código"
+
+#. module: myo_mfile
+#: model:ir.model.fields,help:myo_mfile.field_myo_mfile_alias
+msgid "Common name that the file is referred"
+msgstr "Nome comum com que o arquivo é referenciado"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_create_uid
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_create_date
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_description
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_description
+msgid "Description"
+msgstr "Descrição"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_form
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_form
+msgid "Description..."
+msgstr "Descrição..."
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_display_name
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_display_name
+msgid "Display Name"
+msgstr "Nome de Exibição"
+
+#. module: myo_mfile
+#: sql_constraint:myo.mfile.category:0
+msgid "Error! The Category Code must be unique!"
+msgstr "Erro! O Código da Categoria deve ser único!"
+
+#. module: myo_mfile
+#: sql_constraint:myo.mfile:0
+msgid "Error! The Code must be unique!"
+msgstr "Erro! O Código deve ser único!"
+
+#. module: myo_mfile
+#: constraint:myo.mfile.category:0
+msgid "Error! You can not create recursive categories."
+msgstr "Erro! Não é possível criar castegorias recursivas."
+
+#. module: myo_mfile
+#: model:ir.actions.act_window,name:myo_mfile.myo_mfile_category_action
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_tree
+msgid "File Categories"
+msgstr "Categorias de Arquivos"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_search
+msgid "File Category"
+msgstr "Categoria de Arquivo"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_form
+msgid "File Category..."
+msgstr "Categoria de Arquivo..."
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_complete_name
+msgid "Full Category"
+msgstr "Categoria Completa"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_search
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_search
+msgid "Group By..."
+msgstr "Agrupar Por..."
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_id
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_id
+msgid "ID"
+msgstr "ID"
+
+#. module: myo_mfile
+#: model:ir.model.fields,help:myo_mfile.field_myo_mfile_category_active
+msgid "If unchecked, it will allow you to hide the category without removing it."
+msgstr "Se desmarcado, será possível esconder a categoria sem removê-la."
+
+#. module: myo_mfile
+#: model:ir.model.fields,help:myo_mfile.field_myo_mfile_active
+msgid "If unchecked, it will allow you to hide the media file without removing it."
+msgstr "Se desmarcado, será possível esconder o arquivo sem removê-lo."
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_image
+msgid "Image"
+msgstr "Imagem"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_search
+msgid "Inactive Categories"
+msgstr "Categorias Inativas"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_date_inclusion
+msgid "Inclusion Date"
+msgstr "Data de Inclusão"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_form
+msgid "Information"
+msgstr "Informações"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile___last_update
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category___last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_write_uid
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_write_date
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_parent_left
+msgid "Left parent"
+msgstr "Superior esquerda"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_form
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_search
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_tree
+msgid "Media File"
+msgstr "Arquivo de Mídia"
+
+#. module: myo_mfile
+#: model:ir.ui.menu,name:myo_mfile.menu_mfmng_mfmng_config_file_categories
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_form
+msgid "Media File Categories"
+msgstr "Categorias de Arquivos de Mídia"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_form
+msgid "Media File Code..."
+msgstr "Código do Arquivo de Mídia..."
+
+#. module: myo_mfile
+#: model:ir.actions.act_window,name:myo_mfile.myo_mfile_action
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_annotation_mfile_ids
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_mfile_ids
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_tag_mfile_ids
+#: model:ir.ui.menu,name:myo_mfile.menu_mfmng_mfmng_files
+#: model:ir.ui.view,arch_db:myo_mfile.myo_annotation_view_form
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_form
+#: model:ir.ui.view,arch_db:myo_mfile.myo_tag_view_form
+msgid "Media Files"
+msgstr "Arquivos de Mídia"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_image_medium
+msgid "Medium-sized image"
+msgstr "Imagem de tamanho Médio"
+
+#. module: myo_mfile
+#: model:ir.model.fields,help:myo_mfile.field_myo_mfile_image_medium
+msgid "Medium-sized image of this media file. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+msgstr "Medium-sized image of this media file. It is automatically resized as a 128x128px image, with aspect ratio preserved. Use this field in form views or some kanban views."
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_name
+msgid "Name"
+msgstr "Nome"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_form
+msgid "Name..."
+msgstr "Nome..."
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_notes
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_notes
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_form
+msgid "Notes"
+msgstr "Notas"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_form
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_form
+msgid "Notes..."
+msgstr "Notas..."
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_parent_id
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_search
+msgid "Parent Category"
+msgstr "Categoria Superior"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_form
+msgid "Parent Category..."
+msgstr "Categoria Superior..."
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_parent_id
+msgid "Parent File"
+msgstr "Arquivo Superior"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_path
+msgid "Path"
+msgstr "Caminho"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_category_parent_right
+msgid "Right parent"
+msgstr "Superior à direita"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_category_view_form
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_form
+msgid "Settings"
+msgstr "Configurações"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_image_small
+msgid "Small-sized image"
+msgstr "Imagem pequena"
+
+#. module: myo_mfile
+#: model:ir.model.fields,help:myo_mfile.field_myo_mfile_image_small
+msgid "Small-sized image of this media file. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
+msgstr "Small-sized image of this media file. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_tag_ids
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. module: myo_mfile
+#: model:ir.ui.view,arch_db:myo_mfile.myo_mfile_view_form_myo_tag
+msgid "Tags..."
+msgstr "Etiquetas..."
+
+#. module: myo_mfile
+#: model:ir.model.fields,help:myo_mfile.field_myo_mfile_image
+msgid "This field holds the image used as avatar for this media file, limited to 1024x1024px"
+msgstr "This field holds the image used as avatar for this media file, limited to 1024x1024px"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_url
+msgid "URL"
+msgstr "URL"
+
+#. module: myo_mfile
+#: model:ir.model.fields,help:myo_mfile.field_myo_mfile_url
+msgid "URL of the File"
+msgstr "URL do Arquivo"
+
+#. module: myo_mfile
+#: model:ir.model,name:myo_mfile.model_myo_annotation
+msgid "myo.annotation"
+msgstr "myo.annotation"
+
+#. module: myo_mfile
+#: model:ir.model,name:myo_mfile.model_myo_mfile
+msgid "myo.mfile"
+msgstr "myo.mfile"
+
+#. module: myo_mfile
+#: model:ir.model,name:myo_mfile.model_myo_mfile_category
+msgid "myo.mfile.category"
+msgstr "myo.mfile.category"
+
+#. module: myo_mfile
+#: model:ir.model,name:myo_mfile.model_myo_tag
+msgid "myo.tag"
+msgstr "myo.tag"
+
+#. module: myo_mfile
+#: model:ir.model.fields,field_description:myo_mfile.field_myo_mfile_has_image
+msgid "unknown"
+msgstr "desconhecido"
+
+#. module: myo_base
+#: model:res.groups,name:myo_base.group_mfile_category_manager
+msgid "Media File Category Manager"
+msgstr "Gerente de Categoria de Arquivo de Mídia"
+
+#. module: myo_base
+#: model:res.groups,name:myo_base.group_mfile_manager
+msgid "Media File Manager"
+msgstr "Gerente de Arquivo de Mídia"
+
+#. module: myo_base
+#: model:res.groups,name:myo_base.group_mfile_user
+msgid "Media File User"
+msgstr "Usuário de Arquivo de Mídia"
+
