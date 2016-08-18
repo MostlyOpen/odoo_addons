@@ -20,8 +20,10 @@
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+from datetime import timedelta as td
 
 from openerp import api, fields, models
+from openerp.fields import Date as fDate
 
 
 class Person(models.Model):
@@ -51,6 +53,14 @@ class Person(models.Model):
         compute='_compute_age',
         store=False
     )
+    age_days = fields.Float(
+        string='Days Since Date of Birth',
+        compute='_compute_age_days',
+        inverse='_inverse_age_days',
+        search='_search_age_days',
+        store=False,
+        compute_sudo=False,
+    )
     spouse_id = fields.Many2one('myo.person', 'Spouse', ondelete='restrict')
     father_id = fields.Many2one('myo.person', 'Father', ondelete='restrict')
     mother_id = fields.Many2one('myo.person', 'Mother', ondelete='restrict')
@@ -75,14 +85,19 @@ class Person(models.Model):
 
     _order = 'name'
 
-    _sql_constraints = [('person_code_uniq', 'unique(code)', u'Error! The Person Code must be unique!')]
+    _sql_constraints = [
+        ('code_uniq',
+         'UNIQUE(code)',
+         u'Error! The Person Code must be unique!'
+         )
+    ]
 
-    @api.constrains(birthday)
+    @api.multi
+    @api.constrains('birthday')
     def _check_birthday(self):
-        for r in self:
-            if r.birthday > fields.Date.today():
-                raise models.ValidationError(
-                    'Error! Date of Birth must be in the past!')
+        for person in self:
+            if person.birthday > fields.Date.today():
+                raise Warning(u'Error! Date of Birth must be in the past!')
 
     @api.one
     @api.depends('birthday')
@@ -95,3 +110,24 @@ class Person(models.Model):
             self.age = str(delta.years)
         else:
             self.age = "No Date of Birth!"
+
+    @api.multi
+    @api.depends('birthday')
+    def _compute_age_days(self):
+        today = fDate.from_string(fDate.today())
+        for person in self.filtered('birthday'):
+            delta = (today - fDate.from_string(person.birthday))
+            person.age_days = delta.days
+
+    def _inverse_age_days(self):
+        today = fDate.from_string(fDate.today())
+        for person in self.filtered('birthday'):
+            d = td(days=person.age_days)
+            person.birthday = fDate.to_string(today - d)
+
+    def _search_age_days(self, operator, value):
+        today = fDate.from_string(fDate.today())
+        value_days = td(days=value)
+        value_date = fDate.to_string(today - value_days)
+        print '>>>>>>>>>', [('birthday', operator, value_date)]
+        return [('birthday', operator, value_date)]

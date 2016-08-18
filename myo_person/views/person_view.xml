@@ -62,6 +62,7 @@
                                     <group string="Birth">
                                         <field name="birthday"/>
                                         <field name="age"/>
+                                        <field name="age_days"/>
                                     </group>
                                 </group>
                             </page>
@@ -85,9 +86,9 @@
                     <field name="name"/>
                     <field name="alias"/>
                     <field name="code"/>
-                    <field name="age" />
-                    <field name="birthday" />
-                    <field name="notes"/>
+                    <field name="age"/>
+                    <field name="age_days"/>
+                    <field name="birthday"/>
                 </tree>
             </field>
         </record>
@@ -101,9 +102,12 @@
                     <field name="name"/>
                     <field name="alias"/>
                     <field name="code"/>
-                    <field name="notes"/>
+                    <field name="age_days"/>
+                    <field name="birthday"/>
                     <separator/>
                     <group name="group_by" expand="0" string="Group By...">
+                        <filter string="Date of Birth" context="{'group_by': 'birthday'}"/>
+                        <!--filter string="Days Since Date of Birth" context="{'group_by': 'age_days'}"/-->
                     </group>
                 </search>
             </field>
