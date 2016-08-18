@@ -25,7 +25,8 @@ class MediaFileCategory(models.Model):
     _name = 'myo.mfile.category'
 
     name = fields.Char('Category', required=True, translate=True)
-    parent_id = fields.Many2one('myo.mfile.category', 'Parent Category', select=True, ondelete='restrict')
+    # parent_id = fields.Many2one('myo.mfile.category', 'Parent Category', select=True, ondelete='restrict')
+    parent_id = fields.Many2one('myo.mfile.category', 'Parent Category', select=True, ondelete='restrict', index=True)
     code = fields.Char('Code', required=False)
     description = fields.Char(string='Description', size=256)
     notes = fields.Text(string='Notes')
@@ -34,8 +35,10 @@ class MediaFileCategory(models.Model):
     active = fields.Boolean('Active',
                             help="If unchecked, it will allow you to hide the category without removing it.",
                             default=1)
-    parent_left = fields.Integer('Left parent', select=True)
-    parent_right = fields.Integer('Right parent', select=True)
+    # parent_left = fields.Integer('Left parent', select=True)
+    parent_left = fields.Integer('Left parent', select=True, index=True)
+    # parent_right = fields.Integer('Right parent', select=True)
+    parent_right = fields.Integer('Right parent', select=True, index=True)
     mfile_ids = fields.Many2many(
         'myo.mfile',
         'myo_mfile_category_rel',
@@ -44,19 +47,31 @@ class MediaFileCategory(models.Model):
         'Media Files'
     )
 
+    # _sql_constraints = [
+    #     ('uniq_code', 'unique(code)', "Error! The Category Code must be unique!"),
+    # ]
+
     _sql_constraints = [
-        ('uniq_code', 'unique(code)', "Error! The Category Code must be unique!"),
+        ('code_uniq',
+         'UNIQUE (code)',
+         'Error! The Category Code must be unique!'),
     ]
 
-    _constraints = [(
-        models.Model._check_recursion,
-        'Error! You can not create recursive categories.',
-        ['parent_id']
-    )]
+    # _constraints = [(
+    #     models.Model._check_recursion,
+    #     'Error! You can not create recursive categories.',
+    #     ['parent_id']
+    # )]
 
     _parent_store = True
     _parent_order = 'name'
     _order = 'parent_left'
+
+    @api.constrains(parent_id)
+    def _check_hierarchy(self):
+        if not self._check_recursion():
+            raise models.ValidationError(
+                'Error! You can not create recursive categories.')
 
     @api.multi
     def name_get(self):

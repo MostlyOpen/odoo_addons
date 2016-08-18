@@ -30,8 +30,10 @@ class MediaFile(models.Model):
     alias = fields.Char('Alias', help='Common name that the file is referred')
     code = fields.Char(string='Code', required=False)
     path = fields.Char(string='Path', compute='_compute_path_str', store=False, readonly=True)
-    description = fields.Text(string='Description', translate=False)
-    notes = fields.Text(string='Notes')
+    # description = fields.Text(string='Description', translate=False)
+    description = fields.Html(string='Description', translate=False)
+    # notes = fields.Text(string='Notes')
+    notes = fields.Html(string='Notes', translate=False)
     date_inclusion = fields.Datetime('Inclusion Date',
                                      default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     active = fields.Boolean('Active',

@@ -68,7 +68,7 @@
                     <field name="name"/>
                     <field name="alias"/>
                     <field name="code"/>
-                    <field name="notes" colspan="4"/>
+                    <!--field name="notes" colspan="4"/-->
                 </tree>
             </field>
         </record>
