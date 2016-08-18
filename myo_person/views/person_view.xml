@@ -85,6 +85,7 @@
                     <field name="name"/>
                     <field name="alias"/>
                     <field name="code"/>
+                    <field name="age" />
                     <field name="birthday" />
                     <field name="notes"/>
                 </tree>

@@ -27,6 +27,17 @@ from openerp import api, fields, models
 class Person(models.Model):
     _name = 'myo.person'
 
+    @api.multi
+    @api.depends('name', 'code', 'age')
+    def name_get(self):
+        result = []
+        for record in self:
+            result.append(
+                (record.id,
+                 u'%s [%s] (%s)' % (record.name, record.code, record.age)
+                 ))
+        return result
+
     name = fields.Char('Name', required=True)
     alias = fields.Char('Alias', help='Common name that the Person is referred.')
     code = fields.Char(string='Person Code', required=False)
@@ -35,7 +46,11 @@ class Person(models.Model):
                                      default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     country_id = fields.Many2one('res.country', 'Nationality')
     birthday = fields.Date("Date of Birth")
-    age = fields.Char('Age', compute='_age', store=False)
+    age = fields.Char(
+        string='Age',
+        compute='_compute_age',
+        store=False
+    )
     spouse_id = fields.Many2one('myo.person', 'Spouse', ondelete='restrict')
     father_id = fields.Many2one('myo.person', 'Father', ondelete='restrict')
     mother_id = fields.Many2one('myo.person', 'Mother', ondelete='restrict')
@@ -62,13 +77,21 @@ class Person(models.Model):
 
     _sql_constraints = [('person_code_uniq', 'unique(code)', u'Error! The Person Code must be unique!')]
 
+    @api.constrains(birthday)
+    def _check_birthday(self):
+        for r in self:
+            if r.birthday > fields.Date.today():
+                raise models.ValidationError(
+                    'Error! Date of Birth must be in the past!')
+
     @api.one
     @api.depends('birthday')
-    def _age(self):
+    def _compute_age(self):
         now = datetime.now()
         if self.birthday:
             dob = datetime.strptime(self.birthday, '%Y-%m-%d')
             delta = relativedelta(now, dob)
-            self.age = str(delta.years) + "y " + str(delta.months) + "m " + str(delta.days) + "d"
+            # self.age = str(delta.years) + "y " + str(delta.months) + "m " + str(delta.days) + "d"
+            self.age = str(delta.years)
         else:
             self.age = "No Date of Birth!"
