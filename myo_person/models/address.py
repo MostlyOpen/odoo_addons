@@ -18,7 +18,7 @@
 #
 ###############################################################################
 
-from openerp import fields, models
+from openerp import api, fields, models
 
 
 class Address(models.Model):
@@ -29,6 +29,15 @@ class Address(models.Model):
         'address_id',
         'Persons'
     )
+    count_persons = fields.Integer(
+        'Number of Persons',
+        compute='_compute_count_persons'
+    )
+
+    @api.depends('person_ids')
+    def _compute_count_persons(self):
+        for r in self:
+            r.count_persons = len(r.person_ids)
 
 
 class Person(models.Model):
