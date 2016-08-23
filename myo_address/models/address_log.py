@@ -75,6 +75,6 @@ class Address(models.Model):
     @api.model
     def create(self, values):
         notes = False
-        new_id = super(Address, self).create(values)
-        new_id.insert_myo_address_log(new_id.id, values, notes)
-        return new_id
+        record = super(Address, self).create(values)
+        record.insert_myo_address_log(record.id, values, notes)
+        return record
