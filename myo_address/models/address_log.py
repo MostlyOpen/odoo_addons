@@ -69,7 +69,8 @@ class Address(models.Model):
         # notes = values.keys()
         # notes = values.keys() + values.values()
         notes = False
-        self.insert_myo_address_log(self.id, values, notes)
+        for address in self:
+            address.insert_myo_address_log(address.id, values, notes)
         return super(Address, self).write(values)
 
     @api.model
