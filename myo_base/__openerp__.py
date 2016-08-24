@@ -26,7 +26,7 @@
     'category': 'Generic Modules/Others',
     'license': 'AGPL-3',
     'website': 'http://mostlyopen.org',
-    'depends': [],
+    'depends': ['base'],
     'data': [
         'security/base_security.xml',
         'views/base_menu_view.xml',
