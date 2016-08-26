@@ -18,32 +18,20 @@
 #
 ###############################################################################
 
-from datetime import *
-
 from openerp import fields, models
 
 
-class AddressHistory(models.Model):
-    _name = 'myo.address.history'
+class AddressPersonRole(models.Model):
+    _name = 'myo.address.person.role'
 
-    address_id = fields.Many2one('myo.address', 'Address', required=False)
-    person_id = fields.Many2one('myo.person', string='Person', help='Person')
-    sign_in_date = fields.Date('Sign in date', required=False,
-                               default=lambda *a: datetime.now().strftime('%Y-%m-%d'))
-    sign_out_date = fields.Date("Sign out date", required=False)
+    name = fields.Char(string='Person Role', required=True,
+                       help='Role of a Person in an Address')
+    description = fields.Text(string='Description')
     notes = fields.Text(string='Notes')
     active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the address history without removing it.",
+                            help="If unchecked, it will allow you to hide the person role without removing it.",
                             default=1)
+    _order = 'name'
 
-    _order = "sign_in_date desc"
-
-
-class Person(models.Model):
-    _inherit = 'myo.person'
-
-    address_history_ids = fields.One2many(
-        'myo.address.history',
-        'person_id',
-        'Addresses'
-    )
+    _sql_constraints = [('role_name_uniq', 'unique(name)',
+                         u'Error! The Person Role Name must be unique!')]

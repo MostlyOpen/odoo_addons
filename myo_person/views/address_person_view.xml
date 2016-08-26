@@ -2,9 +2,9 @@
 <openerp>
     <data>
 
-        <record id="_myo_address_history_view_form" model="ir.ui.view">
-            <field name="name">myo.address.history.form</field>
-            <field name="model">myo.address.history</field>
+        <record id="_myo_address_person_view_form" model="ir.ui.view">
+            <field name="name">myo.address.person.form</field>
+            <field name="model">myo.address.person</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <form string="Addresses" version="7.0">
@@ -12,6 +12,7 @@
                         <group>
                             <field name="person_id" options="{'no_open': False, 'no_create': True}"/>
                             <field name="address_id" default_focus="1" options="{'no_open': False, 'no_create': True}"/>
+                            <field name="role_id" default_focus="1" options="{'no_open': False, 'no_create': True}"/>
                             <field name="sign_in_date"/>
                             <field name="sign_out_date"/>
                         </group>
@@ -29,14 +30,15 @@
             </field>
         </record>
         
-        <record id="myo_address_history_view_tree" model="ir.ui.view">
-            <field name="name">myo.address.history.tree</field>
-            <field name="model">myo.address.history</field>
+        <record id="myo_address_person_view_tree" model="ir.ui.view">
+            <field name="name">myo.address.person.tree</field>
+            <field name="model">myo.address.person</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <tree string="Addresses">
                     <field name="person_id"/>
                     <field name="address_id"/>
+                    <field name="role_id"/>
                     <field name="sign_in_date"/>
                     <field name="sign_out_date"/>
                     <field name="notes"/>
@@ -44,9 +46,9 @@
             </field>
         </record>
         
-        <record id="myo_address_history_view_search" model="ir.ui.view">
-            <field name="name">myo.address.history.search</field>
-            <field name="model">myo.address.history</field>
+        <record id="myo_address_person_view_search" model="ir.ui.view">
+            <field name="name">myo.address.person.search</field>
+            <field name="model">myo.address.person</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <search string="Addresses">
@@ -56,18 +58,19 @@
                     <group expand="0" string="Group By...">
                         <filter string="Person" domain="[]" context="{'group_by':'person_id'}"/>
                         <filter string="Address" domain="[]" context="{'group_by':'address_id'}"/>
+                        <filter string="Role" domain="[]" context="{'group_by':'role_id'}"/>
                     </group>
                 </search>
             </field>
         </record>
 
-        <record id="myo_address_history_actions" model="ir.actions.act_window">
+        <record id="myo_address_person_actions" model="ir.actions.act_window">
             <field name="name">Addresses</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">myo.address.history</field>
+            <field name="res_model">myo.address.person</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref="myo_address_history_view_search"/>
+            <field name="search_view_id" ref="myo_address_person_view_search"/>
             <field name="domain">[]</field>
             <field name="context">{}</field>
             <field name="context">{}</field>
@@ -78,7 +81,7 @@
             </field>
         </record>
         
-        <record id="myo_person_view_form_address_history" model="ir.ui.view">
+        <record id="myo_person_view_form_address_person" model="ir.ui.view">
             <field name="name">myo.person.form</field>
             <field name="model">myo.person</field>
             <field name="inherit_id" ref="myo_person_view_form"/>
@@ -86,9 +89,10 @@
             <field name="arch" type="xml">
                 <page name="settings" position="before">
                     <page string="Addresses">
-                        <field name="address_history_ids" colspan="4" nolabel="1">
+                        <field name="address_person_ids" colspan="4" nolabel="1">
                             <tree string="Addresses">
                                 <field name="address_id"/>
+                                <field name="role_id"/>
                                 <field name="sign_in_date"/>
                                 <field name="sign_out_date"/>
                                 <field name="notes"/>
