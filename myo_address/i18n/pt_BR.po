@@ -208,8 +208,8 @@ msgstr "Fax"
 
 #. module: myo_address
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_complete_name
-msgid "Full Address"
-msgstr "Endereço Completo"
+msgid "Complete Name"
+msgstr "Nome Completo"
 
 #. module: myo_address
 #: model:ir.model.fields,field_description:myo_address.field_myo_address_category_complete_name

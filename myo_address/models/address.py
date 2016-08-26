@@ -19,72 +19,46 @@
 #
 ###############################################################################
 
-from openerp import tools, api
+from openerp import api
 from openerp.osv import osv, fields
 
-ADDRESS_FORMAT_LAYOUTS = {
-    '%(city)s %(state_code)s\n%(zip)s': """
-        <div class="address_format">
-            <field name="city" placeholder="%(city)s" style="width: 50%%"/>
-            <field name="state_id" class="oe_no_button" placeholder="%(state)s"
-                   style="width: 47%%" options='{"no_open": true}'/>
-            <br/>
-            <field name="zip" placeholder="%(zip)s"/>
-        </div>
-    """,
-    '%(zip)s %(city)s': """
-        <div class="address_format">
-            <field name="zip" placeholder="%(zip)s" style="width: 40%%"/>
-            <field name="city" placeholder="%(city)s" style="width: 57%%"/>
-            <br/>
-            <field name="state_id" class="oe_no_button" placeholder="%(state)s"
-                   options='{"no_open": true}'/>
-        </div>
-    """,
-    '%(city)s\n%(state_name)s\n%(zip)s': """
-        <div class="address_format">
-            <field name="city" placeholder="%(city)s"/>
-            <field name="state_id" class="oe_no_button" placeholder="%(state)s"
-                   options='{"no_open": true}'/>
-            <field name="zip" placeholder="%(zip)s"/>
-        </div>
-    """
+from lxml import etree
+
+ADDRESS_FORMAT_CLASSES = {
+    '%(city)s %(state_code)s\n%(zip)s': 'o_city_state',
+    '%(zip)s %(city)s': 'o_zip_city'
 }
 
 
 class FormatAddress(object):
     @api.model
     def fields_view_get_address(self, arch):
-        fmt = self.env.user.company_id.country_id.address_format or ''
-        for k, v in ADDRESS_FORMAT_LAYOUTS.items():
-            if k in fmt:
+        address_format = self.env.user.company_id.country_id.address_format or ''
+        for format_pattern, format_class in ADDRESS_FORMAT_CLASSES.iteritems():
+            if format_pattern in address_format:
                 doc = etree.fromstring(arch)
-                for node in doc.xpath("//div[@class='address_format']"):
-                    tree = etree.fromstring(v % {'city': _('City'), 'zip': _('ZIP'), 'state': _('State')})
-                    for child in node.xpath("//field"):
-                        if child.attrib.get('modifiers'):
-                            for field in tree.xpath("//field[@name='%s']" % child.attrib.get('name')):
-                                field.attrib['modifiers'] = child.attrib.get('modifiers')
-                    node.getparent().replace(node, tree)
+                for address_node in doc.xpath("//div[@class='o_address_format']"):
+                    # add address format class to address block
+                    address_node.attrib['class'] += ' ' + format_class
+                    if format_class.startswith('o_zip'):
+                        zip_fields = address_node.xpath("//field[@name='zip']")
+                        city_fields = address_node.xpath("//field[@name='city']")
+                        if zip_fields and city_fields:
+                            # move zip field before city field
+                            city_fields[0].addprevious(zip_fields[0])
                 arch = etree.tostring(doc)
                 break
         return arch
 
-# fields copy if 'use_parent_address' is checked
 ADDRESS_FIELDS = ('street', 'street2', 'zip', 'city', 'state_id', 'country_id')
 
 
 class Address(osv.Model, FormatAddress):
     _name = "myo.address"
 
-    def _address_display(self, cr, uid, ids, name, args, context=None):
-        res = {}
-        for address in self.browse(cr, uid, ids, context=context):
-            res[address.id] = self._display_address(cr, uid, address, context=context)
-        return res
-
     _columns = {
         'name': fields.char('Name', required=True, select=True),
+        'title': fields.many2one('res.partner.title', 'Title'),
         'alias': fields.char('Alias', help='Common name that the Address is referred.'),
         'code': fields.char(string='Code', help="Address Code"),
         'notes': fields.text('Notes'),
@@ -126,8 +100,6 @@ class Address(osv.Model, FormatAddress):
         return {}
 
     def _address_fields(self, cr, uid, context=None):
-        """ Returns the list of address fields that are synced from the parent
-        when the `use_parent_address` flag is set. """
         return list(ADDRESS_FIELDS)
 
     def name_get(self, cr, uid, ids, context=None):
@@ -139,9 +111,9 @@ class Address(osv.Model, FormatAddress):
         for record in self.browse(cr, uid, ids, context=context):
             name = record.name
             if context.get('show_address_only'):
-                name = self._display_address(cr, uid, record, without_company=True, context=context)
+                name = self._display_address(cr, uid, record, context=context)
             if context.get('show_address'):
-                name = name + "\n" + self._display_address(cr, uid, record, without_company=True, context=context)
+                name = name + "\n" + self._display_address(cr, uid, record, context=context)
             name = name.replace('\n\n', '\n')
             name = name.replace('\n\n', '\n')
             if context.get('show_email') and record.email:
@@ -149,25 +121,13 @@ class Address(osv.Model, FormatAddress):
             res.append((record.id, name))
         return res
 
-    def _parse_address_name(self, text, context=None):
-        """ Supported syntax:
-            - 'Raoul <raoul@grosbedon.fr>': will find name and email address
-            - otherwise: default, everything is set as the name """
-        emails = tools.email_split(text.replace(' ', ','))
-        if emails:
-            email = emails[0]
-            name = text[:text.index(email)].replace('"', '').replace('<', '').strip()
-        else:
-            name, email = text, ''
-        return name, email
-
     @api.model
     @api.returns('self')
     def main_address(self):
         ''' Return the main address '''
         return self.env.ref('base.main_address')
 
-    def _display_address(self, cr, uid, address, without_company=False, context=None):
+    def _display_address(self, cr, uid, address, context=None):
 
         '''
         The purpose of this function is to build and return an address formatted accordingly to the
@@ -191,6 +151,4 @@ class Address(osv.Model, FormatAddress):
         }
         for field in self._address_fields(cr, uid, context=context):
             args[field] = getattr(address, field) or ''
-        if without_company:
-            args['company_name'] = ''
         return address_format % args

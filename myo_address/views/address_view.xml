@@ -107,7 +107,7 @@
                     <group  name="group_by" expand="0" string="Group By...">
                         <filter string="Street" context="{'group_by': 'street'}"/>
                         <filter string="ZIP Code" context="{'group_by': 'zip'}"/>
-                        <filter string="City" context="{'group_by': 'city'}"/>
+                        <filter name="city" string="City" context="{'group_by': 'city'}"/>
                         <filter string="State" context="{'group_by': 'state_id'}"/>
                         <filter string="Country" context="{'group_by': 'country_id'}"/>
                    </group>

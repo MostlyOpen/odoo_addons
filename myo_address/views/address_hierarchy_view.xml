@@ -9,8 +9,9 @@
             <field name="priority" eval="10" />
             <field name="arch" type="xml">
                 <field name="name" position="replace">
-                    <field name="parent_id" invisible="1"/>
-                    <field name="name" invisible="1"/>
+                    <!--field name="parent_id" invisible="1"/-->
+                    <!--field name="name" invisible="1"/-->
+                    <field name="name"/>
                     <field name="complete_name"/>
                 </field>
             </field>
@@ -27,6 +28,12 @@
                     <h2>
                         <field name="parent_id" placeholder="Parent Address..." options="{'no_open': False, 'no_create': True}"/>
                     </h2>
+                </label>
+                <label for="code" position="before">
+                    <label for="complete_name"/>
+                    <h3>
+                        <field name="complete_name"/>
+                    </h3>
                 </label>
                 <page name="settings" position="before">
                     <page string="Child Addresses">

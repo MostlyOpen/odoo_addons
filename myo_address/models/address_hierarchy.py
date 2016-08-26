@@ -25,7 +25,7 @@ class Address(models.Model):
     _inherit = 'myo.address'
 
     parent_id = fields.Many2one('myo.address', 'Parent Address', select=True, ondelete='restrict')
-    complete_name = fields.Char(string='Full Address', compute='_name_get_fnc', store=False, readonly=True)
+    complete_name = fields.Char(string='Complete Name', compute='_name_get_fnc', store=False, readonly=True)
     child_ids = fields.One2many('myo.address', 'parent_id', 'Child Addresses')
     parent_left = fields.Integer('Left parent', select=True)
     parent_right = fields.Integer('Right parent', select=True)
@@ -39,7 +39,8 @@ class Address(models.Model):
     ]
 
     @api.multi
-    def name_get(self):
+    # def name_get(self):
+    def name_get_(self):
         """Return the address's display name, including their direct parent by default.
 
         :param dict context: the ``address_display`` key can be
@@ -58,24 +59,26 @@ class Address(models.Model):
         for record in reads:
             name = record['name']
             if record['parent_id']:
-                name = record['parent_id'][1] + ' / ' + name
+                # name = record['parent_id'][1] + ' / ' + name
+                name = self.parent_id.name_get_()[0][1] + ' / ' + name
             res.append((record['id'], name))
         return res
 
-    @api.model
-    def name_search(self, name, args=None, operator='ilike', limit=100):
-        args = args or []
-        if name:
-            # Be sure name_search is symetric to name_get
-            name = name.split(' / ')[-1]
-            args = [('name', operator, name)] + args
-        addresss = self.search(args, limit=limit)
-        return addresss.name_get()
+    # @api.model
+    # def name_search(self, name, args=None, operator='ilike', limit=100):
+    #     args = args or []
+    #     if name:
+    #         # Be sure name_search is symetric to name_get
+    #         name = name.split(' / ')[-1]
+    #         args = [('name', operator, name)] + args
+    #     addresss = self.search(args, limit=limit)
+    #     return addresss.name_get()
 
     @api.one
     def _name_get_fnc(self):
         self.refresh_complete_name = 0
-        complete_name = self.name_get()
+        # complete_name = self.name_get()
+        complete_name = self.name_get_()
         if complete_name:
             self.complete_name = complete_name[0][1]
         else:
