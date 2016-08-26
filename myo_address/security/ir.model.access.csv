@@ -11,3 +11,7 @@ access_myo_address_categoy_smanager,myo.address.category,model_myo_address_categ
 access_myo_address_log_address_user,myo.address.log,model_myo_address_log,myo_base.group_address_user,1,0,0,0
 access_myo_address_log_address_log_manager,myo.address.log,model_myo_address_log,myo_base.group_address_manager,1,1,1,0
 access_myo_address_categoy_smanager,myo.address.log,model_myo_address_log,myo_base.group_smanager,1,1,1,1
+
+access_myo_address_category_log_address_category_user,myo.address.category.log,model_myo_address_category_log,myo_base.group_address_user,1,0,0,0
+access_myo_address_category_log_address_category_log_manager,myo.address.category.log,model_myo_address_category_log,myo_base.group_address_category_manager,1,1,1,0
+access_myo_address_category_categoy_smanager,myo.address.category.log,model_myo_address_category_log,myo_base.group_smanager,1,1,1,1

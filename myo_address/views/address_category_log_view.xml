@@ -2,17 +2,17 @@
 <openerp>
     <data>
         
-        <record id="myo_address_view_form_log" model="ir.ui.view">
-            <field name="name">myo.address.form</field>
-            <field name="model">myo.address</field>
-            <field name="inherit_id" ref="myo_address.myo_address_view_form"/>
+        <record id="myo_address_category_view_form_log" model="ir.ui.view">
+            <field name="name">myo.address.category.form</field>
+            <field name="model">myo.address.category</field>
+            <field name="inherit_id" ref="myo_address.myo_address_category_view_form"/>
             <field name="priority" eval="8" />
             <field name="arch" type="xml">
                 <page name="settings" position="after">
                     <page string="Log" groups="myo_base.group_rmanager" attrs="{'invisible': ['|', ('active_log', '=', False)]}">
                         <field name="log_ids" colspan="4" nolabel="1">
-                            <tree string="Address Log">
-                                <!--field name="address_id"/-->
+                            <tree string="Address Category Log">
+                                <!--field name="address_category_id"/-->
                                 <field name="user_id"/>
                                 <field name="date_log"/>
                                 <field name="values"/>
@@ -28,16 +28,16 @@
             </field>
         </record>
 
-        <record id="myo_address_log_view_form" model="ir.ui.view">
-            <field name="name">myo.address.log.form</field>
-            <field name="model">myo.address.log</field>
+        <record id="myo_address_category_log_view_form" model="ir.ui.view">
+            <field name="name">myo.address.category.log.form</field>
+            <field name="model">myo.address.category.log</field>
             <field name="arch" type="xml">
-                <form string="Address Log" version="7.0">
+                <form string="Address Category Log" version="7.0">
                     <sheet>
                         <div class="oe_title">
-                            <label for="address_id" class="oe_edit_only"/>
+                            <label for="address_category_id" class="oe_edit_only"/>
                             <h2>
-                                <field name="address_id" placeholder="Address..." readonly="True"/>
+                                <field name="address_category_id" placeholder="Address Category..." readonly="True"/>
                             </h2>
                             <label for="user_id" class="oe_edit_only"/>
                             <h1>
@@ -48,7 +48,7 @@
                                 <field name="date_log" placeholder="Log Date..." readonly="True"/>
                             </h3>
                             <label for="values" class="oe_edit_only"/>
-                            <field name="values" placeholder="Values..."/>
+                            <field name="values" placeholder="Action..."/>
                             <label for="action" class="oe_edit_only"/>
                             <field name="action" placeholder="Values..."/>
                             <label for="notes" class="oe_edit_only"/>
@@ -59,13 +59,13 @@
             </field>
         </record>
         
-        <record id="myo_address_log_view_tree" model="ir.ui.view">
-            <field name="name">myo.address.log.tree</field>
-            <field name="model">myo.address.log</field>
+        <record id="myo_address_category_log_view_tree" model="ir.ui.view">
+            <field name="name">myo.address.category.log.tree</field>
+            <field name="model">myo.address.category.log</field>
             <field name="priority" eval="8" />
             <field name="arch" type="xml">
-                <tree string="Address Log">
-                        <field name="address_id"/>
+                <tree string="Address Category Log">
+                        <field name="address_category_id"/>
                         <field name="user_id"/>
                         <field name="date_log"/>
                         <field name="values"/>

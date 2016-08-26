@@ -23,10 +23,13 @@ from openerp import api, fields, models
 from datetime import *
 
 
-class AddressLog(models.Model):
-    _name = 'myo.address.log'
+class AddressCategoryLog(models.Model):
+    _name = 'myo.address.category.log'
 
-    address_id = fields.Many2one('myo.address', 'Address', required=True, ondelete='cascade')
+    address_category_id = fields.Many2one('myo.address.category',
+                                          'Address Category',
+                                          required=True,
+                                          ondelete='cascade')
     user_id = fields.Many2one('res.users', 'User', required=True)
     date_log = fields.Datetime("Log Date", required=True)
     values = fields.Text(string='Values')
@@ -41,10 +44,10 @@ class AddressLog(models.Model):
     }
 
 
-class Address(models.Model):
-    _inherit = 'myo.address'
+class AddressCategory(models.Model):
+    _inherit = 'myo.address.category'
 
-    log_ids = fields.One2many('myo.address.log', 'address_id', 'Address Log',
+    log_ids = fields.One2many('myo.address.category.log', 'address_category_id', 'Address Category Log',
                               readonly=True)
     active_log = fields.Boolean(
         'Active Log',
@@ -53,18 +56,18 @@ class Address(models.Model):
     )
 
     @api.one
-    def insert_myo_address_log(self, address_id, values, action, notes):
+    def insert_myo_address_category_log(self, address_category_id, values, action, notes):
         active_log = False
         if 'active_log' in values:
             active_log = values['active_log']
         if self.active_log or active_log:
             vals = {
-                'address_id': address_id,
+                'address_category_id': address_category_id,
                 'values': values,
                 'action': action,
                 'notes': notes,
             }
-            self.pool.get('myo.address.log').create(self._cr, self._uid, vals)
+            self.pool.get('myo.address.category.log').create(self._cr, self._uid, vals)
 
     @api.multi
     def write(self, values):
@@ -72,14 +75,14 @@ class Address(models.Model):
         # notes = values.keys()
         # notes = values.keys() + values.values()
         notes = False
-        for address in self:
-            address.insert_myo_address_log(address.id, values, action, notes)
-        return super(Address, self).write(values)
+        for address_category in self:
+            address_category.insert_myo_address_category_log(address_category.id, values, action, notes)
+        return super(AddressCategory, self).write(values)
 
     @api.model
     def create(self, values):
         action = 'create'
         notes = False
-        record = super(Address, self).create(values)
-        record.insert_myo_address_log(record.id, values, action, notes)
+        record = super(AddressCategory, self).create(values)
+        record.insert_myo_address_category_log(record.id, values, action, notes)
         return record
