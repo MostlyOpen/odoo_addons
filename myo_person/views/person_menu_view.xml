@@ -17,7 +17,7 @@
         <!-- Community/Community/Configuration/Address/Person Roles -->
         <menuitem name="Address Person Roles" id="menu_community_config_config_address_person_roles"
             parent="myo_base.menu_community_config_config"
-            groups="myo_base.group_manager"
+            groups="myo_base.group_person_user"
             sequence="20"
             action="myo_person.myo_address_person_role_action"/>
 
