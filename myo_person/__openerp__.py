@@ -43,6 +43,8 @@
         'views/address_view.xml',
         'views/address_history_view.xml',
         'views/person_menu_view.xml',
+        'views/person_log_view.xml',
+        'views/person_category_log_view.xml',
     ],
     'demo': [],
     'test': [],

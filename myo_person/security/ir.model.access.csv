@@ -11,3 +11,11 @@ access_myo_person_category_smanager,myo.person.category,model_myo_person_categor
 access_myo_address_history_person_user,myo.address.history,model_myo_address_history,myo_base.group_person_user,1,0,0,0
 access_myo_address_history_person_manager,myo.address.history,model_myo_address_history,myo_base.group_person_manager,1,1,1,0
 access_myo_address_history_smanager,myo.address.history,model_myo_address_history,myo_base.group_smanager,1,1,1,1
+
+access_myo_person_log_person_user,myo.person.log,model_myo_person_log,myo_base.group_person_user,1,0,0,0
+access_myo_person_log_person_log_manager,myo.person.log,model_myo_person_log,myo_base.group_person_manager,1,1,1,0
+access_myo_person_categoy_smanager,myo.person.log,model_myo_person_log,myo_base.group_smanager,1,1,1,1
+
+access_myo_person_category_log_person_category_user,myo.person.category.log,model_myo_person_category_log,myo_base.group_person_user,1,0,0,0
+access_myo_person_category_log_person_category_log_manager,myo.person.category.log,model_myo_person_category_log,myo_base.group_person_category_manager,1,1,1,0
+access_myo_person_category_categoy_smanager,myo.person.category.log,model_myo_person_category_log,myo_base.group_smanager,1,1,1,1

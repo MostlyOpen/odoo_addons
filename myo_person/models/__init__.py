@@ -24,3 +24,5 @@ from . import tag
 from . import annotation
 from . import address
 from . import address_history
+from . import person_log
+from . import person_category_log

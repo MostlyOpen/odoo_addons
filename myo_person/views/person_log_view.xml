@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="myo_person_view_form_log" model="ir.ui.view">
+            <field name="name">myo.person.form</field>
+            <field name="model">myo.person</field>
+            <field name="inherit_id" ref="myo_person.myo_person_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <page name="settings" position="after">
+                    <page string="Log" groups="myo_base.group_rmanager" attrs="{'invisible': ['|', ('active_log', '=', False)]}">
+                        <field name="log_ids" colspan="4" nolabel="1">
+                            <tree string="Person Log">
+                                <!--field name="person_id"/-->
+                                <field name="user_id"/>
+                                <field name="date_log"/>
+                                <field name="values"/>
+                                <field name="action"/>
+                                <field name="notes"/>
+                            </tree>
+                        </field>
+                    </page>
+                </page>
+                <field name="active" position="after">
+                    <field name="active_log"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_person_log_view_form" model="ir.ui.view">
+            <field name="name">myo.person.log.form</field>
+            <field name="model">myo.person.log</field>
+            <field name="arch" type="xml">
+                <form string="Person Log" version="7.0">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="person_id" class="oe_edit_only"/>
+                            <h2>
+                                <field name="person_id" placeholder="Person..." readonly="True"/>
+                            </h2>
+                            <label for="user_id" class="oe_edit_only"/>
+                            <h1>
+                                <field name="user_id" default_focus="1" placeholder="User..." readonly="True"/>
+                            </h1>
+                            <label for="date_log" class="oe_edit_only"/>
+                            <h3>
+                                <field name="date_log" placeholder="Log Date..." readonly="True"/>
+                            </h3>
+                            <label for="values" class="oe_edit_only"/>
+                            <field name="values" placeholder="Values..."/>
+                            <label for="action" class="oe_edit_only"/>
+                            <field name="action" placeholder="Values..."/>
+                            <label for="notes" class="oe_edit_only"/>
+                            <field name="notes" placeholder="Notes..."/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="myo_person_log_view_tree" model="ir.ui.view">
+            <field name="name">myo.person.log.tree</field>
+            <field name="model">myo.person.log</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Person Log">
+                        <field name="person_id"/>
+                        <field name="user_id"/>
+                        <field name="date_log"/>
+                        <field name="values"/>
+                        <field name="action"/>
+                        <field name="notes"/>
+                </tree>
+            </field>
+        </record>
+        
+    </data>
+</openerp>
