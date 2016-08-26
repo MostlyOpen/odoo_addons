@@ -18,36 +18,28 @@
 #
 ###############################################################################
 
-{
-    'name': 'Address Management',
-    'summary': 'Address Management Module used in MostlyOpen Solutions.',
-    'version': '2.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'http://mostlyopen.org',
-    'depends': [
-        'myo_address',
-        'myo_tag',
-        'myo_annotation',
-    ],
-    'data': [
-        'security/address_mng_security.xml',
-        'security/ir.model.access.csv',
-        'views/address_mng_view.xml',
-        # 'views/address_hierarchy_view.xml',
-        'views/address_category_view.xml',
-        'views/tag_view.xml',
-        'views/annotation_view.xml',
-        'views/address_mng_menu_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+from openerp import fields, models
+
+
+class AddressManagement(models.Model):
+    _inherit = 'myo.address.mng'
+
+    annotation_ids = fields.Many2many(
+        'myo.annotation',
+        'myo_address_mng_annotation_rel',
+        'address_mng_id',
+        'annotation_id',
+        'Annotations'
+    )
+
+
+class Annotation(models.Model):
+    _inherit = 'myo.annotation'
+
+    address_ids = fields.Many2many(
+        'myo.address',
+        'myo_address_mng_annotation_rel',
+        'annotation_id',
+        'address_mng_id',
+        'Addresses'
+    )

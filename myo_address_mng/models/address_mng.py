@@ -20,11 +20,25 @@
 
 from datetime import datetime
 
-from openerp import fields, models
+from openerp import api, fields, models
 
 
 class AddressManagement(models.Model):
     _name = 'myo.address.mng'
+
+    name = fields.Char('Name', required=True, select=True)
+    alias = fields.Char('Alias', help='Common name that the Address is referred.')
+    code = fields.Char(string='Code', help="Address Code")
+    street = fields.Char('Street')
+    street2 = fields.Char('Street2')
+    zip = fields.Char('ZIP code', change_default=True)
+    city = fields.Char('City')
+    state_id = fields.Many2one("res.country.state", 'State', ondelete='restrict')
+    country_id = fields.Many2one('res.country', 'Country', ondelete='restrict')
+    email = fields.Char('Email')
+    phone = fields.Char('Phone')
+    fax = fields.Char('Fax')
+    mobile = fields.Char('Mobile')
 
     notes = fields.Text(string='Notes')
     date_inclusion = fields.Datetime("Inclusion Date", required=False, readonly=False,
@@ -33,3 +47,10 @@ class AddressManagement(models.Model):
     active = fields.Boolean('Active',
                             help="If unchecked, it will allow you to hide the address without removing it.",
                             default=1)
+
+    @api.multi
+    def onchange_state(self, state_id):
+        if state_id:
+            state = self.env['res.country.state'].browse(state_id)
+            return {'value': {'country_id': state.country_id.id}}
+        return {}

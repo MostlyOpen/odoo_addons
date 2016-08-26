@@ -19,3 +19,6 @@
 ###############################################################################
 
 from . import address_mng
+from . import address_category
+from . import tag
+from . import annotation

@@ -18,36 +18,16 @@
 #
 ###############################################################################
 
-{
-    'name': 'Address Management',
-    'summary': 'Address Management Module used in MostlyOpen Solutions.',
-    'version': '2.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'http://mostlyopen.org',
-    'depends': [
-        'myo_address',
-        'myo_tag',
-        'myo_annotation',
-    ],
-    'data': [
-        'security/address_mng_security.xml',
-        'security/ir.model.access.csv',
-        'views/address_mng_view.xml',
-        # 'views/address_hierarchy_view.xml',
-        'views/address_category_view.xml',
-        'views/tag_view.xml',
-        'views/annotation_view.xml',
-        'views/address_mng_menu_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+from openerp import fields, models
+
+
+class AddressManagement(models.Model):
+    _inherit = 'myo.address.mng'
+
+    category_ids = fields.Many2many(
+        'myo.address.category',
+        'myo_address_mng_category_rel',
+        'address_mng_id',
+        'category_id',
+        'Categories'
+    )
