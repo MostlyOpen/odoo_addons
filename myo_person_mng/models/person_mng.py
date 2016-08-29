@@ -19,17 +19,74 @@
 ###############################################################################
 
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
-from openerp import fields, models
+from openerp import api, fields, models
 
 
-class AddressManagement(models.Model):
+class PersonManagement(models.Model):
     _name = 'myo.person.mng'
 
+    name = fields.Char('Name', required=True)
+    alias = fields.Char('Alias', help='Common name that the Person is referred.')
+    code = fields.Char(string='Person Code', required=False)
     notes = fields.Text(string='Notes')
     date_inclusion = fields.Datetime("Inclusion Date", required=False, readonly=False,
                                      default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     batch_name = fields.Char('Batch Name', required=False)
+    country_id = fields.Many2one('res.country', 'Nationality')
+    birthday = fields.Date("Date of Birth")
+    age = fields.Char(
+        string='Age',
+        compute='_compute_age',
+        store=False
+    )
+    spouse_id = fields.Many2one('myo.person', 'Spouse', ondelete='restrict')
+    father_id = fields.Many2one('myo.person', 'Father', ondelete='restrict')
+    mother_id = fields.Many2one('myo.person', 'Mother', ondelete='restrict')
+    responsible_id = fields.Many2one('myo.person', 'Responsible', ondelete='restrict')
+    identification_id = fields.Char('Person ID')
+    otherid = fields.Char('Other ID')
+    gender = fields.Selection(
+        [('M', 'Male'),
+         ('F', 'Female')
+         ], 'Gender'
+    )
+    marital = fields.Selection(
+        [('single', 'Single'),
+         ('married', 'Married'),
+         ('widower', 'Widower'),
+         ('divorced', 'Divorced'),
+         ], 'Marital Status'
+    )
     active = fields.Boolean('Active',
                             help="If unchecked, it will allow you to hide the person without removing it.",
                             default=1)
+
+    _order = 'name'
+
+    _sql_constraints = [
+        ('code_uniq',
+         'UNIQUE(code)',
+         u'Error! The Person Code must be unique!'
+         )
+    ]
+
+    @api.multi
+    @api.constrains('birthday')
+    def _check_birthday(self):
+        for person in self:
+            if person.birthday > fields.Date.today():
+                raise Warning(u'Error! Date of Birth must be in the past!')
+
+    @api.one
+    @api.depends('birthday')
+    def _compute_age(self):
+        now = datetime.now()
+        if self.birthday:
+            dob = datetime.strptime(self.birthday, '%Y-%m-%d')
+            delta = relativedelta(now, dob)
+            # self.age = str(delta.years) + "y " + str(delta.months) + "m " + str(delta.days) + "d"
+            self.age = str(delta.years)
+        else:
+            self.age = "No Date of Birth!"
