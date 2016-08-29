@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="myo_person_mng_view_form_address" model="ir.ui.view">
+            <field name="name">myo.person.mng.form</field>
+            <field name="model">myo.person.mng</field>
+            <field name="inherit_id" ref="myo_person_mng_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <div name="button_box" position="after">
+                    <group>
+                        <group name="Address">
+                            <label for="street" string="Address"/>
+                            <div>
+                                <field name="street" placeholder="Street..."/>
+                                <field name="street2"/>
+                                <div class="address_format">
+                                    <field name="city" placeholder="City" style="width: 40%%"/>
+                                    <field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%%" options='{"no_open": True}' on_change="onchange_state(state_id)"/>
+                                    <field name="zip" placeholder="ZIP" style="width: 19%%"/>
+                                </div>
+                                <field name="country_id" placeholder="Country" class="oe_no_button" options='{"no_open": True, "no_create": True}'/>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="phone"/>
+                            <field name="mobile"/>
+                            <field name="fax"/>
+                            <field name="email" widget="email"/>
+                        </group>
+                    </group>
+                </div>
+                <group name="status" position="before">
+                    <group string="Contact Information">
+                        <!--field name="address_id" context="{'show_address': 1}" options='{"always_reload": True, "highlight_first_line": True, "no_open": False, "no_create": True}'/-->
+                        <field name="address_id" context="{'show_address_only': 1}" options='{"always_reload": True, "highlight_first_line": True, "no_open": False, "no_create": True}'/>
+                        <field name="person_phone"/>
+                        <field name="mobile_phone"/>
+                        <field name="person_email" widget="email"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+        <record id="myo_person_mng_view_search_address" model="ir.ui.view">
+            <field name="name">myo.person.mng.search</field>
+            <field name="model">myo.person.mng</field>
+            <field name="inherit_id" ref="myo_person_mng_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <group name="group_by" position="inside">
+                    <filter string="Address" context="{'group_by': 'address_id'}"/>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>

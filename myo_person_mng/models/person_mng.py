@@ -34,7 +34,7 @@ class PersonManagement(models.Model):
     date_inclusion = fields.Datetime("Inclusion Date", required=False, readonly=False,
                                      default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     batch_name = fields.Char('Batch Name', required=False)
-    country_id = fields.Many2one('res.country', 'Nationality')
+    country_id_2 = fields.Many2one('res.country', 'Nationality')
     birthday = fields.Date("Date of Birth")
     age = fields.Char(
         string='Age',

@@ -39,6 +39,7 @@
         # 'views/person_category_view.xml',
         # 'views/tag_view.xml',
         # 'views/annotation_view.xml',
+        'views/address_view.xml',
         'views/person_mng_menu_view.xml',
     ],
     'demo': [],

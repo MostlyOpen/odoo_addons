@@ -44,7 +44,7 @@
                         <notebook>
                             <page string="Public Information">
                                 <group>
-                                    <group string="Status">
+                                    <group name="status" string="Status">
                                         <field name="date_inclusion"/>
                                     </group>
                                 </group>
@@ -53,7 +53,7 @@
                             <page string="Personal Information" groups="myo_base.group_suser">
                                 <group>
                                     <group string="Citizenship &amp; Other Info">
-                                        <field name="country_id" options='{"no_open": True}'/>
+                                        <field name="country_id_2" options='{"no_open": True}'/>
                                         <field name="identification_id"/>
                                         <field name="otherid"/>
                                     </group>
@@ -117,7 +117,7 @@
                     <field name="birthday"/>
                     <field name="batch_name"/>
                     <newline/>
-                    <group expand="0" string="Group By...">
+                    <group expand="0" name="group_by" string="Group By...">
                         <filter string="Batch Name" domain="[]" context="{'group_by': 'batch_name'}"/>
                     </group>
                 </search>
