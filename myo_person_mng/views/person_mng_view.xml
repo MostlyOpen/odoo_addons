@@ -33,6 +33,10 @@
                             <h3>
                                 <field name="batch_name" placeholder="Batch Name..."/>
                             </h3>
+                            <label for="person_id"/>
+                            <h3>
+                                <field name="person_id" placeholder="Person..."/>
+                            </h3>
                         </div>
                         <div class="oe_right oe_button_box" name="button_box">
                             <!-- Put here related buttons -->
@@ -54,9 +58,13 @@
                                         <field name="otherid"/>
                                     </group>
                                     <group string="Family">
+                                        <field name="spouse_name"/>
                                         <field name="spouse_id" options="{'no_open': False, 'no_create': True}"/>
+                                        <field name="father_name"/>
                                         <field name="father_id" options="{'no_open': False, 'no_create': True}"/>
+                                        <field name="mother_name"/>
                                         <field name="mother_id" options="{'no_open': False, 'no_create': True}"/>
+                                        <field name="responsible_name"/>
                                         <field name="responsible_id" options="{'no_open': False, 'no_create': True}"/>
                                     </group>
                                     <group string="Status">

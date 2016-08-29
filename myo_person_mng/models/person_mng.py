@@ -41,9 +41,13 @@ class PersonManagement(models.Model):
         compute='_compute_age',
         store=False
     )
+    spouse_name = fields.Char('Spouse Name')
     spouse_id = fields.Many2one('myo.person', 'Spouse', ondelete='restrict')
+    father_name = fields.Char('Father Name')
     father_id = fields.Many2one('myo.person', 'Father', ondelete='restrict')
+    mother_name = fields.Char('Mother Name')
     mother_id = fields.Many2one('myo.person', 'Mother', ondelete='restrict')
+    responsible_name = fields.Char('Responsible Name')
     responsible_id = fields.Many2one('myo.person', 'Responsible', ondelete='restrict')
     identification_id = fields.Char('Person ID')
     otherid = fields.Char('Other ID')
@@ -62,6 +66,7 @@ class PersonManagement(models.Model):
     active = fields.Boolean('Active',
                             help="If unchecked, it will allow you to hide the person without removing it.",
                             default=1)
+    person_id = fields.Many2one('myo.person', 'Person')
 
     _order = 'name'
 
