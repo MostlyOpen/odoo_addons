@@ -47,6 +47,7 @@ class AddressManagement(models.Model):
     active = fields.Boolean('Active',
                             help="If unchecked, it will allow you to hide the address without removing it.",
                             default=1)
+    address_id = fields.Many2one('myo.address', 'Address', ondelete='restrict')
 
     @api.multi
     def onchange_state(self, state_id):

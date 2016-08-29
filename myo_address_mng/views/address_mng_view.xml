@@ -38,8 +38,8 @@
                             <!-- Put here related buttons -->
                         </div>
                         <group>
-                            <group name="Address">
-                                <label for="street" string="Address"/>
+                            <group name="Address (Management)">
+                                <label for="street" string="Address (Management)"/>
                                 <div>
                                     <field name="street" placeholder="Street..."/>
                                     <field name="street2"/>
@@ -56,6 +56,9 @@
                                 <field name="mobile"/>
                                 <field name="fax"/>
                                 <field name="email" widget="email"/>
+                            </group>
+                            <group>
+                                <field name="address_id" context="{'show_address_only': 1}" options='{"always_reload": True, "highlight_first_line": True, "no_open": False, "no_create": True}'/>
                             </group>
                         </group>
                         <notebook>
