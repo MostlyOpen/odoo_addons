@@ -28,7 +28,7 @@
     'website': 'http://mostlyopen.org',
     'depends': [
         'myo_person',
-        # 'myo_tag',
+        'myo_tag',
         # 'myo_annotation',
     ],
     'data': [
@@ -37,7 +37,7 @@
         'views/person_mng_view.xml',
         # 'views/person_hierarchy_view.xml',
         'views/person_category_view.xml',
-        # 'views/tag_view.xml',
+        'views/tag_view.xml',
         # 'views/annotation_view.xml',
         'views/address_view.xml',
         'views/person_mng_menu_view.xml',
