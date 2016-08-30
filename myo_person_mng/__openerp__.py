@@ -40,6 +40,7 @@
         'views/annotation_view.xml',
         'views/address_view.xml',
         'views/person_mng_menu_view.xml',
+        'views/person_mng_log_view.xml',
     ],
     'demo': [],
     'test': [],
