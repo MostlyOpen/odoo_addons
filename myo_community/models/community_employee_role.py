@@ -18,11 +18,20 @@
 #
 ###############################################################################
 
-from . import community
-from . import community_category
-from . import tag
-from . import annotation
-from . import community_person_role
-from . import community_person
-from . import community_employee
-from . import community_employee_role
+from openerp import fields, models
+
+
+class CommunityEmployeeRole(models.Model):
+    _name = 'myo.community.employee.role'
+
+    name = fields.Char(string='Community Employee Role', required=True,
+                       help='Role of a Employee in an Community')
+    description = fields.Text(string='Description')
+    notes = fields.Text(string='Notes')
+    active = fields.Boolean('Active',
+                            help="If unchecked, it will allow you to hide the employee role without removing it.",
+                            default=1)
+    _order = 'name'
+
+    _sql_constraints = [('role_name_uniq', 'unique(name)',
+                         u'Error! The Employee Role Name must be unique!')]

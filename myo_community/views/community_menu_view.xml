@@ -21,12 +21,12 @@
                         sequence="20"
                         action="myo_community.myo_community_person_action"/>
                     <!-- Community/Community/Community/Employees -->
-<!--                     <menuitem name="Employees" id="menu_community_community_communities_employees"
+                    <menuitem name="Employees" id="menu_community_community_communities_employees"
                         parent="menu_community_community_communities"
                         groups="myo_base.group_community_user"
                         sequence="30"
-                        action="myo_community.act_open_myo_community_employee_view"/>
- -->                <!-- Community/Community/Configuration/Community -->
+                        action="myo_community.myo_community_employee_action"/>
+                <!-- Community/Community/Configuration/Community -->
                 <menuitem name="Community" id="menu_community_config_config_community"
                     parent="myo_base.menu_community_config_config"
                     groups="myo_base.group_community_user"
@@ -50,11 +50,11 @@
                         sequence="30"
                         action="myo_community.myo_community_person_role_action"/>
                     <!-- Community/Community/Configuration/Community/Employee Roles -->
-<!--                     <menuitem name="Employee Roles" id="menu_community_config_config_community_employee_roles"
+                    <menuitem name="Employee Roles" id="menu_community_config_config_community_employee_roles"
                         parent="menu_community_config_config_community"
                         groups="myo_base.group_manager"
                         sequence="40"
-                        action="myo_community.act_open_myo_community_employee_role_view"/>
- -->
+                        action="myo_community.myo_community_employee_role_action"/>
+
     </data>
 </openerp>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_community_employee_view_form" model="ir.ui.view">
+            <field name="name">myo.community.employee.form</field>
+            <field name="model">myo.community.employee</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Community Employees" version="7.0">
+                    <sheet>
+                        <group>
+                            <field name="community_id" options="{'no_open': False, 'no_create': True}"/>
+                            <field name="employee_id" options="{'no_open': False, 'no_create': True}"/>
+                            <field name="role" default_focus="1" options="{'no_open': False, 'no_create': True}"/>
+                        </group>
+                        <label for="notes" class="oe_edit_only"/>
+                        <field name="notes" placeholder="Notes..."/>
+                        <notebook>
+                            <page string="Settings" groups="myo_base.group_manager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="myo_community_employee_view_tree" model="ir.ui.view">
+            <field name="name">myo.community.employee.tree</field>
+            <field name="model">myo.community.employee</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Community Employees">
+                    <field name="community_id"/>
+                    <field name="employee_id"/>
+                    <field name="role"/>
+                    <field name="notes"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="myo_community_employee_view_search" model="ir.ui.view">
+            <field name="name">myo.community.employee.search</field>
+            <field name="model">myo.community.employee</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Community Employees">
+                    <field name="community_id"/>
+                    <field name="employee_id"/>
+                    <field name="role"/>
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Community" domain="[]" context="{'group_by':'community_id'}"/>
+                        <filter string="Employee" domain="[]" context="{'group_by':'employee_id'}"/>
+                        <filter string="Employee Role" domain="[]" context="{'group_by':'role'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="myo_community_employee_action" model="ir.actions.act_window">
+            <field name="name">Community Employees</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.community.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="myo_community_employee_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new community employee.
+              </p>
+            </field>
+        </record>
+        
+        <record id="myo_community_view_form_employee" model="ir.ui.view">
+            <field name="name">myo.community.form</field>
+            <field name="model">myo.community</field>
+            <field name="inherit_id" ref="myo_community_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="public_information" position="before">
+                    <page string="Employees">
+                        <field name="employee_ids" colspan="4" nolabel="1"/>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="view_employee_form_community_employee" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <page name="public" position="before">
+                    <page string="Employee Roles (Community)">
+                        <field name="community_employee_ids" colspan="4" nolabel="1"/>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <!--record id="myo_employee_view_form_community_employee" model="ir.ui.view">
+            <field name="name">myo.employee.form</field>
+            <field name="model">myo.employee</field>
+            <field name="inherit_id" ref="myo_employee.myo_employee_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Employee Roles (Community)">
+                        <field name="community_employee_ids" colspan="4" nolabel="1"/>
+                    </page>
+                </page>
+            </field>
+        </record-->
+
+    </data>
+</openerp>
