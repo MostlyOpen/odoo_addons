@@ -18,6 +18,16 @@
 #
 ###############################################################################
 
-from . import person_mng
-from . import address
-from . import person_category
+from openerp import fields, models
+
+
+class PersonManagement(models.Model):
+    _inherit = 'myo.person.mng'
+
+    category_ids = fields.Many2many(
+        'myo.person.category',
+        'myo_person_mng_category_rel',
+        'person_mng_id',
+        'category_id',
+        'Categories'
+    )

@@ -36,7 +36,7 @@
         'security/ir.model.access.csv',
         'views/person_mng_view.xml',
         # 'views/person_hierarchy_view.xml',
-        # 'views/person_category_view.xml',
+        'views/person_category_view.xml',
         # 'views/tag_view.xml',
         # 'views/annotation_view.xml',
         'views/address_view.xml',

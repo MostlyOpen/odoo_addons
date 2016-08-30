@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_person_mng_view_form_category" model="ir.ui.view">
+            <field name="name">myo.person.mng.form</field>
+            <field name="model">myo.person.mng</field>
+            <field name="inherit_id" ref="myo_person_mng_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <label for="name" position="before">
+                    <label for="category_ids" class="oe_edit_only"/>
+                    <h2>
+                        <field name="category_ids" widget="many2many_tags" placeholder="Categories..." options="{'no_open': False, 'no_create': True}"/>
+                    </h2>
+                </label>
+            </field>
+        </record>
+
+        <record id="myo_person_mng_view_tree_category" model="ir.ui.view">
+            <field name="name">myo.person.mng.tree</field>
+            <field name="model">myo.person.mng</field>
+            <field name="inherit_id" ref="myo_person_mng_view_tree"/>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <field name="code" position="before">
+                    <field name="category_ids"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_person_mng_view_search_category" model="ir.ui.view">
+            <field name="name">myo.person.mng.search</field>
+            <field name="model">myo.person.mng</field>
+            <field name="inherit_id" ref="myo_person_mng_view_search"/>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="category_ids"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>
