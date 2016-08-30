@@ -22,3 +22,5 @@ from . import person_mng
 from . import address
 from . import person_category
 from . import tag
+from . import annotation
+

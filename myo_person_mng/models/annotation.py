@@ -18,36 +18,28 @@
 #
 ###############################################################################
 
-{
-    'name': 'Person Management',
-    'summary': 'Person Management Module used in MostlyOpen Solutions.',
-    'version': '2.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'http://mostlyopen.org',
-    'depends': [
-        'myo_person',
-        'myo_tag',
-        'myo_annotation',
-    ],
-    'data': [
-        'security/person_mng_security.xml',
-        'security/ir.model.access.csv',
-        'views/person_mng_view.xml',
-        'views/person_category_view.xml',
-        'views/tag_view.xml',
-        'views/annotation_view.xml',
-        'views/address_view.xml',
-        'views/person_mng_menu_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+from openerp import fields, models
+
+
+class AddressManagement(models.Model):
+    _inherit = 'myo.person.mng'
+
+    annotation_ids = fields.Many2many(
+        'myo.annotation',
+        'myo_person_mng_annotation_rel',
+        'person_mng_id',
+        'annotation_id',
+        'Annotations'
+    )
+
+
+class Annotation(models.Model):
+    _inherit = 'myo.annotation'
+
+    person_ids = fields.Many2many(
+        'myo.person',
+        'myo_person_mng_annotation_rel',
+        'annotation_id',
+        'person_mng_id',
+        'Persons'
+    )
