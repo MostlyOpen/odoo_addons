@@ -26,7 +26,7 @@ class CommunityEmployee(models.Model):
 
     community_id = fields.Many2one('myo.community', string='Community',
                                    help='Community', required=False)
-    employee_id = fields.Many2one('myo.employee', string='Employee')
+    employee_id = fields.Many2one('hr.employee', string='Employee')
     role = fields.Many2one('myo.community.employee.role', 'Role', required=False)
     notes = fields.Text(string='Notes')
     active = fields.Boolean('Active',
