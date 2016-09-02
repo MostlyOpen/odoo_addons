@@ -49,6 +49,8 @@ class AddressManagement(models.Model):
                             default=1)
     address_id = fields.Many2one('myo.address', 'Address', ondelete='restrict')
 
+    _order = "name"
+
     @api.multi
     def onchange_state(self, state_id):
         if state_id:
