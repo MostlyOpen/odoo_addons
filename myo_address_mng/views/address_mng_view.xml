@@ -8,7 +8,7 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <form string="Address (Management)" version="7.0">
-                    <sheet string="Address (Management)">
+                    <sheet name="address_management" string="Address (Management)">
                         <div class="oe_center" name="center">
                             <!-- Put here related fields -->
                             <!--label for="name" class="oe_edit_only"/-->
@@ -118,7 +118,7 @@
                     <field name="city"/>
                     <field name="state_id"/>
                     <newline/>
-                    <group expand="0" string="Group By...">
+                    <group expand="0" name="group_by" string="Group By...">
                         <filter string="Batch Name" domain="[]" context="{'group_by': 'batch_name'}"/>
                         <filter string="Street" context="{'group_by': 'street'}"/>
                         <filter string="ZIP Code" context="{'group_by': 'zip'}"/>

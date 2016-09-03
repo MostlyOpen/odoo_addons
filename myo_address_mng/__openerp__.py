@@ -39,6 +39,7 @@
         'views/address_category_view.xml',
         'views/tag_view.xml',
         'views/annotation_view.xml',
+        'views/address_mng_log_view.xml',
         'views/address_mng_menu_view.xml',
     ],
     'demo': [],
