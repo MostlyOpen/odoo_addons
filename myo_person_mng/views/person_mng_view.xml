@@ -8,7 +8,7 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <form string="Person (Management)" version="7.0">
-                    <sheet string="Person (Management)">
+                    <sheet name="person_management" string="Person (Management)">
                         <div class="oe_center" name="center">
                             <!-- Put here related fields -->
                             <!--label for="name" class="oe_edit_only"/-->

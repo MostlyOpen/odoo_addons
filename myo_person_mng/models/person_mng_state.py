@@ -18,10 +18,36 @@
 #
 ###############################################################################
 
-from . import person_mng
-from . import address
-from . import person_category
-from . import tag
-from . import annotation
-from . import person_mng_state
-from . import person_mng_log
+from openerp import api, fields, models
+from datetime import *
+
+
+class PersonManagement(models.Model):
+    _inherit = 'myo.person.mng'
+
+    state = fields.Selection([('draft', 'Draft'),
+                              ('revised', 'Revised'),
+                              ('waiting', 'Waiting'),
+                              ('done', 'Done'),
+                              ('canceled', 'Canceled')
+                              ], string='Status', default='draft', readonly=True, required=True, help="")
+
+    @api.one
+    def action_draft(self):
+        self.state = 'draft'
+
+    @api.one
+    def action_revised(self):
+        self.state = 'revised'
+
+    @api.one
+    def action_waiting(self):
+        self.state = 'waiting'
+
+    @api.one
+    def action_done(self):
+        self.state = 'done'
+
+    @api.one
+    def action_cancel(self):
+        self.state = 'canceled'
