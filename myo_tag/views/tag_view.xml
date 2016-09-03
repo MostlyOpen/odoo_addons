@@ -40,8 +40,8 @@
                                     <field name="child_ids" colspan="4" nolabel="1"/>
                                 </group>
                             </page>
-                            <page string="Settings" groups="myo_base.group_rmanager">
-                                <group>
+                            <page name="settings" string="Settings" groups="myo_base.group_rmanager">
+                                <group name="active">
                                     <field name="active"/>
                                 </group>
                             </page>

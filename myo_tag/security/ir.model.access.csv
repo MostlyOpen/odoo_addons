@@ -3,3 +3,7 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_myo_tag_tag_user,myo.tag,model_myo_tag,myo_base.group_tag_user,1,0,0,0
 access_myo_tag_tag_manager,myo.tag,model_myo_tag,myo_base.group_tag_manager,1,1,1,0
 access_myo_tag_smanager,myo.tag,model_myo_tag,myo_base.group_smanager,1,1,1,1
+
+access_myo_tag_log_tag_user,myo.tag.log,model_myo_tag_log,myo_base.group_tag_user,1,0,0,0
+access_myo_tag_log_tag_log_manager,myo.tag.log,model_myo_tag_log,myo_base.group_tag_manager,1,1,1,0
+access_myo_tag_categoy_smanager,myo.tag.log,model_myo_tag_log,myo_base.group_smanager,1,1,1,1

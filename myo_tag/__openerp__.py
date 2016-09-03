@@ -34,6 +34,7 @@
         'security/ir.model.access.csv',
         'views/tag_view.xml',
         'views/tag_menu_view.xml',
+        'views/tag_log_view.xml',
     ],
     'demo': [],
     'test': [],

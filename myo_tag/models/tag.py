@@ -24,10 +24,10 @@ from openerp import api, fields, models
 class Tag(models.Model):
     _name = 'myo.tag'
 
-    name = fields.Char('Tag', required=True, translate=True)
+    name = fields.Char('Tag', required=True)
     parent_id = fields.Many2one('myo.tag', 'Parent Tag', select=True, ondelete='restrict')
-    description = fields.Char(string='Description', translate=True)
-    code = fields.Char('Code', help="Tag Code", required=False)
+    description = fields.Char(string='Description')
+    code = fields.Char(string='Code', help="Tag Code", required=False)
     notes = fields.Text(string='Notes')
     complete_name = fields.Char(string='Full Tag', compute='_name_get_fnc', store=False, readonly=True)
     child_ids = fields.One2many('myo.tag', 'parent_id', 'Child Tags')
