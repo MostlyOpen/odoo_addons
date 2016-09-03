@@ -54,10 +54,7 @@ class Address(models.Model):
 
     @api.one
     def insert_myo_address_log(self, address_id, values, action, notes):
-        active_log = False
-        if 'active_log' in values:
-            active_log = values['active_log']
-        if self.active_log or active_log:
+        if self.active_log or 'active_log' in values:
             vals = {
                 'address_id': address_id,
                 'values': values,
