@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_address_mng_view_form_state" model="ir.ui.view">
+            <field name="name">myo.address.mng.form</field>
+            <field name="model">myo.address.mng</field>
+            <field name="inherit_id" ref="myo_address_mng.myo_address_mng_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <sheet name="address_management" position="before">
+                    <header>
+                        <field name="state" widget="statusbar"
+                               clickable="True"
+                               statusbar_visible="draft,revised,waiting,done,canceled"/>
+                    </header>
+                </sheet>
+                <div name="button_box" position="inside">
+                    <header>
+                        <button name="action_draft" type="object"
+                                string="Draft"
+                                states="canceled"
+                                groups="myo_base.group_address_mng_manager"/>
+                        <button name="action_revised" type="object"
+                                string="Revised"
+                                states="draft,waiting"
+                                groups="myo_base.group_address_mng_manager"/>
+                        <button name="action_waiting" type="object"
+                                string="Waiting"
+                                states="revised"
+                                groups="myo_base.group_address_mng_manager"/>
+                        <button name="action_done" type="object"
+                                string="Done"
+                                states="revised,waiting"
+                                groups="myo_base.group_address_mng_manager"/>
+                        <button name="action_cancel" type="object"
+                                string="Cancel"
+                                states="draft,revised,waiting,done"
+                                groups="myo_base.group_address_mng_manager"/>
+                    </header>
+                </div>
+            </field>
+        </record>
+
+        <record id="myo_address_mng_view_tree_state" model="ir.ui.view">
+            <field name="name">myo.address.mng.tree</field>
+            <field name="model">myo.address.mng</field>
+            <field name="inherit_id" ref="myo_address_mng.myo_address_mng_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="state"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_address_mng_view_search_state" model="ir.ui.view">
+            <field name="name">myo.address.mng.search</field>
+            <field name="model">myo.address.mng</field>
+            <field name="inherit_id" ref="myo_address_mng.myo_address_mng_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="state"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>
