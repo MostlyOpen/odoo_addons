@@ -54,11 +54,7 @@ class Tag(models.Model):
 
     @api.one
     def insert_myo_tag_log(self, tag_id, values, action, notes):
-        active_log = False
-        if 'active_log' in values:
-            # active_log = values['active_log']
-            active_log = True
-        if self.active_log or active_log:
+        if self.active_log or 'active_log' in values:
             vals = {
                 'tag_id': tag_id,
                 'values': values,
