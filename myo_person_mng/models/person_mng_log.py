@@ -54,10 +54,7 @@ class PersonManagement(models.Model):
 
     @api.one
     def insert_myo_person_log(self, person_id, values, action, notes):
-        active_log = False
-        if 'active_log' in values:
-            active_log = values['active_log']
-        if self.active_log or active_log:
+        if self.active_log or 'active_log' in values:
             vals = {
                 'person_id': person_id,
                 'values': values,
