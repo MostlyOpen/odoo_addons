@@ -54,10 +54,7 @@ class PersonCategory(models.Model):
 
     @api.one
     def insert_myo_person_category_log(self, person_category_id, values, action, notes):
-        active_log = False
-        if 'active_log' in values:
-            active_log = values['active_log']
-        if self.active_log or active_log:
+        if self.active_log or 'active_log' in values:
             vals = {
                 'person_category_id': person_category_id,
                 'values': values,
