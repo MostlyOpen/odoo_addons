@@ -37,6 +37,7 @@
         'views/annotation_view.xml',
         'views/annotation_category_view.xml',
         'views/tag_view.xml',
+        'data/annotation_seq.xml',
         'views/annotation_menu_view.xml',
     ],
     'demo': [],

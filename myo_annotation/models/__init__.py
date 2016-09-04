@@ -21,3 +21,4 @@
 from . import annotation
 from . import annotation_category
 from . import tag
+from . import annotation_seq
