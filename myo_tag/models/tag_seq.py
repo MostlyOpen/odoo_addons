@@ -55,9 +55,8 @@ def format_code(code_seq):
 class Tag(models.Model):
     _inherit = 'myo.tag'
 
-    code = fields.Char(string='Code', help="Tag Code", required=False)
     code = fields.Char(string='Code', required=False, default=False,
-                       help='Use "/" to get an automatic new Code.')
+                       help='Use "/" to get an automatic new Tag Code.')
 
     @api.model
     def create(self, values):
