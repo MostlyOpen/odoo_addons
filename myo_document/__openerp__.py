@@ -38,6 +38,7 @@
         'views/document_category_view.xml',
         'views/tag_view.xml',
         'views/annotation_view.xml',
+        'data/document_seq.xml',
         'views/document_menu_view.xml',
     ],
     'demo': [],
