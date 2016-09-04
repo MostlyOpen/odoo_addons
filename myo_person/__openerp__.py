@@ -43,6 +43,7 @@
         'views/address_view.xml',
         'views/address_person_role_view.xml',
         'views/address_person_view.xml',
+        'data/person_seq.xml',
         'views/person_menu_view.xml',
         'views/person_log_view.xml',
         'views/person_category_log_view.xml',
