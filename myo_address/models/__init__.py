@@ -23,5 +23,6 @@ from . import address_hierarchy
 from . import address_category
 from . import tag
 from . import annotation
+from . import address_seq
 from . import address_log
 from . import address_category_log

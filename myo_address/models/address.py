@@ -60,7 +60,7 @@ class Address(osv.Model, FormatAddress):
         'name': fields.char('Name', required=True, select=True),
         'title': fields.many2one('res.partner.title', 'Title'),
         'alias': fields.char('Alias', help='Common name that the Address is referred.'),
-        'code': fields.char(string='Code', help="Address Code"),
+        'code': fields.char(string='Code', required=False, help="Address Code"),
         'notes': fields.text('Notes'),
         'street': fields.char('Street'),
         'street2': fields.char('Street2'),
