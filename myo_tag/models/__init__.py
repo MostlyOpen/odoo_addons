@@ -19,4 +19,5 @@
 ###############################################################################
 
 from . import tag
+from . import tag_seq
 from . import tag_log

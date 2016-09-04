@@ -35,6 +35,7 @@
         'views/tag_view.xml',
         'views/tag_menu_view.xml',
         'views/tag_log_view.xml',
+        'data/tag_seq.xml',
     ],
     'demo': [],
     'test': [],
