@@ -26,3 +26,4 @@ from . import community_person_role
 from . import community_person
 from . import community_employee
 from . import community_employee_role
+from . import community_seq

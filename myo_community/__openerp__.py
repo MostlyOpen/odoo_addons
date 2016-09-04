@@ -45,6 +45,7 @@
         'views/community_person_view.xml',
         'views/community_employee_role_view.xml',
         'views/community_employee_view.xml',
+        'data/community_seq.xml',
         'views/community_menu_view.xml',
     ],
     'demo': [],
