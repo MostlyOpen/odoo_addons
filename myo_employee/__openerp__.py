@@ -32,6 +32,7 @@
     ],
     'data': [
         'views/hr_employee_view.xml',
+        'data/hr_employee_seq.xml',
     ],
     'demo': [],
     'test': [],
