@@ -41,6 +41,7 @@
         'views/annotation_view.xml',
         'views/address_log_view.xml',
         'views/address_category_log_view.xml',
+        'views/address_name_view.xml',
         'views/address_menu_view.xml',
         'data/address_seq.xml',
     ],

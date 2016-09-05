@@ -26,3 +26,4 @@ from . import annotation
 from . import address_seq
 from . import address_log
 from . import address_category_log
+from . import address_name
