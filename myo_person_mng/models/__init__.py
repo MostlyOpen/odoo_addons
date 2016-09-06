@@ -24,4 +24,5 @@ from . import person_category
 from . import tag
 from . import annotation
 from . import person_mng_state
+from . import person_mng_seq
 from . import person_mng_log
