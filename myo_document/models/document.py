@@ -20,13 +20,25 @@
 
 from datetime import datetime
 
-from openerp import fields, models
+from openerp import api, fields, models
 
 
 class Document(models.Model):
     _name = "myo.document"
 
-    name = fields.Char('Code', help="Document Code")
+    @api.multi
+    @api.depends('name', 'code')
+    def name_get(self):
+        result = []
+        for record in self:
+            result.append(
+                (record.id,
+                 u'%s [%s]' % (record.name, record.code)
+                 ))
+        return result
+
+    name = fields.Char('Name', required=True, help="Document Name")
+    code = fields.Char('Code', help="Document Code")
     date_requested = fields.Datetime('Date requested',
                                      default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     date_document = fields.Datetime('Document Date')
@@ -36,6 +48,6 @@ class Document(models.Model):
                             help="If unchecked, it will allow you to hide the document without removing it.",
                             default=1)
 
-    _sql_constraints = [('name_uniq', 'unique (name)', 'Error! The Document Code must be unique!')]
+    _sql_constraints = [('code_uniq', 'unique (code)', 'Error! The Document Code must be unique!')]
 
     _order = 'name'
