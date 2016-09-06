@@ -18,12 +18,10 @@
 #
 ###############################################################################
 
-from . import person_mng
-from . import address
-from . import person_category
-from . import tag
-from . import annotation
-from . import person_mng_state
-from . import person_mng_seq
-from . import person_mng_log
-from . import address_mng
+from openerp import fields, models
+
+
+class PersonManagement(models.Model):
+    _inherit = 'myo.person.mng'
+
+    address_mng_id = fields.Many2one('myo.address.mng', 'Address Management', ondelete='restrict')

@@ -30,6 +30,7 @@
         'myo_person',
         'myo_tag',
         'myo_annotation',
+        'myo_address_mng',
     ],
     'data': [
         'security/person_mng_security.xml',
@@ -42,6 +43,7 @@
         'views/person_mng_state_view.xml',
         'views/person_mng_menu_view.xml',
         'views/person_mng_log_view.xml',
+        'views/address_mng_view.xml',
     ],
     'demo': [],
     'test': [],
