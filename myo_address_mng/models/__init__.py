@@ -23,4 +23,5 @@ from . import address_category
 from . import tag
 from . import annotation
 from . import address_mng_state
+from . import address_mng_seq
 from . import address_mng_log
