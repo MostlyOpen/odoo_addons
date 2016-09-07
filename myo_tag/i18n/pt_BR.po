@@ -120,7 +120,7 @@ msgstr "Superior esquerda"
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_notes
 #: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form
 msgid "Notes"
-msgstr "Observações"
+msgstr "Notas"
 
 #. module: myo_tag
 #: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form
