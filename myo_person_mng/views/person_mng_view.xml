@@ -100,6 +100,7 @@
                     <field name="age"/>
                     <field name="birthday"/>
                     <field name="notes" colspan="4"/>
+                    <field name="person_id"/>
                     <field name="batch_name"/>
                 </tree>
             </field>
