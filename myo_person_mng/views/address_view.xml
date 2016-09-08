@@ -63,6 +63,7 @@
             <field name="arch" type="xml">
                 <group name="group_by" position="inside">
                     <filter string="Address" context="{'group_by': 'address_id'}"/>
+                    <filter string="Street" context="{'group_by': 'street'}"/>
                 </group>
             </field>
         </record>
