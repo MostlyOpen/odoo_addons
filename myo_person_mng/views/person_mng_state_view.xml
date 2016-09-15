@@ -51,6 +51,10 @@
                 <field name="code" position="after">
                     <field name="state"/>
                 </field>
+                <tree name="person_mng" position="attributes">
+                    <attribute name="colors">gray:state=='canceled'</attribute>
+                    <attribute name="fonts">italic:state=='draft'</attribute>
+                </tree>
             </field>
         </record>
 

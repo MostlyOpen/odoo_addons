@@ -93,7 +93,7 @@
             <field name="model">myo.person.mng</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <tree string="Person (Management)">
+                <tree name="person_mng" string="Person (Management)">
                     <field name="name"/>
                     <field name="alias"/>
                     <field name="code"/>
