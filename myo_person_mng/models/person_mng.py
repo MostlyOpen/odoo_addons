@@ -39,7 +39,7 @@ class PersonManagement(models.Model):
     age = fields.Char(
         string='Age',
         compute='_compute_age',
-        store=False
+        store=True
     )
     spouse_name = fields.Char('Spouse Name')
     spouse_id = fields.Many2one('myo.person', 'Spouse', ondelete='restrict')
