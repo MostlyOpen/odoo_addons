@@ -36,6 +36,7 @@ class Tag(models.Model):
                             default=1)
     parent_left = fields.Integer('Left parent', select=True)
     parent_right = fields.Integer('Right parent', select=True)
+    color = fields.Integer('Color Index')
 
     _sql_constraints = [
         ('tag_code_uniq', 'unique(code)', u'Error! The Tag Code must be unique!')
