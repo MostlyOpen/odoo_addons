@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        
+        <record id="myo_lab_test_request_view_form" model="ir.ui.view">
+            <field name="name">myo.lab_test.request.form</field>
+            <field name="model">myo.lab_test.patient</field>
+            <field name="arch" type="xml">
+                <form string="Lab Test Requests" version="7.0">
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="date"/>
+                        <field name="patient_id" required="0"/>
+                        <!--field name="professional_id"/-->
+                        <field name="state"/>
+                        <field name="lab_test_id"></field>
+                    </group>
+                </form>
+            </field>
+        </record>
+    
+        <record id="myo_lab_test_request_view_tree" model="ir.ui.view">
+            <field name="name">myo.lab_test.request.tree</field>
+            <field name="model">myo.lab_test.patient</field>
+            <field name="arch" type="xml">
+                <tree string="Test Requests">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="patient_id"/>
+                    <!--field name="professional_id"/-->
+                    <field name="state" readonly="1"/>
+                    <field name="lab_test_id"></field>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="myo_action_lab_test_request" model="ir.actions.act_window">
+            <field name="name">Lab Test Requests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.lab_test.patient</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    
+        <record id="myo_action_draft_lab_test_request" model="ir.actions.act_window">
+            <field name="name">Draft Lab Test Requests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.lab_test.patient</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','=','draft')]</field>
+        </record>
+    
+        <record id="myo_action_today_draft_lab_test_request" model="ir.actions.act_window">
+            <field name="name">Today's Draft Lab Test Requests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.lab_test.patient</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','=','draft'),('date','&gt;=',time.strftime('%Y-%m-%d 00:00:01')),('date','&lt;=',time.strftime('%Y-%m-%d 23:59:59'))]</field>
+        </record>
+    
+        <record id="myo_lab_test_view_filter" model="ir.ui.view">
+            <field name="name">Lab Tests Requests</field>
+            <field name="model">myo.lab_test.patient</field>
+            <field name="arch" type="xml">
+                <search string="Search Lab Tests Requests">
+                    <separator orientation="vertical"/>
+                        <field name="name" select="1"/>
+                        <field name="date" select="1"/>
+                        <field name="patient_id" select="1"/>
+                        <!--field name="professional_id" select="1"/-->
+                        <field name="state" select="1"/>
+                    <newline/>
+                </search>
+            </field>
+        </record>
+       
+    </data>
+</openerp>
