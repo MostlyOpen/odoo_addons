@@ -48,6 +48,16 @@
                                 </group>
                                 <field name="notes" placeholder="Notes..." colspan="4"/>
                             </page>
+                            <page string="Information Old">
+                                <group>
+                                    <group>
+                                    </group>
+                                    <group>
+                                        <field name="description_old" nolabel="1" placeholder="Description..."/>
+                                    </group>
+                                </group>
+                                <field name="notes_old" placeholder="Notes..." colspan="4"/>
+                            </page>
                             <page name="settings" string="Settings" groups="myo_base.group_rmanager">
                                 <group>
                                     <field name="active"/>
