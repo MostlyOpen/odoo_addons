@@ -28,8 +28,10 @@
     'website': 'http://mostlyopen.org',
     'depends': [
         'survey',
+        'myo_base',
     ],
     'data': [
+        'security/survey_security.xml',
         'views/survey_user_input_view.xml',
     ],
     'demo': [],
