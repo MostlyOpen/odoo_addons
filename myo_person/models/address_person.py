@@ -20,7 +20,7 @@
 
 from datetime import *
 
-from openerp import fields, models
+from openerp import api, fields, models
 
 
 class AddressPerson(models.Model):
@@ -38,6 +38,25 @@ class AddressPerson(models.Model):
                             default=1)
 
     _order = "sign_in_date desc"
+
+
+class Address(models.Model):
+    _inherit = 'myo.address'
+
+    address_person_ids = fields.One2many(
+        'myo.address.person',
+        'address_id',
+        'Address Persons'
+    )
+    count_address_persons = fields.Integer(
+        'Number of Address Persons',
+        compute='_compute_count_address_persons'
+    )
+
+    @api.depends('address_person_ids')
+    def _compute_count_address_persons(self):
+        for r in self:
+            r.count_address_persons = len(r.address_person_ids)
 
 
 class Person(models.Model):

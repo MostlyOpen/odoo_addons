@@ -103,6 +103,35 @@
             </field>
         </record>
 
+        <record id="myo_address_view_form_address_person" model="ir.ui.view">
+            <field name="name">myo.address.form</field>
+            <field name="model">myo.address</field>
+            <field name="inherit_id" ref="myo_address.myo_address_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Address Persons">
+                        <group>
+                            <field name="count_address_persons"/>
+                            <field name="address_person_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="myo_address_view_tree_address_person" model="ir.ui.view">
+            <field name="name">myo.address.tree</field>
+            <field name="model">myo.address</field>
+            <field name="inherit_id" ref="myo_address.myo_address_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="count_address_persons"/>
+                </field>
+            </field>
+        </record>
+
     </data>
 </openerp>
 
