@@ -35,7 +35,7 @@
             <field name="model">myo.address.person</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <tree string="Addresses">
+                <tree string="Addresses" colors="red:sign_out_date != False;blue:sign_out_date == False">
                     <field name="person_id"/>
                     <field name="address_id"/>
                     <field name="role_id"/>
@@ -96,13 +96,15 @@
                 <page name="settings" position="before">
                     <page string="Addresses">
                         <field name="address_person_ids" colspan="4" nolabel="1">
-                            <tree string="Addresses">
-                                <field name="address_id"/>
-                                <field name="role_id"/>
-                                <field name="sign_in_date"/>
-                                <field name="sign_out_date"/>
-                                <field name="notes"/>
-                            </tree>
+                            <group>
+                                <tree string="Addresses" colors="red:sign_out_date != False;blue:sign_out_date == False">
+                                    <field name="address_id"/>
+                                    <field name="role_id"/>
+                                    <field name="sign_in_date"/>
+                                    <field name="sign_out_date"/>
+                                    <field name="notes"/>
+                                </tree>
+                            </group>
                         </field>
                     </page>
                 </page>
@@ -120,6 +122,13 @@
                         <group>
                             <field name="count_address_persons"/>
                             <field name="address_person_ids" colspan="4" nolabel="1"/>
+                                <!--tree string="Persons" colors="red:sign_out_date != False;blue:sign_out_date == False">
+                                    <field name="person_id"/>
+                                    <field name="role_id"/>
+                                    <field name="sign_in_date"/>
+                                    <field name="sign_out_date"/>
+                                    <field name="notes"/>
+                                </tree-->
                         </group>
                     </page>
                 </page>
