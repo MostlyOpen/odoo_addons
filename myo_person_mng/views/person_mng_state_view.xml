@@ -10,8 +10,10 @@
             <field name="arch" type="xml">
                 <sheet name="person_management" position="before">
                     <header>
-                        <field name="state" widget="statusbar"
+                        <!--field name="state" widget="statusbar"
                                clickable="True"
+                               statusbar_visible="draft,revised,waiting,done,canceled"/-->
+                        <field name="state" widget="statusbar"
                                statusbar_visible="draft,revised,waiting,done,canceled"/>
                     </header>
                 </sheet>
