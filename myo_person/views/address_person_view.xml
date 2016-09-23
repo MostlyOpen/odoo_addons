@@ -54,7 +54,13 @@
                 <search string="Addresses">
                     <field name="person_id"/>
                     <field name="address_id"/>
+                    <field name="role_id"/>
+                    <field name="sign_in_date"/>
+                    <field name="sign_out_date"/>
+                    <field name="notes"/>
                     <newline/>
+                    <filter name="opened_address" string="Opened Address" domain="[('sign_out_date','=',False)]"/>
+                    <filter name="closed_address" string="Closed Address" domain="[('sign_out_date','!=',False)]"/>
                     <group expand="0" string="Group By...">
                         <filter string="Person" domain="[]" context="{'group_by':'person_id'}"/>
                         <filter string="Address" domain="[]" context="{'group_by':'address_id'}"/>
