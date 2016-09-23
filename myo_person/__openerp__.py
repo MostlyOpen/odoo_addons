@@ -46,6 +46,7 @@
         'data/person_seq.xml',
         'views/person_log_view.xml',
         'views/person_category_log_view.xml',
+        'views/person_state_view.xml',
         'views/person_menu_view.xml',
     ],
     'demo': [],
