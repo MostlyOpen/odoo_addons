@@ -8,7 +8,7 @@
             <field eval="1" name="priority"/>
             <field name="arch" type="xml">
                 <form string="Addresses" version="7.0">
-                    <sheet string="Address">
+                    <sheet name="address" string="Address">
                         <div class="oe_center" name="center">
                             <!-- Put here related fields -->
                             <!--label for="name" class="oe_edit_only"/-->
@@ -74,7 +74,7 @@
             <field name="model">myo.address</field>
             <field eval="8" name="priority"/>
             <field name="arch" type="xml">
-                <tree string="Addresses">
+                <tree name="addresses" string="Addresses">
                     <field name="name"/>
                     <field name="alias" invisible="1"/>
                     <field name="phone"/>
