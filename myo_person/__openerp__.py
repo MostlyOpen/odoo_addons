@@ -48,6 +48,7 @@
         'views/person_category_log_view.xml',
         'views/person_state_view.xml',
         'views/person_menu_view.xml',
+        'wizard/address_person_wizard_view.xml',
     ],
     'demo': [],
     'test': [],

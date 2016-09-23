@@ -61,6 +61,7 @@
                     <newline/>
                     <filter name="opened_address" string="Opened Address" domain="[('sign_out_date','=',False)]"/>
                     <filter name="closed_address" string="Closed Address" domain="[('sign_out_date','!=',False)]"/>
+                    <filter name="not_active" string="Not Active" domain="[('active','=',False)]"/>
                     <group expand="0" string="Group By...">
                         <filter string="Person" domain="[]" context="{'group_by':'person_id'}"/>
                         <filter string="Address" domain="[]" context="{'group_by':'address_id'}"/>
