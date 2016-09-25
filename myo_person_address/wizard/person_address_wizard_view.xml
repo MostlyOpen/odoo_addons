@@ -1,0 +1,40 @@
+<openerp>
+  <data>
+
+    <record id="view_form_myo_person_address_wizard" model="ir.ui.view">
+      <field name="name">view_form_myo_person_address_wizard</field>
+      <field name="model">myo.person.address.wizard</field>
+      <field name="arch" type="xml">
+
+        <form>
+            <div class="oe_right">
+                <button type="object" name="do_count_person_addresss"
+                        string="Count"/>
+                <button type="object" name="do_populate_person_addresss"
+                        string="Get All"/>
+            </div>
+            <field name="person_address_ids"/>
+            <group>
+                <group><field name="new_active"/></group>
+            </group>
+            <footer>
+                <button type="object" name="do_mass_update"
+                    string="Mass Update" class="oe_highlight"
+                    />
+                <button special="cancel" string="Cancel"/>
+            </footer>
+        </form>
+
+      </field>
+    </record>
+
+    <!-- More button Action -->
+    <act_window id="action_myo_person_address_wizard"
+        name="Set Active (Person Address)"
+        src_model="myo.person.address"
+        res_model="myo.person.address.wizard"
+        view_mode="form"
+        target="new"/>
+
+  </data>
+</openerp>

@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_myo_person_address_role_person_user,myo.person.address.role,model_myo_person_address_role,myo_base.group_person_user,1,0,0,0
+access_myo_person_address_role_person_manager,myo.person.address.role,model_myo_person_address_role,myo_base.group_person_manager,1,1,1,0
+access_myo_person_address_role_smanager,myo.person.address.role,model_myo_person_address_role,myo_base.group_smanager,1,1,1,1
+
+access_myo_person_address_person_user,myo.person.address,model_myo_person_address,myo_base.group_person_user,1,0,0,0
+access_myo_person_address_person_manager,myo.person.address,model_myo_person_address,myo_base.group_person_manager,1,1,1,0
+access_myo_person_address_smanager,myo.person.address,model_myo_person_address,myo_base.group_smanager,1,1,1,1
