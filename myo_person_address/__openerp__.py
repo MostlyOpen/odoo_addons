@@ -18,20 +18,32 @@
 #
 ###############################################################################
 
-from openerp import fields, models
-
-
-class AddressPersonRole(models.Model):
-    _name = 'myo.address.person.role'
-
-    name = fields.Char(string='Person Role', required=True,
-                       help='Role of a Person in an Address')
-    description = fields.Text(string='Description')
-    notes = fields.Text(string='Notes')
-    active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the person role without removing it.",
-                            default=1)
-    _order = 'name'
-
-    _sql_constraints = [('role_name_uniq', 'unique(name)',
-                         u'Error! The Person Role Name must be unique!')]
+{
+    'name': 'Person Address',
+    'summary': 'Person Address Module used in MostlyOpen Solutions.',
+    'version': '2.0.0',
+    'author': 'Carlos Eduardo Vercelino - CLVsol',
+    'category': 'Generic Modules/Others',
+    'license': 'AGPL-3',
+    'website': 'http://mostlyopen.org',
+    'depends': [
+        'myo_address',
+        'myo_person',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/person_address_role_view.xml',
+        'views/person_address_view.xml',
+        'views/person_address_menu_view.xml',
+        'wizard/person_address_wizard_view.xml',
+    ],
+    'demo': [],
+    'test': [],
+    'init_xml': [],
+    'test': [],
+    'update_xml': [],
+    'installable': True,
+    'application': False,
+    'active': False,
+    'css': [],
+}

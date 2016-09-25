@@ -2,11 +2,11 @@
 <openerp>
     <data>
 
-        <record id="myo_address_person_role_view_form" model="ir.ui.view">
-            <field name="name">myo.address.person.role.form</field>
-            <field name="model">myo.address.person.role</field>
+        <record id="myo_person_address_role_view_form" model="ir.ui.view">
+            <field name="name">myo.person.address.role.form</field>
+            <field name="model">myo.person.address.role</field>
             <field name="arch" type="xml">
-                <form string="Address Person Roles" version="7.0">
+                <form string="Person Address Roles" version="7.0">
                     <sheet>
                          <div class="oe_title">
                             <label for="name" class="oe_edit_only"/>
@@ -32,24 +32,24 @@
             </field>
         </record>
         
-        <record id="myo_address_person_role_view_tree" model="ir.ui.view">
-            <field name="name">myo.address.person.role.tree</field>
-            <field name="model">myo.address.person.role</field>
+        <record id="myo_person_address_role_view_tree" model="ir.ui.view">
+            <field name="name">myo.person.address.role.tree</field>
+            <field name="model">myo.person.address.role</field>
             <field name="priority" eval="8" />
             <field name="arch" type="xml">
-                <tree string="Address Person Roles">
+                <tree string="Person Address Roles">
                     <field name="name" />
                     <field name="description" />
                 </tree>
             </field>
         </record>
         
-        <record id="myo_address_person_role_view_search" model="ir.ui.view">
-            <field name="name">myo.address.person.role.search</field>
-            <field name="model">myo.address.person.role</field>
+        <record id="myo_person_address_role_view_search" model="ir.ui.view">
+            <field name="name">myo.person.address.role.search</field>
+            <field name="model">myo.person.address.role</field>
             <field name="priority" eval="8" />
             <field name="arch" type="xml">
-                <search string="Address Person Role">
+                <search string="Person Address Role">
                     <field name="name" />
                     <field name="description" />
                     <separator/>
@@ -58,13 +58,13 @@
             </field>
         </record>
         
-        <record id="myo_address_person_role_action" model="ir.actions.act_window">
-            <field name="name">Address Person Roles</field>
+        <record id="myo_person_address_role_action" model="ir.actions.act_window">
+            <field name="name">Person Address Roles</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">myo.address.person.role</field>
+            <field name="res_model">myo.person.address.role</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref="myo_address_person_role_view_search" />
+            <field name="search_view_id" ref="myo_person_address_role_view_search" />
             <field name="domain">[]</field>
             <field name="context">{}</field>
             <field name="context">{}</field>

@@ -23,12 +23,12 @@ from datetime import *
 from openerp import api, fields, models
 
 
-class AddressPerson(models.Model):
-    _name = 'myo.address.person'
+class PersonAddress(models.Model):
+    _name = 'myo.person.address'
 
-    address_id = fields.Many2one('myo.address', 'Address', required=False)
     person_id = fields.Many2one('myo.person', string='Person', help='Person')
-    role_id = fields.Many2one('myo.address.person.role', 'Role', required=False)
+    address_id = fields.Many2one('myo.address', 'Address', required=False)
+    role_id = fields.Many2one('myo.person.address.role', 'Role', required=False)
     sign_in_date = fields.Date('Sign in date', required=False,
                                default=lambda *a: datetime.now().strftime('%Y-%m-%d'))
     sign_out_date = fields.Date("Sign out date", required=False)
@@ -40,30 +40,30 @@ class AddressPerson(models.Model):
     _order = "sign_in_date desc"
 
 
-class Address(models.Model):
-    _inherit = 'myo.address'
-
-    address_person_ids = fields.One2many(
-        'myo.address.person',
-        'address_id',
-        'Address Persons'
-    )
-    count_address_persons = fields.Integer(
-        'Number of Address Persons',
-        compute='_compute_count_address_persons'
-    )
-
-    @api.depends('address_person_ids')
-    def _compute_count_address_persons(self):
-        for r in self:
-            r.count_address_persons = len(r.address_person_ids)
-
-
 class Person(models.Model):
     _inherit = 'myo.person'
 
-    address_person_ids = fields.One2many(
-        'myo.address.person',
+    person_address_ids = fields.One2many(
+        'myo.person.address',
         'person_id',
         'Addresses'
     )
+
+
+class Address(models.Model):
+    _inherit = 'myo.address'
+
+    person_address_ids = fields.One2many(
+        'myo.person.address',
+        'address_id',
+        'Person Addresses'
+    )
+    count_person_addresss = fields.Integer(
+        'Number of Person Addresses',
+        compute='_compute_count_person_addresss'
+    )
+
+    @api.depends('person_address_ids')
+    def _compute_count_person_addresss(self):
+        for r in self:
+            r.count_person_addresss = len(r.person_address_ids)

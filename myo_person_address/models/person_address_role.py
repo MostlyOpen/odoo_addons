@@ -18,4 +18,20 @@
 #
 ###############################################################################
 
-import address_person_wizard
+from openerp import fields, models
+
+
+class PersonAddressRole(models.Model):
+    _name = 'myo.person.address.role'
+
+    name = fields.Char(string='Person Role', required=True,
+                       help='Role of a Person in an Address')
+    description = fields.Text(string='Description')
+    notes = fields.Text(string='Notes')
+    active = fields.Boolean('Active',
+                            help="If unchecked, it will allow you to hide the person role without removing it.",
+                            default=1)
+    _order = 'name'
+
+    _sql_constraints = [('role_name_uniq', 'unique(name)',
+                         u'Error! The Person Role Name must be unique!')]

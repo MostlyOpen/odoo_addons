@@ -27,29 +27,29 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-class AddressPersonWizard(models.TransientModel):
-    _name = 'myo.address.person.wizard'
+class PersonAddressWizard(models.TransientModel):
+    _name = 'myo.person.address.wizard'
 
-    address_person_ids = fields.Many2many('myo.address.person', string='Address Persons')
+    person_address_ids = fields.Many2many('myo.person.address', string='Person Addresses')
     new_active = fields.Boolean('Set Active', default=True)
 
     @api.multi
     def do_mass_update(self):
         self.ensure_one()
-        _logger.debug('Mass update on Address Persons %s',
-                      self.address_person_ids.ids)
-        self.address_person_ids.write({'active': self.new_active})
+        _logger.debug('Mass update on Person Addresses %s',
+                      self.person_address_ids.ids)
+        self.person_address_ids.write({'active': self.new_active})
         domain = [('active', '=', False), ]
-        inactive_recs = self.address_person_ids.search(domain)
+        inactive_recs = self.person_address_ids.search(domain)
         inactive_recs.write({'active': self.new_active})
         return True
 
     @api.multi
-    def do_count_address_persons(self):
-        AddressPerson = self.env['myo.address.person']
-        count = AddressPerson.search_count([])
+    def do_count_person_addresss(self):
+        PersonAddress = self.env['myo.person.address']
+        count = PersonAddress.search_count([])
         raise exceptions.Warning(
-            'There are %d active addresse persons.' % count)
+            'There are %d active person addresses.' % count)
 
     @api.multi
     def do_reopen_form(self):
@@ -63,10 +63,10 @@ class AddressPersonWizard(models.TransientModel):
             'target': 'new'}
 
     @api.multi
-    def do_populate_address_persons(self):
+    def do_populate_person_addresss(self):
         self.ensure_one()
-        AddressPerson = self.env['myo.address.person']
-        all_address_persons = AddressPerson.search([])
-        self.address_person_ids = all_address_persons
+        PersonAddress = self.env['myo.person.address']
+        all_person_addresss = PersonAddress.search([])
+        self.person_address_ids = all_person_addresss
         # reopen wizard form on same wizard record
         return self.do_reopen_form()

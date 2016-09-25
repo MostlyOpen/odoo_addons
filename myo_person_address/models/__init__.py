@@ -18,4 +18,5 @@
 #
 ###############################################################################
 
-from . import models
+from . import person_address_role
+from . import person_address

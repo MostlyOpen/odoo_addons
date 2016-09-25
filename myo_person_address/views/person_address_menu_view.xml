@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Community/Community/Persons -->
+            <!-- Community/Community/Persons/Addresses -->
+            <menuitem name="Addresses" id="menu_community_community_persons_addresses"
+                parent="myo_person.menu_community_community_persons"
+                groups="myo_base.group_person_user"
+                sequence="10"
+                action="myo_person_address.myo_person_address_actions"/>
+        <!-- Community/Community/Configuration/Person Roles (Address) -->
+        <menuitem name="Person Roles (Address)" id="menu_community_config_config_person_roles_address"
+            parent="myo_base.menu_community_config_config"
+            groups="myo_base.group_person_user"
+            sequence="20"
+            action="myo_person_address.myo_person_address_role_action"/>
+
+    </data>
+</openerp>

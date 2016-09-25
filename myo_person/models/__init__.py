@@ -23,8 +23,6 @@ from . import person_category
 from . import tag
 from . import annotation
 from . import address
-from . import address_person_role
-from . import address_person
 from . import person_seq
 from . import person_log
 from . import person_category_log
