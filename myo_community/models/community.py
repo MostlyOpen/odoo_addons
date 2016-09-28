@@ -28,7 +28,7 @@ class Community(models.Model):
 
     name = fields.Char('Community', required=True, translate=False)
     alias = fields.Char('Alias', help='Common name that the Community is referred')
-    parent_id = fields.Many2one('myo.community', 'Parent Community', select=True, ondelete='restrict')
+    parent_id = fields.Many2one('myo.community', 'Parent Community', index=True, ondelete='restrict')
     code = fields.Char(size=64, string='Community Code', required=False)
     comm_location = fields.Char('Community Location')
     notes = fields.Text(string='Notes')
@@ -39,8 +39,8 @@ class Community(models.Model):
     active = fields.Boolean('Active',
                             help="If unchecked, it will allow you to hide the community without removing it.",
                             default=1)
-    parent_left = fields.Integer('Left parent', select=True)
-    parent_right = fields.Integer('Right parent', select=True)
+    parent_left = fields.Integer('Left parent', index=True)
+    parent_right = fields.Integer('Right parent', index=True)
 
     _constraints = [
         (models.Model._check_recursion, 'Error! You can not create recursive communities.', ['parent_id'])

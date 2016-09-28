@@ -33,11 +33,11 @@ class MedicamentForm(models.Model):
     active = fields.Boolean('Active',
                             help="If unchecked, it will allow you to hide the medicament form without removing it.",
                             default=1)
-    parent_id = fields.Many2one('myo.medicament.form', 'Parent Form', select=True, ondelete='restrict')
+    parent_id = fields.Many2one('myo.medicament.form', 'Parent Form', index=True, ondelete='restrict')
     complete_name = fields.Char(string='Full Medicament Form', compute='_name_get_fnc', store=False, readonly=True)
     child_ids = fields.One2many('myo.medicament.form', 'parent_id', 'Child Forms')
-    parent_left = fields.Integer('Left parent', select=True)
-    parent_right = fields.Integer('Right parent', select=True)
+    parent_left = fields.Integer('Left parent', index=True)
+    parent_right = fields.Integer('Right parent', index=True)
 
     _sql_constraints = [
         ('name_uniq', 'UNIQUE(name)', u'Error! The Medicament Form must be unique!'),

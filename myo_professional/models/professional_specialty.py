@@ -25,7 +25,7 @@ class ProfessionalSpecialty(models.Model):
     _name = 'myo.professional.specialty'
 
     name = fields.Char('Specialty', required=True, translate=True)
-    parent_id = fields.Many2one('myo.professional.specialty', 'Parent Specialty', select=True, ondelete='restrict')
+    parent_id = fields.Many2one('myo.professional.specialty', 'Parent Specialty', index=True, ondelete='restrict')
     code = fields.Char('Code', required=False)
     description = fields.Char(string='Description')
     notes = fields.Text(string='Notes')
@@ -34,8 +34,8 @@ class ProfessionalSpecialty(models.Model):
     active = fields.Boolean('Active',
                             help="If unchecked, it will allow you to hide the specialty without removing it.",
                             default=1)
-    parent_left = fields.Integer('Left parent', select=True)
-    parent_right = fields.Integer('Right parent', select=True)
+    parent_left = fields.Integer('Left parent', index=True)
+    parent_right = fields.Integer('Right parent', index=True)
     professional_ids = fields.Many2many(
         'myo.professional',
         'myo_professional_specialty_rel',

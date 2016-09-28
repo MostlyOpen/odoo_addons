@@ -26,7 +26,7 @@ from openerp import api, fields, models
 class AddressManagement(models.Model):
     _name = 'myo.address.mng'
 
-    name = fields.Char('Name', required=True, select=True)
+    name = fields.Char('Name', required=True, index=True)
     alias = fields.Char('Alias', help='Common name that the Address is referred.')
     code = fields.Char(string='Code', help="Address Code")
     street = fields.Char('Street')
