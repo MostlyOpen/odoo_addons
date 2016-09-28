@@ -57,7 +57,7 @@ class Address(osv.Model, FormatAddress):
     _name = "myo.address"
 
     _columns = {
-        'name': fields.char('Name', required=True, select=True),
+        'name': fields.char('Name', required=True, index=True),
         'title': fields.many2one('res.partner.title', 'Title'),
         'alias': fields.char('Alias', help='Common name that the Address is referred.'),
         'code': fields.char(string='Code', required=False, help="Address Code"),

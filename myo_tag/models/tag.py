@@ -25,7 +25,7 @@ class Tag(models.Model):
     _name = 'myo.tag'
 
     name = fields.Char('Tag', required=True)
-    parent_id = fields.Many2one('myo.tag', 'Parent Tag', select=True, ondelete='restrict')
+    parent_id = fields.Many2one('myo.tag', 'Parent Tag', index=True, ondelete='restrict')
     description = fields.Char(string='Description')
     code = fields.Char(string='Code', help="Tag Code", required=False)
     notes = fields.Text(string='Notes')
@@ -34,8 +34,8 @@ class Tag(models.Model):
     active = fields.Boolean('Active',
                             help="If unchecked, it will allow you to hide the tag without removing it.",
                             default=1)
-    parent_left = fields.Integer('Left parent', select=True)
-    parent_right = fields.Integer('Right parent', select=True)
+    parent_left = fields.Integer('Left parent', index=True)
+    parent_right = fields.Integer('Right parent', index=True)
     color = fields.Integer('Color Index')
 
     _sql_constraints = [

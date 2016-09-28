@@ -24,11 +24,11 @@ from openerp import api, fields, models
 class Address(models.Model):
     _inherit = 'myo.address'
 
-    parent_id = fields.Many2one('myo.address', 'Parent Address', select=True, ondelete='restrict')
+    parent_id = fields.Many2one('myo.address', 'Parent Address', index=True, ondelete='restrict')
     complete_name = fields.Char(string='Complete Name', compute='_name_get_fnc', store=False, readonly=True)
     child_ids = fields.One2many('myo.address', 'parent_id', 'Child Addresses')
-    parent_left = fields.Integer('Left parent', select=True)
-    parent_right = fields.Integer('Right parent', select=True)
+    parent_left = fields.Integer('Left parent', index=True)
+    parent_right = fields.Integer('Right parent', index=True)
 
     _parent_store = True
     _parent_order = 'name'

@@ -62,7 +62,7 @@ def check_ean(eancode):
 class MedicamentModel(models.AbstractModel):
     _name = 'myo.medicament.model'
 
-    name = fields.Char('Product Name', select=True, required=True)
+    name = fields.Char('Product Name', index=True, required=True)
     ean13 = fields.Char('EAN13 Barcode', size=13,
                         help="International Article Number used for product identification.")
     code = fields.Char(string='Code', help='Medicament Code', required=False)

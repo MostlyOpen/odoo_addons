@@ -26,7 +26,7 @@ from openerp import fields, models
 class MedicamentGroup(models.Model):
     _name = 'myo.medicament.group'
 
-    name = fields.Char('Name', select=1, required=True, help='Medicament Group Name')
+    name = fields.Char('Name', index=True, required=True, help='Medicament Group Name')
     alias = fields.Char('Alias', help='Common name that the Medicament Group is referred')
     code = fields.Char(string='Medicament Group Code', required=False)
     notes = fields.Text(string='Notes')

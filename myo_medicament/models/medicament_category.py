@@ -25,7 +25,7 @@ class MedicamentCategory(models.Model):
     _name = 'myo.medicament.category'
 
     name = fields.Char('Category', required=True, translate=True)
-    parent_id = fields.Many2one('myo.medicament.category', 'Parent Category', select=True, ondelete='restrict')
+    parent_id = fields.Many2one('myo.medicament.category', 'Parent Category', index=True, ondelete='restrict')
     code = fields.Char('Code', required=False)
     description = fields.Char(string='Description')
     notes = fields.Text(string='Notes')
@@ -34,8 +34,8 @@ class MedicamentCategory(models.Model):
     active = fields.Boolean('Active',
                             help="If unchecked, it will allow you to hide the category without removing it.",
                             default=1)
-    parent_left = fields.Integer('Left parent', select=True)
-    parent_right = fields.Integer('Right parent', select=True)
+    parent_left = fields.Integer('Left parent', index=True)
+    parent_right = fields.Integer('Right parent', index=True)
     _sql_constraints = [
         ('uniq_code', 'unique(code)', "Error! The Category Code must be unique!"),
     ]

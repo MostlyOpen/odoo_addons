@@ -30,14 +30,14 @@ class Place(models.Model):
     alias = fields.Char('Alias', help='Common name that the place is referred')
     code = fields.Char(string='Place Code', required=False)
     description = fields.Char(string='Description')
-    parent_id = fields.Many2one('myo.place', 'Parent Place', select=True, ondelete='restrict')
+    parent_id = fields.Many2one('myo.place', 'Parent Place', index=True, ondelete='restrict')
     complete_name = fields.Char(string='Full Place', compute='_name_get_fnc', store=False, readonly=True)
     child_ids = fields.One2many('myo.place', 'parent_id', 'Child Places')
     notes = fields.Text(string='Notes')
     date_inclusion = fields.Datetime("Inclusion Date", required=False, readonly=False,
                                      default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    parent_left = fields.Integer('Left parent', select=True)
-    parent_right = fields.Integer('Right parent', select=True)
+    parent_left = fields.Integer('Left parent', index=True)
+    parent_right = fields.Integer('Right parent', index=True)
     active = fields.Boolean('Active',
                             help="If unchecked, it will allow you to hide the place without removing it.",
                             default=1)

@@ -26,7 +26,7 @@ from openerp import fields, models
 class Annotation(models.Model):
     _name = 'myo.annotation'
 
-    name = fields.Char('Subject', select=1, required=True)
+    name = fields.Char('Subject', index=True, required=True)
     code = fields.Char('Code', required=False)
     author = fields.Many2one('res.users', 'Author', required=True, readonly=True,
                              default=lambda self: self._uid)
