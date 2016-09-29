@@ -26,19 +26,28 @@ from datetime import *
 class PersonCategoryLog(models.Model):
     _name = 'myo.person.category.log'
 
-    person_category_id = fields.Many2one('myo.person.category', 'Person Category', required=True, ondelete='cascade')
-    user_id = fields.Many2one('res.users', 'User', required=True)
-    date_log = fields.Datetime("Log Date", required=True)
+    person_category_id = fields.Many2one(
+        'myo.person.category',
+        'Person Category',
+        required=True,
+        ondelete='cascade'
+    )
+    user_id = fields.Many2one(
+        'res.users',
+        'User',
+        required=True,
+        default=lambda obj, cr, uid, context: uid
+    )
+    date_log = fields.Datetime(
+        'When',
+        required=True,
+        default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    )
     values = fields.Text(string='Values')
     action = fields.Char(string='Action')
     notes = fields.Text(string='Notes')
 
     _order = "date_log desc"
-
-    _defaults = {
-        'user_id': lambda obj, cr, uid, context: uid,
-        'date_log': lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-    }
 
 
 class PersonCategory(models.Model):
@@ -66,8 +75,6 @@ class PersonCategory(models.Model):
     @api.multi
     def write(self, values):
         action = 'write'
-        # notes = values.keys()
-        # notes = values.keys() + values.values()
         notes = False
         for person_category in self:
             person_category.insert_myo_person_category_log(person_category.id, values, action, notes)

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-17 13:46+0000\n"
-"PO-Revision-Date: 2016-06-17 13:46+0000\n"
+"POT-Creation-Date: 2016-09-28 20:43+0000\n"
+"PO-Revision-Date: 2016-09-28 20:43+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,19 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: myo_tag
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log_action
+msgid "Action"
+msgstr "Ação"
+
+#. module: myo_tag
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_active
 msgid "Active"
 msgstr "Ativo"
+
+#. module: myo_tag
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_active_log
+msgid "Active Log"
+msgstr "Log Ativo"
 
 #. module: myo_tag
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_child_ids
@@ -37,12 +47,19 @@ msgid "Code"
 msgstr "Código"
 
 #. module: myo_tag
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_color
+msgid "Color Index"
+msgstr "Índice de Cores"
+
+#. module: myo_tag
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_create_uid
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log_create_uid
 msgid "Created by"
 msgstr "Criado por"
 
 #. module: myo_tag
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_create_date
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log_create_date
 msgid "Created on"
 msgstr "Criado em"
 
@@ -58,18 +75,19 @@ msgstr "Descrição..."
 
 #. module: myo_tag
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_display_name
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log_display_name
 msgid "Display Name"
 msgstr "Nome de Exibição"
 
 #. module: myo_tag
 #: sql_constraint:myo.tag:0
-msgid "Error! The Tag Code must be unique!"
-msgstr "Erro! O Código da Etiqueta deve ser único!"
+msgid "Error! The Code must be unique!"
+msgstr "Erro! O Código deve ser único!"
 
 #. module: myo_tag
 #: constraint:myo.tag:0
 msgid "Error! You can not create recursive Tags."
-msgstr "Erro! Não é possível criar etiquetas recursivas."
+msgstr "Erro! Não é possível criar Etiquetas recursivas."
 
 #. module: myo_tag
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_complete_name
@@ -83,8 +101,14 @@ msgstr "Agrupar Por..."
 
 #. module: myo_tag
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_id
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log_id
 msgid "ID"
 msgstr "ID"
+
+#. module: myo_tag
+#: model:ir.model.fields,help:myo_tag.field_myo_tag_active_log
+msgid "If unchecked, it will allow you to disable the log without removing it."
+msgstr "Se desmarcado, será possível desabilitar o log sem removê-lo."
 
 #. module: myo_tag
 #: model:ir.model.fields,help:myo_tag.field_myo_tag_active
@@ -98,31 +122,46 @@ msgstr "Etiquetas Inativas"
 
 #. module: myo_tag
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag___last_update
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log___last_update
 msgid "Last Modified on"
 msgstr "Última modificação em"
 
 #. module: myo_tag
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log_write_uid
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_write_uid
 msgid "Last Updated by"
 msgstr "Última atualização por"
 
 #. module: myo_tag
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log_write_date
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_write_date
 msgid "Last Updated on"
 msgstr "Última atualização em"
 
 #. module: myo_tag
-#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_parent_left
-msgid "Left parent"
-msgstr "Superior esquerda"
+#: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form_log
+msgid "Log"
+msgstr "Registro (log)"
 
 #. module: myo_tag
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log_date_log
+msgid "When"
+msgstr "Quando"
+
+#. module: myo_tag
+#: model:ir.ui.view,arch_db:myo_tag.myo_tag_log_view_form
+msgid "When..."
+msgstr "Quando..."
+
+#. module: myo_tag
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log_notes
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_notes
 #: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form
 msgid "Notes"
-msgstr "Notas"
+msgstr "Observações"
 
 #. module: myo_tag
+#: model:ir.ui.view,arch_db:myo_tag.myo_tag_log_view_form
 #: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form
 msgid "Notes..."
 msgstr "Notas..."
@@ -139,9 +178,14 @@ msgid "Parent Tag..."
 msgstr "Etiqueta Superior..."
 
 #. module: myo_tag
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_parent_left
+msgid "Parent left"
+msgstr "Parent left"
+
+#. module: myo_tag
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_parent_right
-msgid "Right parent"
-msgstr "Superior direito"
+msgid "Parent right"
+msgstr "Parent right"
 
 #. module: myo_tag
 #: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form
@@ -149,6 +193,7 @@ msgid "Settings"
 msgstr "Configurações"
 
 #. module: myo_tag
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log_tag_id
 #: model:ir.model.fields,field_description:myo_tag.field_myo_tag_name
 #: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form
 #: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_search
@@ -156,14 +201,17 @@ msgid "Tag"
 msgstr "Etiqueta"
 
 #. module: myo_tag
-#: model:ir.model.fields,help:myo_tag.field_myo_tag_code
-msgid "Tag Code"
-msgstr "Código da Etiqueta"
-
-#. module: myo_tag
 #: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form
 msgid "Tag Code..."
 msgstr "Código da Etiqueta..."
+
+#. module: myo_tag
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log_ids
+#: model:ir.ui.view,arch_db:myo_tag.myo_tag_log_view_form
+#: model:ir.ui.view,arch_db:myo_tag.myo_tag_log_view_tree
+#: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form_log
+msgid "Tag Log"
+msgstr "Log da Etiqueta"
 
 #. module: myo_tag
 #: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form
@@ -171,6 +219,7 @@ msgid "Tag for"
 msgstr "Etiqueta para"
 
 #. module: myo_tag
+#: model:ir.ui.view,arch_db:myo_tag.myo_tag_log_view_form
 #: model:ir.ui.view,arch_db:myo_tag.myo_tag_view_form
 msgid "Tag..."
 msgstr "Etiqueta..."
@@ -183,9 +232,39 @@ msgid "Tags"
 msgstr "Etiquetas"
 
 #. module: myo_tag
+#: model:ir.model.fields,help:myo_tag.field_myo_tag_code
+msgid "Use \"/\" to get an automatic new Tag Code."
+msgstr "Use \"/\" para obter automaticamente um novo Código para a Etiqueta."
+
+#. module: myo_tag
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log_user_id
+msgid "User"
+msgstr "Usuário"
+
+#. module: myo_tag
+#: model:ir.ui.view,arch_db:myo_tag.myo_tag_log_view_form
+msgid "User..."
+msgstr "Usuário..."
+
+#. module: myo_tag
+#: model:ir.model.fields,field_description:myo_tag.field_myo_tag_log_values
+msgid "Values"
+msgstr "Valores"
+
+#. module: myo_tag
+#: model:ir.ui.view,arch_db:myo_tag.myo_tag_log_view_form
+msgid "Values..."
+msgstr "Valores..."
+
+#. module: myo_tag
 #: model:ir.model,name:myo_tag.model_myo_tag
 msgid "myo.tag"
 msgstr "myo.tag"
+
+#. module: myo_tag
+#: model:ir.model,name:myo_tag.model_myo_tag_log
+msgid "myo.tag.log"
+msgstr "myo.tag.log"
 
 #. module: myo_base
 #: model:res.groups,name:myo_base.group_tag_manager

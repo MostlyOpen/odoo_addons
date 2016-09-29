@@ -56,7 +56,7 @@
                             </h1>
                             <label for="date_log" class="oe_edit_only"/>
                             <h3>
-                                <field name="date_log" placeholder="Log Date..." readonly="True"/>
+                                <field name="date_log" placeholder="When..." readonly="True"/>
                             </h3>
                             <label for="values" class="oe_edit_only"/>
                             <field name="values" placeholder="Action..."/>

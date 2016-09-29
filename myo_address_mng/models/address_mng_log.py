@@ -27,18 +27,22 @@ class AddressManagementLog(models.Model):
     _name = 'myo.address.mng.log'
 
     address_id = fields.Many2one('myo.address.mng', 'Address', required=True, ondelete='cascade')
-    user_id = fields.Many2one('res.users', 'User', required=True)
-    date_log = fields.Datetime("Log Date", required=True)
+    user_id = fields.Many2one(
+        'res.users',
+        'User',
+        required=True,
+        default=lambda obj, cr, uid, context: uid
+    )
+    date_log = fields.Datetime(
+        'When',
+        required=True,
+        default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    )
     values = fields.Text(string='Values')
     action = fields.Char(string='Action')
     notes = fields.Text(string='Notes')
 
     _order = "date_log desc"
-
-    _defaults = {
-        'user_id': lambda obj, cr, uid, context: uid,
-        'date_log': lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-    }
 
 
 class AddressManagement(models.Model):
@@ -66,8 +70,6 @@ class AddressManagement(models.Model):
     @api.multi
     def write(self, values):
         action = 'write'
-        # notes = values.keys()
-        # notes = values.keys() + values.values()
         notes = False
         for address in self:
             address.insert_myo_address_log(address.id, values, action, notes)
