@@ -31,12 +31,13 @@ class TagLog(models.Model):
         'res.users',
         'User',
         required=True,
-        default=lambda obj, cr, uid, context: uid
+        default=lambda self: self.env.user
     )
     date_log = fields.Datetime(
         'When',
         required=True,
         default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        # default=lambda self: fields.Datetime.now()
     )
     values = fields.Text(string='Values')
     action = fields.Char(string='Action')

@@ -36,7 +36,7 @@ class PersonCategoryLog(models.Model):
         'res.users',
         'User',
         required=True,
-        default=lambda obj, cr, uid, context: uid
+        default=lambda self: self.env.user
     )
     date_log = fields.Datetime(
         'When',
