@@ -48,8 +48,11 @@ class PersonAddressWizard(models.TransientModel):
     def do_count_person_addresss(self):
         PersonAddress = self.env['myo.person.address']
         count = PersonAddress.search_count([])
+        domain = [('active', '=', False), ]
+        count_inactive = PersonAddress.search_count(domain)
         raise exceptions.Warning(
-            'There are %d active person addresses.' % count)
+            'There are %d active and %d inactive person addresses.' % (count, count_inactive)
+        )
 
     @api.multi
     def do_reopen_form(self):

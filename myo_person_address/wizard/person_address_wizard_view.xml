@@ -10,8 +10,8 @@
             <div class="oe_right">
                 <button type="object" name="do_count_person_addresss"
                         string="Count"/>
-                <button type="object" name="do_populate_person_addresss"
-                        string="Get All"/>
+                <!--button type="object" name="do_populate_person_addresss"
+                        string="Get All"/-->
             </div>
             <field name="person_address_ids"/>
             <group>
