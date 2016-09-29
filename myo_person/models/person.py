@@ -97,7 +97,7 @@ class Person(models.Model):
     def _check_birthday(self):
         for person in self:
             if person.birthday > fields.Date.today():
-                raise Warning(u'Error! Date of Birth must be in the past!')
+                raise Warning(u'Date of Birth must be in the past!')
 
     @api.one
     @api.depends('birthday')

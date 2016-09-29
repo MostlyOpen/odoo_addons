@@ -25,15 +25,27 @@ class ProfessionalSpecialty(models.Model):
     _name = 'myo.professional.specialty'
 
     name = fields.Char('Specialty', required=True, translate=True)
-    parent_id = fields.Many2one('myo.professional.specialty', 'Parent Specialty', index=True, ondelete='restrict')
+    parent_id = fields.Many2one(
+        'myo.professional.specialty',
+        'Parent Specialty',
+        index=True,
+        ondelete='restrict'
+    )
     code = fields.Char('Code', required=False)
     description = fields.Char(string='Description')
     notes = fields.Text(string='Notes')
-    complete_name = fields.Char(string='Full Specialty', compute='_name_get_fnc', store=False, readonly=True)
+    complete_name = fields.Char(
+        string='Full Specialty',
+        compute='_name_get_fnc',
+        store=False,
+        readonly=True
+    )
     child_ids = fields.One2many('myo.professional.specialty', 'parent_id', 'Child Specialties')
-    active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the specialty without removing it.",
-                            default=1)
+    active = fields.Boolean(
+        'Active',
+        help="If unchecked, it will allow you to hide the specialty without removing it.",
+        default=True
+    )
     parent_left = fields.Integer('Left parent', index=True)
     parent_right = fields.Integer('Right parent', index=True)
     professional_ids = fields.Many2many(
@@ -45,14 +57,20 @@ class ProfessionalSpecialty(models.Model):
     )
 
     _sql_constraints = [
-        ('uniq_code', 'unique(code)', "Error! The Specialty Code must be unique!"),
+        (
+            'uniq_code',
+            'UNIQUE(code)',
+            'Error! The Code must be unique!'
+        ),
     ]
 
-    _constraints = [(
-        models.Model._check_recursion,
-        'Error! You can not create recursive categories.',
-        ['parent_id']
-    )]
+    _constraints = [
+        (
+            models.Model._check_recursion,
+            'Error! You can not create recursive categories.',
+            ['parent_id']
+        ),
+    ]
 
     _parent_store = True
     _parent_order = 'name'

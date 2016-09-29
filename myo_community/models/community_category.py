@@ -25,15 +25,27 @@ class CommunityCategory(models.Model):
     _name = 'myo.community.category'
 
     name = fields.Char('Category', required=True, translate=True)
-    parent_id = fields.Many2one('myo.community.category', 'Parent Category', index=True, ondelete='restrict')
+    parent_id = fields.Many2one(
+        'myo.community.category',
+        'Parent Category',
+        index=True,
+        ondelete='restrict'
+    )
     code = fields.Char('Code', required=False)
     description = fields.Char(string='Description')
     notes = fields.Text(string='Notes')
-    complete_name = fields.Char(string='Full Category', compute='_name_get_fnc', store=False, readonly=True)
+    complete_name = fields.Char(
+        string='Full Category',
+        compute='_name_get_fnc',
+        store=False,
+        readonly=True
+    )
     child_ids = fields.One2many('myo.community.category', 'parent_id', 'Child Categories')
-    active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the category without removing it.",
-                            default=1)
+    active = fields.Boolean(
+        'Active',
+        help="If unchecked, it will allow you to hide the category without removing it.",
+        default=True
+    )
     parent_left = fields.Integer('Left parent', index=True)
     parent_right = fields.Integer('Right parent', index=True)
     community_ids = fields.Many2many(
@@ -45,14 +57,20 @@ class CommunityCategory(models.Model):
     )
 
     _sql_constraints = [
-        ('uniq_code', 'unique(code)', "Error! The Category Code must be unique!"),
+        (
+            'uniq_code',
+            'UNIQUE(code)',
+            'Error! The Code must be unique!'
+        ),
     ]
 
-    _constraints = [(
-        models.Model._check_recursion,
-        'Error! You can not create recursive categories.',
-        ['parent_id']
-    )]
+    _constraints = [
+        (
+            models.Model._check_recursion,
+            'Error! You can not create recursive categories.',
+            ['parent_id']
+        ),
+    ]
 
     _parent_store = True
     _parent_order = 'name'

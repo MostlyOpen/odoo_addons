@@ -24,31 +24,55 @@ from openerp import api, fields, models
 class MedicamentForm(models.Model):
     _name = 'myo.medicament.form'
 
-    name = fields.Char(string='Medicament Form', required=True,
-                       translate=True,
-                       help="Medicament Form.")
+    name = fields.Char(
+        string='Medicament Form', required=True,
+        translate=True,
+        help='Medicament Form.'
+    )
     code = fields.Char(string='Code')
     description = fields.Char(string='Description')
     notes = fields.Text(string='Notes')
-    active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the medicament form without removing it.",
-                            default=1)
-    parent_id = fields.Many2one('myo.medicament.form', 'Parent Form', index=True, ondelete='restrict')
-    complete_name = fields.Char(string='Full Medicament Form', compute='_name_get_fnc', store=False, readonly=True)
+    active = fields.Boolean(
+        'Active',
+        help="If unchecked, it will allow you to hide the medicament form without removing it.",
+        default=True
+    )
+    parent_id = fields.Many2one(
+        'myo.medicament.form',
+        'Parent Form',
+        index=True,
+        ondelete='restrict'
+    )
+    complete_name = fields.Char(
+        string='Full Medicament Form',
+        compute='_name_get_fnc',
+        store=False,
+        readonly=True
+    )
     child_ids = fields.One2many('myo.medicament.form', 'parent_id', 'Child Forms')
     parent_left = fields.Integer('Left parent', index=True)
     parent_right = fields.Integer('Right parent', index=True)
 
     _sql_constraints = [
-        ('name_uniq', 'UNIQUE(name)', u'Error! The Medicament Form must be unique!'),
-        ('code_uniq', 'UNIQUE(code)', u'Error! The Code must be unique!'),
+        (
+            'name_uniq',
+            'UNIQUE(name)',
+            'Error! The Medicament Form must be unique!'
+        ),
+        (
+            'code_uniq',
+            'UNIQUE(code)',
+            'Error! The Code must be unique!'
+        ),
     ]
 
-    _constraints = [(
-        models.Model._check_recursion,
-        'Error! You can not create recursive medicament forms.',
-        ['parent_id']
-    )]
+    _constraints = [
+        (
+            models.Model._check_recursion,
+            'Error! You can not create recursive medicament forms.',
+            ['parent_id']
+        ),
+    ]
 
     _parent_store = True
     _parent_order = 'name'

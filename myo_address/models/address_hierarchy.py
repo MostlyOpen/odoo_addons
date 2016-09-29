@@ -24,22 +24,35 @@ from openerp import api, fields, models
 class Address(models.Model):
     _inherit = 'myo.address'
 
-    parent_id = fields.Many2one('myo.address', 'Parent Address', index=True, ondelete='restrict')
-    complete_name = fields.Char(string='Complete Name', compute='_name_get_fnc', store=False, readonly=True)
+    parent_id = fields.Many2one(
+        'myo.address',
+        'Parent Address',
+        index=True,
+        ondelete='restrict'
+    )
+    complete_name = fields.Char(
+        string='Complete Name',
+        compute='_name_get_fnc',
+        store=False,
+        readonly=True
+    )
     child_ids = fields.One2many('myo.address', 'parent_id', 'Child Addresses')
-    parent_left = fields.Integer('Left parent', index=True)
-    parent_right = fields.Integer('Right parent', index=True)
+    parent_left = fields.Integer(index=True)
+    parent_right = fields.Integer(index=True)
 
     _parent_store = True
     _parent_order = 'name'
     _order = 'parent_left'
 
     _constraints = [
-        (models.Model._check_recursion, 'Error! You can not create recursive addresses.', ['parent_id'])
+        (
+            models.Model._check_recursion,
+            'Error! You can not create recursive addresses.',
+            ['parent_id']
+        ),
     ]
 
     @api.multi
-    # def name_get(self):
     def name_get_(self):
         """Return the address's display name, including their direct parent by default.
 
@@ -59,7 +72,6 @@ class Address(models.Model):
         for record in reads:
             name = record['name']
             if record['parent_id']:
-                # name = record['parent_id'][1] + ' / ' + name
                 name = self.parent_id.name_get_()[0][1] + ' / ' + name
             res.append((record['id'], name))
         return res
@@ -77,7 +89,6 @@ class Address(models.Model):
     @api.one
     def _name_get_fnc(self):
         self.refresh_complete_name = 0
-        # complete_name = self.name_get()
         complete_name = self.name_get_()
         if complete_name:
             self.complete_name = complete_name[0][1]

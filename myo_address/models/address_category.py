@@ -25,17 +25,29 @@ class AddressCategory(models.Model):
     _name = 'myo.address.category'
 
     name = fields.Char('Category', required=True, translate=True)
-    parent_id = fields.Many2one('myo.address.category', 'Parent Category', index=True, ondelete='restrict')
+    parent_id = fields.Many2one(
+        'myo.address.category',
+        'Parent Category',
+        index=True,
+        ondelete='restrict'
+    )
     code = fields.Char('Code', required=False)
     description = fields.Char(string='Description')
     notes = fields.Text(string='Notes')
-    complete_name = fields.Char(string='Full Category', compute='_name_get_fnc', store=False, readonly=True)
+    complete_name = fields.Char(
+        string='Full Category',
+        compute='_name_get_fnc',
+        store=False,
+        readonly=True
+    )
     child_ids = fields.One2many('myo.address.category', 'parent_id', 'Child Categories')
-    active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the category without removing it.",
-                            default=1)
-    parent_left = fields.Integer('Left parent', index=True)
-    parent_right = fields.Integer('Right parent', index=True)
+    active = fields.Boolean(
+        'Active',
+        help="If unchecked, it will allow you to hide the category without removing it.",
+        default=True
+    )
+    parent_left = fields.Integer(index=True)
+    parent_right = fields.Integer(index=True)
     address_ids = fields.Many2many(
         'myo.address',
         'myo_address_category_rel',
@@ -45,11 +57,20 @@ class AddressCategory(models.Model):
     )
 
     _sql_constraints = [
-        ('uniq_code', 'unique(code)', "Error! The Code must be unique!"),
+        (
+            'code_uniq',
+            'UNIQUE (code)',
+            'Error! The Code must be unique!'
+        ),
     ]
 
-    _constraints = [(
-        models.Model._check_recursion, 'Error! You can not create recursive categories.', ['parent_id'])]
+    _constraints = [
+        (
+            models.Model._check_recursion,
+            'Error! You can not create recursive categories.',
+            ['parent_id']
+        ),
+    ]
 
     _parent_store = True
     _parent_order = 'name'

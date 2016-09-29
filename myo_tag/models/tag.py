@@ -25,25 +25,45 @@ class Tag(models.Model):
     _name = 'myo.tag'
 
     name = fields.Char('Tag', required=True)
-    parent_id = fields.Many2one('myo.tag', 'Parent Tag', index=True, ondelete='restrict')
+    parent_id = fields.Many2one(
+        'myo.tag',
+        'Parent Tag',
+        index=True,
+        ondelete='restrict'
+    )
     description = fields.Char(string='Description')
     code = fields.Char(string='Code', help="Tag Code", required=False)
     notes = fields.Text(string='Notes')
-    complete_name = fields.Char(string='Full Tag', compute='_name_get_fnc', store=False, readonly=True)
+    complete_name = fields.Char(
+        string='Full Tag',
+        compute='_name_get_fnc',
+        store=False,
+        readonly=True
+    )
     child_ids = fields.One2many('myo.tag', 'parent_id', 'Child Tags')
-    active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the tag without removing it.",
-                            default=1)
-    parent_left = fields.Integer('Left parent', index=True)
-    parent_right = fields.Integer('Right parent', index=True)
+    active = fields.Boolean(
+        'Active',
+        help="If unchecked, it will allow you to hide the tag without removing it.",
+        default=True
+    )
+    parent_left = fields.Integer(index=True)
+    parent_right = fields.Integer(index=True)
     color = fields.Integer('Color Index')
 
     _sql_constraints = [
-        ('tag_code_uniq', 'unique(code)', u'Error! The Tag Code must be unique!')
+        (
+            'code_uniq',
+            'UNIQUE (code)',
+            'Error! The Code must be unique!'
+        ),
     ]
 
     _constraints = [
-        (models.Model._check_recursion, 'Error! You can not create recursive Tags.', ['parent_id'])
+        (
+            models.Model._check_recursion,
+            'Error! You can not create recursive Tags.',
+            ['parent_id']
+        ),
     ]
 
     _parent_store = True

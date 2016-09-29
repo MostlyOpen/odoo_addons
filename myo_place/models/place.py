@@ -30,28 +30,49 @@ class Place(models.Model):
     alias = fields.Char('Alias', help='Common name that the place is referred')
     code = fields.Char(string='Place Code', required=False)
     description = fields.Char(string='Description')
-    parent_id = fields.Many2one('myo.place', 'Parent Place', index=True, ondelete='restrict')
-    complete_name = fields.Char(string='Full Place', compute='_name_get_fnc', store=False, readonly=True)
+    parent_id = fields.Many2one(
+        'myo.place',
+        'Parent Place',
+        index=True,
+        ondelete='restrict'
+    )
+    complete_name = fields.Char(
+        string='Full Place',
+        compute='_name_get_fnc',
+        store=False,
+        readonly=True
+    )
     child_ids = fields.One2many('myo.place', 'parent_id', 'Child Places')
     notes = fields.Text(string='Notes')
-    date_inclusion = fields.Datetime("Inclusion Date", required=False, readonly=False,
-                                     default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    date_inclusion = fields.Datetime(
+        "Inclusion Date", required=False, readonly=False,
+        default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
     parent_left = fields.Integer('Left parent', index=True)
     parent_right = fields.Integer('Right parent', index=True)
-    active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the place without removing it.",
-                            default=1)
+    active = fields.Boolean(
+        'Active',
+        help="If unchecked, it will allow you to hide the place without removing it.",
+        default=True
+    )
 
     _parent_store = True
     _parent_order = 'name'
     _order = 'parent_left'
 
-    _constraints = [
-        (models.Model._check_recursion, 'Error! You can not create recursive places.', ['parent_id'])
+    _sql_constraints = [
+        (
+            'uniq_place_code',
+            'UNIQUE(code)',
+            'Error! The Code must be unique!'
+        ),
     ]
 
-    _sql_constraints = [
-        ('uniq_place_code', 'unique(code)', "Error! The Place Code must be unique!"),
+    _constraints = [
+        (
+            models.Model._check_recursion,
+            'Error! You can not create recursive places.',
+            ['parent_id']
+        ),
     ]
 
     @api.multi

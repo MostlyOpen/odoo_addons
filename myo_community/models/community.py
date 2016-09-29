@@ -28,22 +28,50 @@ class Community(models.Model):
 
     name = fields.Char('Community', required=True, translate=False)
     alias = fields.Char('Alias', help='Common name that the Community is referred')
-    parent_id = fields.Many2one('myo.community', 'Parent Community', index=True, ondelete='restrict')
+    parent_id = fields.Many2one(
+        'myo.community',
+        'Parent Community',
+        index=True,
+        ondelete='restrict'
+    )
     code = fields.Char(size=64, string='Community Code', required=False)
     comm_location = fields.Char('Community Location')
     notes = fields.Text(string='Notes')
-    complete_name = fields.Char(string='Full Category', compute='_name_get_fnc', store=False, readonly=True)
+    complete_name = fields.Char(
+        string='Full Category',
+        compute='_name_get_fnc',
+        store=False,
+        readonly=True
+    )
     child_ids = fields.One2many('myo.community', 'parent_id', 'Child Communities')
-    date_inclusion = fields.Datetime("Inclusion Date", required=False, readonly=False,
-                                     default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the community without removing it.",
-                            default=1)
+    date_inclusion = fields.Datetime(
+        "Inclusion Date",
+        required=False,
+        readonly=False,
+        default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    )
+    active = fields.Boolean(
+        'Active',
+        help="If unchecked, it will allow you to hide the community without removing it.",
+        default=True
+    )
     parent_left = fields.Integer('Left parent', index=True)
     parent_right = fields.Integer('Right parent', index=True)
 
+    _sql_constraints = [
+        (
+            'code_uniq',
+            'UNIQUE (code)',
+            'Error! The Code must be unique!'
+        ),
+    ]
+
     _constraints = [
-        (models.Model._check_recursion, 'Error! You can not create recursive communities.', ['parent_id'])
+        (
+            models.Model._check_recursion,
+            'Error! You can not create recursive communities.',
+            ['parent_id']
+        ),
     ]
 
     _parent_store = True
