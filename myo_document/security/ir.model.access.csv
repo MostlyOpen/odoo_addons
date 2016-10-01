@@ -7,3 +7,11 @@ access_myo_document_smanager,myo.document,model_myo_document,myo_base.group_sman
 access_myo_document_categry_document_user,myo.document.category,model_myo_document_category,myo_base.group_document_user,1,0,0,0
 access_myo_document_category_document_category_manager,myo.document.category,model_myo_document_category,myo_base.group_document_category_manager,1,1,1,0
 access_myo_document_categoy_smanager,myo.document.category,model_myo_document_category,myo_base.group_smanager,1,1,1,1
+
+access_myo_document_log_document_user,myo.document.log,model_myo_document_log,myo_base.group_document_user,1,0,0,0
+access_myo_document_log_document_log_manager,myo.document.log,model_myo_document_log,myo_base.group_document_manager,1,1,1,0
+access_myo_document_categoy_smanager,myo.document.log,model_myo_document_log,myo_base.group_smanager,1,1,1,1
+
+access_myo_document_category_log_document_category_user,myo.document.category.log,model_myo_document_category_log,myo_base.group_document_user,1,0,0,0
+access_myo_document_category_log_document_category_log_manager,myo.document.category.log,model_myo_document_category_log,myo_base.group_document_category_manager,1,1,1,0
+access_myo_document_category_categoy_smanager,myo.document.category.log,model_myo_document_category_log,myo_base.group_smanager,1,1,1,1
