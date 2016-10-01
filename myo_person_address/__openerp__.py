@@ -27,6 +27,7 @@
     'license': 'AGPL-3',
     'website': 'http://mostlyopen.org',
     'depends': [
+        'myo_tag',
         'myo_address',
         'myo_person',
     ],
@@ -35,6 +36,7 @@
         'views/person_address_role_view.xml',
         'views/person_address_view.xml',
         'views/person_address_log_view.xml',
+        'views/tag_view.xml',
         'views/person_address_menu_view.xml',
         'wizard/person_address_wizard_view.xml',
     ],

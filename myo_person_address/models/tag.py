@@ -18,7 +18,28 @@
 #
 ###############################################################################
 
-from . import person_address_role
-from . import person_address
-from . import person_address_log
-from . import tag
+from openerp import fields, models
+
+
+class Tag(models.Model):
+    _inherit = 'myo.tag'
+
+    person_address_ids = fields.Many2many(
+        'myo.person.address',
+        'myo_person_address_tag_rel',
+        'tag_id',
+        'person_address_id',
+        'Person Addresses'
+    )
+
+
+class PersonAddress(models.Model):
+    _inherit = 'myo.person.address'
+
+    tag_ids = fields.Many2many(
+        'myo.tag',
+        'myo_person_address_tag_rel',
+        'person_address_id',
+        'tag_id',
+        'Tags'
+    )
