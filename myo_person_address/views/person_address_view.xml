@@ -2,7 +2,7 @@
 <openerp>
     <data>
 
-        <record id="_myo_person_address_view_form" model="ir.ui.view">
+        <record id="myo_person_address_view_form" model="ir.ui.view">
             <field name="name">myo.person.address.form</field>
             <field name="model">myo.person.address</field>
             <field name="priority" eval="8"/>
@@ -19,7 +19,7 @@
                         <label for="notes" class="oe_edit_only"/>
                         <field name="notes" addressholder="Notes..."/>
                         <notebook>
-                            <page string="Settings" myo_persons="myobase.myo_person_manager">
+                            <page name="settings" string="Settings" myo_persons="myobase.myo_person_manager">
                                 <group>
                                     <field name="active"/>
                                 </group>

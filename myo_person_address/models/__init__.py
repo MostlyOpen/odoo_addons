@@ -20,3 +20,4 @@
 
 from . import person_address_role
 from . import person_address
+from . import person_address_log
