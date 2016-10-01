@@ -41,7 +41,7 @@
                                     <field name="annotation_ids" colspan="4" nolabel="1"/>
                                 </group>
                             </page>
-                            <page string="Settings" groups="myo_base.group_rmanager">
+                            <page name="settings" string="Settings" groups="myo_base.group_rmanager">
                                 <group>
                                     <field name="active"/>
                                 </group>

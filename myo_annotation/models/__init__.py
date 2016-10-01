@@ -22,3 +22,5 @@ from . import annotation
 from . import annotation_category
 from . import tag
 from . import annotation_seq
+from . import annotation_log
+from . import annotation_category_log
