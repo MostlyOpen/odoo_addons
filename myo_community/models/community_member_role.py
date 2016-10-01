@@ -21,17 +21,17 @@
 from openerp import fields, models
 
 
-class CommunityEmployeeRole(models.Model):
-    _name = 'myo.community.employee.role'
+class CommunityMemberRole(models.Model):
+    _name = 'myo.community.member.role'
 
-    name = fields.Char(string='Community Employee Role', required=True,
-                       help='Role of a Employee in an Community')
+    name = fields.Char(string='Community Member Role', required=True,
+                       help='Role of a Member in an Community')
     description = fields.Text(string='Description')
     notes = fields.Text(string='Notes')
     active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the employee role without removing it.",
+                            help="If unchecked, it will allow you to hide the member role without removing it.",
                             default=1)
     _order = 'name'
 
     _sql_constraints = [('role_name_uniq', 'unique(name)',
-                         u'Error! The Employee Role Name must be unique!')]
+                         u'Error! The Member Role Name must be unique!')]

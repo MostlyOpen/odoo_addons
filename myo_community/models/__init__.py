@@ -22,8 +22,10 @@ from . import community
 from . import community_category
 from . import tag
 from . import annotation
-from . import community_person_role
+from . import community_member_role
 from . import community_person
 from . import community_employee
-from . import community_employee_role
+from . import community_address
 from . import community_seq
+from . import community_log
+from . import community_category_log

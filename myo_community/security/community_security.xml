@@ -15,8 +15,12 @@
             <field name="name">Community Category Manager</field>
         </record>
         
-        <record id="myo_base.group_community_person_role_manager" model="res.groups">
-            <field name="name">Community Person Role Manager</field>
+        <record id="myo_base.group_community_member_role_manager" model="res.groups">
+            <field name="name">Community Member Role Manager</field>
+        </record>
+        
+        <record id="myo_base.group_community_address_manager" model="res.groups">
+            <field name="name">Community Address Manager</field>
         </record>
         
         <record id="myo_base.group_community_person_manager" model="res.groups">

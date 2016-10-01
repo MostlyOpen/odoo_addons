@@ -14,17 +14,23 @@
                         groups="myo_base.group_community_user"
                         sequence="10"
                         action="myo_community.act_open_myo_community_family_view"/>
- -->                    <!-- Community/Community/Community/Persons -->
-                    <menuitem name="Persons" id="menu_community_community_communities_persons"
+ -->                    <!-- Community/Community/Community/Addresses -->
+                    <menuitem name="Addresses" id="menu_community_community_communities_addresses"
                         parent="menu_community_community_communities"
                         groups="myo_base.group_community_user"
                         sequence="20"
+                        action="myo_community.myo_community_address_action"/>
+                    <!-- Community/Community/Community/Persons -->
+                    <menuitem name="Persons" id="menu_community_community_communities_persons"
+                        parent="menu_community_community_communities"
+                        groups="myo_base.group_community_user"
+                        sequence="30"
                         action="myo_community.myo_community_person_action"/>
                     <!-- Community/Community/Community/Employees -->
                     <menuitem name="Employees" id="menu_community_community_communities_employees"
                         parent="menu_community_community_communities"
                         groups="myo_base.group_community_user"
-                        sequence="30"
+                        sequence="40"
                         action="myo_community.myo_community_employee_action"/>
                 <!-- Community/Community/Configuration/Community -->
                 <menuitem name="Community" id="menu_community_config_config_community"
@@ -43,18 +49,12 @@
                         groups="myo_base.group_manager"
                         sequence="20"
                         action="myo_community.act_open_myo_community_family_role_view"/>
- -->                    <!-- Community/Community/Configuration/Community/Person Roles -->
-                    <menuitem name="Person Roles" id="menu_community_config_config_community_person_roles"
+ -->                    <!-- Community/Community/Configuration/Community/Member Roles -->
+                    <menuitem name="Member Roles" id="menu_community_config_config_community_member_roles"
                         parent="menu_community_config_config_community"
                         groups="myo_base.group_manager"
                         sequence="30"
-                        action="myo_community.myo_community_person_role_action"/>
-                    <!-- Community/Community/Configuration/Community/Employee Roles -->
-                    <menuitem name="Employee Roles" id="menu_community_config_config_community_employee_roles"
-                        parent="menu_community_config_config_community"
-                        groups="myo_base.group_manager"
-                        sequence="40"
-                        action="myo_community.myo_community_employee_role_action"/>
+                        action="myo_community.myo_community_member_role_action"/>
 
     </data>
 </openerp>

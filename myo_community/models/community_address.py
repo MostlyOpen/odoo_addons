@@ -21,17 +21,34 @@
 from openerp import fields, models
 
 
-class CommunityPersonRole(models.Model):
-    _name = 'myo.community.person.role'
+class CommunityAddress(models.Model):
+    _name = 'myo.community.address'
 
-    name = fields.Char(string='Community Person Role', required=True,
-                       help='Role of a Person in an Community')
-    description = fields.Text(string='Description')
+    community_id = fields.Many2one('myo.community', string='Community',
+                                   help='Community', required=False)
+    address_id = fields.Many2one('myo.address', string='Address')
+    role = fields.Many2one('myo.community.member.role', 'Role', required=False)
     notes = fields.Text(string='Notes')
     active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the person role without removing it.",
+                            help="If unchecked, it will allow you to hide the community address without removing it.",
                             default=1)
-    _order = 'name'
 
-    _sql_constraints = [('role_name_uniq', 'unique(name)',
-                         u'Error! The Person Role Name must be unique!')]
+
+class Community(models.Model):
+    _inherit = 'myo.community'
+
+    address_ids = fields.One2many(
+        'myo.community.address',
+        'community_id',
+        'Addresses'
+    )
+
+
+class Address(models.Model):
+    _inherit = 'myo.address'
+
+    community_address_ids = fields.One2many(
+        'myo.community.address',
+        'address_id',
+        'Community Addresses'
+    )

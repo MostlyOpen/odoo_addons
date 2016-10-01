@@ -27,7 +27,7 @@ class CommunityPerson(models.Model):
     community_id = fields.Many2one('myo.community', string='Community',
                                    help='Community', required=False)
     person_id = fields.Many2one('myo.person', string='Person')
-    role = fields.Many2one('myo.community.person.role', 'Role', required=False)
+    role = fields.Many2one('myo.community.mejmber.role', 'Role', required=False)
     notes = fields.Text(string='Notes')
     active = fields.Boolean('Active',
                             help="If unchecked, it will allow you to hide the community person without removing it.",
