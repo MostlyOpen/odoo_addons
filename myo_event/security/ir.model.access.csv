@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_myo_event_event_user,myo.event,model_myo_event,myo_base.group_event_user,1,0,0,0
+access_myo_event_event_manager,myo.event,model_myo_event,myo_base.group_event_manager,1,1,1,0
+access_myo_event_smanager,myo.event,model_myo_event,myo_base.group_smanager,1,1,1,1
+
+access_myo_event_category_event_user,myo.event.category,model_myo_event_category,myo_base.group_event_user,1,0,0,0
+access_myo_event_category_event_category_manager,myo.event.category,model_myo_event_category,myo_base.group_event_category_manager,1,1,1,0
+access_myo_event_category_smanager,myo.event.category,model_myo_event_category,myo_base.group_smanager,1,1,1,1
+
+access_myo_event_participant_role_event_user,myo.event.participant.role,model_myo_event_participant_role,myo_base.group_event_user,1,0,0,0
+access_myo_event_participant_role_event_participant_role_manager,myo.event.participant.role,model_myo_event_participant_role,myo_base.group_event_participant_role_manager,1,1,1,0
+access_myo_event_participant_role_smanager,myo.event.participant.role,model_myo_event_participant_role,myo_base.group_smanager,1,1,1,1
+
+access_myo_event_log_event_user,myo.event.log,model_myo_event_log,myo_base.group_event_user,1,0,0,0
+access_myo_event_log_event_log_manager,myo.event.log,model_myo_event_log,myo_base.group_event_manager,1,1,1,0
+access_myo_event_categoy_smanager,myo.event.log,model_myo_event_log,myo_base.group_smanager,1,1,1,1

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Base/Base/Events -->
+        <menuitem name="Events" id="menu_base_base_events"
+            parent="myo_base.menu_base_base"
+            groups="myo_base.group_event_user"
+            sequence="60"
+            action="myo_event.myo_event_action"/>
+
+        <!-- Base/Configuration/Configuration/Event -->
+        <menuitem name="Event" id="menu_base_config_config_event"
+            parent="myo_base.menu_base_config_config"
+            groups="myo_base.group_event_user"
+            sequence="60"/>
+            <!-- Base/Configuration/Configuration/Event/Categories -->
+            <menuitem name="Categories" id="menu_base_config_config_event_categories" 
+                parent="menu_base_config_config_event"
+                groups="myo_base.group_event_user"
+                sequence="10"
+                action="myo_event.myo_event_category_action"/>
+            <!-- Base/Configuration/Configuration/Event/Participant Roles -->
+            <menuitem name="Participant Roles" id="menu_base_config_config_event_participant_roles"
+                parent="menu_base_config_config_event"
+                groups="myo_base.group_manager"
+                sequence="20"
+                action="myo_event.myo_event_participant_role_action"/>
+
+    </data>
+</openerp>

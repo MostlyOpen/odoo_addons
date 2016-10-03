@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="myo_event_view_form" model="ir.ui.view">
+            <field name="name">myo.event.form</field>
+            <field name="model">myo.event</field>
+            <field name="arch" type="xml">
+                <form string="Event" version="7.0">
+                    <header>
+                        <!--button name="do_toggle_done" type="object" string="Toggle Done" class="oe_highlight"/-->
+                        <!--button name="do_clear_done" type="object" string="Clear All Done"/-->
+                    </header>
+                    <sheet name="event" string="Event">
+                        <div class="oe_center" name="center">
+                            <!-- Put here related fields -->
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Event Title..."/>
+                            </h1>
+                        </div>
+                        <!--field name="image_medium" widget='image' class="oe_left oe_avatar"/-->
+                        <div class="oe_title">
+                            <!--label for="code" class="oe_edit_only"/-->
+                            <label for="code"/>
+                            <h3>
+                                <field name="code"/>
+                            </h3>
+                            <label for="user_id"/>
+                            <h3>
+                                <field name="user_id" class="oe_inline"/>
+                            </h3>
+                            <label for="description"/>
+                            <h3>
+                                <field name="description"/>
+                            </h3>
+                            <label for="sequence"/>
+                            <h3>
+                                <field name="sequence"/>
+                            </h3>
+                        </div>
+                        <div name="button_box" class="oe_right oe_button_box">
+                        </div>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="planned_hours"/>
+                                <field name="date_inclusion"/>
+                                <field name="date_start"/>
+                                <field name="date_foreseen"/>
+                                <field name="date_deadline"/>
+                            </group>
+                            <group name="group_right">
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="settings" string="Settings" groups="myo_base.group_rmanager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="myo_event_view_tree" model="ir.ui.view">
+            <field name="name">myo.event.tree</field>
+            <field name="model">myo.event</field>
+            <field name="arch" type="xml">
+                <!--tree colors="gray:is_done==True"-->
+                <tree name="events">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="user_id"/>
+                    <field name="planned_hours"/>
+                    <field name="date_inclusion"/>
+                    <field name="date_start"/>
+                    <field name="date_foreseen"/>
+                    <field name="date_deadline"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="myo_event_view_search" model="ir.ui.view">
+            <field name="name">myo.event.search</field>
+            <field name="model">myo.event</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="user_id"/>
+                    <field name="planned_hours"/>
+                    <field name="date_inclusion"/>
+                    <field name="date_start"/>
+                    <field name="date_foreseen"/>
+                    <field name="date_deadline"/>
+                    <filter name="filter_my_events" string="My Events" domain="[('user_id','in',[uid,False])]"/>
+                    <filter string="Not Active" domain="[('active','=',False)]"/>
+                    <separator/>
+                    <group name="group_by">
+                        <filter name="group_user" string="Event Responsible" context="{'group_by': 'user_id'}"/>
+                        <filter name="group_user" string="Starting Date" context="{'group_by': 'date_start'}"/>
+                        <filter name="group_user" string="Foreseen Date" context="{'group_by': 'date_foreseen'}"/>
+                        <filter name="group_user" string="Deadline" context="{'group_by': 'date_deadline'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="myo_event_view_calendar" model="ir.ui.view">
+            <field name="name">myo.event.calendar</field>
+            <field name="model">myo.event</field>
+            <field name="arch" type="xml">
+                <!--calendar date_start="date_deadline" color="user_id"
+                          display="[name], Stage [stage_id]">
+                    <field name="name"/>
+                    <field name="stage_id"/>
+                </calendar-->
+                <calendar string="Events" date_delay="planned_hours" date_start="date_start" mode="month" color="user_id" display="[name] ([code]), [user_id], Status [state]" event_open_popup="%(myo_event_view_form)s">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="user_id"/>
+                    <field name="state"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="myo_event_view_graph" model="ir.ui.view">
+            <field name="name">myo.event.graph</field>
+            <field name="model">myo.event</field>
+            <field name="arch" type="xml">
+                <graph type="pivot">
+                    <!--field name="date_start" interval="week"/-->
+                    <field name="user_id"/>
+                    <field name="state"/>
+                </graph>
+            </field>
+        </record>
+
+         <record id="myo_event_action" model="ir.actions.act_window">
+            <field name="name">Events</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.event</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar,graph</field>
+            <field name="search_view_id" ref="myo_event_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{'default_user_id': uid, 'search_default_filter_my_events': True}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new event.
+              </p>
+            </field>
+        </record>
+
+    </data>
+</openerp>
