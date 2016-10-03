@@ -32,24 +32,24 @@
                         groups="myo_base.group_community_user"
                         sequence="40"
                         action="myo_community.myo_community_employee_action"/>
-                <!-- Community/Community/Configuration/Community -->
+                <!-- Community/Configuration/Configuration/Community -->
                 <menuitem name="Community" id="menu_community_config_config_community"
                     parent="myo_base.menu_community_config_config"
                     groups="myo_base.group_community_user"
                     sequence="30"/>
-                    <!-- Community/Community/Configuration/Community/Categories -->
+                    <!-- Community/Configuration/Configuration/Community/Categories -->
                     <menuitem name="Categories" id="menu_community_config_config_community_categories" 
                         parent="menu_community_config_config_community"
                         groups="myo_base.group_community_user"
                         sequence="10"
                         action="myo_community.myo_community_category_action"/>
-                    <!-- Community/Community/Configuration/Community/Family Roles -->
+                    <!-- Community/Configuration/Configuration/Community/Family Roles -->
 <!--                     <menuitem name="Family Roles" id="menu_community_config_config_community_family_roles"
                         parent="menu_community_config_config_community"
                         groups="myo_base.group_manager"
                         sequence="20"
                         action="myo_community.act_open_myo_community_family_role_view"/>
- -->                    <!-- Community/Community/Configuration/Community/Member Roles -->
+ -->                    <!-- Community/Configuration/Configuration/Community/Member Roles -->
                     <menuitem name="Member Roles" id="menu_community_config_config_community_member_roles"
                         parent="menu_community_config_config_community"
                         groups="myo_base.group_manager"

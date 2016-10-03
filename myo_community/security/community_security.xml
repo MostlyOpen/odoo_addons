@@ -27,10 +27,6 @@
             <field name="name">Community Person Manager</field>
         </record>
         
-        <record id="myo_base.group_community_employee_role_manager" model="res.groups">
-            <field name="name">Community Employee Role Manager</field>
-        </record>
-        
         <record id="myo_base.group_community_employee_manager" model="res.groups">
             <field name="name">Community Employee Manager</field>
         </record>
