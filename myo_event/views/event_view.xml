@@ -117,11 +117,10 @@
                     <field name="name"/>
                     <field name="stage_id"/>
                 </calendar-->
-                <calendar string="Events" date_delay="planned_hours" date_start="date_start" mode="month" color="user_id" display="[name] ([code]), [user_id], Status [state]" event_open_popup="%(myo_event_view_form)s">
+                <calendar string="Events" date_delay="planned_hours" date_start="date_start" mode="month" color="user_id" display="[name] ([code]), [user_id]" event_open_popup="%(myo_event_view_form)s">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="user_id"/>
-                    <field name="state"/>
                 </calendar>
             </field>
         </record>
@@ -133,7 +132,6 @@
                 <graph type="pivot">
                     <!--field name="date_start" interval="week"/-->
                     <field name="user_id"/>
-                    <field name="state"/>
                 </graph>
             </field>
         </record>
