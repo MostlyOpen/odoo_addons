@@ -90,6 +90,7 @@
                     <field name="name"/>
                     <field name="alias" invisible="1"/>
                     <field name="phone"/>
+                    <field name="mobile"/>
                     <field name="email"/>
                     <field name="code"/>
                     <field name="street" invisible="1"/>
