@@ -55,6 +55,7 @@ class PersonCategory(models.Model):
         'person_id',
         'Persons'
     )
+    color = fields.Integer('Color Index')
 
     _sql_constraints = [
         (
