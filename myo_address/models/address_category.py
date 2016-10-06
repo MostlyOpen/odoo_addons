@@ -55,6 +55,7 @@ class AddressCategory(models.Model):
         'address_id',
         'Addresses'
     )
+    color = fields.Integer('Color Index')
 
     _sql_constraints = [
         (
