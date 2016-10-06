@@ -26,6 +26,7 @@ class PersonAddressRole(models.Model):
 
     name = fields.Char(string='Person Role', required=True,
                        help='Role of a Person in an Address')
+    code = fields.Char(string='Person Role Code', required=False)
     description = fields.Text(string='Description')
     notes = fields.Text(string='Notes')
     active = fields.Boolean('Active',

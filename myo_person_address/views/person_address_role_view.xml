@@ -13,6 +13,11 @@
                             <h1>
                                 <field name="name" default_focus="1" placeholder="Person Role..." />
                             </h1>
+                            <!--label for="code" class="oe_edit_only"/-->
+                            <label for="code"/>
+                            <h3>
+                                <field name="code" placeholder="Person Code..."/>
+                            </h3>
                             <label for="description" class="oe_edit_only"/>
                             <h3>
                                 <field name="description" placeholder="Description..." />
@@ -39,6 +44,7 @@
             <field name="arch" type="xml">
                 <tree string="Person Address Roles">
                     <field name="name" />
+                    <field name="code"/>
                     <field name="description" />
                 </tree>
             </field>
@@ -51,6 +57,7 @@
             <field name="arch" type="xml">
                 <search string="Person Address Role">
                     <field name="name" />
+                    <field name="code"/>
                     <field name="description" />
                     <separator/>
                     <filter string="Inactive Person Roles" name="active" domain="[('active','=',0)]" help="Inactive Person Roles"/>
