@@ -21,36 +21,38 @@
 from openerp import api, fields, models
 from openerp.exceptions import Warning
 
-from datetime import *
-
 
 class Address(models.Model):
     _inherit = 'myo.address'
 
-    state = fields.Selection([('draft', 'Draft'),
-                              ('revised', 'Revised'),
-                              ('waiting', 'Waiting'),
-                              ('selected', 'Selected'),
-                              ('unselected', 'Unselected'),
-                              ('canceled', 'Canceled')
-                              ], string='Status', default='draft', readonly=True, required=True, help="")
+    state = fields.Selection(
+        [('draft', 'Draft'),
+         ('revised', 'Revised'),
+         ('waiting', 'Waiting'),
+         ('selected', 'Selected'),
+         ('unselected', 'Unselected'),
+         ('canceled', 'Canceled')
+         ], string='Status', default='draft', readonly=True, required=True, help=""
+    )
 
     @api.model
     def is_allowed_transition(self, old_state, new_state):
-        allowed = [('canceled', 'draft'),
-                   ('draft', 'revised'),
-                   ('waiting', 'revised'),
-                   ('selected', 'revised'),
-                   ('unselected', 'revised'),
-                   ('revised', 'waiting'),
-                   ('revised', 'selected'),
-                   ('waiting', 'selected'),
-                   ('unselected', 'selected'),
-                   ('revised', 'unselected'),
-                   ('waiting', 'unselected'),
-                   ('selected', 'unselected'),
-                   ('draft', 'canceled'),
-                   ('revised', 'canceled')]
+        allowed = [
+            ('canceled', 'draft'),
+            ('draft', 'revised'),
+            ('waiting', 'revised'),
+            ('selected', 'revised'),
+            ('unselected', 'revised'),
+            ('revised', 'waiting'),
+            ('revised', 'selected'),
+            ('waiting', 'selected'),
+            ('unselected', 'selected'),
+            ('revised', 'unselected'),
+            ('waiting', 'unselected'),
+            ('selected', 'unselected'),
+            ('draft', 'canceled'),
+            ('revised', 'canceled')
+        ]
         return (old_state, new_state) in allowed
 
     @api.multi
