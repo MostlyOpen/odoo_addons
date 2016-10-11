@@ -24,6 +24,7 @@ from openerp import fields, models
 class Address(models.Model):
     _inherit = 'myo.address'
 
+    code = fields.Char(string='Address/Residence Code', required=False)
     is_residence = fields.Boolean('Is Residence',
                                   help="If checked, the Address is a Residence.",
                                   default=0)
