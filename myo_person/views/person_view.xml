@@ -105,6 +105,7 @@
                     <field name="age_days"/>
                     <field name="birthday"/>
                     <separator/>
+                    <filter name="filter_not_active" string="Not Active" domain="[('active','=',False)]"/>
                     <group name="group_by" expand="0" string="Group By...">
                         <filter string="Date of Birth" context="{'group_by': 'birthday'}"/>
                         <!--filter string="Days Since Date of Birth" context="{'group_by': 'age_days'}"/-->
