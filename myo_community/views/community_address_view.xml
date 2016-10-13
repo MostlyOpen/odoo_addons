@@ -99,7 +99,7 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <page name="settings" position="before">
-                    <page string="Person Roles (Community)">
+                    <page string="Communities">
                         <field name="community_address_ids" colspan="4" nolabel="1"/>
                     </page>
                 </page>

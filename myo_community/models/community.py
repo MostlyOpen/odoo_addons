@@ -50,6 +50,7 @@ class Community(models.Model):
         readonly=False,
         default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     )
+    user_id = fields.Many2one('res.users', 'Community Responsible')
     active = fields.Boolean(
         'Active',
         help="If unchecked, it will allow you to hide the community without removing it.",

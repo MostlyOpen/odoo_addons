@@ -32,6 +32,10 @@
                             <h3>
                                 <field name="code" placeholder="Community Code..."/>
                             </h3>
+                            <label for="user_id"/>
+                            <h3>
+                                <field name="user_id" class="oe_inline"/>
+                            </h3>
                         </div>
                         <div class="oe_right oe_button_box" name="button_box">
                             <!-- Put here related buttons -->
@@ -66,6 +70,7 @@
                     <field name="complete_name"/>
                     <field name="alias"/>
                     <field name="code"/>
+                    <field name="user_id"/>
                     <field name="notes"/>
                 </tree>
             </field>
