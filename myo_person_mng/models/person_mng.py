@@ -22,6 +22,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 from openerp import api, fields, models
+from openerp.exceptions import UserError
 
 
 class PersonManagement(models.Model):
@@ -82,7 +83,7 @@ class PersonManagement(models.Model):
     def _check_birthday(self):
         for person in self:
             if person.birthday > fields.Date.today():
-                raise Warning(u'Error! Date of Birth must be in the past!')
+                raise UserError(u'Error! Date of Birth must be in the past!')
 
     @api.one
     @api.depends('birthday')
