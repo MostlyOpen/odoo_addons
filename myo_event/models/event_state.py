@@ -19,30 +19,32 @@
 ###############################################################################
 
 from openerp import api, fields, models
-from openerp.exceptions import Warning
+from openerp.exceptions import UserError
 
 
 class Event(models.Model):
     _inherit = 'myo.event'
 
-    state = fields.Selection([('draft', 'Draft'),
-                              ('revised', 'Revised'),
-                              ('waiting', 'Waiting'),
-                              ('done', 'Done'),
-                              ('canceled', 'Canceled')
-                              ], string='Status', default='draft', readonly=True, required=True, help="")
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('revised', 'Revised'),
+        ('waiting', 'Waiting'),
+        ('done', 'Done'),
+        ('canceled', 'Canceled')
+    ], string='State', default='draft', readonly=True, required=True, help="")
 
     @api.model
     def is_allowed_transition(self, old_state, new_state):
-        allowed = [('canceled', 'draft'),
-                   ('draft', 'revised'),
-                   ('waiting', 'revised'),
-                   ('done', 'revised'),
-                   ('revised', 'waiting'),
-                   ('revised', 'done'),
-                   ('waiting', 'done'),
-                   ('draft', 'canceled'),
-                   ('revised', 'canceled')]
+        allowed = [
+            ('canceled', 'draft'),
+            ('draft', 'revised'),
+            ('waiting', 'revised'),
+            ('done', 'revised'),
+            ('revised', 'waiting'),
+            ('revised', 'done'),
+            ('waiting', 'done'),
+            ('draft', 'canceled'),
+            ('revised', 'canceled')]
         return (old_state, new_state) in allowed
 
     @api.multi
@@ -51,29 +53,29 @@ class Event(models.Model):
             if event.is_allowed_transition(event.state, new_state):
                 event.state = new_state
             else:
-                raise Warning('Warning. State transition (' + event.state + ', ' + new_state + ') is not allowed!')
+                raise UserError('State transition (' + event.state + ', ' + new_state + ') is not allowed!')
 
-    @api.one
+    @api.multi
     def action_draft(self):
-        # self.state = 'draft'
-        self.change_state('draft')
+        for event in self:
+            event.change_state('draft')
 
-    @api.one
+    @api.multi
     def action_revised(self):
-        # self.state = 'revised'
-        self.change_state('revised')
+        for event in self:
+            event.change_state('revised')
 
-    @api.one
+    @api.multi
     def action_waiting(self):
-        # self.state = 'waiting'
-        self.change_state('waiting')
+        for event in self:
+            event.change_state('waiting')
 
-    @api.one
+    @api.multi
     def action_done(self):
-        # self.state = 'done'
-        self.change_state('done')
+        for event in self:
+            event.change_state('done')
 
-    @api.one
+    @api.multi
     def action_cancel(self):
-        # self.state = 'canceled'
-        self.change_state('canceled')
+        for event in self:
+            event.change_state('canceled')

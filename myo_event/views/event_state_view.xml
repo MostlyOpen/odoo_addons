@@ -70,7 +70,7 @@
                     <field name="state"/>
                 </field>
                 <group name="group_by" position="inside">
-                    <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
+                    <filter string="State" domain="[]" context="{'group_by':'state'}"/>
                 </group>
             </field>
         </record>
@@ -84,7 +84,7 @@
                     <field name="name"/>
                     <field name="stage_id"/>
                 </calendar-->
-                <calendar string="Events" date_delay="planned_hours" date_start="date_start" mode="month" color="user_id" display="[name] ([code]), [user_id], Status [state]" event_open_popup="%(myo_event_view_form)s">
+                <calendar string="Events" date_delay="planned_hours" date_start="date_start" mode="month" color="user_id" display="[name] ([code]), [user_id], State [state]" event_open_popup="%(myo_event_view_form)s">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="user_id"/>
