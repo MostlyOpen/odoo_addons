@@ -31,8 +31,6 @@
         'myo_base',
         'myo_tag',
         'myo_annotation',
-        'myo_person',
-        'myo_employee',
     ],
     'data': [
         'security/community_security.xml',
@@ -42,9 +40,6 @@
         'views/tag_view.xml',
         'views/annotation_view.xml',
         'views/community_member_role_view.xml',
-        'views/community_address_view.xml',
-        'views/community_person_view.xml',
-        'views/community_employee_view.xml',
         'views/community_log_view.xml',
         'views/community_category_log_view.xml',
         'data/community_seq.xml',

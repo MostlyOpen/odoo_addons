@@ -2,59 +2,29 @@
 <openerp>
     <data>
 
-                <!-- Community/Community/Communities -->
-                <menuitem name="Communities" id="menu_community_community_communities"
-                    parent="myo_base.menu_community_community"
-                    groups="myo_base.group_community_user"
-                    sequence="30"
-                    action="myo_community.myo_community_action"/>
-                    <!-- Community/Community/Community/Families -->
-<!--                     <menuitem name="Families" id="menu_community_community_communities_families"
-                        parent="menu_community_community_communities"
-                        groups="myo_base.group_community_user"
-                        sequence="10"
-                        action="myo_community.act_open_myo_community_family_view"/>
- -->                    <!-- Community/Community/Community/Addresses -->
-                    <menuitem name="Addresses" id="menu_community_community_communities_addresses"
-                        parent="menu_community_community_communities"
-                        groups="myo_base.group_community_user"
-                        sequence="20"
-                        action="myo_community.myo_community_address_action"/>
-                    <!-- Community/Community/Community/Persons -->
-                    <menuitem name="Persons" id="menu_community_community_communities_persons"
-                        parent="menu_community_community_communities"
-                        groups="myo_base.group_community_user"
-                        sequence="30"
-                        action="myo_community.myo_community_person_action"/>
-                    <!-- Community/Community/Community/Employees -->
-                    <menuitem name="Employees" id="menu_community_community_communities_employees"
-                        parent="menu_community_community_communities"
-                        groups="myo_base.group_community_user"
-                        sequence="40"
-                        action="myo_community.myo_community_employee_action"/>
-                <!-- Community/Configuration/Configuration/Community -->
-                <menuitem name="Community" id="menu_community_config_config_community"
-                    parent="myo_base.menu_community_config_config"
-                    groups="myo_base.group_community_user"
-                    sequence="30"/>
-                    <!-- Community/Configuration/Configuration/Community/Categories -->
-                    <menuitem name="Categories" id="menu_community_config_config_community_categories" 
-                        parent="menu_community_config_config_community"
-                        groups="myo_base.group_community_user"
-                        sequence="10"
-                        action="myo_community.myo_community_category_action"/>
-                    <!-- Community/Configuration/Configuration/Community/Family Roles -->
-<!--                     <menuitem name="Family Roles" id="menu_community_config_config_community_family_roles"
-                        parent="menu_community_config_config_community"
-                        groups="myo_base.group_manager"
-                        sequence="20"
-                        action="myo_community.act_open_myo_community_family_role_view"/>
- -->                    <!-- Community/Configuration/Configuration/Community/Member Roles -->
-                    <menuitem name="Member Roles" id="menu_community_config_config_community_member_roles"
-                        parent="menu_community_config_config_community"
-                        groups="myo_base.group_manager"
-                        sequence="30"
-                        action="myo_community.myo_community_member_role_action"/>
+        <!-- Community/Community/Communities -->
+        <menuitem name="Communities" id="menu_community_community_communities"
+            parent="myo_base.menu_community_community"
+            groups="myo_base.group_community_user"
+            sequence="30"
+            action="myo_community.myo_community_action"/>
+        <!-- Community/Configuration/Configuration/Community -->
+        <menuitem name="Community" id="menu_community_config_config_community"
+            parent="myo_base.menu_community_config_config"
+            groups="myo_base.group_community_user"
+            sequence="30"/>
+            <!-- Community/Configuration/Configuration/Community/Categories -->
+            <menuitem name="Categories" id="menu_community_config_config_community_categories" 
+                parent="menu_community_config_config_community"
+                groups="myo_base.group_community_user"
+                sequence="10"
+                action="myo_community.myo_community_category_action"/>
+            <!-- Community/Configuration/Configuration/Community/Member Roles -->
+            <menuitem name="Member Roles" id="menu_community_config_config_community_member_roles"
+                parent="menu_community_config_config_community"
+                groups="myo_base.group_manager"
+                sequence="30"
+                action="myo_community.myo_community_member_role_action"/>
 
     </data>
 </openerp>

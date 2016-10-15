@@ -11,25 +11,5 @@
             <field name="implied_ids" eval="[(4, ref('myo_base.group_community_user'))]"/>
         </record>
         
-        <record id="myo_base.group_community_category_manager" model="res.groups">
-            <field name="name">Community Category Manager</field>
-        </record>
-        
-        <record id="myo_base.group_community_member_role_manager" model="res.groups">
-            <field name="name">Community Member Role Manager</field>
-        </record>
-        
-        <record id="myo_base.group_community_address_manager" model="res.groups">
-            <field name="name">Community Address Manager</field>
-        </record>
-        
-        <record id="myo_base.group_community_person_manager" model="res.groups">
-            <field name="name">Community Person Manager</field>
-        </record>
-        
-        <record id="myo_base.group_community_employee_manager" model="res.groups">
-            <field name="name">Community Employee Manager</field>
-        </record>
-        
     </data>
 </openerp>
