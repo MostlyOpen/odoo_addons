@@ -19,7 +19,7 @@
 ###############################################################################
 
 from openerp import api, fields, models
-from openerp.exceptions import Warning
+from openerp.exceptions import UserError
 
 
 class Address(models.Model):
@@ -32,7 +32,7 @@ class Address(models.Model):
          ('selected', 'Selected'),
          ('unselected', 'Unselected'),
          ('canceled', 'Canceled')
-         ], string='Status', default='draft', readonly=True, required=True, help=""
+         ], string='State', default='draft', readonly=True, required=True, help=""
     )
 
     @api.model
@@ -61,34 +61,34 @@ class Address(models.Model):
             if address.is_allowed_transition(address.state, new_state):
                 address.state = new_state
             else:
-                raise Warning('Warning. State transition (' + address.state + ', ' + new_state + ') is not allowed!')
+                raise UserError('State transition (' + address.state + ', ' + new_state + ') is not allowed!')
 
-    @api.one
+    @api.multi
     def action_draft(self):
-        # self.state = 'draft'
-        self.change_state('draft')
+        for address in self:
+            address.change_state('draft')
 
-    @api.one
+    @api.multi
     def action_revised(self):
-        # self.state = 'revised'
-        self.change_state('revised')
+        for address in self:
+            address.change_state('revised')
 
-    @api.one
+    @api.multi
     def action_waiting(self):
-        # self.state = 'waiting'
-        self.change_state('waiting')
+        for address in self:
+            address.change_state('waiting')
 
-    @api.one
+    @api.multi
     def action_select(self):
-        # self.state = 'selected'
-        self.change_state('selected')
+        for address in self:
+            address.change_state('selected')
 
-    @api.one
+    @api.multi
     def action_unselect(self):
-        # self.state = 'unselected'
-        self.change_state('unselected')
+        for address in self:
+            address.change_state('unselected')
 
-    @api.one
+    @api.multi
     def action_cancel(self):
-        # self.state = 'canceled'
-        self.change_state('canceled')
+        for address in self:
+            address.change_state('canceled')
