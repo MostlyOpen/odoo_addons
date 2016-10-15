@@ -19,38 +19,39 @@
 ###############################################################################
 
 from openerp import api, fields, models
-from openerp.exceptions import Warning
-
-from datetime import *
+from openerp.exceptions import UserError
 
 
 class Address(models.Model):
     _inherit = 'myo.person'
 
-    state = fields.Selection([('draft', 'Draft'),
-                              ('revised', 'Revised'),
-                              ('waiting', 'Waiting'),
-                              ('selected', 'Selected'),
-                              ('unselected', 'Unselected'),
-                              ('canceled', 'Canceled')
-                              ], string='Status', default='draft', readonly=True, required=True, help="")
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('revised', 'Revised'),
+        ('waiting', 'Waiting'),
+        ('selected', 'Selected'),
+        ('unselected', 'Unselected'),
+        ('canceled', 'Canceled'),
+    ], string='State', default='draft', readonly=True, required=True, help="")
 
     @api.model
     def is_allowed_transition(self, old_state, new_state):
-        allowed = [('canceled', 'draft'),
-                   ('draft', 'revised'),
-                   ('waiting', 'revised'),
-                   ('selected', 'revised'),
-                   ('unselected', 'revised'),
-                   ('revised', 'waiting'),
-                   ('revised', 'selected'),
-                   ('waiting', 'selected'),
-                   ('unselected', 'selected'),
-                   ('revised', 'unselected'),
-                   ('waiting', 'unselected'),
-                   ('selected', 'unselected'),
-                   ('draft', 'canceled'),
-                   ('revised', 'canceled')]
+        allowed = [
+            ('canceled', 'draft'),
+            ('draft', 'revised'),
+            ('waiting', 'revised'),
+            ('selected', 'revised'),
+            ('unselected', 'revised'),
+            ('revised', 'waiting'),
+            ('revised', 'selected'),
+            ('waiting', 'selected'),
+            ('unselected', 'selected'),
+            ('revised', 'unselected'),
+            ('waiting', 'unselected'),
+            ('selected', 'unselected'),
+            ('draft', 'canceled'),
+            ('revised', 'canceled'),
+        ]
         return (old_state, new_state) in allowed
 
     @api.multi
@@ -59,34 +60,34 @@ class Address(models.Model):
             if person.is_allowed_transition(person.state, new_state):
                 person.state = new_state
             else:
-                raise Warning('Warning. State transition (' + person.state + ', ' + new_state + ') is not allowed!')
+                raise UserError('State transition (' + person.state + ', ' + new_state + ') is not allowed!')
 
-    @api.one
+    @api.multi
     def action_draft(self):
-        # self.state = 'draft'
-        self.change_state('draft')
+        for person in self:
+            person.change_state('draft')
 
-    @api.one
+    @api.multi
     def action_revised(self):
-        # self.state = 'revised'
-        self.change_state('revised')
+        for person in self:
+            person.change_state('revised')
 
-    @api.one
+    @api.multi
     def action_waiting(self):
-        # self.state = 'waiting'
-        self.change_state('waiting')
+        for person in self:
+            person.change_state('waiting')
 
-    @api.one
+    @api.multi
     def action_select(self):
-        # self.state = 'selected'
-        self.change_state('selected')
+        for person in self:
+            person.change_state('selected')
 
-    @api.one
+    @api.multi
     def action_unselect(self):
-        # self.state = 'unselected'
-        self.change_state('unselected')
+        for person in self:
+            person.change_state('unselected')
 
-    @api.one
+    @api.multi
     def action_cancel(self):
-        # self.state = 'canceled'
-        self.change_state('canceled')
+        for person in self:
+            person.change_state('canceled')
