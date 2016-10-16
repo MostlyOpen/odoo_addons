@@ -18,11 +18,20 @@
 #
 ###############################################################################
 
-from . import document
-from . import document_category
-from . import tag
-from . import annotation
-from . import document_seq
-from . import document_category_log
-from . import document_log
-from . import document_role
+from openerp import fields, models
+
+
+class DocumentRole(models.Model):
+    _name = 'myo.document.role'
+
+    name = fields.Char(string='Document Role', required=True,
+                       help='Role in a Document')
+    description = fields.Text(string='Description')
+    notes = fields.Text(string='Notes')
+    active = fields.Boolean('Active',
+                            help="If unchecked, it will allow you to hide the member role without removing it.",
+                            default=1)
+    _order = 'name'
+
+    _sql_constraints = [('role_name_uniq', 'unique(name)',
+                         u'Error! The Role Name must be unique!')]

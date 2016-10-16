@@ -8,12 +8,23 @@
             groups="myo_base.group_document_user"
             sequence="30"
             action="myo_document.myo_document_action"/>
-        <!-- Base/Configuration/Configuration/Document Categories -->
-        <menuitem name="Document Categories" id="menu_base_config_config_document_categories" 
+        <!-- Base/Configuration/Configuration/Document -->
+        <menuitem name="Document" id="menu_base_config_config_document"
             parent="myo_base.menu_base_config_config"
             groups="myo_base.group_document_user"
-            sequence="30"
-            action="myo_document.myo_document_category_action"/>
+            sequence="30"/>
+            <!-- Base/Configuration/Configuration/Document/Categories -->
+            <menuitem name="Categories" id="menu_base_config_config_document_categories" 
+                parent="menu_base_config_config_document"
+                groups="myo_base.group_document_user"
+                sequence="10"
+                action="myo_document.myo_document_category_action"/>
+            <!-- Base/Configuration/Configuration/Document/Roles -->
+            <menuitem name="Roles" id="menu_base_config_config_document_roles"
+                parent="menu_base_config_config_document"
+                groups="myo_base.group_manager"
+                sequence="30"
+                action="myo_document.myo_document_role_action"/>
 
     </data>
 </openerp>
