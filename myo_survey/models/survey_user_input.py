@@ -24,4 +24,4 @@ from openerp import fields, models
 class SurveyUserInput(models.Model):
     _inherit = 'survey.user_input'
 
-    external_code = fields.Char('External Code', size=128, help="External Code")
+    external_code = fields.Char('External Code', help="External Code")
