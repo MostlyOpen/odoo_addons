@@ -26,3 +26,4 @@ from . import document_seq
 from . import document_category_log
 from . import document_log
 from . import document_role
+from . import document_state

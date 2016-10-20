@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_document_view_form_state" model="ir.ui.view">
+            <field name="name">myo.document.form</field>
+            <field name="model">myo.document</field>
+            <field name="inherit_id" ref="myo_document.myo_document_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <sheet name="document" position="before">
+                    <header>
+                        <!--field name="state" widget="statusbar"
+                               clickable="True"
+                               statusbar_visible="draft,revised,waiting,done,canceled"/-->
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,revised,waiting,done,canceled"/>
+                    </header>
+                </sheet>
+                <div name="button_box" position="inside">
+                    <header>
+                        <button name="action_draft" type="object"
+                                string="Draft"
+                                states="canceled"
+                                groups="myo_base.group_document_manager"/>
+                        <button name="action_revised" type="object"
+                                string="Revised"
+                                states="draft,waiting,done"
+                                groups="myo_base.group_document_manager"/>
+                        <button name="action_waiting" type="object"
+                                string="Waiting"
+                                states="revised"
+                                groups="myo_base.group_document_manager"/>
+                        <button name="action_done" type="object"
+                                string="Done"
+                                states="revised,waiting"
+                                groups="myo_base.group_document_manager"/>
+                        <button name="action_cancel" type="object"
+                                string="Cancel"
+                                states="draft,revised"
+                                groups="myo_base.group_document_manager"/>
+                    </header>
+                </div>
+            </field>
+        </record>
+
+        <record id="myo_document_view_tree_state" model="ir.ui.view">
+            <field name="name">myo.document.tree</field>
+            <field name="model">myo.document</field>
+            <field name="inherit_id" ref="myo_document.myo_document_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="state"/>
+                </field>
+                <tree name="documents" position="attributes">
+                    <attribute name="colors">gray:state=='draft';green:state=='waiting';blue:state in('done');red:state=='canceled'</attribute>
+                    <attribute name="fonts">italic:state in ('draft','canceled');bold:state=='done'</attribute>
+                </tree>
+            </field>
+        </record>
+
+        <record id="myo_document_view_search_state" model="ir.ui.view">
+            <field name="name">myo.document.search</field>
+            <field name="model">myo.document</field>
+            <field name="inherit_id" ref="myo_document.myo_document_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="state"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="State" domain="[]" context="{'group_by':'state'}"/>
+                </group>
+            </field>
+        </record>
+
+        <record id="myo_document_view_graph" model="ir.ui.view">
+            <field name="name">myo.document.graph</field>
+            <field name="model">myo.document</field>
+            <field name="arch" type="xml">
+                <graph type="pivot">
+                    <!--field name="date_document" interval="week"/-->
+                    <field name="user_id"/>
+                    <field name="state"/>
+                </graph>
+            </field>
+        </record>
+
+    </data>
+</openerp>

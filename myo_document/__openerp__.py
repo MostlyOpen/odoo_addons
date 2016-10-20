@@ -41,6 +41,7 @@
         'views/document_log_view.xml',
         'views/document_category_log_view.xml',
         'views/document_role_view.xml',
+        'views/document_state_view.xml',
         'data/document_seq.xml',
         'views/document_menu_view.xml',
     ],

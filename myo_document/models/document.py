@@ -39,15 +39,27 @@ class Document(models.Model):
 
     name = fields.Char('Name', required=True, help="Document Name")
     code = fields.Char('Code', help="Document Code")
-    date_requested = fields.Datetime('Date requested',
-                                     default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    date_requested = fields.Datetime(
+        'Date requested',
+        default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    )
     date_document = fields.Datetime('Document Date')
-    responsible = fields.Many2one('res.users', 'Document Responsible', required=False, readonly=False)
+    date_foreseen = fields.Datetime(string='Foreseen Date', index=True, copy=False)
+    date_deadline = fields.Date(string='Deadline', index=True, copy=False)
+    user_id = fields.Many2one('res.users', 'Document Responsible', required=False, readonly=False)
     notes = fields.Text(string='Notes')
-    active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the document without removing it.",
-                            default=1)
+    active = fields.Boolean(
+        'Active',
+        help="If unchecked, it will allow you to hide the document without removing it.",
+        default=1
+    )
 
-    _sql_constraints = [('code_uniq', 'unique (code)', 'Error! The Document Code must be unique!')]
+    _sql_constraints = [
+        (
+            'code_uniq',
+            'UNIQUE (code)',
+            'Error! The Code must be unique!'
+        ),
+    ]
 
     _order = 'name'

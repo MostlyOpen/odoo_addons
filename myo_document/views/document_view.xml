@@ -8,7 +8,7 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <form string="Documents" version="7.0">
-                    <sheet string="Document">
+                    <sheet name="document" string="Document">
                         <div class="oe_center" name="center">
                             <!-- Put here related fields -->
                             <!--label for="name" class="oe_edit_only"/-->
@@ -24,25 +24,25 @@
                             <h3>
                                 <field name="code" placeholder="Document Code..."/>
                             </h3>
-                            <!--label for="date_requested" class="oe_edit_only"/-->
-                            <label for="date_requested"/>
+                            <!--label for="user_id" class="oe_edit_only"/-->
+                            <label for="user_id"/>
                             <h3>
-                                <field name="date_requested" placeholder="Date requested..."/>
-                            </h3>
-                            <!--label for="date_document" class="oe_edit_only"/-->
-                            <label for="date_document"/>
-                            <h3>
-                                <field name="date_document" placeholder="Document Date..."/>
-                            </h3>
-                            <!--label for="responsible" class="oe_edit_only"/-->
-                            <label for="responsible"/>
-                            <h3>
-                                <field name="responsible" placeholder="Document Responsible..." options="{'no_open': False, 'no_create': True}"/>
+                                <field name="user_id" placeholder="Document Responsible..." options="{'no_open': False, 'no_create': True}"/>
                             </h3>
                         </div>
                         <div class="oe_right oe_button_box" name="button_box">
                             <!-- Put here related buttons -->
                         </div>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="date_requested"/>
+                                <field name="date_document"/>
+                                <field name="date_foreseen"/>
+                                <field name="date_deadline"/>
+                            </group>
+                            <group name="group_right">
+                            </group>
+                        </group>
                         <notebook>
                             <page string="Notes">
                                 <field name="notes" placeholder="Notes..." colspan="4"/>
@@ -63,12 +63,14 @@
             <field name="model">myo.document</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <tree string="Document">
+                <tree name="documents" string="Documents">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="date_requested"/>
                     <field name="date_document"/>
-                    <field name="responsible"/>
+                    <field name="date_foreseen"/>
+                    <field name="date_deadline"/>
+                    <field name="user_id"/>
                     <field name="notes"/>
                 </tree>
             </field>
@@ -84,23 +86,38 @@
                     <field name="code"/>
                     <field name="date_requested"/>
                     <field name="date_document"/>
-                    <field name="responsible"/>
+                    <field name="date_foreseen"/>
+                    <field name="date_deadline"/>
+                    <field name="user_id"/>
                     <field name="notes"/>
                     <separator/>
-                    <group expand="0" string="Group By...">
-                        <filter string="Document Responsible" domain="[]" context="{'group_by':'responsible'}"/>
+                    <group name="group_by" string="Group By...">
+                        <filter string="Document Responsible" domain="[]" context="{'group_by':'user_id'}"/>
                         <filter string="Document Date" domain="[]" context="{'group_by': 'date_document'}"/>
+                        <filter name="group_user" string="Foreseen Date" context="{'group_by': 'date_foreseen'}"/>
+                        <filter name="group_user" string="Deadline" context="{'group_by': 'date_deadline'}"/>
                     </group>
                 </search>
             </field>
         </record>
         
+        <record id="myo_document_view_graph" model="ir.ui.view">
+            <field name="name">myo.document.graph</field>
+            <field name="model">myo.document</field>
+            <field name="arch" type="xml">
+                <graph type="pivot">
+                    <!--field name="date_document" interval="week"/-->
+                    <field name="user_id"/>
+                </graph>
+            </field>
+        </record>
+
         <record id="myo_document_action" model="ir.actions.act_window">
             <field name="name">Documents</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">myo.document</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph</field>
             <field name="search_view_id" ref="myo_document_view_search"/>
             <field name="domain">[]</field>
             <field name="context">{}</field>
