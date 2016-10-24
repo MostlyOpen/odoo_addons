@@ -37,8 +37,8 @@
                             <group name="group_left">
                                 <field name="planned_hours"/>
                                 <field name="date_inclusion"/>
-                                <field name="date_start"/>
                                 <field name="date_foreseen"/>
+                                <field name="date_start"/>
                                 <field name="date_deadline"/>
                             </group>
                             <group name="group_right">
@@ -71,8 +71,8 @@
                     <field name="user_id"/>
                     <field name="planned_hours"/>
                     <field name="date_inclusion"/>
-                    <field name="date_start"/>
                     <field name="date_foreseen"/>
+                    <field name="date_start"/>
                     <field name="date_deadline"/>
                 </tree>
             </field>
@@ -88,8 +88,8 @@
                     <field name="user_id"/>
                     <field name="planned_hours"/>
                     <field name="date_inclusion"/>
-                    <field name="date_start"/>
                     <field name="date_foreseen"/>
+                    <field name="date_start"/>
                     <field name="date_deadline"/>
                     <field name="sequence"/>
                     <filter name="filter_my_events" string="My Events" domain="[('user_id','in',[uid,False])]"/>
@@ -97,9 +97,9 @@
                     <separator/>
                     <group name="group_by">
                         <filter name="group_user" string="Event Responsible" context="{'group_by': 'user_id'}"/>
-                        <filter name="group_user" string="Starting Date" context="{'group_by': 'date_start'}"/>
-                        <filter name="group_user" string="Foreseen Date" context="{'group_by': 'date_foreseen'}"/>
-                        <filter name="group_user" string="Deadline" context="{'group_by': 'date_deadline'}"/>
+                        <!--filter name="group_user" string="Starting Date" context="{'group_by': 'date_start'}"/-->
+                        <!--filter name="group_user" string="Foreseen Date" context="{'group_by': 'date_foreseen'}"/-->
+                        <!--filter name="group_user" string="Deadline" context="{'group_by': 'date_deadline'}"/-->
                         <filter name="group_user" string="Sequence" context="{'group_by': 'sequence'}"/>
                     </group>
                 </search>
@@ -142,7 +142,8 @@
             <field name="view_mode">tree,form,calendar,graph</field>
             <field name="search_view_id" ref="myo_event_view_search"/>
             <field name="domain">[]</field>
-            <field name="context">{'default_user_id': uid, 'search_default_filter_my_events': True}</field>
+            <!--field name="context">{'default_user_id': uid, 'search_default_filter_my_events': True}</field-->
+            <field name="context">{}</field>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
                 Click to add a new event.

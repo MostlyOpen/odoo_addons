@@ -48,8 +48,8 @@ class Event(models.Model):
         help='Estimated time (in hours) to do the event.'
     )
     date_inclusion = fields.Datetime('Inclusion Date', default=fields.Datetime.now)
-    date_start = fields.Datetime(string='Starting Date', index=True, copy=False)
     date_foreseen = fields.Datetime(string='Foreseen Date', index=True, copy=False)
+    date_start = fields.Datetime(string='Starting Date', index=True, copy=False)
     date_deadline = fields.Date(string='Deadline', index=True, copy=False)
     user_id = fields.Many2one('res.users', 'Event Responsible')
     notes = fields.Html(string='Notes')
