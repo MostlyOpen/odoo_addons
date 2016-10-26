@@ -6,10 +6,22 @@
             <field name="name">survey.user_input.form</field>
             <field name="model">survey.user_input</field>
             <field name="inherit_id" ref="survey.survey_user_input_form"/>
-            <field name="priority" eval="8" />
+            <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <field name="survey_id" position="after">
-                    <field name="external_code"/>
+                    <field name="linked_code"/>
+                    <field name="linked_state"/>
+                    <field name="linked_message"/>
+                </field>
+                <field name="user_input_line_ids" position="after">
+                    <notebook>
+                        <page name="settings" string="Settings" groups="myo_base.group_rmanager">
+                            <group>
+                                <field name="link_survey_user_input"/>
+                                <field name="active"/>
+                            </group>
+                        </page>
+                    </notebook>
                 </field>
             </field>
         </record>
@@ -18,10 +30,12 @@
             <field name="name">survey.user_input.tree</field>
             <field name="model">survey.user_input</field>
             <field name="inherit_id" ref="survey.survey_user_input_tree"/>
-            <field name="priority" eval="8" />
+            <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <field name="survey_id" position="after">
-                    <field name="external_code"/>
+                    <field name="linked_code"/>
+                    <field name="linked_state"/>
+                    <field name="linked_message"/>
                 </field>
             </field>
         </record>
@@ -30,13 +44,19 @@
             <field name="name">survey.user_input.search</field>
             <field name="model">survey.user_input</field>
             <field name="inherit_id" ref="survey.survey_user_input_search"/>
-            <field name="priority" eval="8" />
+            <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <field name="partner_id" position="after">
-                    <filter string="Missing External Code" domain="[('external_code','=', False)]"/>
+                    <field name="linked_code"/>
+                    <field name="linked_state"/>
+                    <field name="linked_message"/>
+                    <filter string="Missing Linked Code" domain="[('linked_code','=', False)]"/>
+                    <filter string="Defined Linked Message" domain="[('linked_message','!=', False)]"/>
                 </field>
                 <filter name="group_by_survey" position="before">
-                    <filter string="External Code" domain="[]" context="{'group_by': ['external_code']}"/>
+                    <filter string="Status" domain="[]" context="{'group_by': ['state']}"/>
+                    <filter string="Linked Message" domain="[]" context="{'group_by': ['linked_message']}"/>
+                    <filter string="Linked State" domain="[]" context="{'group_by': ['linked_state']}"/>
                 </filter>
             </field>
         </record>
