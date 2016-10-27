@@ -23,3 +23,4 @@ from . import lab_test_type
 from . import lab_test_criterion
 from . import lab_test
 from . import lab_test_patient
+from . import lab_test_seq

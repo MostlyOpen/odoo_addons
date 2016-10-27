@@ -36,6 +36,7 @@ class CreateLabTest(models.TransientModel):
             test_report_data = {}
             test_cases = []
             if test_obj.state == 'draft':
+                test_report_data['name'] = test_obj.code
                 test_report_data['lab_test_type_id'] = test_obj.name.id
                 test_report_data['patient_id'] = test_obj.patient_id.id
                 test_report_data['date_requested'] = test_obj.date

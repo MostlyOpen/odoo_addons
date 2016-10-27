@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <form string="Lab Test Requests" version="7.0">
                     <group>
+                        <field name="code"/>
                         <field name="name" required="1"/>
                         <field name="date"/>
                         <field name="patient_id" required="0"/>
@@ -24,6 +25,7 @@
             <field name="model">myo.lab_test.patient</field>
             <field name="arch" type="xml">
                 <tree string="Test Requests">
+                    <field name="code"/>
                     <field name="name"/>
                     <field name="date"/>
                     <field name="patient_id"/>
@@ -66,6 +68,7 @@
             <field name="arch" type="xml">
                 <search string="Search Lab Tests Requests">
                     <separator orientation="vertical"/>
+                        <field name="code" select="1"/>
                         <field name="name" select="1"/>
                         <field name="date" select="1"/>
                         <field name="patient_id" select="1"/>

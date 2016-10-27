@@ -46,7 +46,7 @@
         'views/lab_test_type_view.xml',
         'views/lab_test_menu_view.xml',
         'wizard/create_lab_test_view.xml',
-        # 'data/lab_test_seq.xml',
+        'data/lab_test_seq.xml',
         'data/lab_test_data.xml',
     ],
     'demo': [],

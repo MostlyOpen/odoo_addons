@@ -26,6 +26,7 @@ from datetime import datetime
 class LabTestPatient(models.Model):
     _name = 'myo.lab_test.patient'
 
+    code = fields.Char('Lab Test Code', help="Lab Test result Code")
     name = fields.Many2one('myo.lab_test.type', 'Lab Test Type')
     date = fields.Datetime(
         'Date',
