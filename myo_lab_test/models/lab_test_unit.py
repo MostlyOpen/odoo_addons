@@ -24,13 +24,24 @@ from openerp import fields, models
 class LabTestUnitt(models.Model):
     _name = "myo.lab_test.unit"
 
-    name = fields.Char('Unit', required=True, size=25)
-    code = fields.Char('Code', size=25)
+    name = fields.Char('Unit', required=True)
+    code = fields.Char('Code')
     description = fields.Text('Description')
-    active = fields.Boolean('Active',
-                            help="If unchecked, it will allow you to hide the unit without removing it.",
-                            default=1)
+    active = fields.Boolean(
+        'Active',
+        help="If unchecked, it will allow you to hide the unit without removing it.",
+        default=1
+    )
 
-    _sql_constraints = [('name_uniq', 'unique(name)', 'Error. The Unit name must be unique!'),
-                        ('code_uniq', 'unique(code)', 'Error. The Unit code must be unique')
-                        ]
+    _sql_constraints = [
+        (
+            'name_uniq',
+            'unique(name)',
+            'Error. The Unit name must be unique!'
+        ),
+        (
+            'code_uniq',
+            'unique(code)',
+            'Error. The Unit code must be unique'
+        )
+    ]

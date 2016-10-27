@@ -27,15 +27,14 @@ class LabTestPatient(models.Model):
     _name = 'myo.lab_test.patient'
 
     name = fields.Many2one('myo.lab_test.type', 'Lab Test Type')
-    date = fields.Datetime('Date',
-                           default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-    state = fields.Selection([('draft', 'Draft'),
-                              ('tested', 'Tested'),
-                              ('cancel', 'Cancel'),
-                              ], 'State', readonly=True)
+    date = fields.Datetime(
+        'Date',
+        default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    )
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('tested', 'Tested'),
+        ('cancel', 'Cancel'),
+    ], 'State', default='draft', readonly=True)
     patient_id = fields.Many2one('myo.person', 'Patient')
     lab_test_id = fields.Many2one('myo.lab_test', 'Lab Test')
-
-    _defaults = {
-        'state': lambda *a: 'draft',
-    }

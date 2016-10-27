@@ -12,7 +12,7 @@
                             <group>
                                 <field name="name"/>
                                 <field name="result"/>
-                                <field name="unit"/>
+                                <field name="unit_id"/>
                                 <field name="sequence"/>
                                 <newline/>
                                 <field name="normal_range"/>
@@ -33,7 +33,7 @@
                     <field name="sequence"/>
                     <field name="name"/>
                     <field name="result"/>
-                    <field name="unit"/>
+                    <field name="unit_id"/>
                     <field name="normal_range"/>
                     <!--field name="outcome_ids" widget="many2many_tags"/-->
                 </tree>

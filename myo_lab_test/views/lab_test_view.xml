@@ -18,21 +18,21 @@
                         </div>
                         <!--field name="image_medium" widget='image' class="oe_left oe_avatar"/-->
                         <div class="oe_title">
-                            <!--label for="test" class="oe_edit_only"/-->
-                            <label for="test"/>
+                            <!--label for="lab_test_type_id" class="oe_edit_only"/-->
+                            <label for="lab_test_type_id"/>
                             <h2>
-                                <field name="test" default_focus="1" placeholder="Test Type..."/>
+                                <field name="lab_test_type_id" default_focus="1" placeholder="Test Type..."/>
                             </h2>
                             <!--label for="date_analysis" class="oe_edit_only"/-->
                             <label for="date_analysis"/>
                             <h3>
                                 <field name="date_analysis" placeholder="Analysis Date..."/>
                             </h3>
-                            <!--label for="patient" class="oe_edit_only"/-->
-                            <!--label for="patient"/>
+                            <!--label for="patient_id" class="oe_edit_only"/-->
+                            <label for="patient_id"/>
                             <h2>
-                                <field name="patient" placeholder="Patient..."/>
-                            </h2-->
+                                <field name="patient_id" placeholder="Patient..."/>
+                            </h2>
                             <!--label for="pathologist" class="oe_edit_only"/-->
                             <!--label for="pathologist"/-->
                             <!--h2>
@@ -46,20 +46,20 @@
 	                        <page string="Main Info">
 	                            <field name="date_requested"></field>
 	                            <!--field name="requester"></field-->
-	                            <field name="criteria" colspan="4" nolabel="1">
+	                            <field name="criterion_ids" colspan="4" nolabel="1">
 	                                <tree editable="top" string="Test Cases">
 	                                    <field name="sequence" readonly="True"/>
 	                                    <field name="name" readonly="True"/>
 	                                    <field name="result"/>
 	                                    <field name="normal_range" readonly="True"/>
-                                        <field name="unit" readonly="True"/>
+                                        <field name="unit_id" readonly="True"/>
                                         <!--field name="outcome_ids"/-->
                                         <!--field name="valid_values"/-->
 	                                </tree>
 	                                <form string="Test Cases">
 	                                    <field name="name" readonly="True"/>
 	                                    <field name="result"/>
-	                                    <field name="unit" readonly="True"/>
+	                                    <field name="unit_id" readonly="True"/>
 	                                    <field name="normal_range" readonly="True"/>
 	                                </form>
 	                            </field>
@@ -87,8 +87,8 @@
             <field name="arch" type="xml">
                 <tree string='Lab Test'>
                     <field name="name"/>
-                    <field name="test"/>
-                    <!--field name="patient"/-->
+                    <field name="lab_test_type_id"/>
+                    <field name="patient_id"/>
                     <field name="date_analysis"/>
                 </tree>
             </field>
@@ -101,13 +101,13 @@
             <field name="arch" type="xml">
                 <search string="Lab Test">
                     <field name="name"/>
-                    <field name="test"/>
-                    <!--field name="patient"/-->
+                    <field name="lab_test_type_id"/>
+                    <field name="patient_id"/>
                     <field name="date_analysis"/>
                     <separator/>
                     <group expand="0" string="Group By...">
-                        <filter string="Lab Test Type" domain="[]" context="{'group_by': 'test'}"/>
-                        <!--filter string="Patient" domain="[]" context="{'group_by': 'patient'}"/-->
+                        <filter string="Lab Test Type" domain="[]" context="{'group_by': 'lab_test_type_id'}"/>
+                        <filter string="Patient" domain="[]" context="{'group_by': 'patient_id'}"/>
                         <filter string="Analysis Date" domain="[]" context="{'group_by': 'date_analysis'}"/>
                     </group>
                 </search>

@@ -28,6 +28,7 @@ class CreateLabTest(osv.osv_memory):
 
         # data = ids
 
+        print('>>>>>', self, ids, context.get('active_id'))
         test_request_obj = self.pool.get('myo.lab_test.patient')
         lab_obj = self.pool.get('myo.lab_test')
 
@@ -36,18 +37,18 @@ class CreateLabTest(osv.osv_memory):
         test_obj = test_request_obj.browse(cr, uid, context.get('active_id'), context=context)
         if test_obj.state == 'tested':
             raise osv.except_osv(('UserError'), ('Test Report already created.'))
-        test_report_data['test'] = test_obj.name.id
-        test_report_data['patient'] = test_obj.patient_id.id
+        test_report_data['lab_test_type_id'] = test_obj.name.id
+        test_report_data['patient_id'] = test_obj.patient_id.id
         # test_report_data['requestor'] = test_obj.doctor_id.id
         test_report_data['date_requested'] = test_obj.date
 
-        for criterion in test_obj.name.criteria:
+        for criterion in test_obj.name.criterion_ids:
             test_cases.append((0, 0, {'name': criterion.name,
                                       'sequence': criterion.sequence,
                                       'normal_range': criterion.normal_range,
-                                      'unit': criterion.unit.id
+                                      'unit_id': criterion.unit_id.id
                                       }))
-        test_report_data['criteria'] = test_cases
+        test_report_data['criterion_ids'] = test_cases
         lab_id = lab_obj.create(cr, uid, test_report_data, context=context)
         test_request_obj.write(cr, uid, context.get('active_id'), {'state': 'tested', 'lab_test_id': lab_id})
         return {

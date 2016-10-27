@@ -34,10 +34,12 @@ class LabTestTypeCriterion(models.Model):
     #                                'outcome_id',
     #                                'Outcomes')
     # valid_values = fields.Text('Valid Values')
-    unit = fields.Many2one('myo.lab_test.unit', 'Unit')
+    unit_id = fields.Many2one('myo.lab_test.unit', 'Unit')
     lab_test_type_id = fields.Many2one('myo.lab_test.type', 'Test Type')
     lab_test_id = fields.Many2one('myo.lab_test', 'Test Cases')
-    sequence = fields.Integer('Sequence',
-                              default=lambda *a: 1)
+    sequence = fields.Integer(
+        'Sequence',
+        default=10
+    )
 
     _order = "sequence"
