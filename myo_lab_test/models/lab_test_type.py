@@ -33,6 +33,9 @@ class LabTestType (models.Model):
         'lab_test_type_id',
         'Test Cases'
     )
+    active = fields.Boolean('Active',
+                            help="If unchecked, it will allow you to hide the lab test type without removing it.",
+                            default=1)
 
     _sql_constraints = [
         (

@@ -4,17 +4,17 @@
         
         <record id="myo_lab_test_request_view_form" model="ir.ui.view">
             <field name="name">myo.lab_test.request.form</field>
-            <field name="model">myo.lab_test.patient</field>
+            <field name="model">myo.lab_test.request</field>
             <field name="arch" type="xml">
                 <form string="Lab Test Requests" version="7.0">
                     <group>
-                        <field name="code"/>
-                        <field name="name" required="1"/>
-                        <field name="date"/>
+                        <field name="name"/>
+                        <field name="lab_test_type_id"/>
                         <field name="patient_id" required="0"/>
+                        <field name="date"/>
                         <!--field name="professional_id"/-->
                         <field name="state"/>
-                        <field name="lab_test_id"></field>
+                        <field name="lab_test_result_id"></field>
                     </group>
                 </form>
             </field>
@@ -22,62 +22,89 @@
     
         <record id="myo_lab_test_request_view_tree" model="ir.ui.view">
             <field name="name">myo.lab_test.request.tree</field>
-            <field name="model">myo.lab_test.patient</field>
+            <field name="model">myo.lab_test.request</field>
             <field name="arch" type="xml">
                 <tree string="Test Requests">
-                    <field name="code"/>
                     <field name="name"/>
                     <field name="date"/>
+                    <field name="lab_test_type_id"/>
                     <field name="patient_id"/>
                     <!--field name="professional_id"/-->
                     <field name="state" readonly="1"/>
-                    <field name="lab_test_id"></field>
+                    <field name="lab_test_result_id"></field>
                 </tree>
             </field>
         </record>
         
-        <record id="myo_action_lab_test_request" model="ir.actions.act_window">
-            <field name="name">Lab Test Requests</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">myo.lab_test.patient</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-    
-        <record id="myo_action_draft_lab_test_request" model="ir.actions.act_window">
-            <field name="name">Draft Lab Test Requests</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">myo.lab_test.patient</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="domain">[('state','=','draft')]</field>
-        </record>
-    
-        <record id="myo_action_today_draft_lab_test_request" model="ir.actions.act_window">
-            <field name="name">Today's Draft Lab Test Requests</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">myo.lab_test.patient</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="domain">[('state','=','draft'),('date','&gt;=',time.strftime('%Y-%m-%d 00:00:01')),('date','&lt;=',time.strftime('%Y-%m-%d 23:59:59'))]</field>
-        </record>
-    
-        <record id="myo_lab_test_view_filter" model="ir.ui.view">
-            <field name="name">Lab Tests Requests</field>
-            <field name="model">myo.lab_test.patient</field>
+        <record id="myo_lab_test_request_view_search" model="ir.ui.view">
+            <field name="name">myo.lab_test.request.search</field>
+            <field name="model">myo.lab_test.request</field>
             <field name="arch" type="xml">
                 <search string="Search Lab Tests Requests">
                     <separator orientation="vertical"/>
-                        <field name="code" select="1"/>
                         <field name="name" select="1"/>
-                        <field name="date" select="1"/>
+                        <field name="lab_test_type_id" select="1"/>
                         <field name="patient_id" select="1"/>
+                        <field name="date" select="1"/>
                         <!--field name="professional_id" select="1"/-->
                         <field name="state" select="1"/>
                     <newline/>
+                    <filter name="filter_draft_lab_test_requests" string="Draft Lab Test Requests" domain="[('state','=','draft')]"/>
+                    <filter name="filter_todays_draft_lab_test_requests" string="Today's Draft Lab Test Requests" domain="[('state','=','draft'),('date','&gt;=',time.strftime('%Y-%m-%d 00:00:01')),('date','&lt;=',time.strftime('%Y-%m-%d 23:59:59'))]"/>
+                    <group name="group_by" expand="0" string="Group By...">
+                        <filter string="State" context="{'group_by': 'state'}"/>
+                    </group>
                 </search>
             </field>
         </record>
        
+        <record id="myo_lab_test_request_action" model="ir.actions.act_window">
+            <field name="name">Lab Test Requests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.lab_test.request</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="myo_lab_test_request_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new lab test request.
+              </p>
+            </field>
+        </record>
+    
+        <record id="myo_person_view_form_lab_test_request" model="ir.ui.view">
+            <field name="name">myo.person.form</field>
+            <field name="model">myo.person</field>
+            <field name="inherit_id" ref="myo_person.myo_person_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Lab Test Requests">
+                        <group>
+                            <field name="lab_test_request_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="myo_lab_test_type_view_form_request" model="ir.ui.view">
+            <field name="name">myo.lab_test.type.form</field>
+            <field name="model">myo.lab_test.type</field>
+            <field name="inherit_id" ref="myo_lab_test.myo_lab_test_type_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Lab Test Requests">
+                        <group>
+                            <field name="lab_test_request_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
     </data>
 </openerp>

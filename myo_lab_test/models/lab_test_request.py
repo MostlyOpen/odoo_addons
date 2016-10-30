@@ -23,19 +23,39 @@ from openerp import fields, models
 from datetime import datetime
 
 
-class LabTestPatient(models.Model):
-    _name = 'myo.lab_test.patient'
+class LabTestRequest(models.Model):
+    _name = 'myo.lab_test.request'
 
-    code = fields.Char('Lab Test Code', help="Lab Test result Code")
-    name = fields.Many2one('myo.lab_test.type', 'Lab Test Type')
+    name = fields.Char('Lab Test Result Code', help="Lab Test Result Code")
+    lab_test_type_id = fields.Many2one('myo.lab_test.type', 'Lab Test Type')
+    patient_id = fields.Many2one('myo.person', 'Patient')
     date = fields.Datetime(
         'Date',
         default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     )
+    lab_test_result_id = fields.Many2one('myo.lab_test.result', 'Lab Test Result')
     state = fields.Selection([
         ('draft', 'Draft'),
         ('tested', 'Tested'),
-        ('cancel', 'Cancel'),
+        ('canceled', 'Canceled'),
     ], 'State', default='draft', readonly=True)
-    patient_id = fields.Many2one('myo.person', 'Patient')
-    lab_test_id = fields.Many2one('myo.lab_test', 'Lab Test')
+
+
+class Person(models.Model):
+    _inherit = 'myo.person'
+
+    lab_test_request_ids = fields.One2many(
+        'myo.lab_test.request',
+        'patient_id',
+        'Lab Test Requests'
+    )
+
+
+class LabTestType(models.Model):
+    _inherit = 'myo.lab_test.type'
+
+    lab_test_request_ids = fields.One2many(
+        'myo.lab_test.request',
+        'lab_test_type_id',
+        'Lab Test Requests'
+    )

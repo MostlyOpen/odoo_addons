@@ -38,6 +38,11 @@
                         <page string="Extra Info">
                             <field name="info"></field>
                         </page>
+                            <page name="settings" string="Settings" groups="myo_base.group_rmanager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
                     </notebook>
                 </form>
             </field>

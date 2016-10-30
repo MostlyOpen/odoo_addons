@@ -52,55 +52,55 @@ def format_code(code_seq):
     return code_form
 
 
-class LabTest(models.Model):
-    _inherit = 'myo.lab_test'
+class LabTestResult(models.Model):
+    _inherit = 'myo.lab_test.result'
 
-    name = fields.Char(string='Code', required=False, default=False,
-                       help='Use "/" to get an automatic new Lab Test Code.')
+    name = fields.Char(string='Lab Test Result Code', required=False, default=False,
+                       help='Use "/" to get an automatic new Lab Test Result Code.')
 
     @api.model
     def create(self, values):
         if 'name' not in values or ('name' in values and values['name'] == '/'):
             code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.lab_test.code')
             values['name'] = format_code(code_seq)
-        return super(LabTest, self).create(values)
+        return super(LabTestResult, self).create(values)
 
     @api.multi
     def write(self, values):
         if 'name' in values and values['name'] == '/':
             code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.lab_test.code')
-            values['code'] = format_code(code_seq)
-        return super(LabTest, self).write(values)
+            values['name'] = format_code(code_seq)
+        return super(LabTestResult, self).write(values)
 
     @api.one
     def copy(self, default=None):
         default = dict(default or {})
         default.update({'name': '/', })
-        return super(LabTest, self).copy(default)
+        return super(LabTestResult, self).copy(default)
 
 
-class LabTestPatient(models.Model):
-    _inherit = 'myo.lab_test.patient'
+class LabTestRequest(models.Model):
+    _inherit = 'myo.lab_test.request'
 
-    code = fields.Char(string='Code', required=False, default=False,
-                       help='Use "/" to get an automatic new Lab Test Code.')
+    code = fields.Char(string='Lab Test Result Code', required=False, default=False,
+                       help='Use "/" to get an automatic new Lab Test Result Code.')
 
     @api.model
     def create(self, values):
-        if 'code' not in values or ('code' in values and values['code'] == '/'):
+        if 'name' not in values or ('name' in values and values['name'] == '/'):
             code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.lab_test.code')
-            values['code'] = format_code(code_seq)
-        return super(LabTestPatient, self).create(values)
+            values['name'] = format_code(code_seq)
+        return super(LabTestRequest, self).create(values)
 
     @api.multi
     def write(self, values):
-        if 'code' in values and values['code'] == '/':
+        if 'name' in values and values['name'] == '/':
             code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.lab_test.code')
-            values['code'] = format_code(code_seq)
-        return super(LabTestPatient, self).write(values)
+            values['name'] = format_code(code_seq)
+        return super(LabTestRequest, self).write(values)
 
     @api.one
     def copy(self, default=None):
         default = dict(default or {})
-        default.update({'code': '/', })
-        return super(LabTestPatient, self).copy(default)
+        default.update({'name': '/', })
+        return super(LabTestRequest, self).copy(default)

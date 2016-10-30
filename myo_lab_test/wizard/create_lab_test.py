@@ -24,24 +24,24 @@ from openerp import api, fields, models
 class CreateLabTest(models.TransientModel):
     _name = 'myo.lab_test.create'
 
-    lab_test_patient_ids = fields.Many2many('myo.lab_test.patient', string='Lab Test Patients')
+    lab_test_request_ids = fields.Many2many('myo.lab_test.request', string='Lab Test Requests')
 
     @api.multi
     def create_lab_test(self):
 
-        self.lab_test_patient_ids = self._context.get('active_ids')
-        lab_obj = self.env['myo.lab_test']
+        self.lab_test_request_ids = self._context.get('active_ids')
+        lab_obj = self.env['myo.lab_test.result']
 
-        for test_obj in self.lab_test_patient_ids:
+        for test_obj in self.lab_test_request_ids:
             test_report_data = {}
             test_cases = []
             if test_obj.state == 'draft':
-                test_report_data['name'] = test_obj.code
-                test_report_data['lab_test_type_id'] = test_obj.name.id
+                test_report_data['name'] = test_obj.name
+                test_report_data['lab_test_type_id'] = test_obj.lab_test_type_id.id
                 test_report_data['patient_id'] = test_obj.patient_id.id
                 test_report_data['date_requested'] = test_obj.date
 
-                for criterion in test_obj.name.criterion_ids:
+                for criterion in test_obj.lab_test_type_id.criterion_ids:
                     test_cases.append((0, 0, {'name': criterion.name,
                                               'sequence': criterion.sequence,
                                               'normal_range': criterion.normal_range,
@@ -50,12 +50,12 @@ class CreateLabTest(models.TransientModel):
                 test_report_data['criterion_ids'] = test_cases
                 lab_id = lab_obj.create(test_report_data)
                 test_obj.state = 'tested'
-                test_obj.lab_test_id = lab_id
+                test_obj.lab_test_result_id = lab_id
         return {
             'domain': "[]",
-            'name': 'Lab Test Report',
+            'name': 'Lab Test Results',
             'view_type': 'form',
             'view_mode': 'tree,form',
-            'res_model': 'myo.lab_test',
+            'res_model': 'myo.lab_test.result',
             'type': 'ir.actions.act_window'
         }

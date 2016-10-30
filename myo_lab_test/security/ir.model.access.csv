@@ -1,8 +1,8 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 
-access_myo_lab_test_lab_test_user,myo.lab_test,model_myo_lab_test,myo_base.group_lab_test_user,1,0,0,0
-access_myo_lab_test_lab_test_manager,myo.lab_test,model_myo_lab_test,myo_base.group_lab_test_manager,1,1,1,0
-access_myo_lab_test_base_smanager,myo.lab_test,model_myo_lab_test,myo_base.group_smanager,1,1,1,1
+access_myo_lab_test_result_lab_test_user,myo.lab_test.result,model_myo_lab_test_result,myo_base.group_lab_test_user,1,0,0,0
+access_myo_lab_test_result_lab_test_manager,myo.lab_test.result,model_myo_lab_test_result,myo_base.group_lab_test_manager,1,1,1,0
+access_myo_lab_test_result_base_smanager,myo.lab_test.result,model_myo_lab_test_result,myo_base.group_smanager,1,1,1,1
 
 access_myo_lab_test_unit_lab_test_user,myo.lab_test.unit,model_myo_lab_test_unit,myo_base.group_lab_test_user,1,0,0,0
 access_myo_lab_test_unit_lab_test_manager,myo.lab_test.unit,model_myo_lab_test_unit,myo_base.group_lab_test_manager,1,1,1,0
@@ -16,6 +16,6 @@ access_myo_lab_test_type_lab_test_user,myo.lab_test.type,model_myo_lab_test_type
 access_myo_lab_test_type_lab_test_manager,myo.lab_test.type,model_myo_lab_test_type,myo_base.group_lab_test_manager,1,1,1,0
 access_myo_lab_test_type_base_smanager,myo.lab_test.type,model_myo_lab_test_type,myo_base.group_smanager,1,1,1,1
 
-access_myo_lab_test_patient_lab_test_user,myo.lab_test.patient,model_myo_lab_test_patient,myo_base.group_lab_test_user,1,0,0,0
-access_myo_lab_test_patient_lab_test_manager,myo.lab_test.patient,model_myo_lab_test_patient,myo_base.group_lab_test_manager,1,1,1,0
-access_myo_lab_test_patient_base_smanager,myo.lab_test.patient,model_myo_lab_test_patient,myo_base.group_smanager,1,1,1,1
+access_myo_lab_test_request_lab_test_user,myo.lab_test.request,model_myo_lab_test_request,myo_base.group_lab_test_user,1,0,0,0
+access_myo_lab_test_request_lab_test_manager,myo.lab_test.request,model_myo_lab_test_request,myo_base.group_lab_test_manager,1,1,1,0
+access_myo_lab_test_request_base_smanager,myo.lab_test.request,model_myo_lab_test_request,myo_base.group_smanager,1,1,1,1

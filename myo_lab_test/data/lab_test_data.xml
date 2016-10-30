@@ -337,7 +337,7 @@ Post menopausal : 8.2-40.8&quot;&quot;&quot;" name="normal_range"/>
 	
 
 		<record id="myo_lab_test_criterion_testingheader0" model="myo.lab_test.criterion">
-			<field model="myo.lab_test" name="lab_test_id" search="[('name', '=', u'TEST003')]"/>
+			<field model="myo.lab_test.result" name="lab_test_result_id" search="[('name', '=', u'TEST003')]"/>
 			<field eval="&quot;&quot;&quot;testing header&quot;&quot;&quot;" name="name"/>
 			<field eval="2" name="sequence"/>
 		</record>

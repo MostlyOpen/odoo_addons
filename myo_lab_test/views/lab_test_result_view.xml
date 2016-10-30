@@ -2,9 +2,9 @@
 <openerp>
     <data>
         
-        <record id="myo_lab_test_view_form" model="ir.ui.view">
-            <field name="name">myo.lab_test.form</field>
-            <field name="model">myo.lab_test</field>
+        <record id="myo_lab_test_result_view_form" model="ir.ui.view">
+            <field name="name">myo.lab_test.result.form</field>
+            <field name="model">myo.lab_test.result</field>
             <field name="arch" type="xml">
                 <form string="Laboratory Tests" version="7.0">
                     <sheet string="Laboratory Test">
@@ -44,8 +44,10 @@
                         </div>
 	                    <notebook>
 	                        <page string="Main Info">
-	                            <field name="date_requested"></field>
-	                            <!--field name="requester"></field-->
+                                <group>
+    	                            <field name="date_resulted"></field>
+    	                            <!--field name="resulter"></field-->
+                                </group>
 	                            <field name="criterion_ids" colspan="4" nolabel="1">
 	                                <tree editable="top" string="Test Cases">
 	                                    <field name="sequence" readonly="True"/>
@@ -80,9 +82,9 @@
             </field>
         </record>
     
-        <record id="myo_lab_test_view_tree" model="ir.ui.view">
-            <field name="name">myo.lab_test.tree</field>
-            <field name="model">myo.lab_test</field>
+        <record id="myo_lab_test_result_view_tree" model="ir.ui.view">
+            <field name="name">myo.lab_test.result.tree</field>
+            <field name="model">myo.lab_test.result</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <tree string='Lab Test'>
@@ -94,9 +96,9 @@
             </field>
         </record>
          
-        <record id="myo_lab_test_view_search" model="ir.ui.view">
-            <field name="name">myo.lab_test.search</field>
-            <field name="model">myo.lab_test</field>
+        <record id="myo_lab_test_result_view_search" model="ir.ui.view">
+            <field name="name">myo.lab_test.result.search</field>
+            <field name="model">myo.lab_test.result</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <search string="Lab Test">
@@ -114,14 +116,53 @@
             </field>
         </record>
         
-        <record id="myo_lab_test_action" model="ir.actions.act_window">
-            <field name="name">Lab Tests Results</field>
+        <record id="myo_lab_test_result_action" model="ir.actions.act_window">
+            <field name="name">Lab Test Results</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">myo.lab_test</field>
+            <field name="res_model">myo.lab_test.result</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_id" ref="myo_lab_test_view_tree"/>
+            <field name="search_view_id" ref="myo_lab_test_result_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new lab test result.
+              </p>
+            </field>
         </record>
         
+        <record id="myo_person_view_form_lab_test_result" model="ir.ui.view">
+            <field name="name">myo.person.form</field>
+            <field name="model">myo.person</field>
+            <field name="inherit_id" ref="myo_person.myo_person_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Lab Test Results">
+                        <group>
+                            <field name="lab_test_result_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="myo_lab_test_type_view_form_result" model="ir.ui.view">
+            <field name="name">myo.lab_test.type.form</field>
+            <field name="model">myo.lab_test.type</field>
+            <field name="inherit_id" ref="myo_lab_test.myo_lab_test_type_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Lab Test Results">
+                        <group>
+                            <field name="lab_test_result_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
     </data>
 </openerp>

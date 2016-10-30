@@ -19,7 +19,7 @@
 
        <act_window name="Create Lab Test"
             res_model="myo.lab_test.create"
-            src_model="myo.lab_test.patient"
+            src_model="myo.lab_test.request"
             view_mode="form"
             target="new"
             key2="client_action_multi"
