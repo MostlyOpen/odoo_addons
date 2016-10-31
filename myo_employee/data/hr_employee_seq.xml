@@ -2,9 +2,9 @@
 <openerp>
     <data noupdate="1">
 
-        <record id="myo_employee_seq" model="ir.sequence">
+        <record id="hr_employee_seq" model="ir.sequence">
             <field name="name">Employee Sequence</field>
-            <field name="code">myo.employee.code</field>
+            <field name="code">hr.employee.code</field>
             <field name="padding" eval="9"/>
             <field name="prefix">00000</field>
             <field name="number_next">1</field>

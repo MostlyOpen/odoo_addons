@@ -63,14 +63,14 @@ class Employee(models.Model):
     @api.model
     def create(self, values):
         if 'code' not in values or ('code' in values and values['code'] == '/'):
-            code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.employee.code')
+            code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'hr.employee.code')
             values['code'] = format_code(code_seq)
         return super(Employee, self).create(values)
 
     @api.multi
     def write(self, values):
         if 'code' in values and values['code'] == '/':
-            code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.employee.code')
+            code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'hr.employee.code')
             values['code'] = format_code(code_seq)
         return super(Employee, self).write(values)
 
