@@ -61,14 +61,14 @@ class LabTestResult(models.Model):
     @api.model
     def create(self, values):
         if 'name' not in values or ('name' in values and values['name'] == '/'):
-            code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.lab_test.code')
+            code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.lab_test.request.code')
             values['name'] = format_code(code_seq)
         return super(LabTestResult, self).create(values)
 
     @api.multi
     def write(self, values):
         if 'name' in values and values['name'] == '/':
-            code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.lab_test.code')
+            code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.lab_test.request.code')
             values['name'] = format_code(code_seq)
         return super(LabTestResult, self).write(values)
 
@@ -88,14 +88,14 @@ class LabTestRequest(models.Model):
     @api.model
     def create(self, values):
         if 'name' not in values or ('name' in values and values['name'] == '/'):
-            code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.lab_test.code')
+            code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.lab_test.request.code')
             values['name'] = format_code(code_seq)
         return super(LabTestRequest, self).create(values)
 
     @api.multi
     def write(self, values):
         if 'name' in values and values['name'] == '/':
-            code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.lab_test.code')
+            code_seq = self.pool.get('ir.sequence').next_by_code(self._cr, self._uid, 'myo.lab_test.request.code')
             values['name'] = format_code(code_seq)
         return super(LabTestRequest, self).write(values)
 
