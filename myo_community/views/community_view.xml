@@ -32,6 +32,10 @@
                             <h3>
                                 <field name="code" placeholder="Community Code..."/>
                             </h3>
+                            <label for="comm_location"/>
+                            <h3>
+                                <field name="comm_location" placeholder="Community Location..."/>
+                            </h3>
                             <label for="user_id"/>
                             <h3>
                                 <field name="user_id" class="oe_inline"/>
