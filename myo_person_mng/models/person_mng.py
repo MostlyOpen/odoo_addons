@@ -42,6 +42,7 @@ class PersonManagement(models.Model):
         compute='_compute_age',
         store=True
     )
+    estimated_age = fields.Char(string='Estimated Age', required=False)
     spouse_name = fields.Char('Spouse Name')
     spouse_id = fields.Many2one('myo.person', 'Spouse', ondelete='restrict')
     father_name = fields.Char('Father Name')

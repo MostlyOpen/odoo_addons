@@ -74,6 +74,7 @@
                                     <group string="Birth">
                                         <field name="birthday"/>
                                         <field name="age"/>
+                                        <field name="estimated_age"/>
                                     </group>
                                 </group>
                             </page>
@@ -98,6 +99,7 @@
                     <field name="alias"/>
                     <field name="code"/>
                     <field name="age"/>
+                    <field name="estimated_age"/>
                     <field name="birthday"/>
                     <field name="notes" colspan="4"/>
                     <field name="person_id"/>
@@ -117,12 +119,14 @@
                     <field name="code"/>
                     <field name="birthday"/>
                     <field name="age"/>
+                    <field name="estimated_age"/>
                     <field name="batch_name"/>
                     <newline/>
                     <filter name="no_date_of_birth" string="No Date of Birth!" domain="[('birthday','=',False)]"/>
                     <group expand="0" name="group_by" string="Group By...">
                         <filter string="Batch Name" domain="[]" context="{'group_by': 'batch_name'}"/>
                         <filter string="Age" domain="[]" context="{'group_by': 'age'}"/>
+                        <filter string="Estimated Age" context="{'group_by': 'estimated_age'}"/>
                     </group>
                 </search>
             </field>
