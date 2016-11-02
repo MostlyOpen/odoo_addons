@@ -29,7 +29,7 @@ msgstr "Se marcado, a pessoa é um Paciente."
 #: model:ir.model.fields,field_description:myo_patient.field_myo_person_is_patient
 #: model:ir.ui.view,arch_db:myo_patient.myo_person_view_search_patient
 msgid "Is Patient"
-msgstr "Paciente"
+msgstr "É Paciente"
 
 #. module: myo_patient
 #: model:ir.ui.menu,name:myo_patient.menu_health_health_patients

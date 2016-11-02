@@ -44,6 +44,7 @@
             <field name="arch" type="xml">
                 <group name="group_by" position="inside">
                     <filter name="filter_is_patient" string="Is Patient" domain="[('is_patient','=',True)]"/>
+                    <filter name="filter_is_not_patient" string="Is Not Patient" domain="[('is_patient','=',False)]"/>
                 </group>
                 <group name="group_by" position="before">
                     <filter string="Is Patient" context="{'group_by': 'is_patient'}"/>
