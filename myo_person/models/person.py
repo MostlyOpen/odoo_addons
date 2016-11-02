@@ -52,7 +52,7 @@ class Person(models.Model):
     age = fields.Char(
         string='Age',
         compute='_compute_age',
-        store=False
+        store=True
     )
     age_days = fields.Float(
         string='Days Since Date of Birth',
@@ -62,6 +62,7 @@ class Person(models.Model):
         store=False,
         compute_sudo=False,
     )
+    estimated_age = fields.Char(string='Estimated Age', required=False)
     spouse_id = fields.Many2one('myo.person', 'Spouse', ondelete='restrict')
     father_id = fields.Many2one('myo.person', 'Father', ondelete='restrict')
     mother_id = fields.Many2one('myo.person', 'Mother', ondelete='restrict')

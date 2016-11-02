@@ -62,7 +62,8 @@
                                     <group string="Birth">
                                         <field name="birthday"/>
                                         <field name="age"/>
-                                        <field name="age_days"/>
+                                        <field name="estimated_age"/>
+                                        <!--field name="age_days"/-->
                                     </group>
                                 </group>
                             </page>
@@ -87,7 +88,8 @@
                     <field name="alias"/>
                     <field name="code"/>
                     <field name="age"/>
-                    <field name="age_days"/>
+                    <field name="estimated_age"/>
+                    <!--field name="age_days"/-->
                     <field name="birthday"/>
                 </tree>
             </field>
@@ -102,12 +104,16 @@
                     <field name="name"/>
                     <field name="alias"/>
                     <field name="code"/>
-                    <field name="age_days"/>
+                    <!--field name="age_days"/-->
+                    <field name="age"/>
+                    <field name="estimated_age"/>
                     <field name="birthday"/>
                     <separator/>
                     <filter name="filter_not_active" string="Not Active" domain="[('active','=',False)]"/>
                     <group name="group_by" expand="0" string="Group By...">
                         <filter string="Date of Birth" context="{'group_by': 'birthday'}"/>
+                        <filter string="Age" context="{'group_by': 'age'}"/>
+                        <filter string="Estimated Age" context="{'group_by': 'estimated_age'}"/>
                         <!--filter string="Days Since Date of Birth" context="{'group_by': 'age_days'}"/-->
                     </group>
                 </search>

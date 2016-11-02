@@ -44,8 +44,21 @@
                         <field name="person_phone"/>
                         <field name="mobile_phone"/>
                         <field name="person_email" widget="email"/>
+                        <field name="address_state" string="Address State"/>
                     </group>
                 </group>
+            </field>
+        </record>
+
+        <record id="myo_person_view_tree_address" model="ir.ui.view">
+            <field name="name">myo.person.tree</field>
+            <field name="model">myo.person</field>
+            <field name="inherit_id" ref="myo_person_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="address_state" string="Address State"/>
+                </field>
             </field>
         </record>
 
@@ -55,6 +68,15 @@
             <field name="inherit_id" ref="myo_person_view_search"/>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="address_state"/>
+                </field>
+                <group name="group_by" position="before">
+                    <filter name="address_selected" string="Address Selected" domain="[('address_state','=','selected')]"/>
+                    <filter name="address_waiting" string="Address Waiting" domain="[('address_state','=','waiting')]"/>
+                    <filter name="address_unselected" string="Address Unselected" domain="[('address_state','=','unselected')]"/>
+                    <filter name="address_canceled" string="Address Canceled" domain="[('address_state','=','canceled')]"/>
+                </group>
                 <group name="group_by" position="inside">
                     <filter string="Address" context="{'group_by': 'address_id'}"/>
                 </group>

@@ -47,3 +47,4 @@ class Person(models.Model):
     person_phone = fields.Char('Phone', related='address_id.phone')
     mobile_phone = fields.Char('Mobile', related='address_id.mobile')
     person_email = fields.Char('Email', related='address_id.email')
+    address_state = fields.Selection('Address State', related='address_id.state')
