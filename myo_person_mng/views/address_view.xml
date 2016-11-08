@@ -61,6 +61,9 @@
             <field name="inherit_id" ref="myo_person_mng_view_search"/>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
+                <group name="group_by" position="before">
+                    <filter name="no_address" string="No Address" domain="[('address_id','=',False)]"/>
+                </group>
                 <group name="group_by" position="inside">
                     <filter string="Address" context="{'group_by': 'address_id'}"/>
                     <filter string="Street" context="{'group_by': 'street'}"/>
