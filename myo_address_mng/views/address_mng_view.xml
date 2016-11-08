@@ -119,6 +119,7 @@
                     <field name="city"/>
                     <field name="state_id"/>
                     <newline/>
+                    <filter name="no_address" string="No Address" domain="[('address_id','=',False)]"/>
                     <group expand="0" name="group_by" string="Group By...">
                         <filter string="Batch Name" domain="[]" context="{'group_by': 'batch_name'}"/>
                         <filter string="Street" context="{'group_by': 'street'}"/>
