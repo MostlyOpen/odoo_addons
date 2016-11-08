@@ -51,6 +51,10 @@
                 <field name="code" position="after">
                     <field name="state"/>
                 </field>
+                <tree name="address_mng" position="attributes">
+                    <attribute name="colors">gray:state=='draft';green:state in ('waiting');blue:state=='done';red:state=='canceled'</attribute>
+                    <attribute name="fonts">italic:state in ('draft','canceled');bold:state in ('waiting','done')</attribute>
+                </tree>
             </field>
         </record>
 
@@ -63,6 +67,9 @@
                 <field name="code" position="after">
                     <field name="state"/>
                 </field>
+                <group name="group_by" position="before">
+                    <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                </group>
                 <group name="group_by" position="inside">
                     <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
                 </group>

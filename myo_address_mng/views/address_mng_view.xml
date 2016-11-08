@@ -86,7 +86,7 @@
             <field name="model">myo.address.mng</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <tree string="Address (Management)">
+                <tree name="address_mng" string="Address (Management)">
                     <field name="name"/>
                     <field name="alias" invisible="1"/>
                     <field name="phone"/>
