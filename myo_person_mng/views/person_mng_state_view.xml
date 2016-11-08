@@ -54,8 +54,8 @@
                     <field name="state"/>
                 </field>
                 <tree name="person_mng" position="attributes">
-                    <attribute name="colors">gray:state=='canceled'</attribute>
-                    <attribute name="fonts">italic:state=='draft'</attribute>
+                    <attribute name="colors">gray:state=='draft';green:state in ('waiting');blue:state=='done';red:state=='canceled'</attribute>
+                    <attribute name="fonts">italic:state in ('draft','canceled');bold:state in ('waiting','done')</attribute>
                 </tree>
             </field>
         </record>
@@ -69,6 +69,9 @@
                 <field name="code" position="after">
                     <field name="state"/>
                 </field>
+                <filter name="no_date_of_birth" position="after">
+                    <filter name="revised" string="Revised" domain="[('state','=','revised')]"/>
+                </filter>
                 <group name="group_by" position="inside">
                     <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
                 </group>
