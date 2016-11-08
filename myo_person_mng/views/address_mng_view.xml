@@ -38,6 +38,9 @@
                 <field name="batch_name" position="after">
                     <field name="address_mng_id"/>
                 </field>
+                <filter name="no_date_of_birth" position="after">
+                    <filter name="no_address_mng" string="No Address Management" domain="[('address_mng_id','=',False)]"/>
+                </filter>
                 <group name="group_by" position="inside">
                     <filter string="Address Management" domain="[]" context="{'group_by':'address_mng_id'}"/>
                 </group>
