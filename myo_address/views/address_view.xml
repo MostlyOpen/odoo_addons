@@ -29,6 +29,11 @@
                             <h3>
                                 <field name="code" placeholder="Address Code..."/>
                             </h3>
+                            <!--label for="user_id" class="oe_edit_only"/-->
+                            <label for="user_id"/>
+                            <h3>
+                                <field name="user_id" placeholder="Address Responsible..." options="{'no_open': False, 'no_create': True}"/>
+                            </h3>
                         </div>
                         <div class="oe_right oe_button_box" name="button_box">
                             <!-- Put here related buttons -->
@@ -81,6 +86,7 @@
                     <field name="mobile"/>
                     <field name="email"/>
                     <field name="code"/>
+                    <field name="user_id"/>
                     <field name="notes"/>
                     <field name="street" invisible="1"/>
                     <field name="zip" invisible="1"/>
@@ -99,6 +105,7 @@
                     <field name="name"/>
                     <field name="alias"/>
                     <field name="code"/>
+                    <field name="user_id"/>
                     <field name="notes"/>
                     <field name="street"/>
                     <field name="zip"/>
@@ -106,6 +113,7 @@
                     <field name="state_id"/>
                     <newline/>
                     <group  name="group_by" expand="0" string="Group By...">
+                        <filter string="Address Responsible" domain="[]" context="{'group_by':'user_id'}"/>
                         <filter string="Street" context="{'group_by': 'street'}"/>
                         <filter string="ZIP Code" context="{'group_by': 'zip'}"/>
                         <filter name="city" string="City" context="{'group_by': 'city'}"/>

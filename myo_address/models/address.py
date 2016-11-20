@@ -61,6 +61,7 @@ class Address(osv.Model, FormatAddress):
         'title': fields.many2one('res.partner.title', 'Title'),
         'alias': fields.char('Alias', help='Common name that the Address is referred.'),
         'code': fields.char(string='Code', required=False, help="Address Code"),
+        'user_id': fields.many2one('res.users', 'Address Responsible', required=False, readonly=False),
         'notes': fields.text('Notes'),
         'street': fields.char('Street'),
         'street2': fields.char('Street2'),
