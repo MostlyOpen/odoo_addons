@@ -55,6 +55,7 @@ class CommunityCategory(models.Model):
         'community_id',
         'Communities'
     )
+    color = fields.Integer('Color Index')
 
     _sql_constraints = [
         (
