@@ -94,8 +94,8 @@
                     <group name="group_by" string="Group By...">
                         <filter string="Document Responsible" domain="[]" context="{'group_by':'user_id'}"/>
                         <filter string="Document Date" domain="[]" context="{'group_by': 'date_document'}"/>
-                        <filter name="group_user" string="Foreseen Date" context="{'group_by': 'date_foreseen'}"/>
-                        <filter name="group_user" string="Deadline" context="{'group_by': 'date_deadline'}"/>
+                        <filter name="group_by_date_foreseen" string="Foreseen Date" context="{'group_by': 'date_foreseen'}"/>
+                        <filter name="group_by_date_deadline" string="Deadline" context="{'group_by': 'date_deadline'}"/>
                     </group>
                 </search>
             </field>
