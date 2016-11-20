@@ -44,6 +44,7 @@ class Person(models.Model):
     name = fields.Char('Name', required=True)
     alias = fields.Char('Alias', help='Common name that the Person is referred.')
     code = fields.Char(string='Person Code', required=False)
+    user_id = fields.Many2one('res.users', 'Person Responsible', required=False, readonly=False)
     notes = fields.Text(string='Notes')
     date_inclusion = fields.Datetime("Inclusion Date", required=False, readonly=False,
                                      default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S'))

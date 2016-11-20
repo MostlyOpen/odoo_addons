@@ -29,6 +29,11 @@
                             <h3>
                                 <field name="code" placeholder="Person Code..."/>
                             </h3>
+                            <!--label for="user_id" class="oe_edit_only"/-->
+                            <label for="user_id"/>
+                            <h3>
+                                <field name="user_id" placeholder="Person Responsible..." options="{'no_open': False, 'no_create': True}"/>
+                            </h3>
                         </div>
                         <div class="oe_right oe_button_box" name="button_box">
                             <!-- Put here related buttons -->
@@ -91,6 +96,7 @@
                     <field name="estimated_age"/>
                     <!--field name="age_days"/-->
                     <field name="birthday"/>
+                    <field name="user_id"/>
                 </tree>
             </field>
         </record>
@@ -108,9 +114,11 @@
                     <field name="age"/>
                     <field name="estimated_age"/>
                     <field name="birthday"/>
+                    <field name="user_id"/>
                     <separator/>
                     <filter name="filter_not_active" string="Not Active" domain="[('active','=',False)]"/>
                     <group name="group_by" expand="0" string="Group By...">
+                        <filter string="Person Responsible" domain="[]" context="{'group_by':'user_id'}"/>
                         <filter string="Date of Birth" context="{'group_by': 'birthday'}"/>
                         <filter string="Age" context="{'group_by': 'age'}"/>
                         <filter string="Estimated Age" context="{'group_by': 'estimated_age'}"/>
