@@ -55,6 +55,7 @@ class EventCategory(models.Model):
         'event_id',
         'Events'
     )
+    color = fields.Integer('Color Index')
 
     _sql_constraints = [
         (
