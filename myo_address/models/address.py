@@ -50,11 +50,13 @@ class FormatAddress(object):
                 break
         return arch
 
+
 ADDRESS_FIELDS = ('street', 'street2', 'zip', 'city', 'state_id', 'country_id')
 
 
 class Address(osv.Model, FormatAddress):
     _name = "myo.address"
+    _inherit = 'myo.random.model'
 
     _columns = {
         'name': fields.char('Name', required=True, index=True),

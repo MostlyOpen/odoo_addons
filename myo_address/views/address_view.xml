@@ -29,6 +29,11 @@
                             <h3>
                                 <field name="code" placeholder="Address Code..."/>
                             </h3>
+                            <!--label for="random_field" class="oe_edit_only"/-->
+                            <label for="random_field"/>
+                            <h3>
+                                <field name="random_field" placeholder="Random ID..."/>
+                            </h3>
                             <!--label for="user_id" class="oe_edit_only"/-->
                             <label for="user_id"/>
                             <h3>
@@ -86,6 +91,7 @@
                     <field name="mobile"/>
                     <field name="email"/>
                     <field name="code"/>
+                    <field name="random_field"/>
                     <field name="user_id"/>
                     <field name="notes"/>
                     <field name="street" invisible="1"/>
@@ -105,6 +111,7 @@
                     <field name="name"/>
                     <field name="alias"/>
                     <field name="code"/>
+                    <field name="random_field"/>
                     <field name="user_id"/>
                     <field name="notes"/>
                     <field name="street"/>
