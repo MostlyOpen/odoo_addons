@@ -29,6 +29,7 @@ from openerp.exceptions import UserError
 
 class Person(models.Model):
     _name = 'myo.person'
+    _inherit = 'myo.random.model'
 
     @api.multi
     @api.depends('name', 'code', 'age')

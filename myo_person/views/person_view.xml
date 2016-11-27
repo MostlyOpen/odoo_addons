@@ -29,6 +29,11 @@
                             <h3>
                                 <field name="code" placeholder="Person Code..."/>
                             </h3>
+                            <!--label for="random_field" class="oe_edit_only"/-->
+                            <label for="random_field"/>
+                            <h3>
+                                <field name="random_field" placeholder="Random ID..."/>
+                            </h3>
                             <!--label for="user_id" class="oe_edit_only"/-->
                             <label for="user_id"/>
                             <h3>
@@ -92,6 +97,7 @@
                     <field name="name"/>
                     <field name="alias"/>
                     <field name="code"/>
+                    <field name="random_field"/>
                     <field name="age"/>
                     <field name="estimated_age"/>
                     <!--field name="age_days"/-->
@@ -110,6 +116,7 @@
                     <field name="name"/>
                     <field name="alias"/>
                     <field name="code"/>
+                    <field name="random_field"/>
                     <!--field name="age_days"/-->
                     <field name="age"/>
                     <field name="estimated_age"/>
