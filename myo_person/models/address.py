@@ -33,11 +33,25 @@ class Address(models.Model):
         'Number of Persons',
         compute='_compute_count_persons'
     )
+    count_selected_persons = fields.Integer(
+        'Number of Selected Persons',
+        compute='_compute_count_selected_persons',
+        store=True
+    )
 
     @api.depends('person_ids')
     def _compute_count_persons(self):
         for r in self:
             r.count_persons = len(r.person_ids)
+
+    @api.depends('person_ids')
+    def _compute_count_selected_persons(self):
+        for r in self:
+            count_selected_persons = 0
+            for person in r.person_ids:
+                if person.state == 'selected':
+                    count_selected_persons += 1
+            r.count_selected_persons = count_selected_persons
 
 
 class Person(models.Model):
@@ -51,3 +65,4 @@ class Person(models.Model):
     address_state = fields.Selection('Address State', related='address_id.state', store=True)
     address_user_id = fields.Char('Address Responsible', related='address_id.user_id.name', store=True)
     address_category_ids = fields.Char('Address Categories', related='address_id.category_ids.name', store=True)
+    address_district = fields.Char('Address Responsible', related='address_id.district', store=True)

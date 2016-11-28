@@ -12,6 +12,7 @@
                     <page string="Persons">
                         <group>
                             <field name="count_persons"/>
+                            <field name="count_selected_persons"/>
                             <field name="person_ids" colspan="4" nolabel="1"/>
                         </group>
                     </page>
@@ -27,7 +28,20 @@
             <field name="arch" type="xml">
                 <field name="code" position="after">
                     <field name="count_persons"/>
+                    <field name="count_selected_persons"/>
                 </field>
+            </field>
+        </record>
+
+        <record id="myo_address_view_search_person" model="ir.ui.view">
+            <field name="name">myo.address.search</field>
+            <field name="model">myo.address</field>
+            <field name="inherit_id" ref="myo_address.myo_address_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <group  name="group_by" position="inside">
+                    <filter string="Selected Persons" context="{'group_by': 'count_selected_persons'}"/>
+                </group>
             </field>
         </record>
 
@@ -48,6 +62,7 @@
                         <field name="address_state" string="Address State"/>
                         <field name="address_user_id" string="Address Responsible"/>
                         <field name="address_category_ids" string="Address Categories"/>
+                        <field name="address_district" string="Address District"/>
                     </group>
                 </group>
             </field>
@@ -63,6 +78,7 @@
                     <field name="address_state" string="Address State"/>
                     <field name="address_user_id" string="Address Responsible"/>
                     <field name="address_category_ids" string="Address Categories"/>
+                    <field name="address_district" string="Address District"/>
                 </field>
             </field>
         </record>
@@ -77,6 +93,7 @@
                     <field name="address_state"/>
                     <field name="address_user_id"/>
                     <field name="address_category_ids"/>
+                    <field name="address_district"/>
                 </field>
                 <group name="group_by" position="before">
                     <!--filter name="address_selected" string="Address Selected" domain="[('address_state','=','selected')]"/-->
@@ -89,6 +106,7 @@
                     <filter string="Address State" context="{'group_by': 'address_state'}"/>
                     <filter string="Address Responsible" context="{'group_by': 'address_user_id'}"/>
                     <filter string="Address Categories" context="{'group_by': 'address_category_ids'}"/>
+                    <filter string="Address District" context="{'group_by': 'address_district'}"/>
                 </group>
             </field>
         </record>
