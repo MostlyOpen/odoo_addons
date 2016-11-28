@@ -37,7 +37,7 @@ class RandomModel(models.AbstractModel):
 
     random_field = fields.Char(
         string='Random ID', index=True, required=True, default='/',
-        help='Use "/" to get an automatic new Address Code.'
+        help='Use "/" to get an automatic new Random ID.'
     )
 
     _order = 'random'
