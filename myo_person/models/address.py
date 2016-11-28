@@ -65,4 +65,3 @@ class Person(models.Model):
     address_state = fields.Selection('Address State', related='address_id.state', store=True)
     address_user_id = fields.Char('Address Responsible', related='address_id.user_id.name', store=True)
     address_category_ids = fields.Char('Address Categories', related='address_id.category_ids.name', store=True)
-    address_district = fields.Char('Address Responsible', related='address_id.district', store=True)
