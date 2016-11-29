@@ -65,6 +65,12 @@ class Person(models.Model):
         compute_sudo=False,
     )
     estimated_age = fields.Char(string='Estimated Age', required=False)
+    date_reference = fields.Date("Reference Date")
+    age_reference = fields.Char(
+        string='Reference Age',
+        compute='_compute_age_reference',
+        store=True
+    )
     spouse_id = fields.Many2one('myo.person', 'Spouse', ondelete='restrict')
     father_id = fields.Many2one('myo.person', 'Father', ondelete='restrict')
     mother_id = fields.Many2one('myo.person', 'Mother', ondelete='restrict')
@@ -114,6 +120,22 @@ class Person(models.Model):
             self.age = str(delta.years)
         else:
             self.age = "No Date of Birth!"
+
+    @api.one
+    @api.depends('date_reference', 'birthday')
+    def _compute_age_reference(self):
+        if self.date_reference:
+            # now = self.date_reference
+            if self.birthday:
+                dob = datetime.strptime(self.birthday, '%Y-%m-%d')
+                now = datetime.strptime(self.date_reference, '%Y-%m-%d')
+                delta = relativedelta(now, dob)
+                # self.age_reference = str(delta.years) + "y " + str(delta.months) + "m " + str(delta.days) + "d"
+                self.age_reference = str(delta.years)
+            else:
+                self.age_reference = "No Date of Birth!"
+        else:
+            self.age_reference = "No Reference Date!"
 
     @api.multi
     @api.depends('birthday')

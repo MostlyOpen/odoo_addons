@@ -74,6 +74,8 @@
                                         <field name="age"/>
                                         <field name="estimated_age"/>
                                         <!--field name="age_days"/-->
+                                        <field name="date_reference"/>
+                                        <field name="age_reference"/>
                                     </group>
                                 </group>
                             </page>
@@ -100,8 +102,10 @@
                     <field name="random_field"/>
                     <field name="age"/>
                     <field name="estimated_age"/>
+                    <field name="age_reference"/>
                     <!--field name="age_days"/-->
                     <field name="birthday"/>
+                    <field name="date_reference"/>
                     <field name="user_id"/>
                 </tree>
             </field>
@@ -120,15 +124,19 @@
                     <!--field name="age_days"/-->
                     <field name="age"/>
                     <field name="estimated_age"/>
+                    <field name="age_reference"/>
                     <field name="birthday"/>
+                    <field name="date_reference"/>
                     <field name="user_id"/>
                     <separator/>
                     <filter name="filter_not_active" string="Not Active" domain="[('active','=',False)]"/>
                     <group name="group_by" expand="0" string="Group By...">
                         <filter string="Person Responsible" domain="[]" context="{'group_by':'user_id'}"/>
                         <filter string="Date of Birth" context="{'group_by': 'birthday'}"/>
+                        <filter string="Reference Date" context="{'group_by': 'date_reference'}"/>
                         <filter string="Age" context="{'group_by': 'age'}"/>
                         <filter string="Estimated Age" context="{'group_by': 'estimated_age'}"/>
+                        <filter string="Reference Age" context="{'group_by': 'age_reference'}"/>
                         <!--filter string="Days Since Date of Birth" context="{'group_by': 'age_days'}"/-->
                     </group>
                 </search>
