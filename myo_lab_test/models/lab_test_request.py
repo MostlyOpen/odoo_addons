@@ -38,7 +38,7 @@ class LabTestRequest(models.Model):
         ('draft', 'Draft'),
         ('tested', 'Tested'),
         ('canceled', 'Canceled'),
-    ], 'State', default='draft', readonly=True)
+    ], 'Status', default='draft', readonly=True)
 
 
 class Person(models.Model):

@@ -52,7 +52,7 @@
                     <filter name="filter_draft_lab_test_requests" string="Draft Lab Test Requests" domain="[('state','=','draft')]"/>
                     <filter name="filter_todays_draft_lab_test_requests" string="Today's Draft Lab Test Requests" domain="[('state','=','draft'),('date','&gt;=',time.strftime('%Y-%m-%d 00:00:01')),('date','&lt;=',time.strftime('%Y-%m-%d 23:59:59'))]"/>
                     <group name="group_by" expand="0" string="Group By...">
-                        <filter string="State" context="{'group_by': 'state'}"/>
+                        <filter string="Status" context="{'group_by': 'state'}"/>
                     </group>
                 </search>
             </field>
