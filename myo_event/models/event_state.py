@@ -31,7 +31,7 @@ class Event(models.Model):
         ('waiting', 'Waiting'),
         ('done', 'Done'),
         ('canceled', 'Canceled')
-    ], string='State', default='draft', readonly=True, required=True, help="")
+    ], string='Status', default='draft', readonly=True, required=True, help="")
 
     @api.model
     def is_allowed_transition(self, old_state, new_state):
@@ -53,7 +53,7 @@ class Event(models.Model):
             if event.is_allowed_transition(event.state, new_state):
                 event.state = new_state
             else:
-                raise UserError('State transition (' + event.state + ', ' + new_state + ') is not allowed!')
+                raise UserError('Status transition (' + event.state + ', ' + new_state + ') is not allowed!')
 
     @api.multi
     def action_draft(self):
