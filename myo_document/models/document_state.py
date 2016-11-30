@@ -31,7 +31,7 @@ class Document(models.Model):
         ('waiting', 'Waiting'),
         ('done', 'Done'),
         ('canceled', 'Canceled')
-    ], string='State', default='draft', readonly=True, required=True, help="")
+    ], string='Status', default='draft', readonly=True, required=True, help="")
 
     @api.model
     def is_allowed_transition(self, old_state, new_state):
@@ -53,7 +53,7 @@ class Document(models.Model):
             if document.is_allowed_transition(document.state, new_state):
                 document.state = new_state
             else:
-                raise UserError('State transition (' + document.state + ', ' + new_state + ') is not allowed!')
+                raise UserError('Status transition (' + document.state + ', ' + new_state + ') is not allowed!')
 
     @api.multi
     def action_draft(self):
