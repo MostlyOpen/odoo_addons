@@ -59,7 +59,7 @@
                         <field name="mobile_phone"/>
                         <field name="person_email" widget="email"/>
                         <field name="address_code" string="Address Code"/>
-                        <field name="address_state" string="Address State"/>
+                        <field name="address_state" string="Address Status"/>
                         <field name="address_user_id" string="Address Responsible"/>
                         <field name="address_category_ids" string="Address Categories"/>
                     </group>
@@ -74,7 +74,7 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <field name="code" position="after">
-                    <field name="address_state" string="Address State"/>
+                    <field name="address_state" string="Address Status"/>
                     <field name="address_user_id" string="Address Responsible"/>
                     <field name="address_category_ids" string="Address Categories"/>
                 </field>
@@ -100,7 +100,7 @@
                 </group>
                 <group name="group_by" position="inside">
                     <filter string="Address" context="{'group_by': 'address_id'}"/>
-                    <filter string="Address State" context="{'group_by': 'address_state'}"/>
+                    <filter string="Address Status" context="{'group_by': 'address_state'}"/>
                     <filter string="Address Responsible" context="{'group_by': 'address_user_id'}"/>
                     <filter string="Address Categories" context="{'group_by': 'address_category_ids'}"/>
                 </group>

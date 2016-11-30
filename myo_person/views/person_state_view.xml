@@ -74,7 +74,7 @@
                     <field name="state"/>
                 </field>
                 <group name="group_by" position="inside">
-                    <filter string="State" domain="[]" context="{'group_by':'state'}"/>
+                    <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
                 </group>
             </field>
         </record>

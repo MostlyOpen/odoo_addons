@@ -468,8 +468,8 @@ msgstr "Cônjuge"
 
 #. module: myo_person
 #: model:ir.ui.view,arch_db:myo_person.myo_person_view_form
-msgid "State"
-msgstr "Estado"
+msgid "Status"
+msgstr "Status"
 
 #. module: myo_person
 #: model:ir.model.fields,field_description:myo_person.field_myo_person_tag_ids

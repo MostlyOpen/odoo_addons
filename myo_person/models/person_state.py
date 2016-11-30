@@ -32,7 +32,7 @@ class Address(models.Model):
         ('selected', 'Selected'),
         ('unselected', 'Unselected'),
         ('canceled', 'Canceled'),
-    ], string='State', default='draft', readonly=True, required=True, help="")
+    ], string='Status', default='draft', readonly=True, required=True, help="")
 
     @api.model
     def is_allowed_transition(self, old_state, new_state):
@@ -60,7 +60,7 @@ class Address(models.Model):
             if person.is_allowed_transition(person.state, new_state):
                 person.state = new_state
             else:
-                raise UserError('State transition (' + person.state + ', ' + new_state + ') is not allowed!')
+                raise UserError('Status transition (' + person.state + ', ' + new_state + ') is not allowed!')
 
     @api.multi
     def action_draft(self):
