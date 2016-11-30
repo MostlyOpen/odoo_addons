@@ -59,6 +59,7 @@
                         <field name="mobile_phone"/>
                         <field name="person_email" widget="email"/>
                         <field name="address_code" string="Address Code"/>
+                        <field name="address_is_residence"/>
                         <field name="address_state" string="Address Status"/>
                         <field name="address_user_id" string="Address Responsible"/>
                         <field name="address_category_ids" string="Address Categories"/>
@@ -74,6 +75,7 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <field name="code" position="after">
+                    <field name="address_is_residence"/>
                     <field name="address_state" string="Address Status"/>
                     <field name="address_user_id" string="Address Responsible"/>
                     <field name="address_category_ids" string="Address Categories"/>
@@ -93,13 +95,11 @@
                     <field name="address_category_ids"/>
                 </field>
                 <group name="group_by" position="before">
-                    <!--filter name="address_selected" string="Address Selected" domain="[('address_state','=','selected')]"/-->
-                    <!--filter name="address_waiting" string="Address Waiting" domain="[('address_state','=','waiting')]"/-->
-                    <!--filter name="address_unselected" string="Address Unselected" domain="[('address_state','=','unselected')]"/-->
-                    <!--filter name="address_canceled" string="Address Canceled" domain="[('address_state','=','canceled')]"/-->
+                    <filter name="filter_address_is_residence" string="Address Is Residence" domain="[('address_is_residence','=',True)]"/>
                 </group>
                 <group name="group_by" position="inside">
                     <filter string="Address" context="{'group_by': 'address_id'}"/>
+                    <filter string="Address Is Residence" context="{'group_by': 'address_is_residence'}"/>
                     <filter string="Address Status" context="{'group_by': 'address_state'}"/>
                     <filter string="Address Responsible" context="{'group_by': 'address_user_id'}"/>
                     <filter string="Address Categories" context="{'group_by': 'address_category_ids'}"/>

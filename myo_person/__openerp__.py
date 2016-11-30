@@ -32,6 +32,7 @@
         'myo_tag',
         'myo_annotation',
         'myo_address',
+        'myo_residence',
     ],
     'data': [
         'security/person_security.xml',
