@@ -42,7 +42,7 @@ class SurveyUserInput(models.Model):
          ('waiting', 'Waiting'),
          ('linked', 'Linked'),
          ('canceled', 'Canceled')
-         ], string='Linkded State', default='draft', readonly=False, required=False, help=""
+         ], string='Linkded Status', default='draft', readonly=False, required=False, help=""
     )
 
     @api.multi

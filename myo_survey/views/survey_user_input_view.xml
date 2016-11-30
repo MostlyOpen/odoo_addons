@@ -85,7 +85,7 @@
                 <filter name="group_by_survey" position="before">
                     <filter string="Status" domain="[]" context="{'group_by': ['state']}"/>
                     <filter string="Linked Message" domain="[]" context="{'group_by': ['linked_message']}"/>
-                    <filter string="Linked State" domain="[]" context="{'group_by': ['linked_state']}"/>
+                    <filter string="Linked Status" domain="[]" context="{'group_by': ['linked_state']}"/>
                 </filter>
             </field>
         </record>
