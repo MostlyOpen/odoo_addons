@@ -17,6 +17,9 @@
                         </group>
                     </page>
                 </page>
+                <field name="active" position="after">
+                    <field name="trigger_compute"/>
+                </field>
             </field>
         </record>
 

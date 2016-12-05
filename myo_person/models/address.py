@@ -38,13 +38,18 @@ class Address(models.Model):
         compute='_compute_count_selected_persons',
         store=True
     )
+    trigger_compute = fields.Boolean(
+        'Trigger Compute',
+        help="When checked it will trigger the updte of storedcomputet fields.",
+        default=False
+    )
 
     @api.depends('person_ids')
     def _compute_count_persons(self):
         for r in self:
             r.count_persons = len(r.person_ids)
 
-    @api.depends('person_ids')
+    @api.depends('person_ids', 'trigger_compute')
     def _compute_count_selected_persons(self):
         for r in self:
             count_selected_persons = 0
@@ -52,6 +57,7 @@ class Address(models.Model):
                 if person.state == 'selected':
                     count_selected_persons += 1
             r.count_selected_persons = count_selected_persons
+            r.trigger_compute = False
 
 
 class Person(models.Model):
