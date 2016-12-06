@@ -49,6 +49,11 @@
                             <h3>
                                 <field name="code" placeholder="Professional Code..."/>
                             </h3>
+                            <!--label for="user_id" class="oe_edit_only"/-->
+                            <label for="user_id"/>
+                            <h3>
+                                <field name="user_id" placeholder="Related User..."/>
+                            </h3>
                         </div>
                         <div class="oe_right oe_button_box" name="button_box">
                             <!-- Put here related buttons -->
