@@ -10,6 +10,7 @@
                     <notebook>
                         <page string="Main Info">
                             <group>
+                                <field name="code"/>
                                 <field name="name"/>
                                 <field name="result"/>
                                 <field name="unit_id"/>
@@ -31,6 +32,7 @@
                 <tree string='Lab Test Criteria'>
                     <field name="lab_test_type_id"/>
                     <field name="sequence"/>
+                    <field name="code"/>
                     <field name="name"/>
                     <field name="result"/>
                     <field name="unit_id"/>
@@ -46,8 +48,9 @@
             <field name="arch" type="xml">
                 <search string="Search Lab Test Criteria">
                     <separator orientation="vertical"/>
-                    <field name="lab_test_type_id" select="1"/>
-                    <field name="name" select="1"/>
+                    <field name="lab_test_type_id"/>
+                    <field name="code"/>
+                    <field name="name"/>
                     <newline/>
                     <group expand="0" string="Group By...">
                         <filter string="Lab Test Type" domain="[]" context="{'group_by': 'lab_test_type_id'}"/>

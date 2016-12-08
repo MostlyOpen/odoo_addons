@@ -51,10 +51,11 @@
 	                            <field name="criterion_ids" colspan="4" nolabel="1">
 	                                <tree editable="top" string="Test Cases">
 	                                    <field name="sequence" readonly="True"/>
-	                                    <field name="name" readonly="True"/>
+                                        <field name="code" readonly="True"/>
+                                        <field name="name" readonly="True"/>
 	                                    <field name="result"/>
-	                                    <field name="normal_range" readonly="True"/>
                                         <field name="unit_id" readonly="True"/>
+	                                    <field name="normal_range" readonly="True"/>
                                         <!--field name="outcome_ids"/-->
                                         <!--field name="valid_values"/-->
 	                                </tree>

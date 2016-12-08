@@ -24,6 +24,7 @@ from openerp import fields, models
 class LabTestTypeCriterion(models.Model):
     _name = "myo.lab_test.criterion"
 
+    code = fields.Char('Criterion Code', help="Criterion Code")
     name = fields.Char('Test')
     # result = fields.Text('Results')
     result = fields.Char('Results')
@@ -43,3 +44,10 @@ class LabTestTypeCriterion(models.Model):
     )
 
     _order = "sequence"
+
+    _sql_constraints = [
+        ('code_uniq',
+         'UNIQUE(code)',
+         u'Error! The Criterion Code must be unique!'
+         )
+    ]
