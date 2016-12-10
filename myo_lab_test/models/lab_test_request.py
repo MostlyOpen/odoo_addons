@@ -26,11 +26,11 @@ from datetime import datetime
 class LabTestRequest(models.Model):
     _name = 'myo.lab_test.request'
 
-    name = fields.Char('Lab Test Result Code', help="Lab Test Result Code")
+    name = fields.Char('Lab Test Code', help="Lab Test Code")
     lab_test_type_id = fields.Many2one('myo.lab_test.type', 'Lab Test Type')
-    patient_id = fields.Many2one('myo.person', 'Patient')
-    date = fields.Datetime(
-        'Date',
+    patient_id = fields.Many2one('myo.person', 'Patient', help="Patient")
+    date_requested = fields.Datetime(
+        'Requested Date',
         default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     )
     lab_test_result_id = fields.Many2one('myo.lab_test.result', 'Lab Test Result')
@@ -39,6 +39,11 @@ class LabTestRequest(models.Model):
         ('tested', 'Tested'),
         ('canceled', 'Canceled'),
     ], 'Status', default='draft', readonly=True)
+    active = fields.Boolean(
+        'Active',
+        help="If unchecked, it will allow you to hide the lab test request without removing it.",
+        default=1
+    )
 
 
 class Person(models.Model):

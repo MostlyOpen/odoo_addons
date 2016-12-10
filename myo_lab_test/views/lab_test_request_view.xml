@@ -7,15 +7,49 @@
             <field name="model">myo.lab_test.request</field>
             <field name="arch" type="xml">
                 <form string="Lab Test Requests" version="7.0">
-                    <group>
-                        <field name="name"/>
-                        <field name="lab_test_type_id"/>
-                        <field name="patient_id" required="0"/>
-                        <field name="date"/>
-                        <!--field name="professional_id"/-->
-                        <field name="state"/>
-                        <field name="lab_test_result_id"></field>
-                    </group>
+                    <sheet string="Laboratory Test">
+                        <div class="oe_center" name="center">
+                            <!-- Put here related fields -->
+                            <!--label for="name" class="oe_edit_only"/-->
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="Lab Test Code..."/>
+                            </h1>
+                        </div>
+                        <div class="oe_title">
+                            <!--label for="lab_test_type_id" class="oe_edit_only"/-->
+                            <label for="lab_test_type_id"/>
+                            <h2>
+                                <field name="lab_test_type_id" default_focus="1" placeholder="Test Type..." options="{'no_open': False, 'no_create': True}"/>
+                            </h2>
+                            <!--label for="date" class="oe_edit_only"/-->
+                            <label for="date_requested"/>
+                            <h3>
+                                <field name="date_requested" placeholder="Request Date..."/>
+                            </h3>
+                            <!--label for="patient_id" class="oe_edit_only"/-->
+                            <label for="patient_id"/>
+                            <h2>
+                                <field name="patient_id" placeholder="Patient..." options="{'no_open': False, 'no_create': True}"/>
+                            </h2>
+                        </div>
+                        <div class="oe_right oe_button_box" name="button_box">
+                            <!-- Put here related buttons -->
+                        </div>
+                        <notebook>
+                            <page string="Main Info">
+                                <group>
+                                    <field name="state"/>
+                                    <field name="lab_test_result_id" options="{'no_open': False, 'no_create': True}"></field>
+                                </group>
+                            </page>
+                            <page string="Settings" groups="myo_base.group_rmanager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
                 </form>
             </field>
         </record>
@@ -26,10 +60,9 @@
             <field name="arch" type="xml">
                 <tree string="Test Requests">
                     <field name="name"/>
-                    <field name="date"/>
+                    <field name="date_requested"/>
                     <field name="lab_test_type_id"/>
                     <field name="patient_id"/>
-                    <!--field name="professional_id"/-->
                     <field name="state" readonly="1"/>
                     <field name="lab_test_result_id"></field>
                 </tree>
@@ -45,8 +78,7 @@
                         <field name="name" select="1"/>
                         <field name="lab_test_type_id" select="1"/>
                         <field name="patient_id" select="1"/>
-                        <field name="date" select="1"/>
-                        <!--field name="professional_id" select="1"/-->
+                        <field name="date_requested" select="1"/>
                         <field name="state" select="1"/>
                     <newline/>
                     <filter name="filter_draft_lab_test_requests" string="Draft Lab Test Requests" domain="[('state','=','draft')]"/>

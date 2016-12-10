@@ -26,11 +26,9 @@ from datetime import datetime
 class LabTestResult(models.Model):
     _name = "myo.lab_test.result"
 
-    name = fields.Char('Lab Test Result Code', help="Lab Test Result Code")
+    name = fields.Char('Lab Test Code', help="Lab Test Code")
     lab_test_type_id = fields.Many2one('myo.lab_test.type', 'Lab Test Type', help="Lab test type")
     patient_id = fields.Many2one('myo.person', 'Patient', help="Patient")
-    # 'pathologist' : fields.many2one('clv_professional','Pathologist',help="Pathologist"),
-    # 'resulter' : fields.many2one('clv_professional', 'Doctor', help="Doctor who resulted the test"),
     results = fields.Text('Results')
     diagnosis = fields.Text('Diagnosis')
     criterion_ids = fields.One2many(
@@ -45,7 +43,7 @@ class LabTestResult(models.Model):
     date_analysis = fields.Datetime('Date of the Analysis')
     active = fields.Boolean(
         'Active',
-        help="If unchecked, it will allow you to hide the lab test without removing it.",
+        help="If unchecked, it will allow you to hide the lab test result without removing it.",
         default=1
     )
 

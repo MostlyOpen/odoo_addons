@@ -16,12 +16,11 @@
                                 <field name="name" placeholder="Lab Test Code..."/>
                             </h1>
                         </div>
-                        <!--field name="image_medium" widget='image' class="oe_left oe_avatar"/-->
                         <div class="oe_title">
                             <!--label for="lab_test_type_id" class="oe_edit_only"/-->
                             <label for="lab_test_type_id"/>
                             <h2>
-                                <field name="lab_test_type_id" default_focus="1" placeholder="Test Type..."/>
+                                <field name="lab_test_type_id" default_focus="1" placeholder="Test Type..." options="{'no_open': False, 'no_create': True}"/>
                             </h2>
                             <!--label for="date_analysis" class="oe_edit_only"/-->
                             <label for="date_analysis"/>
@@ -31,7 +30,7 @@
                             <!--label for="patient_id" class="oe_edit_only"/-->
                             <label for="patient_id"/>
                             <h2>
-                                <field name="patient_id" placeholder="Patient..."/>
+                                <field name="patient_id" placeholder="Patient..." options="{'no_open': False, 'no_create': True}"/>
                             </h2>
                             <!--label for="pathologist" class="oe_edit_only"/-->
                             <!--label for="pathologist"/-->
@@ -72,7 +71,7 @@
 	                            <newline/>
 	                            <field name="diagnosis"></field>
 	                        </page>
-                            <page string="Settings" groups="myo_base.group_base_rmanager">
+                            <page string="Settings" groups="myo_base.group_rmanager">
                                 <group>
                                     <field name="active"/>
                                 </group>

@@ -39,7 +39,7 @@ class CreateLabTest(models.TransientModel):
                 test_report_data['name'] = test_obj.name
                 test_report_data['lab_test_type_id'] = test_obj.lab_test_type_id.id
                 test_report_data['patient_id'] = test_obj.patient_id.id
-                test_report_data['date_requested'] = test_obj.date
+                test_report_data['date_requested'] = test_obj.date_requested
 
                 for criterion in test_obj.lab_test_type_id.criterion_ids:
                     test_cases.append((0, 0, {'name': criterion.name,

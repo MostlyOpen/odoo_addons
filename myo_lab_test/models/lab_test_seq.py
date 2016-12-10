@@ -55,8 +55,8 @@ def format_code(code_seq):
 class LabTestResult(models.Model):
     _inherit = 'myo.lab_test.result'
 
-    name = fields.Char(string='Lab Test Result Code', required=False, default=False,
-                       help='Use "/" to get an automatic new Lab Test Result Code.')
+    name = fields.Char(string='Lab Test Code', required=False, default=False,
+                       help='Use "/" to get an automatic new Lab Test Code.')
 
     @api.model
     def create(self, values):
@@ -82,8 +82,8 @@ class LabTestResult(models.Model):
 class LabTestRequest(models.Model):
     _inherit = 'myo.lab_test.request'
 
-    code = fields.Char(string='Lab Test Result Code', required=False, default=False,
-                       help='Use "/" to get an automatic new Lab Test Result Code.')
+    code = fields.Char(string='Lab Test Code', required=False, default=False,
+                       help='Use "/" to get an automatic new Lab Test Code.')
 
     @api.model
     def create(self, values):
