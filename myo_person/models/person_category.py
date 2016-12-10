@@ -130,3 +130,4 @@ class Person(models.Model):
         'category_id',
         'Categories'
     )
+    category_names = fields.Char('Categories', related='category_ids.name', store=True)
