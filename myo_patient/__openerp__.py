@@ -33,6 +33,7 @@
     'data': [
         'security/patient_security.xml',
         'views/person_view.xml',
+        'views/address_view.xml',
         'views/patient_menu_view.xml',
     ],
     'demo': [],

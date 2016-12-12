@@ -18,5 +18,24 @@
 #
 ###############################################################################
 
-from . import person
-from . import address
+from openerp import api, fields, models
+
+
+class Address(models.Model):
+    _inherit = 'myo.address'
+
+    count_patients = fields.Integer(
+        'Number of Patients',
+        compute='_compute_count_patients',
+        store=True
+    )
+
+    @api.depends('person_ids', 'trigger_compute')
+    def _compute_count_patients(self):
+        for r in self:
+            count_patients = 0
+            for person in r.person_ids:
+                if person.is_patient is True:
+                    count_patients += 1
+            r.count_patients = count_patients
+            r.trigger_compute = False

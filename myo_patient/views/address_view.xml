@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="myo_address_view_form_person_patient" model="ir.ui.view">
+            <field name="name">myo.address.form</field>
+            <field name="model">myo.address</field>
+            <field name="inherit_id" ref="myo_person.myo_address_view_form_person"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="count_selected_persons" position="before">
+                    <field name="count_patients"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_address_view_tree_person_patient" model="ir.ui.view">
+            <field name="name">myo.address.tree</field>
+            <field name="model">myo.address</field>
+            <field name="inherit_id" ref="myo_person.myo_address_view_tree_person"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="count_selected_persons" position="before">
+                    <field name="count_patients"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_address_view_search_patient" model="ir.ui.view">
+            <field name="name">myo.address.search</field>
+            <field name="model">myo.address</field>
+            <field name="inherit_id" ref="myo_address.myo_address_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <group  name="group_by" position="inside">
+                    <filter name="filter_count_patients_not_0" string="Has Patients" domain="[('count_patients','!=','0')]"/>
+                </group>
+                <group  name="group_by" position="inside">
+                    <filter string="Patients" context="{'group_by': 'count_patients'}"/>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>
