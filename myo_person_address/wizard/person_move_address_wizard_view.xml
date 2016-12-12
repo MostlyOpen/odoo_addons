@@ -1,0 +1,47 @@
+<openerp>
+  <data>
+
+    <record id="view_form_myo_person_move_address_wizard" model="ir.ui.view">
+      <field name="name">view_form_myo_person_move_address_wizard</field>
+      <field name="model">myo.person.move_address.wizard</field>
+      <field name="arch" type="xml">
+
+        <form>
+            <div class="oe_right">
+                <!--button type="object" name="do_count_persons"
+                        string="Count"/-->
+                <button type="object" name="do_populate_marked_persons"
+                        string="Get Marked"/>
+            </div>
+            <field name="person_ids"/>
+            <group>
+                <group>
+                    <field name="old_address_sign_out_date"/>
+                </group>
+                <group>
+                    <field name="new_address_id"/>
+                    <field name="new_addres_sign_in_date"/>
+                </group>
+            </group>
+            <footer>
+                <button type="object" name="do_active_update"
+                    string="Update" class="oe_highlight"
+                    />
+                <button special="cancel" string="Cancel"/>
+            </footer>
+        </form>
+
+      </field>
+    </record>
+
+    <!-- More button Action -->
+    <act_window id="action_myo_person_move_address_wizard"
+        name="Person Move Address"
+        src_model="myo.person"
+        res_model="myo.person.move_address.wizard"
+        view_mode="form, tree"
+        key2="client_action_multi"
+        target="new"/>
+
+  </data>
+</openerp>

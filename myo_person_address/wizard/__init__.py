@@ -18,35 +18,4 @@
 #
 ###############################################################################
 
-{
-    'name': 'Person Address',
-    'summary': 'Person Address Module used in MostlyOpen Solutions.',
-    'version': '2.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'http://mostlyopen.org',
-    'depends': [
-        'myo_tag',
-        'myo_address',
-        'myo_person',
-    ],
-    'data': [
-        'security/ir.model.access.csv',
-        'views/person_address_role_view.xml',
-        'views/person_address_view.xml',
-        'views/person_address_log_view.xml',
-        'views/tag_view.xml',
-        'views/person_address_menu_view.xml',
-        'wizard/person_move_address_wizard_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+import person_move_address_wizard
