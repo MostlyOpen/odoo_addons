@@ -31,7 +31,8 @@ class Address(models.Model):
     )
     count_persons = fields.Integer(
         'Number of Persons',
-        compute='_compute_count_persons'
+        compute='_compute_count_persons',
+        store=True
     )
     count_selected_persons = fields.Integer(
         'Number of Selected Persons',

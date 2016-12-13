@@ -46,6 +46,7 @@
                     <filter name="filter_count_selected_persons_not_0" string="Has Selected Persons" domain="[('count_selected_persons','!=','0')]"/>
                 </group>
                 <group  name="group_by" position="inside">
+                    <filter string="Persons" context="{'group_by': 'count_persons'}"/>
                     <filter string="Selected Persons" context="{'group_by': 'count_selected_persons'}"/>
                 </group>
             </field>
