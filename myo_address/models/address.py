@@ -58,6 +58,7 @@ class Address(osv.Model, FormatAddress):
     _name = "myo.address"
     _inherit = 'myo.random.model'
 
+
     _columns = {
         'name': fields.char('Name', required=True, index=True),
         'title': fields.many2one('res.partner.title', 'Title'),
@@ -112,7 +113,8 @@ class Address(osv.Model, FormatAddress):
             ids = [ids]
         res = []
         for record in self.browse(cr, uid, ids, context=context):
-            name = record.name
+            # name = record.name
+            name = u'%s [%s]' % (record.name, record.code)
             if context.get('show_address_only'):
                 name = self._display_address(cr, uid, record, context=context)
             if context.get('show_address'):
