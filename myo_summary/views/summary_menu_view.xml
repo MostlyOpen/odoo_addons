@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Base/Base/Summaries -->
+        <menuitem name="Summaries" id="menu_base_base_summaries"
+            parent="myo_base.menu_base_base"
+            groups="myo_base.group_summary_user"
+            sequence="45"
+            action="myo_summary.myo_summary_action"/>
+        <!-- Base/Configuration/Configuration/Summary -->
+        <menuitem name="Summary" id="menu_base_config_config_summary"
+            parent="myo_base.menu_base_config_config"
+            groups="myo_base.group_summary_user"
+            sequence="45"/>
+            <!-- Base/Configuration/Configuration/Summary/Categories -->
+            <menuitem name="Categories" id="menu_base_config_config_summary_categories" 
+                parent="menu_base_config_config_summary"
+                groups="myo_base.group_summary_user"
+                sequence="10"
+                action="myo_summary.myo_summary_category_action"/>
+
+    </data>
+</openerp>

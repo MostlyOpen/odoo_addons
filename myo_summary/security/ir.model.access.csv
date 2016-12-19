@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_myo_summary_summary_user,myo.summary,model_myo_summary,myo_base.group_summary_user,1,0,0,0
+access_myo_summary_summary_manager,myo.summary,model_myo_summary,myo_base.group_summary_manager,1,1,1,0
+access_myo_summary_smanager,myo.summary,model_myo_summary,myo_base.group_smanager,1,1,1,1
+
+access_myo_summary_categry_summary_user,myo.summary.category,model_myo_summary_category,myo_base.group_summary_user,1,0,0,0
+access_myo_summary_category_summary_manager,myo.summary.category,model_myo_summary_category,myo_base.group_summary_manager,1,1,1,0
+access_myo_summary_categoy_smanager,myo.summary.category,model_myo_summary_category,myo_base.group_smanager,1,1,1,1
+
+access_myo_summary_log_summary_user,myo.summary.log,model_myo_summary_log,myo_base.group_summary_user,1,0,0,0
+access_myo_summary_log_summary_log_manager,myo.summary.log,model_myo_summary_log,myo_base.group_summary_manager,1,1,1,0
+access_myo_summary_categoy_smanager,myo.summary.log,model_myo_summary_log,myo_base.group_smanager,1,1,1,1
