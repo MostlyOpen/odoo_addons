@@ -32,7 +32,12 @@
     ],
     'data': [
         'security/survey_security.xml',
+        'views/survey_survey_view.xml',
+        'views/survey_page_view.xml',
+        'views/survey_question_view.xml',
+        'views/survey_label_view.xml',
         'views/survey_user_input_view.xml',
+        'wizard/survey_update_wizard_view.xml',
     ],
     'demo': [],
     'test': [],

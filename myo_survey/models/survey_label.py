@@ -18,8 +18,10 @@
 #
 ###############################################################################
 
-from . import survey_survey
-from . import survey_page
-from . import survey_question
-from . import survey_label
-from . import survey_user_input
+from openerp import fields, models
+
+
+class SurveyLabel(models.Model):
+    _inherit = 'survey.label'
+
+    code = fields.Char('Label Code', help="Label Code")
