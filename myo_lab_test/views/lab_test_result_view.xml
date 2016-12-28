@@ -44,8 +44,7 @@
 	                    <notebook>
 	                        <page string="Main Info">
                                 <group>
-    	                            <field name="date_resulted"></field>
-    	                            <!--field name="resulter"></field-->
+    	                            <field name="date_result"></field>
                                 </group>
 	                            <field name="criterion_ids" colspan="4" nolabel="1">
 	                                <tree editable="top" string="Test Cases">

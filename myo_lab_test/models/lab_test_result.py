@@ -36,8 +36,8 @@ class LabTestResult(models.Model):
         'lab_test_result_id',
         'Test Cases'
     )
-    date_resulted = fields.Datetime(
-        'Date resulted',
+    date_result = fields.Datetime(
+        'Date of the Result',
         default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     )
     date_analysis = fields.Datetime('Date of the Analysis')
