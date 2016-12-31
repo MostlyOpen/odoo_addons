@@ -19,6 +19,10 @@
                                 <field name="normal_range"/>
                                 <!--field name="outcome_ids" widget="many2many_tags"/-->
                             </group>
+                            <group>
+                                <field name="lab_test_type_id"/>
+                                <field name="lab_test_result_id"/>
+                            </group>
                         </page>
                     </notebook>
                 </form>
@@ -31,6 +35,7 @@
             <field name="arch" type="xml">
                 <tree string='Lab Test Criteria'>
                     <field name="lab_test_type_id"/>
+                    <field name="lab_test_result_id"/>
                     <field name="sequence"/>
                     <field name="code"/>
                     <field name="name"/>
@@ -49,11 +54,13 @@
                 <search string="Search Lab Test Criteria">
                     <separator orientation="vertical"/>
                     <field name="lab_test_type_id"/>
+                    <field name="lab_test_result_id"/>
                     <field name="code"/>
                     <field name="name"/>
                     <newline/>
                     <group expand="0" string="Group By...">
                         <filter string="Lab Test Type" domain="[]" context="{'group_by': 'lab_test_type_id'}"/>
+                        <filter string="Lab Test Result" domain="[]" context="{'group_by': 'lab_test_result_id'}"/>
                     </group>
                 </search>
             </field>

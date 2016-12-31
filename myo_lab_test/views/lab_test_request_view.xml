@@ -32,6 +32,10 @@
                             <h2>
                                 <field name="patient_id" placeholder="Patient..." options="{'no_open': False, 'no_create': True}"/>
                             </h2>
+                            <label for="person_user_id" string="Person Responsible"/>
+                            <h3>
+                                <field name="person_user_id" placeholder="Person Responsible..." options="{'no_open': False, 'no_create': True}"/>
+                            </h3>
                         </div>
                         <div class="oe_right oe_button_box" name="button_box">
                             <!-- Put here related buttons -->
@@ -63,6 +67,7 @@
                     <field name="date_requested"/>
                     <field name="lab_test_type_id"/>
                     <field name="patient_id"/>
+                    <field name="person_user_id" string="Person Responsible"/>
                     <field name="state" readonly="1"/>
                     <field name="lab_test_result_id"></field>
                 </tree>
@@ -79,6 +84,7 @@
                         <field name="lab_test_type_id" select="1"/>
                         <field name="patient_id" select="1"/>
                         <field name="date_requested" select="1"/>
+                        <field name="person_user_id"/>
                         <field name="state" select="1"/>
                     <newline/>
                     <filter name="filter_draft_lab_test_requests" string="Draft Lab Test Requests" domain="[('state','=','draft')]"/>
@@ -87,6 +93,7 @@
                         <filter string="Lab Test Type" context="{'group_by': 'lab_test_type_id'}"/>
                         <filter string="Patient" context="{'group_by': 'patient_id'}"/>
                         <filter string="Status" context="{'group_by': 'state'}"/>
+                        <filter string="Person Responsible" context="{'group_by': 'person_user_id'}"/>
                     </group>
                 </search>
             </field>

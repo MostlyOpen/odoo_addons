@@ -45,9 +45,9 @@ class LabTestTypeCriterion(models.Model):
 
     _order = "sequence"
 
-    _sql_constraints = [
-        ('code_uniq',
-         'UNIQUE(code)',
-         u'Error! The Criterion Code must be unique!'
-         )
-    ]
+    # _sql_constraints = [
+    #     ('code_uniq',
+    #      'UNIQUE(code)',
+    #      u'Error! The Criterion Code must be unique!'
+    #      )
+    # ]

@@ -44,6 +44,7 @@ class LabTestRequest(models.Model):
         help="If unchecked, it will allow you to hide the lab test request without removing it.",
         default=1
     )
+    person_user_id = fields.Char('Person Responsible', related='patient_id.user_id.name', store=True)
 
 
 class Person(models.Model):
