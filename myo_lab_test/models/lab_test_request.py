@@ -45,6 +45,8 @@ class LabTestRequest(models.Model):
         default=1
     )
     person_user_id = fields.Char('Person Responsible', related='patient_id.user_id.name', store=True)
+    employee_id = fields.Many2one('hr.employee', string='Received by')
+    date_received = fields.Datetime('Received Date')
 
 
 class Person(models.Model):

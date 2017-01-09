@@ -36,6 +36,14 @@
                             <h3>
                                 <field name="person_user_id" placeholder="Person Responsible..." options="{'no_open': False, 'no_create': True}"/>
                             </h3>
+                            <label for="employee_id"/>
+                            <h3>
+                                <field name="employee_id" placeholder="Received by..." options="{'no_open': False, 'no_create': True}"/>
+                            </h3>
+                            <label for="date_received"/>
+                            <h3>
+                                <field name="date_received" placeholder="Received Date..."/>
+                            </h3>
                         </div>
                         <div class="oe_right oe_button_box" name="button_box">
                             <!-- Put here related buttons -->
@@ -68,6 +76,8 @@
                     <field name="lab_test_type_id"/>
                     <field name="patient_id"/>
                     <field name="person_user_id" string="Person Responsible"/>
+                    <field name="employee_id"></field>
+                    <field name="date_received"></field>
                     <field name="state" readonly="1"/>
                     <field name="lab_test_result_id"></field>
                 </tree>
@@ -86,6 +96,8 @@
                         <field name="date_requested" select="1"/>
                         <field name="person_user_id"/>
                         <field name="state" select="1"/>
+                        <field name="employee_id"/>
+                        <field name="date_received"/>
                     <newline/>
                     <filter name="filter_draft_lab_test_requests" string="Draft Lab Test Requests" domain="[('state','=','draft')]"/>
                     <filter name="filter_todays_draft_lab_test_requests" string="Today's Draft Lab Test Requests" domain="[('state','=','draft'),('date','&gt;=',time.strftime('%Y-%m-%d 00:00:01')),('date','&lt;=',time.strftime('%Y-%m-%d 23:59:59'))]"/>
@@ -94,6 +106,7 @@
                         <filter string="Patient" context="{'group_by': 'patient_id'}"/>
                         <filter string="Status" context="{'group_by': 'state'}"/>
                         <filter string="Person Responsible" context="{'group_by': 'person_user_id'}"/>
+                        <filter string="Received by" context="{'group_by': 'employee_id'}"/>
                     </group>
                 </search>
             </field>

@@ -20,11 +20,24 @@
 
 from openerp import api, fields, models
 
+from datetime import datetime
+
 
 class CreateLabTest(models.TransientModel):
     _name = 'myo.lab_test.create'
 
-    lab_test_request_ids = fields.Many2many('myo.lab_test.request', string='Lab Test Requests')
+    def _default_lab_test_request_ids(self):
+        return self._context.get('active_ids')
+    lab_test_request_ids = fields.Many2many(
+        'myo.lab_test.request',
+        string='Lab Test Requests',
+        default=_default_lab_test_request_ids
+    )
+    employee_id = fields.Many2one('hr.employee', string='Received by')
+    date_received = fields.Datetime(
+        'Received Date',
+        default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    )
 
     @api.multi
     def create_lab_test(self):
@@ -52,6 +65,9 @@ class CreateLabTest(models.TransientModel):
                 lab_id = lab_obj.create(test_report_data)
                 test_obj.state = 'tested'
                 test_obj.lab_test_result_id = lab_id
+                test_obj['employee_id'] = self.employee_id
+                test_obj['date_received'] = self.date_received
+
         return {
             'domain': "[]",
             'name': 'Lab Test Results',
