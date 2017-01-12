@@ -7,7 +7,7 @@
             <field name="model">myo.lab_test.result</field>
             <field name="arch" type="xml">
                 <form string="Laboratory Tests" version="7.0">
-                    <sheet string="Laboratory Test">
+                    <sheet  name="lab_test_result" string="Laboratory Test">
                         <div class="oe_center" name="center">
                             <!-- Put here related fields -->
                             <!--label for="name" class="oe_edit_only"/-->
@@ -74,7 +74,7 @@
 	                            <newline/>
 	                            <field name="diagnosis"></field>
 	                        </page>
-                            <page string="Settings" groups="myo_base.group_rmanager">
+                            <page name="settings" string="Settings" groups="myo_base.group_rmanager">
                                 <group>
                                     <field name="active"/>
                                 </group>
@@ -90,7 +90,7 @@
             <field name="model">myo.lab_test.result</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <tree string='Lab Test'>
+                <tree name="lab_test_result" string='Lab Test'>
                     <field name="name"/>
                     <field name="lab_test_type_id"/>
                     <field name="patient_id"/>
@@ -112,7 +112,7 @@
                     <field name="date_analysis"/>
                     <field name="person_user_id"/>
                     <separator/>
-                    <group expand="0" string="Group By...">
+                    <group name="group_by" expand="0" string="Group By...">
                         <filter string="Lab Test Type" domain="[]" context="{'group_by': 'lab_test_type_id'}"/>
                         <filter string="Patient" domain="[]" context="{'group_by': 'patient_id'}"/>
                         <filter string="Analysis Date" domain="[]" context="{'group_by': 'date_analysis'}"/>

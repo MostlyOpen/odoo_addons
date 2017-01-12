@@ -40,6 +40,8 @@
         'views/lab_test_type_view.xml',
         'views/lab_test_request_view.xml',
         'views/lab_test_result_view.xml',
+        'views/lab_test_result_state_view.xml',
+        'views/lab_test_result_log_view.xml',
         # 'views/tag_view.xml',
         # 'views/annotation_view.xml',
         # 'views/lab_test_log_view.xml',

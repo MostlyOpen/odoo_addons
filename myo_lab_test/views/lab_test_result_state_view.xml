@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_lab_test_result_view_form_state" model="ir.ui.view">
+            <field name="name">myo.lab_test.result.form</field>
+            <field name="model">myo.lab_test.result</field>
+            <field name="inherit_id" ref="myo_lab_test.myo_lab_test_result_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <sheet name="lab_test_result" position="before">
+                    <header>
+                        <!--field name="state" widget="statusbar"
+                               clickable="True"
+                               statusbar_visible="draft,transcribed,started,released,canceled"/-->
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,started,transcribed,released,canceled"/>
+                    </header>
+                </sheet>
+                <div name="button_box" position="inside">
+                    <header>
+                        <button name="action_draft" type="object"
+                                string="Draft"
+                                states="canceled"
+                                groups="myo_base.group_lab_test_manager"/>
+                        <button name="action_started" type="object"
+                                string="Started"
+                                states="draft"
+                                groups="myo_base.group_lab_test_manager"/>
+                        <button name="action_transcribed" type="object"
+                                string="Transcribed"
+                                states="draft,started"
+                                groups="myo_base.group_lab_test_manager"/>
+                        <button name="action_select" type="object"
+                                string="Released"
+                                states="transcribed"
+                                groups="myo_base.group_lab_test_approver"/>
+                        <button name="action_cancel" type="object"
+                                string="Cancel"
+                                states="draft,started,transcribed"
+                                groups="myo_base.group_lab_test_manager"/>
+                    </header>
+                </div>
+            </field>
+        </record>
+
+        <record id="myo_lab_test_result_view_tree_state" model="ir.ui.view">
+            <field name="name">myo.lab_test.result.tree</field>
+            <field name="model">myo.lab_test.result</field>
+            <field name="inherit_id" ref="myo_lab_test.myo_lab_test_result_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="date_analysis" position="after">
+                    <field name="state"/>
+                </field>
+                <tree name="lab_test_result" position="attributes">
+                    <attribute name="colors">gray:state=='draft';green:state=='started';blue:state in('released','transcribed');red:state=='canceled'</attribute>
+                    <attribute name="fonts">italic:state in ('draft','canceled');bold:state=='released'</attribute>
+                </tree>
+            </field>
+        </record>
+
+        <record id="myo_lab_test_result_view_search_state" model="ir.ui.view">
+            <field name="name">myo.lab_test.result.search</field>
+            <field name="model">myo.lab_test.result</field>
+            <field name="inherit_id" ref="myo_lab_test.myo_lab_test_result_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="date_analysis" position="after">
+                    <field name="state"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Status" domain="[]" context="{'group_by':'state'}"/>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>

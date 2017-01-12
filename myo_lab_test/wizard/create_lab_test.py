@@ -45,16 +45,44 @@ class CreateLabTest(models.TransientModel):
         self.lab_test_request_ids = self._context.get('active_ids')
         lab_obj = self.env['myo.lab_test.result']
 
+        lab_test_type_model = self.env['myo.lab_test.type']
+        lab_test_type_id_EPC17 = lab_test_type_model.search([
+            ('code', '=', 'EPC17'),
+        ]).id
+        lab_test_type_id_EPI17 = lab_test_type_model.search([
+            ('code', '=', 'EPI17'),
+        ]).id
+        lab_test_type_ECP17 = lab_test_type_model.search([
+            ('code', '=', 'ECP17'),
+        ])
+        lab_test_type_id_ECP17 = lab_test_type_model.search([
+            ('code', '=', 'ECP17'),
+        ]).id
+
         for test_obj in self.lab_test_request_ids:
             test_report_data = {}
             test_cases = []
             if test_obj.state == 'draft':
                 test_report_data['name'] = test_obj.name
-                test_report_data['lab_test_type_id'] = test_obj.lab_test_type_id.id
+
+                # todo: Verify!!!!!!!!!
+                #
+                if (test_obj.lab_test_type_id.id == lab_test_type_id_EPC17) or \
+                   (test_obj.lab_test_type_id.id == lab_test_type_id_EPI17):
+                    test_report_data['lab_test_type_id'] = lab_test_type_id_ECP17
+                    lab_test_type = lab_test_type_ECP17
+                else:
+                    test_report_data['lab_test_type_id'] = test_obj.lab_test_type_id.id
+                    lab_test_type = test_obj.lab_test_type_id
+                #
+                # End Verify
+
+                # test_report_data['lab_test_type_id'] = test_obj.lab_test_type_id.id
                 test_report_data['patient_id'] = test_obj.patient_id.id
                 # test_report_data['date_requested'] = test_obj.date_requested
 
-                for criterion in test_obj.lab_test_type_id.criterion_ids:
+                # for criterion in test_obj.lab_test_type_id.criterion_ids:
+                for criterion in lab_test_type.criterion_ids:
                     test_cases.append((0, 0, {'code': criterion.code,
                                               'name': criterion.name,
                                               'sequence': criterion.sequence,

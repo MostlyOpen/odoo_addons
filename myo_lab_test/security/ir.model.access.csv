@@ -19,3 +19,7 @@ access_myo_lab_test_type_base_smanager,myo.lab_test.type,model_myo_lab_test_type
 access_myo_lab_test_request_lab_test_user,myo.lab_test.request,model_myo_lab_test_request,myo_base.group_lab_test_user,1,0,0,0
 access_myo_lab_test_request_lab_test_manager,myo.lab_test.request,model_myo_lab_test_request,myo_base.group_lab_test_manager,1,1,1,0
 access_myo_lab_test_request_base_smanager,myo.lab_test.request,model_myo_lab_test_request,myo_base.group_smanager,1,1,1,1
+
+access_myo_lab_test_result_log_person_user,myo.lab_test.result.log,model_myo_lab_test_result_log,myo_base.group_person_user,1,0,0,0
+access_myo_lab_test_result_log_person_log_manager,myo.lab_test.result.log,model_myo_lab_test_result_log,myo_base.group_person_manager,1,1,1,0
+access_myo_lab_test_result_categoy_smanager,myo.lab_test.result.log,model_myo_lab_test_result_log,myo_base.group_smanager,1,1,1,1

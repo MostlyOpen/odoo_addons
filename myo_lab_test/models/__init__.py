@@ -24,3 +24,5 @@ from . import lab_test_criterion
 from . import lab_test_result
 from . import lab_test_request
 from . import lab_test_seq
+from . import lab_test_result_state
+from . import lab_test_result_log
