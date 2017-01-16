@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_myo_animal_animal_user,myo.animal,model_myo_animal,myo_base.group_animal_user,1,0,0,0
+access_myo_animal_animal_manager,myo.animal,model_myo_animal,myo_base.group_animal_manager,1,1,1,0
+access_myo_animal_smanager,myo.animal,model_myo_animal,myo_base.group_smanager,1,1,1,1
+
+access_myo_animal_category_animal_user,myo.animal.category,model_myo_animal_category,myo_base.group_animal_user,1,0,0,0
+access_myo_animal_category_animal_manager,myo.animal.category,model_myo_animal_category,myo_base.group_animal_manager,1,1,1,0
+access_myo_animal_category_smanager,myo.animal.category,model_myo_animal_category,myo_base.group_smanager,1,1,1,1
+
+access_myo_animal_log_animal_user,myo.animal.log,model_myo_animal_log,myo_base.group_animal_user,1,0,0,0
+access_myo_animal_log_animal_log_manager,myo.animal.log,model_myo_animal_log,myo_base.group_animal_manager,1,1,1,0
+access_myo_animal_categoy_smanager,myo.animal.log,model_myo_animal_log,myo_base.group_smanager,1,1,1,1
+
+access_myo_animal_category_log_animal_category_user,myo.animal.category.log,model_myo_animal_category_log,myo_base.group_animal_user,1,0,0,0
+access_myo_animal_category_log_animal_category_log_manager,myo.animal.category.log,model_myo_animal_category_log,myo_base.group_animal_manager,1,1,1,0
+access_myo_animal_category_categoy_smanager,myo.animal.category.log,model_myo_animal_category_log,myo_base.group_smanager,1,1,1,1

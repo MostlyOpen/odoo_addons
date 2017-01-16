@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_animal_view_form" model="ir.ui.view">
+            <field name="name">myo.animal.form</field>
+            <field name="model">myo.animal</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Animals" version="7.0">
+                    <sheet name="animal" string="Animal">
+                        <div class="oe_center" name="center">
+                            <!-- Put here related fields -->
+                            <!--label for="name" class="oe_edit_only"/-->
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Name..."/>
+                            </h1>
+                        </div>
+                        <!--field name="image_medium" widget='image' class="oe_left oe_avatar"/-->
+                        <div class="oe_title">
+                            <!--label for="alias" class="oe_edit_only"/-->
+                            <label for="alias"/>
+                            <h2>
+                                <field name="alias" placeholder="Alias..."/>
+                            </h2>
+                            <!--label for="code" class="oe_edit_only"/-->
+                            <label for="code"/>
+                            <h3>
+                                <field name="code" placeholder="Animal Code..."/>
+                            </h3>
+                            <!--label for="random_field" class="oe_edit_only"/-->
+                            <label for="random_field"/>
+                            <h3>
+                                <field name="random_field" placeholder="Random ID..."/>
+                            </h3>
+                            <!--label for="user_id" class="oe_edit_only"/-->
+                            <label for="user_id"/>
+                            <h3>
+                                <field name="user_id" placeholder="Animal Responsible..." options="{'no_open': False, 'no_create': True}"/>
+                            </h3>
+                        </div>
+                        <div class="oe_right oe_button_box" name="button_box">
+                            <!-- Put here related buttons -->
+                        </div>
+                        <notebook>
+                            <page string="Public Information">
+                                <group>
+                                    <group name="status" string="Status">
+                                        <field name="date_inclusion"/>
+                                    </group>
+                                </group>
+                                <field name="notes" placeholder="Notes..." colspan="4"/>
+                            </page>
+                            <page string="Animal Information" groups="myo_base.group_suser">
+                                <group>
+                                    <group string="Citizenship &amp; Other Info">
+                                        <field name="country_id" options='{"no_open": True}'/>
+                                        <field name="identification_id"/>
+                                    </group>
+                                    <group string="Family">
+                                        <field name="father_id" options="{'no_open': False, 'no_create': True}"/>
+                                        <field name="mother_id" options="{'no_open': False, 'no_create': True}"/>
+                                        <field name="tutor_id" options="{'no_open': False, 'no_create': True}"/>
+                                    </group>
+                                    <group string="Status">
+                                        <field name="gender"/>
+                                    </group>
+                                    <group string="Birth">
+                                        <field name="birthday"/>
+                                        <field name="age"/>
+                                        <field name="estimated_age"/>
+                                        <field name="date_reference"/>
+                                        <field name="age_reference"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="settings" string="Settings" groups="myo_base.group_rmanager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="myo_animal_view_tree" model="ir.ui.view">
+            <field name="name">myo.animal.tree</field>
+            <field name="model">myo.animal</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree name="animal" string="Animal">
+                    <field name="name"/>
+                    <field name="alias"/>
+                    <field name="code"/>
+                    <field name="random_field"/>
+                    <field name="age"/>
+                    <field name="estimated_age"/>
+                    <field name="age_reference"/>
+                    <field name="birthday"/>
+                    <field name="date_reference"/>
+                    <field name="user_id"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="myo_animal_view_search" model="ir.ui.view">
+            <field name="name">myo.animal.search</field>
+            <field name="model">myo.animal</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Animal">
+                    <field name="name"/>
+                    <field name="alias"/>
+                    <field name="code"/>
+                    <field name="random_field"/>
+                    <field name="age"/>
+                    <field name="estimated_age"/>
+                    <field name="age_reference"/>
+                    <field name="birthday"/>
+                    <field name="date_reference"/>
+                    <field name="user_id"/>
+                    <field name="tutor_id"/>
+                    <separator/>
+                    <filter name="filter_not_active" string="Not Active" domain="[('active','=',False)]"/>
+                    <group name="group_by" expand="0" string="Group By...">
+                        <filter string="Animal Responsible" domain="[]" context="{'group_by':'user_id'}"/>
+                        <filter string="Animal Tutor" domain="[]" context="{'group_by':'tutor_id'}"/>
+                        <filter string="Date of Birth" context="{'group_by': 'birthday'}"/>
+                        <filter string="Reference Date" context="{'group_by': 'date_reference'}"/>
+                        <filter string="Age" context="{'group_by': 'age'}"/>
+                        <filter string="Estimated Age" context="{'group_by': 'estimated_age'}"/>
+                        <filter string="Reference Age" context="{'group_by': 'age_reference'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record id="myo_animal_action" model="ir.actions.act_window">
+            <field name="name">Animals</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.animal</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="myo_animal_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new animal.
+              </p>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

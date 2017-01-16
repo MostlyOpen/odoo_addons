@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        
+        <record id="myo_address_view_form_animal" model="ir.ui.view">
+            <field name="name">myo.address.form</field>
+            <field name="model">myo.address</field>
+            <field name="inherit_id" ref="myo_address.myo_address_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Animals">
+                        <group>
+                            <field name="count_animals"/>
+                            <field name="count_selected_animals"/>
+                            <field name="animal_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+                <field name="active" position="after">
+                    <field name="trigger_compute"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_address_view_tree_animal" model="ir.ui.view">
+            <field name="name">myo.address.tree</field>
+            <field name="model">myo.address</field>
+            <field name="inherit_id" ref="myo_address.myo_address_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="count_animals"/>
+                    <field name="count_selected_animals"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_address_view_search_animal" model="ir.ui.view">
+            <field name="name">myo.address.search</field>
+            <field name="model">myo.address</field>
+            <field name="inherit_id" ref="myo_address.myo_address_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <group  name="group_by" position="inside">
+                    <filter name="filter_count_selected_animals_not_0" string="Has Selected Animals" domain="[('count_selected_animals','!=','0')]"/>
+                </group>
+                <group  name="group_by" position="inside">
+                    <filter string="Animals" context="{'group_by': 'count_animals'}"/>
+                    <filter string="Selected Animals" context="{'group_by': 'count_selected_animals'}"/>
+                </group>
+            </field>
+        </record>
+
+        <record id="myo_animal_view_form_address" model="ir.ui.view">
+            <field name="name">myo.animal.form</field>
+            <field name="model">myo.animal</field>
+            <field name="inherit_id" ref="myo_animal_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <group name="status" position="before">
+                    <group string="Contact Information">
+                        <!--field name="address_id" context="{'show_address': 1}" options='{"always_reload": True, "highlight_first_line": True, "no_open": False, "no_create": True}'/-->
+                        <field name="address_id" context="{'show_address_only': 1}" options='{"always_reload": True, "highlight_first_line": True, "no_open": False, "no_create": True}'/>
+                        <field name="animal_phone"/>
+                        <field name="mobile_phone"/>
+                        <field name="animal_email" widget="email"/>
+                        <field name="address_code" string="Address Code"/>
+                        <field name="address_is_residence"/>
+                        <field name="address_state" string="Address Status"/>
+                        <field name="address_user_id" string="Address Responsible"/>
+                        <field name="address_category_ids" string="Address Categories"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+        <record id="myo_animal_view_tree_address" model="ir.ui.view">
+            <field name="name">myo.animal.tree</field>
+            <field name="model">myo.animal</field>
+            <field name="inherit_id" ref="myo_animal_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="address_is_residence"/>
+                    <field name="address_state" string="Address Status"/>
+                    <field name="address_user_id" string="Address Responsible"/>
+                    <field name="address_category_ids" string="Address Categories"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="myo_animal_view_search_address" model="ir.ui.view">
+            <field name="name">myo.animal.search</field>
+            <field name="model">myo.animal</field>
+            <field name="inherit_id" ref="myo_animal_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="address_state"/>
+                    <field name="address_user_id"/>
+                    <field name="address_category_ids"/>
+                </field>
+                <group name="group_by" position="before">
+                    <filter name="filter_address_is_residence" string="Address Is Residence" domain="[('address_is_residence','=',True)]"/>
+                </group>
+                <group name="group_by" position="inside">
+                    <filter string="Address" context="{'group_by': 'address_id'}"/>
+                    <filter string="Address Is Residence" context="{'group_by': 'address_is_residence'}"/>
+                    <filter string="Address Status" context="{'group_by': 'address_state'}"/>
+                    <filter string="Address Responsible" context="{'group_by': 'address_user_id'}"/>
+                    <filter string="Address Categories" context="{'group_by': 'address_category_ids'}"/>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>
