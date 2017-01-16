@@ -22,7 +22,7 @@ from openerp import api, fields, models
 from openerp.exceptions import UserError
 
 
-class Address(models.Model):
+class Person(models.Model):
     _inherit = 'myo.person'
 
     state = fields.Selection([
