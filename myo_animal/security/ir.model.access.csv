@@ -15,3 +15,11 @@ access_myo_animal_categoy_smanager,myo.animal.log,model_myo_animal_log,myo_base.
 access_myo_animal_category_log_animal_category_user,myo.animal.category.log,model_myo_animal_category_log,myo_base.group_animal_user,1,0,0,0
 access_myo_animal_category_log_animal_category_log_manager,myo.animal.category.log,model_myo_animal_category_log,myo_base.group_animal_manager,1,1,1,0
 access_myo_animal_category_categoy_smanager,myo.animal.category.log,model_myo_animal_category_log,myo_base.group_smanager,1,1,1,1
+
+access_myo_animal_species_animal_user,myo.animal.species,model_myo_animal_species,myo_base.group_animal_user,1,0,0,0
+access_myo_animal_species_animal_manager,myo.animal.species,model_myo_animal_species,myo_base.group_animal_manager,1,1,1,0
+access_myo_animal_species_smanager,myo.animal.species,model_myo_animal_species,myo_base.group_smanager,1,1,1,1
+
+access_myo_animal_breed_animal_user,myo.animal.breed,model_myo_animal_breed,myo_base.group_animal_user,1,0,0,0
+access_myo_animal_breed_animal_manager,myo.animal.breed,model_myo_animal_breed,myo_base.group_animal_manager,1,1,1,0
+access_myo_animal_breed_smanager,myo.animal.breed,model_myo_animal_breed,myo_base.group_smanager,1,1,1,1

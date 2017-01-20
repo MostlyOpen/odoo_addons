@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="myo_animal_breed_view_form" model="ir.ui.view">
+            <field name="name">myo.animal.breed.form</field>
+            <field name="model">myo.animal.breed</field>
+            <field name="arch" type="xml">
+                <form string="Breed" version="7.0">
+                    <sheet>
+                        <div class="oe_title">
+                            <!--label for="species_id" class="oe_edit_only"/-->
+                            <label for="species_id"/>
+                            <h2>
+                                <field name="species_id" default_focus="1" placeholder="Species..."/>
+                            </h2>
+                            <!--label for="name" class="oe_edit_only"/-->
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Breed..."/>
+                            </h1>
+                            <label for="code"/>
+                            <h2>
+                                <field name="code" placeholder="Breed Code..."/>
+                            </h2>
+                        </div>
+                        <notebook>
+                            <page string="Notes">
+                                <field name="notes" placeholder="Notes..." colspan="4"/>
+                            </page>
+                            <page name="settings" string="Settings" groups="myo_base.group_rmanager">
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="myo_animal_breed_view_tree" model="ir.ui.view">
+            <field name="name">myo.animal.breed.tree</field>
+            <field name="model">myo.animal.breed</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Breed">
+                    <field name="species_id"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="notes"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="myo_animal_breed_view_search" model="ir.ui.view">
+            <field name="name">myo.animal.breed.search</field>
+            <field name="model">myo.animal.breed</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Breed">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="species_id"/>
+                    <field name="notes"/>
+                    <separator/>
+                    <filter string="Inactive Breed" name="active" domain="[('active','=',0)]" help="Inactive Breed"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Species" domain="[]" context="{'group_by':'species_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="myo_animal_breed_action" model="ir.actions.act_window">
+            <field name="name">Breed</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">myo.animal.breed</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="myo_animal_breed_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new animal breed.
+              </p>
+            </field>
+        </record>
+        
+        <record id="myo_animal_breed_view_form_breed" model="ir.ui.view">
+            <field name="name">myo.animal.breed.form</field>
+            <field name="model">myo.animal.breed</field>
+            <field name="inherit_id" ref="myo_animal_breed_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Animals">
+                        <group>
+                            <field name="animal_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</openerp>

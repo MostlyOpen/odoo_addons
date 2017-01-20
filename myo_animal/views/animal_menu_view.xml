@@ -8,12 +8,29 @@
             groups="myo_base.group_animal_user"
             sequence="90"
             action="myo_animal.myo_animal_action"/>
-        <!-- Community/Community/Configuration/Animal Categories -->
-        <menuitem name="Animal Categories" id="menu_community_community_config_animal_categories" 
+        <!-- Community/Community/Configuration/Animal -->
+        <menuitem name="Animal" id="menu_community_community_config_animal" 
             parent="myo_base.menu_community_config_config"
             groups="myo_base.group_animal_user"
-            sequence="90"
+            sequence="90"/>
+        <!-- Community/Community/Configuration/Animal/Categories -->
+        <menuitem name="Animal Categories" id="menu_community_community_config_animal_categories" 
+            parent="menu_community_community_config_animal"
+            groups="myo_base.group_animal_user"
+            sequence="10"
             action="myo_animal.myo_animal_category_action"/>
+        <!-- Community/Community/Configuration/Animal/Categories -->
+        <menuitem name="Species" id="menu_community_community_config_animal_species" 
+            parent="menu_community_community_config_animal"
+            groups="myo_base.group_animal_user"
+            sequence="20"
+            action="myo_animal.myo_animal_species_action"/>
+        <!-- Community/Community/Configuration/Animal/Breeds -->
+        <menuitem name="Breeds" id="menu_community_community_config_animal_breeds" 
+            parent="menu_community_community_config_animal"
+            groups="myo_base.group_animal_user"
+            sequence="20"
+            action="myo_animal.myo_animal_breed_action"/>
 
     </data>
 </openerp>

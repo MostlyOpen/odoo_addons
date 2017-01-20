@@ -64,14 +64,17 @@
                                         <field name="tutor_id" options="{'no_open': False, 'no_create': True}"/>
                                     </group>
                                     <group string="Status">
+                                        <field name="spayed"/>
                                         <field name="gender"/>
+                                        <field name="species_id" options="{'no_open': False, 'no_create': True}"/>
+                                        <field name="breed_id" options="{'no_open': False, 'no_create': True}"/>
                                     </group>
                                     <group string="Birth">
                                         <field name="birthday"/>
                                         <field name="age"/>
                                         <field name="estimated_age"/>
-                                        <field name="date_reference"/>
-                                        <field name="age_reference"/>
+                                        <!--field name="date_reference"/-->
+                                        <!--field name="age_reference"/-->
                                     </group>
                                 </group>
                             </page>
@@ -98,9 +101,13 @@
                     <field name="random_field"/>
                     <field name="age"/>
                     <field name="estimated_age"/>
-                    <field name="age_reference"/>
+                    <!--field name="age_reference"/-->
                     <field name="birthday"/>
-                    <field name="date_reference"/>
+                    <!--field name="date_reference"/-->
+                    <field name="spayed"/>
+                    <field name="gender"/>
+                    <field name="species_id"/>
+                    <field name="breed_id"/>
                     <field name="user_id"/>
                 </tree>
             </field>
@@ -118,21 +125,29 @@
                     <field name="random_field"/>
                     <field name="age"/>
                     <field name="estimated_age"/>
-                    <field name="age_reference"/>
+                    <!--field name="age_reference"/-->
                     <field name="birthday"/>
-                    <field name="date_reference"/>
+                    <!--field name="date_reference"/-->
                     <field name="user_id"/>
                     <field name="tutor_id"/>
+                    <field name="spayed"/>
+                    <field name="gender"/>
+                    <field name="species_id"/>
+                    <field name="breed_id"/>
                     <separator/>
                     <filter name="filter_not_active" string="Not Active" domain="[('active','=',False)]"/>
                     <group name="group_by" expand="0" string="Group By...">
                         <filter string="Animal Responsible" domain="[]" context="{'group_by':'user_id'}"/>
                         <filter string="Animal Tutor" domain="[]" context="{'group_by':'tutor_id'}"/>
+                        <filter string="Spayed" domain="[]" context="{'group_by':'spayed'}"/>
+                        <filter string="Gender" domain="[]" context="{'group_by':'gender'}"/>
+                        <filter string="Species" domain="[]" context="{'group_by':'species_id'}"/>
+                        <filter string="Breed" domain="[]" context="{'group_by':'breed_id'}"/>
                         <filter string="Date of Birth" context="{'group_by': 'birthday'}"/>
                         <filter string="Reference Date" context="{'group_by': 'date_reference'}"/>
                         <filter string="Age" context="{'group_by': 'age'}"/>
                         <filter string="Estimated Age" context="{'group_by': 'estimated_age'}"/>
-                        <filter string="Reference Age" context="{'group_by': 'age_reference'}"/>
+                        <!--filter string="Reference Age" context="{'group_by': 'age_reference'}"/-->
                     </group>
                 </search>
             </field>

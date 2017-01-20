@@ -39,6 +39,8 @@
         'security/ir.model.access.csv',
         'views/animal_view.xml',
         'views/animal_category_view.xml',
+        'views/animal_species_view.xml',
+        'views/animal_breed_view.xml',
         'views/tag_view.xml',
         'views/annotation_view.xml',
         'views/address_view.xml',

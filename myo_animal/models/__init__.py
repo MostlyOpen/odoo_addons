@@ -27,3 +27,5 @@ from . import animal_seq
 from . import animal_log
 from . import animal_category_log
 from . import animal_state
+from . import animal_species
+from . import animal_breed

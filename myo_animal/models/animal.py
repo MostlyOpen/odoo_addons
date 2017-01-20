@@ -57,12 +57,12 @@ class Animal(models.Model):
         store=True
     )
     estimated_age = fields.Char(string='Estimated Age', required=False)
-    date_reference = fields.Date("Reference Date")
-    age_reference = fields.Char(
-        string='Reference Age',
-        compute='_compute_age_reference',
-        store=True
-    )
+    # date_reference = fields.Date("Reference Date")
+    # age_reference = fields.Char(
+    #     string='Reference Age',
+    #     compute='_compute_age_reference',
+    #     store=True
+    # )
     father_id = fields.Many2one('myo.animal', 'Father', ondelete='restrict')
     mother_id = fields.Many2one('myo.animal', 'Mother', ondelete='restrict')
     tutor_id = fields.Many2one('myo.person', 'Tutor', ondelete='restrict')
@@ -72,6 +72,18 @@ class Animal(models.Model):
          ('F', 'Female')
          ], 'Gender'
     )
+    spayed = fields.Selection(
+        [('Y', 'Yes'),
+         ('N', 'No')
+         ], 'Spayed'
+    )
+    species_id = fields.Many2one('myo.animal.species', 'Species', ondelete='restrict')
+    breed_id = fields.Many2one(
+        'myo.animal.breed',
+        'Breed', ondelete='restrict',
+        domain="[('species_id','=',species_id)]"
+    )
+    breed = fields.Text(string='Breed')
     active = fields.Boolean('Active',
                             help="If unchecked, it will allow you to hide the animal without removing it.",
                             default=1)
@@ -104,18 +116,18 @@ class Animal(models.Model):
         else:
             self.age = "No Date of Birth!"
 
-    @api.one
-    @api.depends('date_reference', 'birthday')
-    def _compute_age_reference(self):
-        if self.date_reference:
-            # now = self.date_reference
-            if self.birthday:
-                dob = datetime.strptime(self.birthday, '%Y-%m-%d')
-                now = datetime.strptime(self.date_reference, '%Y-%m-%d')
-                delta = relativedelta(now, dob)
-                # self.age_reference = str(delta.years) + "y " + str(delta.months) + "m " + str(delta.days) + "d"
-                self.age_reference = str(delta.years)
-            else:
-                self.age_reference = "No Date of Birth!"
-        else:
-            self.age_reference = "No Reference Date!"
+    # @api.one
+    # @api.depends('date_reference', 'birthday')
+    # def _compute_age_reference(self):
+    #     if self.date_reference:
+    #         # now = self.date_reference
+    #         if self.birthday:
+    #             dob = datetime.strptime(self.birthday, '%Y-%m-%d')
+    #             now = datetime.strptime(self.date_reference, '%Y-%m-%d')
+    #             delta = relativedelta(now, dob)
+    #             # self.age_reference = str(delta.years) + "y " + str(delta.months) + "m " + str(delta.days) + "d"
+    #             self.age_reference = str(delta.years)
+    #         else:
+    #             self.age_reference = "No Date of Birth!"
+    #     else:
+    #         self.age_reference = "No Reference Date!"
