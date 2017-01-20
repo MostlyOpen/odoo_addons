@@ -43,3 +43,4 @@ class Address(models.Model):
         'tag_id',
         'Tags'
     )
+    tag_names = fields.Char('Tags', related='tag_ids.name', store=True)
