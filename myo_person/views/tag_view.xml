@@ -38,6 +38,9 @@
                 <field name="code" position="after">
                     <field name="tag_ids" />
                 </field>
+                <group name="group_by" position="inside">
+                    <filter string="Tags" context="{'group_by': 'tag_names'}"/>
+                </group>
             </field>
         </record>
 
