@@ -32,6 +32,11 @@
                             <h2>
                                 <field name="patient_id" placeholder="Patient..." options="{'no_open': False, 'no_create': True}"/>
                             </h2>
+                            <!--label for="professional_id" class="oe_edit_only"/-->
+                            <label for="professional_id"/>
+                            <h2>
+                                <field name="professional_id" placeholder="Professional Responsible..." options="{'no_open': False, 'no_create': True}"/>
+                            </h2>
                             <label for="person_user_id" string="Person Responsible"/>
                             <h3>
                                 <field name="person_user_id" placeholder="Person Responsible..." options="{'no_open': False, 'no_create': True}"/>
@@ -94,6 +99,7 @@
                     <field name="name"/>
                     <field name="lab_test_type_id"/>
                     <field name="patient_id"/>
+                    <field name="professional_id"/>
                     <field name="person_user_id" string="Person Responsible"/>
                     <field name="date_analysis"/>
                 </tree>
@@ -116,6 +122,7 @@
                         <filter string="Lab Test Type" domain="[]" context="{'group_by': 'lab_test_type_id'}"/>
                         <filter string="Patient" domain="[]" context="{'group_by': 'patient_id'}"/>
                         <filter string="Analysis Date" domain="[]" context="{'group_by': 'date_analysis'}"/>
+                        <filter string="Professional Responsible" context="{'group_by': 'professional_id'}"/>
                         <filter string="Person Responsible" context="{'group_by': 'person_user_id'}"/>
                     </group>
                 </search>

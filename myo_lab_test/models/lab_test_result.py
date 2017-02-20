@@ -29,6 +29,7 @@ class LabTestResult(models.Model):
     name = fields.Char('Lab Test Code', help="Lab Test Code")
     lab_test_type_id = fields.Many2one('myo.lab_test.type', 'Lab Test Type', help="Lab test type")
     patient_id = fields.Many2one('myo.person', 'Patient', help="Patient")
+    professional_id = fields.Many2one('myo.professional', 'Professional Responsible', help="Professional Responsible")
     results = fields.Text('Results')
     diagnosis = fields.Text('Diagnosis')
     criterion_ids = fields.One2many(
