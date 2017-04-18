@@ -52,6 +52,7 @@
                     <field name="linked_message"/>
                     <filter string="Missing Linked Code" domain="[('linked_code','=', False)]"/>
                     <filter string="Defined Linked Message" domain="[('linked_message','!=', False)]"/>
+                    <filter string="Arquived" domain="[('active','=', False)]"/>
                 </field>
                 <filter name="group_by_survey" position="before">
                     <filter string="Status" domain="[]" context="{'group_by': ['state']}"/>
