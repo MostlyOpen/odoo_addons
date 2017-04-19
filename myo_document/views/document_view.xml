@@ -91,6 +91,7 @@
                     <field name="user_id"/>
                     <field name="notes"/>
                     <separator/>
+                    <filter name="filter_archived" string="Archived" domain="[('active','=',False)]"/>
                     <group name="group_by" string="Group By...">
                         <filter string="Document Responsible" domain="[]" context="{'group_by':'user_id'}"/>
                         <filter string="Document Date" domain="[]" context="{'group_by': 'date_document'}"/>
